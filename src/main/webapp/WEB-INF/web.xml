@@ -8,6 +8,11 @@
         <servlet-name>Test</servlet-name>
         <url-pattern>/Test</url-pattern>
     </servlet-mapping>
+    
+    <welcome-file-list>
+        <welcome-file>/views/web/home.jsp</welcome-file>
+    </welcome-file-list>
+    
     <session-config>
         <session-timeout>
             30
