@@ -41,44 +41,40 @@
             <div class="header-top">
                 <div class="container">
                     <div class="header-left">
-                        <a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a>
+                        <div class="header-dropdown">
+                            <a href="#">USD</a>
+                            <div class="header-menu">
+                                <ul>
+                                    <li><a href="#">VND</a></li>
+                                    <li><a href="#">USD</a></li>
+                                </ul>
+                            </div><!-- End .header-menu -->
+                        </div><!-- End .header-dropdown -->
+
+                        <div class="header-dropdown">
+                            <a href="#">English</a>
+                            <div class="header-menu">
+                                <ul>
+                                    <li><a href="#">Vietnamese</a></li>
+                                    <li><a href="#">English</a></li>
+                                </ul>
+                            </div><!-- End .header-menu -->
+                        </div><!-- End .header-dropdown -->
                     </div><!-- End .header-left -->
 
                     <div class="header-right">
-
                         <ul class="top-menu">
                             <li>
                                 <a href="#">Links</a>
                                 <ul>
-                                    <li>
-                                        <div class="header-dropdown">
-                                            <a href="#">USD</a>
-                                            <div class="header-menu">
-                                                <ul>
-                                                    <li><a href="#">VND</a></li>
-                                                    <li><a href="#">Eur</a></li>
-                                                </ul>
-                                            </div><!-- End .header-menu -->
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="header-dropdown">
-                                            <a href="#">English</a>
-                                            <div class="header-menu">
-                                                <ul>
-                                                    <li><a href="#">Vietnamese</a></li>
-                                                    <li><a href="#">French</a></li>
-                                                    <li><a href="#">Spanish</a></li>
-                                                </ul>
-                                            </div><!-- End .header-menu -->
-                                        </div>
-                                    </li>
-                                    <li><a href="#signin-modal" data-toggle="modal">Sign in / Sign up</a></li>
+                                    <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
+                                    <li><a href="./views/web/about.jsp">About Us</a></li>
+                                    <li><a href="./views/web/contact.jsp">Contact Us</a></li>
+                                    <li><a href="./views/web/login.jsp"><i class="icon-user"></i>Login</a></li>
                                 </ul>
                             </li>
                         </ul><!-- End .top-menu -->
                     </div><!-- End .header-right -->
-
                 </div><!-- End .container -->
             </div><!-- End .header-top -->
 
@@ -90,7 +86,7 @@
                             <i class="icon-bars"></i>
                         </button>
 
-                        <a href="/views/web/home.jsp" class="logo">
+                        <a href="#" class="logo">
                             <img src="<c:url value='/template/web/assets/images/demos/demo-4/xhobbe-high-resolution-logo.png'/>" alt="Molla Logo" style="width: 160px; height: 50px;">
                         </a>
                     </div><!-- End .header-left -->
@@ -100,9 +96,9 @@
                             <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
                             <form action="#" method="get">
                                 <div class="header-search-wrapper search-wrapper-wide">
-                                    <label for="q" class="sr-only">Search</label>
+                                    <label for="search" class="sr-only">Search</label>
                                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-                                    <input type="search" class="form-control" name="q" id="q" placeholder="Search product ..." required>
+                                    <input type="search" class="form-control" name="search" id="search" placeholder="Search product ..." required>
                                 </div><!-- End .header-search-wrapper -->
                             </form>
                         </div><!-- End .header-search -->
@@ -169,13 +165,13 @@
                                 </div><!-- End .dropdown-cart-total -->
 
                                 <div class="dropdown-cart-action">
-                                    <a href="cart.html" class="btn btn-primary">View Cart</a>
-                                    <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
+                                    <a href="./views/web/cart.jsp" class="btn btn-primary">View Cart</a>
+                                    <a href="./views/web/checkout.jsp" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
                                 </div><!-- End .dropdown-cart-total -->
                             </div><!-- End .dropdown-menu -->
                         </div><!-- End .cart-dropdown -->
                         <div class="wishlist">
-                            <a href="wishlist.html" title="Order">
+                            <a href="./views/web/order.jsp" title="Order">
                                 <div class="icon">
                                     <i class="fa-solid fa-truck" style="font-size: 22px;"></i>
                                     <span class="wishlist-count badge">3</span>
@@ -200,15 +196,10 @@
                                     <ul class="menu-vertical sf-arrows">
                                         <li class="item-lead"><a href="#">Daily offers</a></li>
                                         <li class="item-lead"><a href="#">Gift Ideas</a></li>
-                                        <li><a href="#">Beds</a></li>
-                                        <li><a href="#">Lighting</a></li>
-                                        <li><a href="#">Sofas & Sleeper sofas</a></li>
-                                        <li><a href="#">Storage</a></li>
-                                        <li><a href="#">Armchairs & Chaises</a></li>
-                                        <li><a href="#">Decoration </a></li>
-                                        <li><a href="#">Kitchen Cabinets</a></li>
-                                        <li><a href="#">Coffee & Tables</a></li>
-                                        <li><a href="#">Outdoor Furniture </a></li>
+                                        <li><a href="#">Phones</a></li>
+                                        <li><a href="#">Laptops</a></li>
+                                        <li><a href="#">iPad</a></li>
+                                        <li><a href="#">Accessories</a></li>
                                     </ul><!-- End .menu-vertical -->
                                 </nav><!-- End .side-nav -->
                             </div><!-- End .dropdown-menu -->
@@ -219,26 +210,19 @@
                         <nav class="main-nav">
                             <ul class="menu sf-arrows">
                                 <li class="megamenu-container active">
-                                    <a href="index-4.html">Home</a>
+                                    <a href="/XHobbeWebApp/">Home</a>
                                 </li>
                                 <li>
                                     <a href="category-4cols.html" class="sf-with-ul">Shop</a>
-
                                     <div class="megamenu megamenu-md">
                                         <div class="row no-gutters">
                                             <div class="col-md-8">
                                                 <div class="menu-col">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <div class="menu-title">Shop with sidebar</div><!-- End .menu-title -->
-                                                            <ul>
-                                                                <li><a href="category-4cols.html">Shop Grid 4 Columns</a></li>
-                                                                <li><a href="category-market.html"><span>Shop Market<span class="tip tip-new">New</span></span></a></li>
-                                                            </ul>
-
                                                             <div class="menu-title">Shop no sidebar</div><!-- End .menu-title -->
                                                             <ul>
-                                                                <li><a href="category-boxed.html"><span>Shop Boxed No Sidebar<span class="tip tip-hot">Hot</span></span></a></li>
+                                                                <li><a href="./views/web/category.jsp"><span>Shop Boxed No Sidebar<span class="tip tip-hot">Hot</span></span></a></li>
                                                             </ul>
                                                         </div><!-- End .col-md-6 -->
 
@@ -246,7 +230,7 @@
                                                             <div class="menu-title">Shop Pages</div><!-- End .menu-title -->
                                                             <ul>
                                                                 <li><a href="cart.html">Cart</a></li>
-                                                                <li><a href="checkout.html">Checkout</a></li>
+                                                                <li><a href="./views/web/checkout.jsp">Checkout</a></li>
                                                                 <li><a href="wishlist.html">Wishlist</a></li>
                                                                 <li><a href="dashboard.html">My Account</a></li>
                                                                 <li><a href="#">Lookbook</a></li>
@@ -279,7 +263,7 @@
                                                 <div class="menu-col">
                                                     <div class="menu-title">Product Details</div><!-- End .menu-title -->
                                                     <ul>
-                                                        <li><a href="product-centered.html">Centered</a></li>
+                                                        <li><a href="./views/web/product-detail.jsp">Centered</a></li>
 
                                                     </ul>
                                                 </div><!-- End .menu-col -->
@@ -324,19 +308,19 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="blog-mask-grid.html" class="sf-with-ul">Blog</a>
+                                    <a href="./views/web/blog.jsp" class="sf-with-ul">Blog</a>
 
                                     <ul>
                                         <li>
                                             <a href="#">Mask</a>
                                             <ul>
-                                                <li><a href="blog-mask-grid.html">Blog mask grid</a></li>
+                                                <li><a href="./views/web/blog.jsp">Blog mask grid</a></li>
                                             </ul>
                                         </li>
                                         <li>
                                             <a href="#">Single Post</a>
                                             <ul>
-                                                <li><a href="single-fullwidth.html">Fullwidth no sidebar</a></li>
+                                                <li><a href="./views/web/singlePost.jsp">Fullwidth no sidebar</a></li>
                                             </ul>
                                         </li>
                                     </ul>

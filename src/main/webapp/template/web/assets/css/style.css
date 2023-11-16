@@ -16292,12 +16292,22 @@ button:focus {
     font-size: 1.6rem
 }
 
+.table .order-col {
+    color: #c96;
+    font-weight: 400;
+    font-size: 1.6rem
+}
+
 .table.table-cart .price-col {
     width: 120px
 }
 
 .table.table-cart .total-col {
-    width: 80px
+    width: 100px
+}
+
+.table.table-cart .order-col {
+    width: 135px
 }
 
 .table.table-cart .quantity-col {
