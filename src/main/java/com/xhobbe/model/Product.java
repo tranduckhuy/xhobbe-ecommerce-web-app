@@ -12,6 +12,15 @@ public class Product {
     private int productId;
     private String name;
     private String description;
+    private String brand;
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
     private double price;
     private String category;
     private int stockQuantity;
@@ -20,10 +29,11 @@ public class Product {
     public Product() {
     }
 
-    public Product(int productId, String name, String description, double price, String category, int stockQuantity, List<String> imageURL) {
+    public Product(int productId, String name, String description, String brand, double price, String category, int stockQuantity, List<String> imageURL) {
         this.productId = productId;
         this.name = name;
         this.description = description;
+        this.brand = brand;
         this.price = price;
         this.category = category;
         this.stockQuantity = stockQuantity;
@@ -88,7 +98,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" + "productId=" + productId + ", name=" + name + ", description=" + description + ", price=" + price + ", category=" + category + ", stockQuantity=" + stockQuantity + ", imageURL=" + imageURL + '}';
+        return "Product{" + "productId=" + productId + ", name=" + name + ", description=" + description + ", brand=" + brand + ", price=" + price + ", category=" + category + ", stockQuantity=" + stockQuantity + ", imageURL=" + imageURL + '}';
     }
     
 }
