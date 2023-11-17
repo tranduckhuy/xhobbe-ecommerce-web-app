@@ -12,7 +12,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>xHobbe</title>
-
+        <!-- fontawsome -->
+        <script src="https://kit.fontawesome.com/24eee81337.js" crossorigin="anonymous"></script>
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="<c:url value='/template/web/assets/images/icons/apple-touch-icon.png'/>">
         <link rel="icon" type="image/png" sizes="32x32" href="<c:url value='/template/web/assets/images/icons/favicon-32x32.png'/>">
@@ -30,7 +31,6 @@
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/bootstrap.min.css'/>">
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/plugins/owl-carousel/owl.carousel.css'/>">
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/plugins/magnific-popup/magnific-popup.css'/>">
-        <link rel="stylesheet" href="<c:url value='/template/web/assets/css/plugins/jquery.countdown.css'/>">
         <!-- Main CSS File -->
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/style.css'/>">
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/skins/skin-demo-4.css'/>">
@@ -106,70 +106,16 @@
 
                     <div class="header-right">
 
-                        <div class="dropdown cart-dropdown">
-                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                        <div class="wishlist">
+                            <a href="./views/web/cart.jsp" title="Order">
                                 <div class="icon">
-                                    <i class="icon-shopping-cart"></i>
-                                    <span class="cart-count">2</span>
+                                    <i class="icon-shopping-cart" style="font-size: 22px;"></i>
+                                    <span class="wishlist-count badge">2</span>
                                 </div>
-                                <p>Cart</p>
+                                <p>Order</p>
                             </a>
-
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <div class="dropdown-cart-products">
-                                    <div class="product">
-                                        <div class="product-cart-details">
-                                            <h4 class="product-title">
-                                                <a href="product-centered.html">Beige knitted elastic runner shoes</a>
-                                            </h4>
-
-                                            <span class="cart-product-info">
-                                                <span class="cart-product-qty">1</span>
-                                                x $84.00
-                                            </span>
-                                        </div><!-- End .product-cart-details -->
-
-                                        <figure class="product-image-container">
-                                            <a href="product-centered.html" class="product-image">
-                                                <img src="<c:url value='/template/web/assets/images/products/cart/product-1.jpg'/>" alt="product">
-                                            </a>
-                                        </figure>
-                                        <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                    </div><!-- End .product -->
-
-                                    <div class="product">
-                                        <div class="product-cart-details">
-                                            <h4 class="product-title">
-                                                <a href="product-centered.html">Blue utility pinafore denim dress</a>
-                                            </h4>
-
-                                            <span class="cart-product-info">
-                                                <span class="cart-product-qty">1</span>
-                                                x $76.00
-                                            </span>
-                                        </div><!-- End .product-cart-details -->
-
-                                        <figure class="product-image-container">
-                                            <a href="product-centered.html" class="product-image">
-                                                <img src="<c:url value='/template/web/assets/images/products/cart/product-2.jpg'/>" alt="product">
-                                            </a>
-                                        </figure>
-                                        <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                    </div><!-- End .product -->
-                                </div><!-- End .cart-product -->
-
-                                <div class="dropdown-cart-total">
-                                    <span>Total</span>
-
-                                    <span class="cart-total-price">$160.00</span>
-                                </div><!-- End .dropdown-cart-total -->
-
-                                <div class="dropdown-cart-action">
-                                    <a href="./views/web/cart.jsp" class="btn btn-primary">View Cart</a>
-                                    <a href="./views/web/checkout.jsp" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .dropdown-cart-total -->
-                            </div><!-- End .dropdown-menu -->
-                        </div><!-- End .cart-dropdown -->
+                        </div><!-- End .compare-dropdown -->
+                        
                         <div class="wishlist">
                             <a href="./views/web/order.jsp" title="Order">
                                 <div class="icon">
@@ -213,47 +159,19 @@
                                     <a href="/XHobbeWebApp/">Home</a>
                                 </li>
                                 <li>
-                                    <a href="category-4cols.html" class="sf-with-ul">Shop</a>
-                                    <div class="megamenu megamenu-md">
-                                        <div class="row no-gutters">
-                                            <div class="col-md-5">
-                                                <div class="menu-col">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="menu-title">Device</div><!-- End .menu-title -->
-                                                            <ul>
-                                                                <li><a href="./views/web/category.jsp"><span>All devices<span class="tip tip-hot">Hot</span></span></a></li>
-                                                            </ul>
-                                                        </div><!-- End .col-md-6 -->
-                                                    </div><!-- End .row -->
-                                                </div><!-- End .menu-col -->
-                                            </div><!-- End .col-md-8 -->
-
-                                            <div class="col-md-7">
-                                                <div class="banner banner-overlay">
-                                                    <a href="category-4cols.html" class="banner banner-menu">
-                                                        <img src="<c:url value='/template/web/assets/images/demos/demo-4/banners/banner-1.png'/>" alt="Banner"  style="height: 170px">
-
-                                                        <div class="banner-content banner-content-top">
-                                                            <div class="banner-title">Last <br>Chance<br><span><strong>Sale</strong></span></div><!-- End .banner-title -->
-                                                        </div><!-- End .banner-content -->
-                                                    </a>
-                                                </div><!-- End .banner banner-overlay -->
-                                            </div><!-- End .col-md-4 -->
-                                        </div><!-- End .row -->
-                                    </div><!-- End .megamenu megamenu-md -->
+                                    <a href="./views/web/category.jsp">Shop</a>
                                 </li>
                                 <li>
-                                    <a href="./views/web/product-detail.jsp">Phones</a>
+                                    <a href="./views/web/category.jsp">Phones</a>
                                 </li>
                                 <li>
-                                    <a href="./views/web/product-detail.jsp">Laptops</a>
+                                    <a href="./views/web/category.jsp">Laptops</a>
                                 </li>
                                 <li>
-                                    <a href="./views/web/product-detail.jsp">iPad</a>
+                                    <a href="./views/web/category.jsp">iPad</a>
                                 </li>
                                 <li>
-                                    <a href="./views/web/product-detail.jsp">Accessories</a>
+                                    <a href="./views/web/category.jsp">Accessories</a>
                                 </li>
                             </ul><!-- End .menu -->
                         </nav><!-- End .main-nav -->

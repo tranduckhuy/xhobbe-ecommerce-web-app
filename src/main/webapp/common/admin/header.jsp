@@ -13,7 +13,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>xHobbe Admin</title>
-
+        <!-- fontawsome -->
+        <script src="https://kit.fontawesome.com/24eee81337.js" crossorigin="anonymous"></script>
         <!-- ========== All CSS files linkup ========= -->
         <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/bootstrap.min.css'/>" />
         <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/lineicons.css'/>" />
@@ -28,12 +29,12 @@
             <div class="spinner"></div>
         </div>
         <!-- ======== Preloader =========== -->
-        
+
         <!-- ======== sidebar-nav start =========== -->
         <%@include file="/common/admin/sideBar.jsp" %>
         <!-- ======== sidebar-nav start =========== -->
         <div class="overlay"></div>
-        
+
         <main class="main-wrapper">
             <!-- ========== header start ========== -->
             <header class="header">
@@ -46,13 +47,13 @@
                                         <i class="lni lni-chevron-left me-2"></i> Menu
                                     </button>
                                 </div>
-<!--                                <div class="header-search d-none d-md-flex">
-                                    <form action="#">
-                                        <input type="text" id="searchValue" name="searchValue" placeholder="Search..." />
-                                        <input type="hidden" name="searchField" id="searchField"/>
-                                        <button type="submit"><i class="lni lni-search-alt"></i></button>
-                                    </form>
-                                </div>-->
+                                <!--                                <div class="header-search d-none d-md-flex">
+                                                                    <form action="#">
+                                                                        <input type="text" id="searchValue" name="searchValue" placeholder="Search..." />
+                                                                        <input type="hidden" name="searchField" id="searchField"/>
+                                                                        <button type="submit"><i class="lni lni-search-alt"></i></button>
+                                                                    </form>
+                                                                </div>-->
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7 col-6">
