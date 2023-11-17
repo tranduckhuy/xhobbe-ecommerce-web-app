@@ -12,22 +12,22 @@ import java.util.List;
 public class ProductDAO extends AbstractDAO<Product> implements IProductDAO{
 
     @Override
-    public Product findOne(Long id) {
+    public Product findOne(int id) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     @Override
-    public Long save(Product newModel) {
+    public Long add(Product product) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     @Override
-    public void update(Product updateNew) {
+    public void update(Product product) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(int id) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 

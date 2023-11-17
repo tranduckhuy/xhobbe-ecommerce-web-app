@@ -9,13 +9,13 @@ import java.util.List;
  */
 public interface IProductDAO {
 
-    Product findOne(Long id);
+    Product findOne(int id);
 
-    Long save(Product newModel);
+    Long add(Product product);
 
-    void update(Product updateNew);
+    void update(Product product);
 
-    void delete(long id);
+    void delete(int id);
 
     List<Product> findAll();
 
