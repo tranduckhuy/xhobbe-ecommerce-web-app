@@ -11,7 +11,7 @@
 <main class="main">
     <div class="page-header text-center" style="background-image: url('<c:url value='/template/web/assets/images/page-header-bg.jpg'/>')">
         <div class="container">
-            <h1 class="page-title">Boxed No Sidebar<span>Shop</span></h1>
+            <h1 class="page-title">List Devices<span>Shop</span></h1>
         </div><!-- End .container -->
     </div><!-- End .page-header -->
     <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
@@ -19,8 +19,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                <li class="breadcrumb-item"><a href="#">No Sidebar</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Boxed</li>
+                <li class="breadcrumb-item active" aria-current="page">All devices</li>
             </ol>
         </div><!-- End .container -->
     </nav><!-- End .breadcrumb-nav -->
@@ -544,52 +543,6 @@
                         <label><i class="icon-close"></i>Filters</label>
                         <a href="#" class="sidebar-filter-clear">Clean All</a>
                     </div><!-- End .widget -->
-                    <div class="widget widget-collapsible">
-                        <h3 class="widget-title">
-                            <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true" aria-controls="widget-1">
-                                Category
-                            </a>
-                        </h3><!-- End .widget-title -->
-
-                        <div class="collapse show" id="widget-1">
-                            <div class="widget-body">
-                                <div class="filter-items filter-items-count">
-                                    <div class="filter-item">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="cat-1">
-                                            <label class="custom-control-label" for="cat-1">Phones</label>
-                                        </div><!-- End .custom-checkbox -->
-                                        <span class="item-count">3</span>
-                                    </div><!-- End .filter-item -->
-
-                                    <div class="filter-item">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="cat-2">
-                                            <label class="custom-control-label" for="cat-2">Laptops</label>
-                                        </div><!-- End .custom-checkbox -->
-                                        <span class="item-count">0</span>
-                                    </div><!-- End .filter-item -->
-
-                                    <div class="filter-item">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="cat-3">
-                                            <label class="custom-control-label" for="cat-3">iPad</label>
-                                        </div><!-- End .custom-checkbox -->
-                                        <span class="item-count">4</span>
-                                    </div><!-- End .filter-item -->
-
-                                    <div class="filter-item">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="cat-4">
-                                            <label class="custom-control-label" for="cat-4">Accessories</label>
-                                        </div><!-- End .custom-checkbox -->
-                                        <span class="item-count">2</span>
-                                    </div><!-- End .filter-item -->
-                                </div><!-- End .filter-items -->
-                            </div><!-- End .widget-body -->
-                        </div><!-- End .collapse -->
-                    </div><!-- End .widget -->
-
                     <div class="widget widget-collapsible">
                         <h3 class="widget-title">
                             <a data-toggle="collapse" href="#widget-3" role="button" aria-expanded="true" aria-controls="widget-3">

@@ -124,9 +124,9 @@
                                             </h4>
 
                                             <span class="cart-product-info">
-                                        <span class="cart-product-qty">1</span>
-                                        x $84.00
-                                    </span>
+                                                <span class="cart-product-qty">1</span>
+                                                x $84.00
+                                            </span>
                                         </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
@@ -144,9 +144,9 @@
                                             </h4>
 
                                             <span class="cart-product-info">
-                                        <span class="cart-product-qty">1</span>
-                                        x $76.00
-                                    </span>
+                                                <span class="cart-product-qty">1</span>
+                                                x $76.00
+                                            </span>
                                         </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
@@ -216,37 +216,26 @@
                                     <a href="category-4cols.html" class="sf-with-ul">Shop</a>
                                     <div class="megamenu megamenu-md">
                                         <div class="row no-gutters">
-                                            <div class="col-md-8">
+                                            <div class="col-md-5">
                                                 <div class="menu-col">
                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="menu-title">Shop no sidebar</div><!-- End .menu-title -->
+                                                        <div class="col-md-12">
+                                                            <div class="menu-title">Device</div><!-- End .menu-title -->
                                                             <ul>
-                                                                <li><a href="./views/web/category.jsp"><span>Shop Boxed No Sidebar<span class="tip tip-hot">Hot</span></span></a></li>
-                                                            </ul>
-                                                        </div><!-- End .col-md-6 -->
-
-                                                        <div class="col-md-6">
-                                                            <div class="menu-title">Shop Pages</div><!-- End .menu-title -->
-                                                            <ul>
-                                                                <li><a href="cart.html">Cart</a></li>
-                                                                <li><a href="./views/web/checkout.jsp">Checkout</a></li>
-                                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                                                <li><a href="dashboard.html">My Account</a></li>
-                                                                <li><a href="#">Lookbook</a></li>
+                                                                <li><a href="./views/web/category.jsp"><span>All devices<span class="tip tip-hot">Hot</span></span></a></li>
                                                             </ul>
                                                         </div><!-- End .col-md-6 -->
                                                     </div><!-- End .row -->
                                                 </div><!-- End .menu-col -->
                                             </div><!-- End .col-md-8 -->
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-7">
                                                 <div class="banner banner-overlay">
                                                     <a href="category-4cols.html" class="banner banner-menu">
-                                                        <img src="<c:url value='/template/web/assets/images/menu/banner-1.jpg'/>" alt="Banner">
+                                                        <img src="<c:url value='/template/web/assets/images/demos/demo-4/banners/banner-1.png'/>" alt="Banner"  style="height: 170px">
 
                                                         <div class="banner-content banner-content-top">
-                                                            <div class="banner-title text-white">Last <br>Chance<br><span><strong>Sale</strong></span></div><!-- End .banner-title -->
+                                                            <div class="banner-title">Last <br>Chance<br><span><strong>Sale</strong></span></div><!-- End .banner-title -->
                                                         </div><!-- End .banner-content -->
                                                     </a>
                                                 </div><!-- End .banner banner-overlay -->
@@ -255,93 +244,16 @@
                                     </div><!-- End .megamenu megamenu-md -->
                                 </li>
                                 <li>
-                                    <a href="product-centered.html" class="sf-with-ul">Product</a>
-
-                                    <div class="megamenu megamenu-sm">
-                                        <div class="row no-gutters">
-                                            <div class="col-md-6">
-                                                <div class="menu-col">
-                                                    <div class="menu-title">Product Details</div><!-- End .menu-title -->
-                                                    <ul>
-                                                        <li><a href="./views/web/product-detail.jsp">Centered</a></li>
-
-                                                    </ul>
-                                                </div><!-- End .menu-col -->
-                                            </div><!-- End .col-md-6 -->
-
-                                            <div class="col-md-6">
-                                                <div class="banner banner-overlay">
-                                                    <a href="category-4cols.html">
-                                                        <img src="<c:url value='/template/web/assets/images/menu/banner-2.jpg'/>" alt="Banner">
-
-                                                        <div class="banner-content banner-content-bottom">
-                                                            <div class="banner-title text-white">New Trends<br><span><strong>spring 2019</strong></span></div><!-- End .banner-title -->
-                                                        </div><!-- End .banner-content -->
-                                                    </a>
-                                                </div><!-- End .banner -->
-                                            </div><!-- End .col-md-6 -->
-                                        </div><!-- End .row -->
-                                    </div><!-- End .megamenu megamenu-sm -->
+                                    <a href="./views/web/product-detail.jsp">Phones</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="sf-with-ul">Pages</a>
-
-                                    <ul>
-                                        <li>
-                                            <a href="about.html" class="sf-with-ul">About</a>
-
-                                            <ul>
-                                                <li><a href="about.html">About 01</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="contact.html" class="sf-with-ul">Contact</a>
-
-                                            <ul>
-                                                <li><a href="contact.html">Contact 01</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="faq.html">FAQs</a></li>
-                                        <li><a href="404.html">Error 404</a></li>
-                                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                                    </ul>
+                                    <a href="./views/web/product-detail.jsp">Laptops</a>
                                 </li>
                                 <li>
-                                    <a href="./views/web/blog.jsp" class="sf-with-ul">Blog</a>
-
-                                    <ul>
-                                        <li>
-                                            <a href="#">Mask</a>
-                                            <ul>
-                                                <li><a href="./views/web/blog.jsp">Blog mask grid</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#">Single Post</a>
-                                            <ul>
-                                                <li><a href="./views/web/singlePost.jsp">Fullwidth no sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-
+                                    <a href="./views/web/product-detail.jsp">iPad</a>
                                 </li>
                                 <li>
-                                    <a href="elements-list.html" class="sf-with-ul">Elements</a>
-
-                                    <ul>
-                                        <li><a href="elements-products.html">Products</a></li>
-                                        <li><a href="elements-typography.html">Typography</a></li>
-                                        <li><a href="elements-titles.html">Titles</a></li>
-                                        <li><a href="elements-banners.html">Banners</a></li>
-                                        <li><a href="elements-video-banners.html">Video Banners</a></li>
-                                        <li><a href="elements-buttons.html">Buttons</a></li>
-                                        <li><a href="elements-accordions.html">Accordions</a></li>
-                                        <li><a href="elements-tabs.html">Tabs</a></li>
-                                        <li><a href="elements-blog-posts.html">Blog Posts</a></li>
-                                        <li><a href="elements-portfolio.html">Portfolio</a></li>
-                                        <li><a href="elements-icon-boxes.html">Icon Boxes</a></li>
-                                    </ul>
+                                    <a href="./views/web/product-detail.jsp">Accessories</a>
                                 </li>
                             </ul><!-- End .menu -->
                         </nav><!-- End .main-nav -->

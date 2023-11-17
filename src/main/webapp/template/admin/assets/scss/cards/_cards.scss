@@ -312,6 +312,10 @@
     @include box-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
   }
 
+  @media #{$laptop, $xs} {
+    padding: 20px;
+  }
+
   .card-image {
     border-radius: 4px;
     overflow: hidden;

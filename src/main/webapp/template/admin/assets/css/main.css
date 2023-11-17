@@ -1721,19 +1721,28 @@ h6,
 .table td p a:hover {
   color: #365CF5;
 }
-.table .lead-info {
+.table .name-info {
+  min-width: 120px;
+}
+.table .description, .table .email {
   min-width: 200px;
 }
-.table .lead-email {
-  min-width: 150px;
-  white-space: nowrap;
+.table .category, .table .phone{
+  min-width: 100px;
 }
-.table .lead-phone {
-  min-width: 160px;
+.table .price {
+  min-width: 100px;
 }
-.table .lead-company {
-  min-width: 180px;
+.table .image-product {
+    min-width: 250px;
 }
+.table .address {
+  min-width: 200px;
+}
+.table .role {
+  min-width: 100px;
+}
+
 .table .referrals-image {
   min-width: 150px;
 }
@@ -1747,22 +1756,22 @@ h6,
 .table .referrals-image .image img {
   width: 100%;
 }
-.table .lead {
+.table .product {
   display: flex;
   align-items: center;
 }
-.table .lead .lead-image {
-  max-width: 50px;
+.table .product .product-image {
+  max-width: 100px;
   width: 100%;
-  height: 50px;
+  height: 100px;
   border-radius: 50%;
   overflow: hidden;
   margin-right: 15px;
 }
-.table .lead .lead-image img {
+.table .product .product-image img {
   width: 100%;
 }
-.table .lead .lead-text {
+.table .product .product-text {
   width: 100%;
 }
 .table .employee-image {
@@ -1780,6 +1789,11 @@ h6,
   display: flex;
   align-items: center;
 }
+
+.table .action .action-hover:hover {
+  color: #00c1f8;
+}
+
 .table .action button {
   border: none;
   background: transparent;
@@ -1854,25 +1868,25 @@ h6,
   padding: 10px;
 }
 
-/* ===== lead-table ===== */
-.lead-table th,
-.lead-table td {
+/* ===== product-table ===== */
+.product-table th,
+.product-table td {
   padding: 10px 5px;
 }
-.lead-table .name {
+.product-table .name {
   min-width: 120px;
 }
-.lead-table .email {
+.product-table .email {
   min-width: 130px;
 }
-.lead-table .project {
+.product-table .project {
   min-width: 150px;
 }
-.lead-table .status {
+.product-table .status {
   min-width: 120px;
   text-align: center;
 }
-.lead-table .action {
+.product-table .action {
   min-width: 60px;
 }
 

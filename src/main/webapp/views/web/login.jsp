@@ -28,13 +28,8 @@
         <link rel="stylesheet" href="<c:url value='/template/web/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css'/>">
         <!-- Plugins CSS File -->
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/bootstrap.min.css'/>">
-        <link rel="stylesheet" href="<c:url value='/template/web/assets/css/plugins/owl-carousel/owl.carousel.css'/>">
-        <link rel="stylesheet" href="<c:url value='/template/web/assets/css/plugins/magnific-popup/magnific-popup.css'/>">
-        <link rel="stylesheet" href="<c:url value='/template/web/assets/css/plugins/jquery.countdown.css'/>">
         <!-- Main CSS File -->
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/style.css'/>">
-        <link rel="stylesheet" href="<c:url value='/template/web/assets/css/skins/skin-demo-4.css'/>">
-        <link rel="stylesheet" href="<c:url value='/template/web/assets/css/demos/demo-4.css'/>">
     </head>
     <body>
         <header class="header header-intro-clearance header-4">
@@ -82,7 +77,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="home.jsp">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/XHobbeWebApp/">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Login</li>
                     </ol>
                 </div><!-- End .container -->
@@ -153,15 +148,27 @@
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
-                                            <label for="register-password-2">Password *</label>
-                                            <input type="password" class="form-control" id="register-password-2" name="register-password" required>
+                                            <label for="register-phone">Your phone number *</label>
+                                            <input type="email" class="form-control" id="register-phone" name="register-phone" required>
                                         </div><!-- End .form-group -->
+                                        
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="register-password-2">Password *</label>
+                                                <input type="password" class="form-control" id="register-password-2" name="register-password" required>
+                                            </div><!-- End .form-group -->
 
+                                            <div class="form-group col-md-6">
+                                                <label for="register-confirm-password-2">Confirm Password *</label>
+                                                <input type="password" class="form-control" id="register-confirm-password-2" name="register-password" required>
+                                            </div><!-- End .form-group -->
+                                        </div>
+                                        
                                         <div class="form-group">
-                                            <label for="register-confirm-password-2">Confirm Password *</label>
-                                            <input type="password" class="form-control" id="register-confirm-password-2" name="register-password" required>
+                                            <label for="register-address">Your address *</label>
+                                            <input type="email" class="form-control" id="register-address" name="register-address" required>
                                         </div><!-- End .form-group -->
-
+                                        
                                         <div class="form-footer">
                                             <button type="submit" class="btn btn-outline-primary-2">
                                                 <span>SIGN UP</span>

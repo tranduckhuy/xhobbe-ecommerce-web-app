@@ -1972,7 +1972,7 @@ blockquote.text-white cite span {
 .menu .megamenu.megamenu-md {
     left: -10rem;
     right: auto;
-    width: 694px
+    width: 350px
 }
 
 .menu .megamenu>ul,
@@ -13432,6 +13432,7 @@ button:focus {
     .product-gallery-vertical .product-image-gallery {
         width: auto;
         flex: 0 0 20%;
+        height: 50%;
         max-width: 20%;
         margin-left: 0;
         margin-right: 0
@@ -15452,7 +15453,7 @@ button:focus {
 }
 
 .form-box {
-    max-width: 575px;
+    max-width: 625px;
     margin-left: auto;
     margin-right: auto;
     background-color: #fff;

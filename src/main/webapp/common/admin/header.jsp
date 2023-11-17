@@ -11,7 +11,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Admin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>xHobbe Admin</title>
 
         <!-- ========== All CSS files linkup ========= -->
         <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/bootstrap.min.css'/>" />
@@ -45,12 +46,13 @@
                                         <i class="lni lni-chevron-left me-2"></i> Menu
                                     </button>
                                 </div>
-                                <div class="header-search d-none d-md-flex">
+<!--                                <div class="header-search d-none d-md-flex">
                                     <form action="#">
-                                        <input type="text" placeholder="Search..." />
-                                        <button><i class="lni lni-search-alt"></i></button>
+                                        <input type="text" id="searchValue" name="searchValue" placeholder="Search..." />
+                                        <input type="hidden" name="searchField" id="searchField"/>
+                                        <button type="submit"><i class="lni lni-search-alt"></i></button>
                                     </form>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7 col-6">
@@ -174,7 +176,7 @@
                                         <div class="profile-info">
                                             <div class="info">
                                                 <div class="image">
-                                                    <img src="<c:url value='/template/admin/assets/images/profile/profile-image.png'/>" alt="" />
+                                                    <img src="<c:url value='/template/admin/assets/images/profile/avatar.jpg'/>" alt="" />
                                                 </div>
                                                 <div>
                                                     <h6 class="fw-500">Trần Đức Huy</h6>
