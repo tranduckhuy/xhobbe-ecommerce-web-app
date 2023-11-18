@@ -9,15 +9,21 @@ import java.util.List;
  */
 public interface IProductDAO {
 
-    Product findOne(int id);
+    Product findOne(long id);
 
     Long add(Product product);
 
     void update(Product product);
 
-    void delete(int id);
+    void delete(long id);
 
     List<Product> findAll();
+    
+    List<Product> findByCategory(int categoryId);
+    
+    List<Product> findByBrand(int brandId);
+    
+    List<Product> findByName(String name);
 
     int getTotalItem();
 }

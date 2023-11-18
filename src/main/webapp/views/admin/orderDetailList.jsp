@@ -14,7 +14,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="d-flex title gap-4">
-                        <h2>Orders</h2>
+                        <h2>Orders Detail</h2>
                         <form class="form-inline my-2 my-lg-0 d-flex gap-2">
                             <input class="form-control mr-sm-2" type="search" id="searchValue" name="searchValue" placeholder="Search">
                             <input type="hidden" name="searchField" id="searchField"/>
@@ -31,6 +31,9 @@
                                 <li class="breadcrumb-item">
                                     <a href="#0">Orders</a>
                                 </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Order Detail
+                                </li>
                             </ol>
                         </nav>
                     </div>
@@ -46,7 +49,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card-style mb-30">
-                        <h6 class="mb-10">New orders table</h6>
+                        <h6 class="mb-10">Order detail table</h6>
                         <p class="text-sm mb-20">
                             Yee...
                         </p>
@@ -55,25 +58,19 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">
-                                            <h6>Customer name</h6>
+                                            <h6>Product Name</h6>
                                         </th>
                                         <th class="text-center">
-                                            <h6>Customer phone</h6>
+                                            <h6>Quantity</h6>
                                         </th>
                                         <th class="text-center">
-                                            <h6>Delivery address</h6>
+                                            <h6>Price Order</h6>
                                         </th>
                                         <th class="text-center">
                                             <h6>Total</h6>
                                         </th>
                                         <th class="text-center">
-                                            <h6>Status</h6>
-                                        </th>
-                                        <th class="text-center">
-                                            <h6>Order date</h6>
-                                        </th>
-                                        <th class="text-center">
-                                            <h6>Action</h6>
+                                            <h6>Product Image</h6>
                                         </th>
                                     </tr>
                                     <!-- end table row-->
@@ -81,34 +78,20 @@
                                 <tbody>
                                     <tr>
                                         <td class="min-width text-center">
-                                            <p>Trần Đức Huy</p>
+                                            <p>iPhone 15 Pro Max</p>
                                         </td>
                                         <td class="min-width text-center">
-                                            <p><a href="#0">0123456789</a></p>
+                                            <p>2</p>
                                         </td>
                                         <td class="min-width text-center">
-                                            <p>Dong Da - Quy Nhon</p>
+                                            1000$
                                         </td>
                                         <td class="min-width text-center">
-                                            4000$
+                                            2000$
                                         </td>
-                                        <td class="min-width text-center">
-                                            <span class="status-btn active-btn">Pending</span>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            16/10/2003
-                                        </td>
-                                        <td>
-                                            <div class="action d-flex gap-4 justify-content-center">
-                                                <a href="#" class="btn btn-primary">
-                                                    <i class="fa-solid fa-truck" title="Delivery"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-success">
-                                                    <i class="fa-solid fa-box" title="Detail"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger">
-                                                    <i class="lni lni-trash-can action-hover" title="Refuse"></i>
-                                                </a>
+                                        <td class="min-width d-flex product justify-content-center">
+                                            <div class="product-image">
+                                                <img src="<c:url value='/template/admin/assets/images/lead/lead-3.png'/>" alt="" />
                                             </div>
                                         </td>
                                     </tr>
@@ -116,34 +99,20 @@
 
                                     <tr>
                                         <td class="min-width text-center">
-                                            <p>Trần Đức Huy</p>
+                                            <p>iPhone 15 Pro Max</p>
                                         </td>
                                         <td class="min-width text-center">
-                                            <p><a href="#0">0123456789</a></p>
+                                            <p>2</p>
                                         </td>
                                         <td class="min-width text-center">
-                                            <p>Dong Da - Quy Nhon</p>
+                                            1000$
                                         </td>
                                         <td class="min-width text-center">
-                                            4000$
+                                            2000$
                                         </td>
-                                        <td class="min-width text-center">
-                                            <span class="status-btn active-btn">Pending</span>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            16/10/2003
-                                        </td>
-                                        <td>
-                                            <div class="action d-flex gap-4 justify-content-center">
-                                                <a href="#" class="btn btn-primary">
-                                                    <i class="fa-solid fa-truck" title="Delivery"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-success">
-                                                    <i class="fa-solid fa-box" title="Detail"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger">
-                                                    <i class="lni lni-trash-can action-hover" title="Refuse"></i>
-                                                </a>
+                                        <td class="min-width d-flex product justify-content-center">
+                                            <div class="product-image">
+                                                <img src="<c:url value='/template/admin/assets/images/lead/lead-3.png'/>" alt="" />
                                             </div>
                                         </td>
                                     </tr>

@@ -13,6 +13,7 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jstl.version>1.2</jstl.version>
+        <mysql.version>8.0.33</mysql.version>
     </properties>
     
     <dependencies>
@@ -23,6 +24,14 @@
             <version>${jstl.version}</version>
             
         </dependency>
+        
+        <!-- mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+
         
         <dependency>
             <groupId>javax</groupId>
