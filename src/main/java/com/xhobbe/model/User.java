@@ -7,32 +7,23 @@ package com.xhobbe.model;
  */
 public class User {
     
-    private int userId;
+    private long userId;
     private String name;
     private String email;
     private String address;
     private String phone;
     private String password;
     private String role;
+    private int roleId;
 
     public User() {
     }
 
-    public User(int userId, String name, String email, String address, String phone, String password, String role) {
-        this.userId = userId;
-        this.name = name;
-        this.email = email;
-        this.address = address;
-        this.phone = phone;
-        this.password = password;
-        this.role = role;
-    }
-
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
@@ -84,9 +75,17 @@ public class User {
         this.role = role;
     }
 
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
+    }
+
     @Override
     public String toString() {
-        return "User{" + "userId=" + userId + ", name=" + name + ", email=" + email + ", address=" + address + ", phone=" + phone + ", password=" + password + ", role=" + role + '}';
+        return "User{" + "userId=" + userId + ", name=" + name + ", email=" + email + ", address=" + address + ", phone=" + phone + ", password=" + password + ", role=" + role + ", roleId=" + roleId + '}';
     }
     
 }

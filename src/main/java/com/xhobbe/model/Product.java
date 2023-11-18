@@ -1,4 +1,3 @@
-
 package com.xhobbe.model;
 
 import java.util.List;
@@ -8,43 +7,26 @@ import java.util.List;
  * @author ADMIN
  */
 public class Product {
-    
-    private int productId;
+
+    private long productId;
     private String name;
     private String description;
     private String brand;
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
+    private int brandId;
     private double price;
     private String category;
+    private int categoryId;
     private int stockQuantity;
     private List<String> imageURL;
 
     public Product() {
     }
 
-    public Product(int productId, String name, String description, String brand, double price, String category, int stockQuantity, List<String> imageURL) {
-        this.productId = productId;
-        this.name = name;
-        this.description = description;
-        this.brand = brand;
-        this.price = price;
-        this.category = category;
-        this.stockQuantity = stockQuantity;
-        this.imageURL = imageURL;
-    }
-
-    public int getProductId() {
+    public long getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(long productId) {
         this.productId = productId;
     }
 
@@ -62,6 +44,30 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public int getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(int brandId) {
+        this.brandId = brandId;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public double getPrice() {
@@ -100,5 +106,5 @@ public class Product {
     public String toString() {
         return "Product{" + "productId=" + productId + ", name=" + name + ", description=" + description + ", brand=" + brand + ", price=" + price + ", category=" + category + ", stockQuantity=" + stockQuantity + ", imageURL=" + imageURL + '}';
     }
-    
+
 }

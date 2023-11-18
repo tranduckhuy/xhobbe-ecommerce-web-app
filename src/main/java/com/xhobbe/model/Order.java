@@ -1,37 +1,27 @@
-
 package com.xhobbe.model;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author ADMIN
  */
 public class Order {
-    
+
     private long orderId;
-    private String productName;
+    private long userId;
     private String customerName;
     private String customerPhone;
     private String address;
-    private int quantity;
     private double total;
+    private int statusID;
     private String status;
     private Timestamp orderDate;
+    private List<OrderDetail> listOrderDetail = new ArrayList<>();
 
     public Order() {
-    }
-
-    public Order(long orderId, String productName, String customerName, String customerPhone, String address, int quantity, double total, String status, Timestamp orderDate) {
-        this.orderId = orderId;
-        this.productName = productName;
-        this.customerName = customerName;
-        this.customerPhone = customerPhone;
-        this.address = address;
-        this.quantity = quantity;
-        this.total = total;
-        this.status = status;
-        this.orderDate = orderDate;
     }
 
     public long getOrderId() {
@@ -42,12 +32,12 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public String getProductName() {
-        return productName;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getCustomerName() {
@@ -74,14 +64,6 @@ public class Order {
         this.address = address;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
     public double getTotal() {
         return total;
     }
@@ -98,6 +80,14 @@ public class Order {
         this.status = status;
     }
 
+    public int getStatusID() {
+        return statusID;
+    }
+
+    public void setStatusID(int statusID) {
+        this.statusID = statusID;
+    }
+
     public Timestamp getOrderDate() {
         return orderDate;
     }
@@ -106,9 +96,19 @@ public class Order {
         this.orderDate = orderDate;
     }
 
+    public List<OrderDetail> getListOrderDetail() {
+        return listOrderDetail;
+    }
+
+    public void setListOrderDetail(List<OrderDetail> listOrderDetail) {
+        this.listOrderDetail = listOrderDetail;
+    }
+
     @Override
     public String toString() {
-        return "Order{" + "orderId=" + orderId + ", productName=" + productName + ", customerName=" + customerName + ", customerPhone=" + customerPhone + ", address=" + address + ", quantity=" + quantity + ", total=" + total + ", status=" + status + ", orderDate=" + orderDate + '}';
+        return "Order{" + "orderId=" + orderId + ", customerName=" + customerName + ", customerPhone=" + customerPhone
+                + ", address=" + address + ", total=" + total + ", status=" + status + ", statusID=" + statusID
+                + ", orderDate=" + orderDate + ", listOrderDetail=" + listOrderDetail + '}';
     }
-    
+
 }
