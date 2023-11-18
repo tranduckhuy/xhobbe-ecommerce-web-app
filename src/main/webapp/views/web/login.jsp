@@ -141,32 +141,43 @@
                                     </div><!-- End .form-choice -->
                                 </div><!-- .End .tab-pane -->
                                 <div class="tab-pane fade show active" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
-                                    <form action="#">
+                                    <form action="#" id="form-register">
+                                        <div class="form-group">
+                                            <label for="register-email-2">Your name *</label>
+                                            <input type="text" class="form-control" id="register-name" name="register-name" required>
+                                            <span class="form-message"></span>
+                                        </div><!-- End .form-group -->
+                                        
                                         <div class="form-group">
                                             <label for="register-email-2">Your email address *</label>
                                             <input type="email" class="form-control" id="register-email-2" name="register-email" required>
+                                            <span class="form-message"></span>
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
                                             <label for="register-phone">Your phone number *</label>
                                             <input type="email" class="form-control" id="register-phone" name="register-phone" required>
+                                            <span class="form-message"></span>
                                         </div><!-- End .form-group -->
                                         
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label for="register-password-2">Password *</label>
                                                 <input type="password" class="form-control" id="register-password-2" name="register-password" required>
+                                                <span class="form-message"></span>
                                             </div><!-- End .form-group -->
 
                                             <div class="form-group col-md-6">
                                                 <label for="register-confirm-password-2">Confirm Password *</label>
                                                 <input type="password" class="form-control" id="register-confirm-password-2" name="register-password" required>
+                                                <span class="form-message"></span>
                                             </div><!-- End .form-group -->
                                         </div>
                                         
                                         <div class="form-group">
                                             <label for="register-address">Your address *</label>
                                             <input type="email" class="form-control" id="register-address" name="register-address" required>
+                                            <span class="form-message"></span>
                                         </div><!-- End .form-group -->
                                         
                                         <div class="form-footer">
@@ -220,6 +231,18 @@
         <!-- Main JS File -->
         <script src="<c:url value='/template/web/assets/js/main.js'/>"></script>
         <script src="<c:url value='/template/web/assets/js/demos/demo-4.js'/>"></script>
+        
+         <!-- Validator JS File -->
+         <script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
+         <script>
+             Validator({
+                 form: '#form-register',
+                 rules: [
+                     Validator.isRequired('#register-name'),
+                     Validator.isEmail('#register-email-2'),
+                 ]
+             })
+         </script>
     </body>
 
 </html>
