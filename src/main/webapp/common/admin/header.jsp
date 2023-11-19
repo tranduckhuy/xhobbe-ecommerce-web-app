@@ -21,6 +21,8 @@
         <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/materialdesignicons.min.css'/>" />
         <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/fullcalendar.css'/>" />
         <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/main.css'/>" />
+        <!-- Validate CSS File -->
+        <link rel="stylesheet" href="<c:url value='/template/web/assets/css/validate/validate.css'/>">
     </head>
 
     <body>

@@ -5969,3 +5969,7 @@ h6,
     transform: rotate(360deg);
   }
 }
+
+.form-group span {
+    margin-bottom: 10px;
+}

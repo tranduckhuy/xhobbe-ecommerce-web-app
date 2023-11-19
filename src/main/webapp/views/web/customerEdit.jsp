@@ -30,6 +30,8 @@
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/bootstrap.min.css'/>">
         <!-- Main CSS File -->
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/style.css'/>">
+        <!-- Validate CSS File -->
+        <link rel="stylesheet" href="<c:url value='/template/web/assets/css/validate/validate.css'/>">
     </head>
     <body>
         <header class="header header-intro-clearance header-4">
@@ -94,47 +96,59 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
-                                    <form action="#">
+                                    <form action="#" id="form-customer-edit-account">
                                         <div class="form-group">
-                                            <label for="register-email-2">Your email address *</label>
-                                            <input type="email" class="form-control" id="register-email-2" name="register-email" required>
+                                            <label for="edit-name-2">Your name *</label>
+                                            <input type="text" class="form-control" id="edit-name" name="edit-name">
+                                            <span class="form-message"></span>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-group">
+                                            <label for="edit-email-2">Your email address *</label>
+                                            <input type="email" class="form-control" id="edit-email-2" name="edit-email">
+                                            <span class="form-message"></span>
                                         </div><!-- End .form-group -->
 
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label for="register-phone">Your phone number *</label>
-                                                <input type="email" class="form-control" id="register-phone" name="register-phone" required>
+                                                <label for="edit-phone">Your phone number *</label>
+                                                <input type="text" class="form-control" id="edit-phone" name="edit-phone">
+                                                <span class="form-message"></span>
                                             </div><!-- End .form-group -->
 
                                             <div class="form-group col-md-6">
                                                 <label for="old-password">Old Password *</label>
-                                                <input type="password" class="form-control" id="old-password" name="old-password" required>
+                                                <input type="password" class="form-control" id="old-password" name="old-password">
+                                                <span class="form-message"></span>
                                             </div><!-- End .form-group -->
 
                                         </div>
 
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label for="confirm-password">Confirm Password *</label>
-                                                <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
+                                                <label for="new-password">New Password *</label>
+                                                <input type="password" class="form-control" id="new-password" name="new-password">
+                                                <span class="form-message"></span>
                                             </div><!-- End .form-group -->
 
                                             <div class="form-group col-md-6">
-                                                <label for="new-password">New Password *</label>
-                                                <input type="password" class="form-control" id="new-password" name="new-password" required>
-                                            </div><!-- End .form-group -->
+                                                <label for="confirm-password">Confirm New Password *</label>
+                                                <input type="password" class="form-control" id="confirm-password" name="confirm-password">
+                                                <span class="form-message"></span>
+                                            </div><!-- End .form-group -->    
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="register-address">Your address *</label>
-                                            <input type="email" class="form-control" id="register-address" name="register-address" required>
+                                            <label for="edit-address">Your address *</label>
+                                            <input type="text" class="form-control" id="edit-address" name="edit-address">
+                                            <span class="form-message"></span>
                                         </div><!-- End .form-group -->
 
                                         <div class="d-flex justify-content-center mt-3">
-                                            <a href="#" class="btn btn-outline-primary-2">
+                                            <button type="submit" class="btn btn-outline-primary-2">
                                                 <span>CONFIRM EDIT</span>
                                                 <i class="icon-long-arrow-right"></i>
-                                            </a>
+                                            </button>
                                         </div><!-- End .form-footer -->
                                     </form>
                                 </div><!-- .End .tab-pane -->
@@ -159,6 +173,40 @@
         <!-- Main JS File -->
         <script src="<c:url value='/template/web/assets/js/main.js'/>"></script>
         <script src="<c:url value='/template/web/assets/js/demos/demo-4.js'/>"></script>
+        <!-- Validator JS File -->
+        <script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
+        <script>
+
+            //Validate regiter
+            Validator({
+                form: '#form-customer-edit-account',
+                erroSelector: '.form-message',
+                formGroupSelector: '.form-group',
+                rules: [
+                    Validator.isRequired('#edit-name', 'Please enter your name!'),
+                    Validator.isName('#edit-name', 'The name cannot contain numbers or special characters!'),
+
+                    Validator.isRequired('#edit-email-2', 'Please enter your email!'),
+                    Validator.isEmail('#edit-email-2', 'Please enter correct email!'),
+
+                    Validator.isRequired('#edit-phone', 'Please enter your phone number!'),
+                    Validator.isNumber('#edit-phone', 'Please enter correct phone number!'),
+                    Validator.isValidLength('#edit-phone', 10, 'Phone number must be 10 digits!'),
+
+                    Validator.isRequired('#old-password', 'Please enter your old password!'),
+
+                    Validator.isRequired('#new-password', 'Please enter your new password!'),
+                    Validator.minLength('#new-password', 6),
+
+                    Validator.isRequired('#confirm-password', 'Please re-enter your password!'),
+                    Validator.isConfirmed('#confirm-password', function () {
+                        return document.querySelector('#new-password').value;
+                    }, 'Re-entered password is incorrect!'),
+
+                    Validator.isRequired('#edit-address', 'Please enter your address!')
+                ]
+            });
+        </script>
     </body>
 
 </html>

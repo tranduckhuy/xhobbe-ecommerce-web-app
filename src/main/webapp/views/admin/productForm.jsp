@@ -43,20 +43,22 @@
                         <div class="card bg-form" style="border-radius: 1rem;">
                             <div class="card-body p-4 text-center">
 
-                                <form action="f#" method="post" enctype='multipart/form-data'>
-                                    <div class="form-outline mx-auto" style="max-width: 500px;">
+                                <form action="f#" method="post" enctype='multipart/form-data' id="form-add-product">
+                                    <div class="form-outline mx-auto form-group" style="max-width: 500px;">
                                         <label class="form-label p-2" for="name">Product name</label>
-                                        <input type="text" id="name" name="name" class="form-control mb-4" required/>
+                                        <input type="text" id="name" name="name" class="form-control mb-1"/>
+                                        <span class="form-message"></span>
                                     </div>
 
-                                    <div class="form-outline">
+                                    <div class="form-outline form-group">
                                         <label class="form-label" for="description">Description</label>
-                                        <textarea class="form-control mb-4" id="description" name="description" rows="5" required></textarea>
+                                        <textarea class="form-control mb-1" id="description" name="description" rows="5"></textarea>
+                                        <span class="form-message"></span>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-4">
-                                            <select id="select" name="category" class="form-select mb-4" required>
+                                        <div class="col-lg-4 form-group">
+                                            <select id="select" name="category" class="form-select mb-1">
                                                 <option value="" disabled selected>Choose category</option>
                                                 <option value="1">Phone</option>
                                                 <option value="2">Laptop</option>
@@ -64,21 +66,26 @@
                                                 <option value="4">Accessories</option>
                                                 <option value="5">Others</option>
                                             </select>
+                                            <span class="form-message"></span>
                                         </div>
-                                        <div class="col-lg-4">
-                                            <input type="number" class="form-control mb-5" id="price" name="price" placeholder="Price" required min="0"/>
+                                        <div class="col-lg-4 form-group">
+                                            <input type="number" class="form-control mb-1" id="price" name="price" placeholder="Price"/>
+                                            <span class="form-message"></span>
                                         </div>
-                                        <div class="col-lg-4">
-                                            <input type="number" class="form-control mb-5" id="quantity" name="quantity" placeholder="Stock Quantity" required min="0"/>
+                                        <div class="col-lg-4 form-group">
+                                            <input type="number" class="form-control mb-1" id="quantity" name="quantity" placeholder="Stock Quantity"/>
+                                            <span class="form-message"></span>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-6">
-                                            <input type="file" class="form-control mb-5" id="productImage1" name="productImage1" required/>
+                                        <div class="col-lg-6 form-group">
+                                            <input type="file" class="form-control mb-1" id="productImage1" name="productImage1"/>
+                                            <span class="form-message"></span>
                                         </div>
-                                        <div class="col-lg-6">
-                                            <input type="file" class="form-control mb-5" id="productImage2" name="productImage2" required/>
+                                        <div class="col-lg-6 form-group">
+                                            <input type="file" class="form-control mb-1" id="productImage2" name="productImage2"/>
+                                            <span class="form-message"></span>
                                         </div>
                                     </div>
 
@@ -100,5 +107,34 @@
 <section class="lg-bg">
 
 </section>
+
+<!-- ========= Validate Javascript files linkup ======== -->
+<script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
+
+<script>
+    //Validate form add product
+    Validator({
+        form: '#form-add-product',
+        erroSelector: '.form-message',
+        formGroupSelector: '.form-group',
+        rules: [
+            Validator.isRequired('#name', 'Please enter product name!'),
+            Validator.isNameProduct('#name', 'The name cannot contain special characters!'),
+
+            Validator.isRequired('#description', 'Please enter product description!'),
+
+            Validator.isRequired('#select', 'Please choose product category!'),
+
+            Validator.isRequired('#price', 'Please enter product price!'),
+            Validator.isPositive('#price', 'Please enter product price greater than 0!'),
+
+            Validator.isRequired('#quantity', 'Please choose product quantity!'),
+            Validator.isPositive('#quantity', 'Please enter product quantity greater than 0!'),
+
+            Validator.isRequired('#productImage1', 'Please choose product image!'),
+            Validator.isRequired('#productImage2', 'Please choose product image!')
+        ]
+    });
+</script>
 
 <%@include file="/common/admin/footer.jsp" %>
