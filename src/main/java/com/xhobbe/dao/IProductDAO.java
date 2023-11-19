@@ -19,9 +19,9 @@ public interface IProductDAO {
 
     List<Product> findAll(int limit, int offset, String orderBy, String sortBy);
     
-    List<Product> findByCategory(int categoryId);
+    List<Product> findByCategory(int limit, int offset, String orderBy, String sortBy, String categoryName);
     
-    List<Product> findByBrand(int brandId);
+    List<Product> findByBrand(int limit, int offset, String orderBy, String sortBy, String brandName);
     
     List<Product> findByName(String name);
 
