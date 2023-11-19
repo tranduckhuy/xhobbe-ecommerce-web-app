@@ -179,5 +179,20 @@
         </div><!-- End .cart -->
     </div><!-- End .page-content -->
 </main><!-- End .main -->
+<script>
+// Wait for the DOM to be ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to update all product checkboxes based on the 'select all' checkbox
+    function updateProductSelection() {
+        var selectAllCheckbox = document.getElementById('product-select-all');
+        var productCheckboxes = document.querySelectorAll('.product-select');
+        productCheckboxes.forEach(function(checkbox) {
+            checkbox.checked = selectAllCheckbox.checked;
+        });
+    }
+    // Attach the updateProductSelection function to the change event of the 'select all' checkbox
+    document.getElementById('product-select-all').addEventListener('change', updateProductSelection);
+});
+</script>
 
 <%@ include file="/common/web/footer.jsp"%>
