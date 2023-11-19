@@ -30,6 +30,8 @@
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/bootstrap.min.css'/>">
         <!-- Main CSS File -->
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/style.css'/>">
+        <!-- Validate CSS File -->
+        <link rel="stylesheet" href="<c:url value='/template/web/assets/css/validate/validate.css'/>">
     </head>
     <body>
         <header class="header header-intro-clearance header-4">
@@ -97,15 +99,17 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade" id="signin-2" role="tabpanel" aria-labelledby="signin-tab-2">
-                                    <form action="#">
+                                    <form action="#" id="form-signin">
                                         <div class="form-group">
                                             <label for="singin-email-2">Your email address *</label>
-                                            <input type="text" class="form-control" id="singin-email-2" name="singin-email" required>
+                                            <input type="email" class="form-control" id="singin-email-2" name="singin-email">
+                                            <span class="form-message"></span>
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
                                             <label for="singin-password-2">Password *</label>
-                                            <input type="password" class="form-control" id="singin-password-2" name="singin-password" required>
+                                            <input type="password" class="form-control" id="singin-password-2" name="singin-password">
+                                            <span class="form-message"></span>
                                         </div><!-- End .form-group -->
 
                                         <div class="form-footer">
@@ -143,54 +147,55 @@
                                 <div class="tab-pane fade show active" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
                                     <form action="#" id="form-register">
                                         <div class="form-group">
-                                            <label for="register-email-2">Your name *</label>
-                                            <input type="text" class="form-control" id="register-name" name="register-name" required>
+                                            <label for="register-name-2">Your name *</label>
+                                            <input type="text" class="form-control" id="register-name" name="register-name" placeholder="Ex: Jon Doe, Jon-Doe, Kiersten F. Latham, Pat O'Brien,...">
                                             <span class="form-message"></span>
                                         </div><!-- End .form-group -->
-                                        
+
                                         <div class="form-group">
                                             <label for="register-email-2">Your email address *</label>
-                                            <input type="email" class="form-control" id="register-email-2" name="register-email" required>
+                                            <input type="email" class="form-control" id="register-email-2" name="register-email" placeholder="Ex: acb@gmail.com">
                                             <span class="form-message"></span>
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
                                             <label for="register-phone">Your phone number *</label>
-                                            <input type="email" class="form-control" id="register-phone" name="register-phone" required>
+                                            <input type="text" class="form-control" id="register-phone" name="register-phone" placeholder="Must be 10 digits. Ex: 0123456789">
                                             <span class="form-message"></span>
                                         </div><!-- End .form-group -->
-                                        
+
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label for="register-password-2">Password *</label>
-                                                <input type="password" class="form-control" id="register-password-2" name="register-password" required>
+                                                <input type="password" class="form-control" id="register-password-2" name="register-password" placeholder="More than 6 character">
                                                 <span class="form-message"></span>
                                             </div><!-- End .form-group -->
 
                                             <div class="form-group col-md-6">
                                                 <label for="register-confirm-password-2">Confirm Password *</label>
-                                                <input type="password" class="form-control" id="register-confirm-password-2" name="register-password" required>
+                                                <input type="password" class="form-control" id="register-confirm-password-2" name="register-password">
                                                 <span class="form-message"></span>
                                             </div><!-- End .form-group -->
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <label for="register-address">Your address *</label>
-                                            <input type="email" class="form-control" id="register-address" name="register-address" required>
+                                            <input type="text" class="form-control" id="register-address" name="register-address">
                                             <span class="form-message"></span>
                                         </div><!-- End .form-group -->
-                                        
+
                                         <div class="form-footer">
                                             <button type="submit" class="btn btn-outline-primary-2">
                                                 <span>SIGN UP</span>
                                                 <i class="icon-long-arrow-right"></i>
                                             </button>
 
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="register-policy-2" required>
+                                            <div class="custom-control custom-checkbox form-group">
+                                                <input name="register-policy" type="checkbox" class="custom-control-input" id="register-policy-2">
                                                 <label class="custom-control-label" for="register-policy-2">I agree to the <a href="#">privacy policy</a> *</label>
+                                                <p class="form-message"></p>
                                             </div><!-- End .custom-checkbox -->
-                                        </div><!-- End .form-footer -->
+                                        </div> End .form-footer 
                                     </form>
                                     <div class="form-choice">
                                         <p class="text-center">or sign in with</p>
@@ -231,18 +236,55 @@
         <!-- Main JS File -->
         <script src="<c:url value='/template/web/assets/js/main.js'/>"></script>
         <script src="<c:url value='/template/web/assets/js/demos/demo-4.js'/>"></script>
-        
-         <!-- Validator JS File -->
-         <script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
-         <script>
-             Validator({
-                 form: '#form-register',
-                 rules: [
-                     Validator.isRequired('#register-name'),
-                     Validator.isEmail('#register-email-2'),
-                 ]
-             })
-         </script>
+
+        <!-- Validator JS File -->
+        <script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
+        <script>
+
+            //Validate regiter
+            Validator({
+                form: '#form-register',
+                erroSelector: '.form-message',
+                formGroupSelector: '.form-group',
+                rules: [
+                    Validator.isRequired('#register-name', 'Please enter your name!'),
+                    Validator.isName('#register-name', 'The name cannot contain numbers or special characters!'),
+
+                    Validator.isRequired('#register-email-2', 'Please enter your email!'),
+                    Validator.isEmail('#register-email-2', 'Please enter correct email!'),
+
+                    Validator.isRequired('#register-phone', 'Please enter your phone number!'),
+                    Validator.isNumber('#register-phone', 'Please enter correct phone number!'),
+                    Validator.isValidLength('#register-phone', 10, 'Phone number must be 10 digits!'),
+
+                    Validator.isRequired('#register-password-2', 'Please enter your password!'),
+                    Validator.minLength('#register-password-2', 6),
+
+                    Validator.isRequired('#register-confirm-password-2', 'Please re-enter your password!'),
+                    Validator.isConfirmed('#register-confirm-password-2', function () {
+                        return document.querySelector('#register-password-2').value;
+                    }, 'Re-entered password is incorrect!'),
+
+                    Validator.isRequired('#register-address', 'Please enter your address!'),
+
+                    Validator.isRequired('#register-policy-2', 'You must agree to the privacy policy!')
+                ]
+            });
+
+            //Validate signin
+            Validator({
+                form: '#form-signin',
+                erroSelector: '.form-message',
+                formGroupSelector: '.form-group',
+                rules: [
+                    Validator.isRequired('#singin-email-2', 'Please enter your email!'),
+                    Validator.isEmail('#singin-email-2', 'Please enter correct email!'),
+
+                    Validator.isRequired('#singin-password-2', 'Please enter your password!'),
+                    Validator.minLength('#singin-password-2', 6)
+                ]
+            });
+        </script>
     </body>
 
 </html>
