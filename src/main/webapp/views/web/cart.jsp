@@ -16,8 +16,8 @@
     <nav aria-label="breadcrumb" class="breadcrumb-nav">
         <div class="container">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                <li class="breadcrumb-item"><a href="./home">Home</a></li>
+                <li class="breadcrumb-item"><a href="./product?category=all">Shop</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
             </ol>
         </div><!-- End .container -->
@@ -168,11 +168,11 @@
                                     <h6>Delivery address</h6>
                                     <input type="text" class="form-control" name="address" required placeholder="Address" style="border-color: #ddd;">
                                 </div><!-- End .summary-shipping-estimate -->
-                                <a href="checkout.html" class="btn btn-outline-primary-2 btn-order btn-block">ORDER</a>
+                                <a href="./order" class="btn btn-outline-primary-2 btn-order btn-block">ORDER</a>
                             </div><!-- End .summary -->
                         </form>
 
-                        <a href="category.html" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i class="icon-refresh"></i></a>
+                        <a href="./product?category=all" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i class="icon-refresh"></i></a>
                     </aside><!-- End .col-lg-3 -->
                 </div><!-- End .row -->
             </div><!-- End .container -->

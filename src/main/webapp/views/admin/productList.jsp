@@ -103,10 +103,10 @@
                                         </td>
                                         <td class="text-center">
                                             <div class="action d-flex gap-2 justify-content-center">
-                                                <a href="#" class="text-danger " title="Edit">
+                                                <a href="./admin-product?action=edit" class="text-danger " title="Edit">
                                                     <i class="fa-solid fa-pencil action-hover"></i>
                                                 </a>
-                                                <a href="#" class="text-danger" title="Delete">
+                                                <a href="./admin-product?action=delete" class="text-danger" title="Delete">
                                                     <i class="lni lni-trash-can action-hover"></i>
                                                 </a>
                                             </div>
@@ -138,12 +138,14 @@
                                         </td>
                                         <td class="text-center">
                                             <div class="action d-flex gap-2 justify-content-center">
-                                                <a href="#" class="text-danger " title="Edit">
+                                                <div class="action d-flex gap-2 justify-content-center">
+                                                <a href="./admin-product?action=edit" class="text-danger " title="Edit">
                                                     <i class="fa-solid fa-pencil action-hover"></i>
                                                 </a>
-                                                <a href="#" class="text-danger" title="Delete">
+                                                <a href="./admin-product?action=delete" class="text-danger" title="Delete">
                                                     <i class="lni lni-trash-can action-hover"></i>
                                                 </a>
+                                            </div>
                                             </div>
                                         </td>
                                     </tr>

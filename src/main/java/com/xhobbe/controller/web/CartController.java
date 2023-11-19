@@ -12,12 +12,14 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ADMIN
  */
-@WebServlet(name = "order", urlPatterns = {"/order"})
+@WebServlet(name = "cart", urlPatterns = {"/cart"})
 public class CartController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.getRequestDispatcher("/views/web/cart.jsp").forward(request, response);
     }
 
     @Override

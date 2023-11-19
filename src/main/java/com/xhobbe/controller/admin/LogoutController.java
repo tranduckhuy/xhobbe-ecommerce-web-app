@@ -12,15 +12,15 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ADMIN
  */
-    
-@WebServlet(name = "admin", urlPatterns = {"/admin"})
-public class HomeController extends HttpServlet {
+@WebServlet(name = "admin-logout", urlPatterns = {"/admin-logout"})
+public class LogoutController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("/views/admin/index.jsp").forward(request, response);
+
+        response.sendRedirect("home");
     }
 
     @Override

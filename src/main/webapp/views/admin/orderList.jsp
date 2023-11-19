@@ -100,13 +100,13 @@
                                         </td>
                                         <td>
                                             <div class="action d-flex gap-4 justify-content-center">
-                                                <a href="#" class="btn btn-primary">
+                                                <a href="./admin-order?action=delivery" class="btn btn-primary">
                                                     <i class="fa-solid fa-truck" title="Delivery"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-success">
+                                                <a href="./admin-order?action=detail" class="btn btn-success">
                                                     <i class="fa-solid fa-box" title="Detail"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-danger">
+                                                <a href="./admin-order?action=delete" class="btn btn-danger">
                                                     <i class="lni lni-trash-can action-hover" title="Refuse"></i>
                                                 </a>
                                             </div>
@@ -135,13 +135,13 @@
                                         </td>
                                         <td>
                                             <div class="action d-flex gap-4 justify-content-center">
-                                                <a href="#" class="btn btn-primary">
+                                                <a href="./admin-order?action=delivery" class="btn btn-primary">
                                                     <i class="fa-solid fa-truck" title="Delivery"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-success">
+                                                <a href="./admin-order?action=detail" class="btn btn-success">
                                                     <i class="fa-solid fa-box" title="Detail"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-danger">
+                                                <a href="./admin-order?action=delete" class="btn btn-danger">
                                                     <i class="lni lni-trash-can action-hover" title="Refuse"></i>
                                                 </a>
                                             </div>

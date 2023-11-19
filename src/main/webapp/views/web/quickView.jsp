@@ -14,16 +14,16 @@
                 <div class="row">
                     <div class="product-left">
                         <a href="#one" class="carousel-dot active">
-                            <img src="<c:url value='/template/web/assets/images/demos/demo-4/products/product-3.jpg'/>">
+                            <img src="<c:url value='/template/web/assets/images/video/poster-1.jpg'/>">
                         </a>
                         <a href="#two" class="carousel-dot">
-                            <img src="<c:url value='/template/web/assets/images/demos/demo-4/products/product-4.jpg'/>">
+                            <img src="<c:url value='/template/web/assets/images/video/poster-3.jpg'/>">
                         </a>
                         <a href="#three" class="carousel-dot">
-                            <img src="<c:url value='/template/web/assets/images/demos/demo-4/products/product-5.jpg'/>">
+                            <img src="<c:url value='/template/web/assets/images/video/poster-1.jpg'/>">
                         </a>
                         <a href="#four" class="carousel-dot">
-                            <img src="<c:url value='/template/web/assets/images/demos/demo-4/products/product-6.jpg'/>">
+                            <img src="<c:url value='/template/web/assets/images/video/poster-3.jpg'/>">
                         </a>
                     </div>
                     <div class="product-right">
@@ -39,28 +39,28 @@
                              }
                              }'>
                             <div class="intro-slide" data-hash="one">
-                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/products/product-3.jpg'/>" alt="Image Desc">
+                                <img src="<c:url value='/template/web/assets/images/video/poster-1.jpg'/>" alt="Image Desc">
                                 <a href="https://www.portotheme.com/html/molla/popup/popup/fullscreen.html" class="btn-fullscreen">
                                     <i class="icon-arrows"></i>
                                 </a>
                             </div><!-- End .intro-slide -->
 
                             <div class="intro-slide" data-hash="two">
-                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/products/product-4.jpg'/>" alt="Image Desc">
+                                <img src="<c:url value='/template/web/assets/images/video/poster-3.jpg'/>" alt="Image Desc">
                                 <a href="https://www.portotheme.com/html/molla/popup/popup/fullscreen.html" class="btn-fullscreen">
                                     <i class="icon-arrows"></i>
                                 </a>
                             </div><!-- End .intro-slide -->
 
                             <div class="intro-slide" data-hash="three">
-                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/products/product-5.jpg'/>" alt="Image Desc">
+                                <img src="<c:url value='/template/web/assets/images/video/poster-1.jpg'/>" alt="Image Desc">
                                 <a href="https://www.portotheme.com/html/molla/popup/popup/fullscreen.html" class="btn-fullscreen">
                                     <i class="icon-arrows"></i>
                                 </a>
                             </div><!-- End .intro-slide -->
 
                             <div class="intro-slide" data-hash="four">
-                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/products/product-6.jpg'/>" alt="Image Desc">
+                                <img src="<c:url value='/template/web/assets/images/video/poster-3.jpg'/>" alt="Image Desc">
                                 <a href="https://www.portotheme.com/html/molla/popup/popup/fullscreen.html" class="btn-fullscreen">
                                     <i class="icon-arrows"></i>
                                 </a>
@@ -86,10 +86,10 @@
                 <div class="details-filter-row product-nav product-nav-thumbs">
                     <label for="size">color:</label>
                     <a href="#" class="active">
-                        <img src="<c:url value='/template/web/assets/images/demos/demo-4/products/product-3.jpg'/>" alt="product desc">
+                        <img src="<c:url value='/template/web/assets/images/video/poster-1.jpg'/>" alt="product desc">
                     </a>
                     <a href="#">
-                        <img src="<c:url value='/template/web/assets/images/demos/demo-4/products/product-3.jpg'/>" alt="product desc">
+                        <img src="<c:url value='/template/web/assets/images/video/poster-3.jpg'/>" alt="product desc">
                     </a>
                 </div><!-- End .product-nav -->
 
@@ -119,7 +119,7 @@
                         <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
                         <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to Compare</span></a>
                     </div><!-- End .details-action-wrapper -->
-                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                    <a href="./cart" class="btn-product btn-cart"><span>add to cart</span></a>
                 </div>
 
                 <div class="product-details-footer">

@@ -12,12 +12,15 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ADMIN
  */
-@WebServlet(name = "login", urlPatterns = {"/login"})
+@WebServlet(name = "admin-login", urlPatterns = {"/admin-login"})
 public class LoginController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.getRequestDispatcher("/views/admin/login.jsp").forward(request, response);
+
     }
 
     @Override
