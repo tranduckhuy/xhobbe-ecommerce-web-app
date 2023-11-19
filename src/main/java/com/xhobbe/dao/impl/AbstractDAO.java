@@ -50,7 +50,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
             }
             return results;
         } catch (SQLException e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
             return Collections.EMPTY_LIST;
         }
     }

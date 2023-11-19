@@ -22,9 +22,10 @@ public class UserMapper implements RowMapper<User> {
             user.setName(rs.getString("name"));
             user.setEmail(rs.getString("email"));
             user.setAddress(rs.getString("address"));
-            user.setPhone(rs.getString("phone"));
+            user.setPhone(rs.getString("phoneNumber"));
             user.setPassword(rs.getString("password"));
-            user.setRole(rs.getString("role"));
+            user.setRole(rs.getString("roleName"));
+            user.setRoleId(rs.getInt("roleId"));
             return user;
         } catch (SQLException e) {
             e.printStackTrace();

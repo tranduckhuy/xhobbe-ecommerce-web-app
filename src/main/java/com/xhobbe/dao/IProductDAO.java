@@ -17,7 +17,7 @@ public interface IProductDAO {
 
     void delete(long id);
 
-    List<Product> findAll();
+    List<Product> findAll(int limit, int offset, String orderBy, String sortBy);
     
     List<Product> findByCategory(int categoryId);
     
