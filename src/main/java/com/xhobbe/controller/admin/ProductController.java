@@ -1,7 +1,7 @@
 
 package com.xhobbe.controller.admin;
 
-import com.xhobbe.constant.AppConstant;
+import com.xhobbe.constant.ActionConstant;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,10 +25,10 @@ public class ProductController extends HttpServlet {
         
         String views = "/views/admin/productList.jsp";
         
-        if (AppConstant.EDIT.equals(action)) {
+        if (ActionConstant.EDIT.equals(action)) {
             views = "/views/admin/productEdit.jsp";
         }
-        if (AppConstant.ADD.equals(action)) {
+        if (ActionConstant.ADD.equals(action)) {
             views = "/views/admin/productForm.jsp";
         }
         

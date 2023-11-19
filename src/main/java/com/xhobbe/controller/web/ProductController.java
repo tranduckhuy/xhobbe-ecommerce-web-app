@@ -1,6 +1,8 @@
 package com.xhobbe.controller.web;
 
+import com.xhobbe.constant.ActionConstant;
 import com.xhobbe.constant.AppConstant;
+import com.xhobbe.constant.CategoryConstant;
 import com.xhobbe.model.Product;
 import com.xhobbe.service.IProductService;
 import java.io.IOException;
@@ -39,20 +41,20 @@ public class ProductController extends HttpServlet {
         if (AppConstant.ALL.equals(category)) {
             list = productService.findAll(limit, offset, "", "");
         }
-        if (AppConstant.PHONE.equals(category)) {
+        if (CategoryConstant.PHONE.equals(category)) {
             list = productService.findByCategory(limit, offset, "", "", category);
         }
-        if (AppConstant.LAPTOP.equals(category)) {
+        if (CategoryConstant.LAPTOP.equals(category)) {
             list = productService.findByCategory(limit, offset, "", "", category);
         }
-        if (AppConstant.IPAD.equals(category)) {
+        if (CategoryConstant.IPAD.equals(category)) {
             list = productService.findByCategory(limit, offset, "", "", category);
         }
-        if (AppConstant.ACCESSORIES.equals(category)) {
+        if (CategoryConstant.ACCESSORIES.equals(category)) {
             list = productService.findByCategory(limit, offset, "", "", category);
         }
         
-        request.setAttribute(AppConstant.LIST, list);
+        request.setAttribute(ActionConstant.LIST, list);
         
         request.getRequestDispatcher("/views/web/category.jsp").forward(request, response);
     }

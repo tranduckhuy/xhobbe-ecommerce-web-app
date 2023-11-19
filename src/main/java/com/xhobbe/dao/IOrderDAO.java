@@ -13,9 +13,9 @@ public interface IOrderDAO {
 
     List<Order> findAll(int limit, int offset, String orderBy, String sortBy);
     
-    List<Order> findByUserId(long userId);
+    List<Order> findByStatusAndUserId(long userId, int statusId);
     
-    void updateStatus(long orderId, int orderStatusId);
+    void updateStatus(long orderId, int statusId);
     
     void delete(long id);
 
