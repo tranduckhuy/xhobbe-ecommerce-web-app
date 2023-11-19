@@ -76,18 +76,31 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
 
         return query(sql.toString(), new OrderDetailMapper(), id);
     }
-
+    
     @Override
-    public List<Order> findAll() {
+    public void updateStatus(long orderId, int orderStatusId) {
+        String sql = "UPDATE `order` SET orderStatusId = ? WHERE orderId = ?";
+        
+        update(sql, orderStatusId, orderId);
+    }
+    
+    @Override
+    public List<Order> findAll(int limit, int offset, String orderBy, String sortBy) {
 
         StringBuilder sql = new StringBuilder("SELECT o.orderId, u.userId, u.name, u.phoneNumber, o.deliveryAddress, o.total, o.orderStatusId, s.status, o.orderDate ");
         sql.append("FROM `order` AS o ");
         sql.append("JOIN `user` AS u ON o.userId = u.userId ");
         sql.append("JOIN `orderStatusCheck` AS s ON o.orderStatusId = s.orderStatusId ");
-
-        System.out.println(sql.toString());
         
-        List<Order> resutls = this.queryOrder(sql.toString(), new OrderMapper());
+        if ("".equals(orderBy)  || "".equals(sortBy)) {
+        } else {
+            sql.append("ORDER BY ").append(orderBy).append(" ").append(sortBy).append(" ");
+        }
+        
+        sql.append("LIMIT ? OFFSET ? ");
+        System.out.println(sql.toString());
+
+        List<Order> resutls = this.queryOrder(sql.toString(), new OrderMapper(), limit, offset);
 
         return resutls;
     }
@@ -106,10 +119,10 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
 
     @Override
     public void delete(long id) {
-        
+
         String sql = "DELETE FROM `orderDetails` WHERE orderId = ?";
         super.update(sql, id);
-        
+
         sql = "DELETE FROM `order` WHERE orderId = ?";
         super.update(sql, id);
     }

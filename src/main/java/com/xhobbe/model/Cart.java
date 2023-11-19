@@ -1,6 +1,8 @@
 
 package com.xhobbe.model;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author ADMIN
@@ -8,20 +10,14 @@ package com.xhobbe.model;
 public class Cart {
     
     private long cartId;
+    private long userId;
+    private long productId;
     private String productName;
     private double price;
     private int quantity;
-    private double total;
+    private Timestamp createdAt;
 
     public Cart() {
-    }
-
-    public Cart(long cartId, String productName, double price, int quantity, double total) {
-        this.cartId = cartId;
-        this.productName = productName;
-        this.price = price;
-        this.quantity = quantity;
-        this.total = total;
     }
 
     public long getCartId() {
@@ -30,6 +26,30 @@ public class Cart {
 
     public void setCartId(long cartId) {
         this.cartId = cartId;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(long productId) {
+        this.productId = productId;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
     }
 
     public String getProductName() {
@@ -56,17 +76,10 @@ public class Cart {
         this.quantity = quantity;
     }
 
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
     @Override
     public String toString() {
-        return "ShoppingCart{" + "cartId=" + cartId + ", productName=" + productName + ", price=" + price + ", quantity=" + quantity + ", total=" + total + '}';
+        return "Cart{" + "cartId=" + cartId + ", userId=" + userId + ", productId=" + productId + 
+                ", productName=" + productName + ", price=" + price + ", quantity=" + quantity + ", createdAt=" + createdAt + '}';
     }
-    
+
 }
