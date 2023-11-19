@@ -4,6 +4,11 @@
         <servlet-name>Test</servlet-name>
         <servlet-class>com.xhobbe.controller.Test</servlet-class>
     </servlet>
+    
+    <listener>
+        <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+    </listener>
+    
     <servlet-mapping>
         <servlet-name>Test</servlet-name>
         <url-pattern>/Test</url-pattern>

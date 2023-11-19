@@ -135,35 +135,48 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
         
         sql.append("LIMIT ? OFFSET ? ");
         
-        List<Product> listProduct = (List<Product>) this.queryProduct(sql.toString(), new ProductMapper(), limit, offset);
+        List<Product> listProduct = (List<Product>) this.queryProduct(sql.toString(), new ProductMapper(), 
+                limit, offset);
         
         return listProduct.isEmpty() ? Collections.EMPTY_LIST : listProduct;
     }
 
     @Override
-    public int getTotalItem() {
-        String sql = "SELECT count(*) FROM product";
-        return count(sql);
-    }
-
-    @Override
-    public List<Product> findByCategory(int categoryId) {
+    public List<Product> findByCategory(int limit, int offset, String orderBy, String sortBy, String categoryName) {
         StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity ");
         sql.append("FROM product AS p ");
-        sql.append("JOIN category AS c ON p.categoryId = c.categoryId AND p.categoryId = ? ");
+        sql.append("JOIN category AS c ON p.categoryId = c.categoryId AND p.categoryName = ? ");
         sql.append("JOIN brand AS b ON p.brandId = b.brandId");
-        List<Product> listProduct = (List<Product>) this.queryProduct(sql.toString(), new ProductMapper(), categoryId);
+        
+        if ("".equals(orderBy)  || "".equals(sortBy)) {
+        } else {
+            sql.append("ORDER BY ").append(orderBy).append(" ").append(sortBy).append(" ");
+        }
+        
+        sql.append("LIMIT ? OFFSET ? ");
+        
+        List<Product> listProduct = (List<Product>) this.queryProduct(sql.toString(), new ProductMapper(), 
+                categoryName, limit, offset);
         
         return listProduct.isEmpty() ? Collections.EMPTY_LIST : listProduct;
     }
 
     @Override
-    public List<Product> findByBrand(int brandId) {
+    public List<Product> findByBrand(int limit, int offset, String orderBy, String sortBy, String brandName) {
         StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity ");
         sql.append("FROM product AS p ");
         sql.append("JOIN category AS c ON p.categoryId = c.categoryId ");
-        sql.append("JOIN brand AS b ON p.brandId = b.brandId AND p.brandId = ?");
-        List<Product> listProduct = (List<Product>) this.queryProduct(sql.toString(), new ProductMapper(), brandId);
+        sql.append("JOIN brand AS b ON p.brandId = b.brandId AND p.brandName = ?");
+        
+        if ("".equals(orderBy)  || "".equals(sortBy)) {
+        } else {
+            sql.append("ORDER BY ").append(orderBy).append(" ").append(sortBy).append(" ");
+        }
+        
+        sql.append("LIMIT ? OFFSET ? ");
+        
+        List<Product> listProduct = (List<Product>) this.queryProduct(sql.toString(), new ProductMapper(), 
+                brandName, limit, offset);
         
         return listProduct.isEmpty() ? Collections.EMPTY_LIST : listProduct;
     }
@@ -180,4 +193,10 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
         return listProduct.isEmpty() ? Collections.EMPTY_LIST : listProduct;
     }
 
+    
+    @Override
+    public int getTotalItem() {
+        String sql = "SELECT count(*) FROM product";
+        return count(sql);
+    }
 }

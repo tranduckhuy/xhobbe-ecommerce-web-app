@@ -98,7 +98,6 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
         }
         
         sql.append("LIMIT ? OFFSET ? ");
-        System.out.println(sql.toString());
 
         List<Order> resutls = this.queryOrder(sql.toString(), new OrderMapper(), limit, offset);
 
