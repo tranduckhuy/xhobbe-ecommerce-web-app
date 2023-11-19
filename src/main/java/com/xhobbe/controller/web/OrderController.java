@@ -1,6 +1,7 @@
 
 package com.xhobbe.controller.web;
 
+import com.xhobbe.constant.AppConstant;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +19,9 @@ public class OrderController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        response.setContentType("text/html;charset=UTF-8");
+        request.getRequestDispatcher("/views/web/order.jsp").forward(request, response);
     }
 
     @Override

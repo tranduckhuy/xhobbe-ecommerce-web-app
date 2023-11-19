@@ -68,9 +68,9 @@
                                 <a href="#">Links</a>
                                 <ul>
                                     <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
-                                    <li><a href="./views/web/about.jsp">About Us</a></li>
-                                    <li><a href="./views/web/contact.jsp">Contact Us</a></li>
-                                    <li><a href="./views/web/login.jsp"><i class="icon-user"></i>Login</a></li>
+                                    <li><a href="./about">About Us</a></li>
+                                    <li><a href="./contact">Contact Us</a></li>
+                                    <li><a href="./login"><i class="icon-user"></i>Login</a></li>
                                 </ul>
                             </li>
                         </ul><!-- End .top-menu -->
@@ -107,17 +107,17 @@
                     <div class="header-right">
 
                         <div class="wishlist">
-                            <a href="./views/web/cart.jsp" title="Order">
+                            <a href="./cart" title="Cart">
                                 <div class="icon">
                                     <i class="icon-shopping-cart" style="font-size: 22px;"></i>
                                     <span class="wishlist-count badge">2</span>
                                 </div>
-                                <p>Order</p>
+                                <p>Cart</p>
                             </a>
                         </div><!-- End .compare-dropdown -->
                         
                         <div class="wishlist">
-                            <a href="./views/web/order.jsp" title="Order">
+                            <a href="./order" title="Order">
                                 <div class="icon">
                                     <i class="fa-solid fa-truck" style="font-size: 22px;"></i>
                                     <span class="wishlist-count badge">3</span>
@@ -142,10 +142,10 @@
                                     <ul class="menu-vertical sf-arrows">
                                         <li class="item-lead"><a href="#">Daily offers</a></li>
                                         <li class="item-lead"><a href="#">Gift Ideas</a></li>
-                                        <li><a href="#">Phones</a></li>
-                                        <li><a href="#">Laptops</a></li>
-                                        <li><a href="#">iPad</a></li>
-                                        <li><a href="#">Accessories</a></li>
+                                        <li><a href="./product?category=phone">Phones</a></li>
+                                        <li><a href="./product?category=laptop">Laptops</a></li>
+                                        <li><a href="./product?category=iPad">iPad</a></li>
+                                        <li><a href="./product?category=accessories">Accessories</a></li>
                                     </ul><!-- End .menu-vertical -->
                                 </nav><!-- End .side-nav -->
                             </div><!-- End .dropdown-menu -->

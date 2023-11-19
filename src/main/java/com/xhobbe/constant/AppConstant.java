@@ -16,5 +16,9 @@ public class AppConstant {
     public static final String LAPTOP = "laptop";
     public static final String IPAD = "iPad";
     public static final String ACCESSORIES = "accessories";
+    public static final String ADD = "add";
+    public static final String EDIT = "edit";
+    public static final String DELETE = "delete";
+    public static final String DETAIL = "detail";
 
 }

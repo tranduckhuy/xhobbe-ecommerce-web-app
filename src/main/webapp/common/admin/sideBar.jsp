@@ -9,7 +9,7 @@
 <!-- ======== sidebar-nav start =========== -->
 <aside class="sidebar-nav-wrapper">
     <div class="navbar-logo">
-        <a href="#">
+        <a href="./admin">
             <img src="<c:url value='/template/admin/assets/images/logo/xhobbe-high-resolution-logo-blue.png'/>" alt="logo" style="width: 150px; height: 40px;"/>
         </a>
     </div>
@@ -36,14 +36,14 @@
                 </a>
                 <ul id="ddmenu_1" class="collapse show dropdown-nav pb-1">
                     <li>
-                        <a href="#" class="active"> eCommerce </a>
+                        <a href="./admin" class="active"> eCommerce </a>
                     </li>
                 </ul>
             </li>
 
             <span class="divider"><hr /></span>
             <li class="nav-item">
-            <a href="notification.html">
+            <a href="./admin-order">
               <span class="icon">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -79,19 +79,19 @@
                 </a>
                 <ul id="ddmenu_55" class="collapse dropdown-nav">
                     <li>
-                        <a href="/XHobbeWebApp/views/admin/productList.jsp"> <i class="fa-solid fa-mobile"></i> Phone </a>
+                        <a href="./admin-product"> <i class="fa-solid fa-mobile"></i> Phone </a>
                     </li>
                     <li>
-                        <a href="/XHobbeWebApp/views/admin/productList.jsp"> <i class="fa-solid fa-laptop"></i> Laptop </a>
+                        <a href="./admin-product"> <i class="fa-solid fa-laptop"></i> Laptop </a>
                     </li>
                     <li>
-                        <a href="/XHobbeWebApp/views/admin/productList.jsp"> <i class="fa-solid fa-tablet-button"></i> iPad </a>
+                        <a href="./admin-product"> <i class="fa-solid fa-tablet-button"></i> iPad </a>
                     </li>
                     <li>
-                        <a href="/XHobbeWebApp/views/admin/productList.jsp"> <i class="fa-solid fa-headphones"></i> Accessories </a>
+                        <a href="./admin-product"> <i class="fa-solid fa-headphones"></i> Accessories </a>
                     </li>
                     <li>
-                        <a href="/XHobbeWebApp/views/admin/productList.jsp"> <i class="fa-solid fa-circle"></i> Others </a>
+                        <a href="./admin-product"> <i class="fa-solid fa-circle"></i> Others </a>
                     </li>
                 </ul>
             </li>
@@ -115,13 +115,13 @@
                 </a>
                 <ul id="ddmenu_4" class="collapse dropdown-nav">
                     <li>
-                        <a href="./views/admin/productList.jsp"> Admin </a>
+                        <a href="./admin-account"> Admin </a>
                     </li>
                     <li>
-                        <a href="./views/admin/productList.jsp"> Staff </a>
+                        <a href="./admin-account"> Staff </a>
                     </li>
                     <li>
-                        <a href="./views/admin/productList.jsp"> Customer </a>
+                        <a href="./admin-account"> Customer </a>
                     </li>
                 </ul>
             </li>

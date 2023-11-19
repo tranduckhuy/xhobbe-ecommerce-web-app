@@ -14,7 +14,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="d-flex title gap-4">
-                        <h2>Orders Detail</h2>
+                        <h3>Orders Detail</h3>
                         <form class="form-inline my-2 my-lg-0 d-flex gap-2">
                             <input class="form-control mr-sm-2" type="search" id="searchValue" name="searchValue" placeholder="Search">
                             <input type="hidden" name="searchField" id="searchField"/>
@@ -29,7 +29,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="#0">Orders</a>
+                                    <a href="./admin-order">Orders</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Order Detail
@@ -49,10 +49,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card-style mb-30">
-                        <h6 class="mb-10">Order detail table</h6>
-                        <p class="text-sm mb-20">
-                            Yee...
-                        </p>
+                        <!--<h6 class="mb-10">Order detail table</h6>-->
                         <div class="table-wrapper table-responsive">
                             <table class="table">
                                 <thead>
