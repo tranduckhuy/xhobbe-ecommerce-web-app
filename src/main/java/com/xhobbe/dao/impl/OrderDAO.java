@@ -1,5 +1,6 @@
 package com.xhobbe.dao.impl;
 
+import com.xhobbe.constant.AppConstant;
 import com.xhobbe.dao.IOrderDAO;
 import com.xhobbe.mapper.OrderDetailMapper;
 import com.xhobbe.mapper.OrderMapper;
@@ -105,14 +106,20 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
     }
 
     @Override
-    public List<Order> findByUserId(long userId) {
+    public List<Order> findByStatusAndUserId(long userId, int statusId) {
         StringBuilder sql = new StringBuilder("SELECT o.orderId, u.userId, u.name, u.phoneNumber, o.deliveryAddress, o.total, o.orderStatusId, s.status, o.orderDate ");
         sql.append("FROM `order` AS o ");
         sql.append("JOIN `user` AS u ON o.userId = u.userId AND u.userId = ? ");
         sql.append("JOIN `orderStatusCheck` AS s ON o.orderStatusId = s.orderStatusId ");
-
-        List<Order> resutls = this.queryOrder(sql.toString(), new OrderMapper(), userId);
-
+        
+        List<Order> resutls;
+        
+        if (AppConstant.ALL_STATUS == statusId) {
+            resutls = this.queryOrder(sql.toString(), new OrderMapper(), userId);
+        } else {
+            sql.append("AND s.orderStatusId = ?");
+            resutls = this.queryOrder(sql.toString(), new OrderMapper(), userId, statusId);
+        }
         return resutls;
     }
 
