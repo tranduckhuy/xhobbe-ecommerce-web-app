@@ -78,20 +78,21 @@
                                     <!-- end table row-->
                                 </thead>
                                 <tbody>
+                                    <c:forEach items="${listP}" var="product">
                                     <tr>
                                         <td class="min-width text-center">
                                             <div class="lead-text">
-                                                <p>iPhone 3</p>
+                                                <p>${product.name}</p>
                                             </div>
                                         </td>
                                         <td class="min-width text-center">
-                                            <p><a href="#0">UIdeck digital agency UIdeck digital agency UIdeck digital agency</a></p>
+                                            <p><a href="#0">${product.description}</a></p>
                                         </td>
                                         <td class="min-width text-center">
-                                            <p>Phone</p>
+                                            <p>${product.category}</p>
                                         </td>
                                         <td class="min-width text-center">
-                                            <p>100$</p>
+                                            <p>${product.price}$</p>
                                         </td>
                                         <td class="min-width d-flex gap-2 product justify-content-center">
                                             <div class="product-image">
@@ -106,50 +107,14 @@
                                                 <a href="./admin-product?action=edit" class="text-danger " title="Edit">
                                                     <i class="fa-solid fa-pencil action-hover"></i>
                                                 </a>
-                                                <a href="./admin-product?action=delete" class="text-danger" title="Delete">
+                                                <a href="#" onclick="popupDelete(${product.productId})"class="text-danger" title="Delete">
                                                     <i class="lni lni-trash-can action-hover"></i>
                                                 </a>
                                             </div>
                                         </td>
                                     </tr>
                                     <!-- end table row -->
-                                    <tr>
-                                        <td class="min-width text-center">
-                                            <div class="lead-text">
-                                                <p>iPhone 4</p>
-                                            </div>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p><a href="#0">UIdeck digital agency UIdeck digital agency UIdeck digital agency</a></p>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p>Phone</p>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p>200$</p>
-                                        </td>
-                                        <td class="min-width d-flex gap-2 product">
-                                            <div class="product-image">
-                                                <img src="<c:url value='/template/admin/assets/images/clients/client-profile.png'/>" alt="" />
-                                            </div>
-                                            <div class="product-image">
-                                                <img src="<c:url value='/template/admin/assets/images/lead/lead-1.png'/>" alt="" />
-                                            </div>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="action d-flex gap-2 justify-content-center">
-                                                <div class="action d-flex gap-2 justify-content-center">
-                                                <a href="./admin-product?action=edit" class="text-danger " title="Edit">
-                                                    <i class="fa-solid fa-pencil action-hover"></i>
-                                                </a>
-                                                <a href="./admin-product?action=delete" class="text-danger" title="Delete">
-                                                    <i class="lni lni-trash-can action-hover"></i>
-                                                </a>
-                                            </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- end table row -->
+                                    </c:forEach>
                                 </tbody>
                             </table>
                             <!-- end table -->
@@ -167,4 +132,10 @@
 </section>
 <!-- ========== table components end ========== -->
 
+<script src="./template/admin/assets/js/popup/popupDelete.js"></script>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <%@include file="/common/admin/footer.jsp" %>

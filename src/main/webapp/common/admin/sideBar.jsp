@@ -79,19 +79,19 @@
                 </a>
                 <ul id="ddmenu_55" class="collapse dropdown-nav">
                     <li>
-                        <a href="./admin-product"> <i class="fa-solid fa-mobile"></i> Phone </a>
+                        <a href="./admin-product?action=list"> <i class="fa-solid fa-mobile"></i> Phone </a>
                     </li>
                     <li>
-                        <a href="./admin-product"> <i class="fa-solid fa-laptop"></i> Laptop </a>
+                        <a href="./admin-product?action=list&category=laptop"> <i class="fa-solid fa-laptop"></i> Laptop </a>
                     </li>
                     <li>
-                        <a href="./admin-product"> <i class="fa-solid fa-tablet-button"></i> iPad </a>
+                        <a href="./admin-product?action=list&category=iPad"> <i class="fa-solid fa-tablet-button"></i> iPad </a>
                     </li>
                     <li>
-                        <a href="./admin-product"> <i class="fa-solid fa-headphones"></i> Accessories </a>
+                        <a href="./admin-product?action=list&category=accessories"> <i class="fa-solid fa-headphones"></i> Accessories </a>
                     </li>
                     <li>
-                        <a href="./admin-product"> <i class="fa-solid fa-circle"></i> Others </a>
+                        <a href="./admin-product?action=list&category=others"> <i class="fa-solid fa-circle"></i> Others </a>
                     </li>
                 </ul>
             </li>

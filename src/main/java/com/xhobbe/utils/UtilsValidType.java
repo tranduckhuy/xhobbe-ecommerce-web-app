@@ -9,12 +9,13 @@ package com.xhobbe.utils;
  * @author Lmao
  */
 public class UtilsValidType {
-    public static boolean isInteger(String parameter) {
+    public static int isInteger(String parameter) {
+        int value = -1; 
         try {
-            Integer.valueOf(parameter);
-            return true;
+            value = Integer.parseInt(parameter.trim());
+            return value;
         } catch (NumberFormatException e) {
-            return false;
+            return value;
         }
     }
 
@@ -27,12 +28,11 @@ public class UtilsValidType {
         }
     }
     
-    public static boolean isLong(String parameter) {
+    public static long getLong(String parameter) {
         try {
-            Long.valueOf(parameter);
-            return true;
+            return Long.parseLong(parameter);
         } catch (NumberFormatException e) {
-            return false;
+            return -1L;
         }
     }
 
@@ -40,7 +40,7 @@ public class UtilsValidType {
         return parameter.equalsIgnoreCase("true") || parameter.equalsIgnoreCase("false");
     }
     
-     public static boolean isString(String parameter) {
-        return !isInteger(parameter) && !isDouble(parameter) && !isLong(parameter) && !isBoolean(parameter);
-    }
+//     public static boolean isString(String parameter) {
+//        return !isInteger(parameter) && !isDouble(parameter) && !isLong(parameter) && !isBoolean(parameter);
+//    }
 }
