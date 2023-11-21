@@ -167,4 +167,11 @@
 </section>
 <!-- ========== table components end ========== -->
 
+<script src="./template/admin/assets/js/popup/popupDelete.js"></script>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <%@include file="/common/admin/footer.jsp" %>
