@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface ICartService {
 
-    Long add(Cart cart);
+    Cart add(Cart cart);
 
     List<Cart> findAll(int limit, int offset, String orderBy, String sortBy);
 
