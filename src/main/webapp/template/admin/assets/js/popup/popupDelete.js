@@ -15,7 +15,7 @@ function popupDelete(id) {
             .then((willDelete) => {
                 if (willDelete) {
                     $.ajax({
-                        url: './admin-product?action=delete?cusId=' + id,
+                        url: './admin-product?action=delete&id=' + id,
                         type: 'GET',
                         success: function () {
                             swal("Poof! Your data has been deleted!", {
