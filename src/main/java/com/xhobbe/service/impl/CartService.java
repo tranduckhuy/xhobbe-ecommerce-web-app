@@ -16,8 +16,9 @@ public class CartService implements ICartService {
     ICartDAO cartDAO;
 
     @Override
-    public Long add(Cart cart) {
-        return cartDAO.add(cart);
+    public Cart add(Cart cart) {
+        Long id = cartDAO.add(cart);
+        return id != null ? cart: null;
     }
 
     @Override
