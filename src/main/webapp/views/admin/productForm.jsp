@@ -23,10 +23,10 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
-                                    <a href="#0">Devices</a>
+                                    <a href="#0">Products</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    New Device
+                                    New Product
                                 </li>
                             </ol>
                         </nav>
@@ -42,14 +42,29 @@
                     <div class="col-lg-10">
                         <div class="card bg-form" style="border-radius: 1rem;">
                             <div class="card-body p-4 text-center">
-
-                                <form action="f#" method="post" enctype='multipart/form-data' id="form-add-product">
-                                    <div class="form-outline mx-auto form-group" style="max-width: 500px;">
-                                        <label class="form-label p-2" for="name">Product name</label>
-                                        <input type="text" id="name" name="name" class="form-control mb-1"/>
-                                        <span class="form-message"></span>
+                                <form method="post" enctype='multipart/form-data'>  
+                                    <div class="row">
+                                        <div class="form-outline form-group col-lg-8 row">
+                                            <label class="col-form-label col-lg-4 p-2" for="name">Product name</label>
+                                            <div class="col-lg-8">
+                                                <input type="text" id="name" name="name" class="form-control mb-1"/>
+                                            </div>
+                                            <span class="form-message"></span>
+                                        </div>
+                                        <div class="col-lg-4 form-group">
+                                            <select id="select" name="brand" class="form-select mb-1">
+                                                <option value="" disabled selected>Choose category</option>
+                                                <option value="1">Apple</option>
+                                                <option value="2">Samsung</option>
+                                                <option value="3">Xiaomi</option>
+                                                <option value="4">Asus</option>
+                                                <option value="5">Lenovo</option>
+                                                <option value="6">Dell</option>
+                                                <option value="7">MSI</option>
+                                            </select>
+                                            <span class="form-message"></span>
+                                        </div>
                                     </div>
-
                                     <div class="form-outline form-group">
                                         <label class="form-label" for="description">Description</label>
                                         <textarea class="form-control mb-1" id="description" name="description" rows="5"></textarea>
@@ -64,32 +79,38 @@
                                                 <option value="2">Laptop</option>
                                                 <option value="3">iPad</option>
                                                 <option value="4">Accessories</option>
-                                                <option value="5">Others</option>
                                             </select>
                                             <span class="form-message"></span>
                                         </div>
                                         <div class="col-lg-4 form-group">
-                                            <input type="number" class="form-control mb-1" id="price" name="price" placeholder="Price"/>
+                                            <input type="number" class="form-control mb-1" id="price" min="0" name="price" placeholder="Price"/>
                                             <span class="form-message"></span>
                                         </div>
                                         <div class="col-lg-4 form-group">
-                                            <input type="number" class="form-control mb-1" id="quantity" name="quantity" placeholder="Stock Quantity"/>
+                                            <input type="number" class="form-control mb-1" id="quantity" min="0" name="quantity" placeholder="Stock Quantity"/>
                                             <span class="form-message"></span>
                                         </div>
                                     </div>
 
                                     <div class="row">
+
                                         <div class="col-lg-6 form-group">
-                                            <input type="file" class="form-control mb-1" id="productImage1" name="productImage1"/>
-                                            <span class="form-message"></span>
+                                            <input type="file" class="form-control-file" value="upload" accept=".jpg" id="productImage1">
+                                            <input name="proImage1" type="text" id="proImage1" style="display: none">
+                                            <label for="productImage1">Product image</label>
+                                            <div id="imgDiv1"></div>
+                                            <progress value="0" max="100" id="uploader1">0%</progress>
                                         </div>
                                         <div class="col-lg-6 form-group">
-                                            <input type="file" class="form-control mb-1" id="productImage2" name="productImage2"/>
-                                            <span class="form-message"></span>
+                                            <input type="file" class="form-control-file" value="upload" accept=".jpg, .png" id="productImage2">
+                                            <input name="proImage2" type="text" id="proImage2" style="display: none">
+                                            <label for="productImage2" class="">Product image</label>
+                                            <div id="imgDiv2"></div>
+                                            <progress value="0" max="100" id="uploader2">0%</progress>
                                         </div>
                                     </div>
 
-                                    <button class="btn btn-primary px-4" type="submit">Add</button>
+                                    <button type="submit" class="btn btn-primary px-4">Add</button>
                                 </form>
                             </div>
                         </div>
@@ -108,6 +129,10 @@
 
 </section>
 
+<!-- ========= Firebase ======== -->
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script src="<c:url value='/template/admin/assets/js/firebase/fireBaseUpload.js'/>"></script>
+
 <!-- ========= Validate Javascript files linkup ======== -->
 <script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
 
@@ -115,11 +140,10 @@
     //Validate form add product
     Validator({
         form: '#form-add-product',
-        erroSelector: '.form-message',
+        errorSelector: '.form-message',
         formGroupSelector: '.form-group',
         rules: [
             Validator.isRequired('#name', 'Please enter product name!'),
-            Validator.isNameProduct('#name', 'The name cannot contain special characters!'),
 
             Validator.isRequired('#description', 'Please enter product description!'),
 

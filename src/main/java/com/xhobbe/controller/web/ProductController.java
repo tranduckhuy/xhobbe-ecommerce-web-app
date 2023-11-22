@@ -5,8 +5,8 @@ import com.xhobbe.constant.AppConstant;
 import com.xhobbe.constant.CategoryConstant;
 import com.xhobbe.model.Product;
 import com.xhobbe.service.IProductService;
+import com.xhobbe.utils.UtilsValidType;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -31,38 +31,81 @@ public class ProductController extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         
-        String category = request.getParameter("category");
-        
-        List<Product> list = new ArrayList<>();
+        String action = request.getParameter("action");
 
-        int limit = 10;
-        int offset = 0;
-        
-        if (AppConstant.ALL.equals(category)) {
-            list = productService.findAll(limit, offset, "", "");
+        if (action == null) {
+            response.sendRedirect("./");
+            return;
         }
-        if (CategoryConstant.PHONE.equals(category)) {
-            list = productService.findByCategory(limit, offset, "", "", category);
+
+        switch (action) {
+            case ActionConstant.LIST:
+                listProduct(request, response);
+                break;
+            case ActionConstant.ADD:
+                request.getRequestDispatcher("/views/admin/productForm.jsp").forward(request, response);
+                break;
+            case ActionConstant.DETAIL:
+                getDetailProduct(request, response, ActionConstant.DETAIL);
+                break;
+            case ActionConstant.QUICKVIEW:
+                getDetailProduct(request, response, ActionConstant.QUICKVIEW);
+                break;    
+            default:
+                response.sendRedirect("./");
         }
-        if (CategoryConstant.LAPTOP.equals(category)) {
-            list = productService.findByCategory(limit, offset, "", "", category);
-        }
-        if (CategoryConstant.IPAD.equals(category)) {
-            list = productService.findByCategory(limit, offset, "", "", category);
-        }
-        if (CategoryConstant.ACCESSORIES.equals(category)) {
-            list = productService.findByCategory(limit, offset, "", "", category);
-        }
-        
-        request.setAttribute(ActionConstant.LIST, list);
-        
-        request.getRequestDispatcher("/views/web/category.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+    }
+    
+    
+    private void listProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        
+
+        String category = request.getParameter("category");
+
+        List<Product> list;
+        
+        if (null == category) {
+            response.sendRedirect("./product?action=list&category=all");
+            return;
+        } else switch (category) {
+            case AppConstant.ALL:
+                list = productService.findAll(10, 0, "", "");
+                break;
+            case CategoryConstant.PHONE:
+            case CategoryConstant.LAPTOP:
+            case CategoryConstant.IPAD:
+            case CategoryConstant.ACCESSORIES:
+                list = productService.findByCategory(10, 0, "", "", category);
+                break;
+            default:
+                response.sendRedirect("./product?action=list&category=all");
+                return;
+        }
+        
+        request.setAttribute(AppConstant.LIST, list);
+        request.getRequestDispatcher("/views/web/productList.jsp").forward(request, response);
+
+    }
+
+    private void getDetailProduct(HttpServletRequest request, HttpServletResponse response, String action) throws IOException, ServletException {
+        
+        Long id = UtilsValidType.getLong(request.getParameter("id"));
+        
+        Product product = productService.findOne(id);
+        
+        String views = "/views/web/productDetail.jsp";
+        
+        if (ActionConstant.QUICKVIEW.equals(action)) {
+            views = "/views/web/quickView.jsp";
+        }
+        request.setAttribute(AppConstant.PRODUCT, product);
+        request.getRequestDispatcher(views).forward(request, response);
     }
 
 }

@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface IUserDAO extends GenericDAO<User> {
 
-    User findOne(String email, String phone);
+    User findOne(String email);
     
     User findByEmailAndPassword(String email, String password);
 

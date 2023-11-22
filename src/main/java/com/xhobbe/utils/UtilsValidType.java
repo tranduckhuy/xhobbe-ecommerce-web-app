@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.xhobbe.utils;
 
 /**
@@ -9,26 +6,32 @@ package com.xhobbe.utils;
  * @author Lmao
  */
 public class UtilsValidType {
-    public static int isInteger(String parameter) {
-        int value = -1; 
+    public static int getInteger(String parameter) {
+        if (parameter == null) {
+            return -1;
+        }
         try {
-            value = Integer.parseInt(parameter.trim());
-            return value;
+            return Integer.parseInt(parameter.trim());
         } catch (NumberFormatException e) {
-            return value;
+            return -1;
         }
     }
 
-    public static boolean isDouble(String parameter) {
+    public static double getDouble(String parameter) {
+        if (parameter == null) {
+            return -1;
+        }
         try {
-            Double.valueOf(parameter);
-            return true;
+            return Double.parseDouble(parameter.trim());
         } catch (NumberFormatException e) {
-            return false;
+            return -1;
         }
     }
     
     public static long getLong(String parameter) {
+        if (parameter == null) {
+            return -1;
+        }
         try {
             return Long.parseLong(parameter);
         } catch (NumberFormatException e) {
@@ -37,6 +40,9 @@ public class UtilsValidType {
     }
 
     public static boolean isBoolean(String parameter) {
+        if (parameter == null) {
+            return false;
+        }
         return parameter.equalsIgnoreCase("true") || parameter.equalsIgnoreCase("false");
     }
     

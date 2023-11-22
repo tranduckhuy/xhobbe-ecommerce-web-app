@@ -11,4 +11,5 @@ public class ActionConstant {
     public static final String EDIT = "edit";
     public static final String DELETE = "delete";
     public static final String DETAIL = "detail";
+    public static final String QUICKVIEW = "quickView";
 }

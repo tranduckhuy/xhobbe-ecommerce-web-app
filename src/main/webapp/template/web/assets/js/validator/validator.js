@@ -1,7 +1,4 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
- */
+
 //Object 'Validator'
 
 function Validator(options) {
@@ -19,7 +16,7 @@ function Validator(options) {
 
     //Hàm thực hiện validate
     function validate(inputElement, rule) {
-        var erroElement = getParent(inputElement, options.formGroupSelector).querySelector(options.erroSelector);
+        var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
         var errorMessage;
         
         //Lấy ra các rule của selector
@@ -42,10 +39,10 @@ function Validator(options) {
         }
 
         if (errorMessage) {
-            erroElement.innerText = errorMessage;
+            errorElement.innerText = errorMessage;
             getParent(inputElement, options.formGroupSelector).classList.add('invalid');
         } else {
-            erroElement.innerText = '';
+            errorElement.innerText = '';
             getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
         }
         
@@ -75,7 +72,7 @@ function Validator(options) {
             if (isFormValid){
                 formElement.submit();
             }
-        }
+        };
         
         //Lặp qua mỗi rule và xử lý (lắng nghe sự kiện blur, input,...)
         options.rules.forEach(function (rule) {
@@ -93,14 +90,14 @@ function Validator(options) {
                 //Xử lí trường hợp blur khỏi input
                 inputElement.onblur = function () {
                     validate(inputElement, rule);
-                }
+                };
 
                 //Xử lí trường hợp người dùng nhập vào input
                 inputElement.oninput = function () {
                     var erroElement = getParent(inputElement, options.formGroupSelector).querySelector(options.erroSelector);
                     erroElement.innerText = '';
                     getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
-                }
+                };
             });
         });
     }
@@ -115,7 +112,7 @@ Validator.isRequired = function (selector, message) {
             return value ? undefined : message || 'Please enter this field!';
         }
     };
-}
+};
 
 Validator.isName = function (selector, message) {
     return {
@@ -125,7 +122,7 @@ Validator.isName = function (selector, message) {
             return regex.test(value) ? undefined : message || 'This field must be name!';
         }
     };
-}
+};
 
 Validator.isNameProduct = function (selector, message) {
     return {
@@ -135,7 +132,7 @@ Validator.isNameProduct = function (selector, message) {
             return regex.test(value) ? undefined : message || 'This field must be product name!';
         }
     };
-}
+};
 
 Validator.isEmail = function (selector, message) {
     return {
@@ -145,7 +142,7 @@ Validator.isEmail = function (selector, message) {
             return regex.test(value) ? undefined : message || 'This field must be email!';
         }
     };
-}
+};
 
 Validator.isNumber = function (selector, message) {
     return {
@@ -155,7 +152,7 @@ Validator.isNumber = function (selector, message) {
             return regex.test(value) ? undefined : message || 'This field must be number!';
         }
     };
-}
+};
 
 Validator.minLength = function (selector, min, message) {
     return {
@@ -164,7 +161,7 @@ Validator.minLength = function (selector, min, message) {
             return value.length >= min ? undefined : message || `Please enter a minimum of ${min} characters!`;
         }
     };
-}
+};
 
 Validator.isValidLength = function (selector, validLenght, message) {
     return {
@@ -173,7 +170,7 @@ Validator.isValidLength = function (selector, validLenght, message) {
             return value.length === validLenght ? undefined : message || `Please enter exactly ${validLenght} characters!`;
         }
     };
-}
+};
 
 Validator.isConfirmed = function (selector, getConfirmValue, message) {
     return {
@@ -182,7 +179,7 @@ Validator.isConfirmed = function (selector, getConfirmValue, message) {
             return value === getConfirmValue() ? undefined : message || 'The value entered is incorrect!';
         }
     };
-}
+};
 
 Validator.isPositive = function (selector, message) {
     return {
@@ -192,4 +189,4 @@ Validator.isPositive = function (selector, message) {
             return (parseFloat(value) > 0) ? undefined : message || 'Please enter a positive value!';
         }
     };
-}
+};

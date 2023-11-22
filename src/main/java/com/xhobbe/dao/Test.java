@@ -1,9 +1,7 @@
 package com.xhobbe.dao;
 
-import com.xhobbe.constant.AppConstant;
 import com.xhobbe.dao.impl.OrderDAO;
-import com.xhobbe.model.Order;
-import java.util.List;
+import com.xhobbe.dao.impl.ProductDAO;
 
 
 /**
@@ -21,9 +19,9 @@ public class Test {
 //        order.setTotal(10000);
 //        order.setStatusID(2);       
 
-        List<Order> order = orderDAO.findByStatusAndUserId(3, AppConstant.ALL_STATUS);
-        
-        System.out.println(order);
+//        List<Order> order = orderDAO.findByStatusAndUserId(3, AppConstant.ALL_STATUS);
+//        
+//        System.out.println(order);
         
 //        OrderDetail orderDetail = new OrderDetail();
 //        orderDetail.setProductId(3);
@@ -53,6 +51,8 @@ public class Test {
 //        cart.setQuantity(1000);
 //        cartDAO.delete(6);
 
+
+    ProductDAO dao = new ProductDAO();
             
     }
 }

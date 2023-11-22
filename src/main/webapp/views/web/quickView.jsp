@@ -14,16 +14,10 @@
                 <div class="row">
                     <div class="product-left">
                         <a href="#one" class="carousel-dot active">
-                            <img src="<c:url value='/template/web/assets/images/video/poster-1.jpg'/>">
+                            <img src="${product.getImageURL().get(0)}">
                         </a>
                         <a href="#two" class="carousel-dot">
-                            <img src="<c:url value='/template/web/assets/images/video/poster-3.jpg'/>">
-                        </a>
-                        <a href="#three" class="carousel-dot">
-                            <img src="<c:url value='/template/web/assets/images/video/poster-1.jpg'/>">
-                        </a>
-                        <a href="#four" class="carousel-dot">
-                            <img src="<c:url value='/template/web/assets/images/video/poster-3.jpg'/>">
+                            <img src="${product.getImageURL().get(1)}">
                         </a>
                     </div>
                     <div class="product-right">
@@ -39,43 +33,23 @@
                              }
                              }'>
                             <div class="intro-slide" data-hash="one">
-                                <img src="<c:url value='/template/web/assets/images/video/poster-1.jpg'/>" alt="Image Desc">
-                                <a href="https://www.portotheme.com/html/molla/popup/popup/fullscreen.html" class="btn-fullscreen">
-                                    <i class="icon-arrows"></i>
-                                </a>
+                                <img src="${product.getImageURL().get(0)}" alt="Image Desc">
                             </div><!-- End .intro-slide -->
 
                             <div class="intro-slide" data-hash="two">
-                                <img src="<c:url value='/template/web/assets/images/video/poster-3.jpg'/>" alt="Image Desc">
-                                <a href="https://www.portotheme.com/html/molla/popup/popup/fullscreen.html" class="btn-fullscreen">
-                                    <i class="icon-arrows"></i>
-                                </a>
-                            </div><!-- End .intro-slide -->
-
-                            <div class="intro-slide" data-hash="three">
-                                <img src="<c:url value='/template/web/assets/images/video/poster-1.jpg'/>" alt="Image Desc">
-                                <a href="https://www.portotheme.com/html/molla/popup/popup/fullscreen.html" class="btn-fullscreen">
-                                    <i class="icon-arrows"></i>
-                                </a>
-                            </div><!-- End .intro-slide -->
-
-                            <div class="intro-slide" data-hash="four">
-                                <img src="<c:url value='/template/web/assets/images/video/poster-3.jpg'/>" alt="Image Desc">
-                                <a href="https://www.portotheme.com/html/molla/popup/popup/fullscreen.html" class="btn-fullscreen">
-                                    <i class="icon-arrows"></i>
-                                </a>
+                                <img src="${product.getImageURL().get(1)}" alt="Image Desc">
                             </div><!-- End .intro-slide -->
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-5 col-md-6">
-                <h2 class="product-title">Linen-blend dress</h2>
-                <h3 class="product-price">$60.00</h3>
+                <h2 class="product-title">${product.name}</h2>
+                <h3 class="product-price">${product.price}$</h3>
 
                 <div class="ratings-container">
                     <div class="ratings">
-                        <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
+                        <div class="ratings-val" style="width: 90%;"></div><!-- End .ratings-val -->
                     </div><!-- End .ratings -->
                     <span class="ratings-text">( 2 Reviews )</span>
                 </div><!-- End .rating-container -->
@@ -83,29 +57,14 @@
                 <p class="product-txt">Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue.</p>
 
 
-                <div class="details-filter-row product-nav product-nav-thumbs">
-                    <label for="size">color:</label>
-                    <a href="#" class="active">
-                        <img src="<c:url value='/template/web/assets/images/video/poster-1.jpg'/>" alt="product desc">
-                    </a>
-                    <a href="#">
-                        <img src="<c:url value='/template/web/assets/images/video/poster-3.jpg'/>" alt="product desc">
-                    </a>
-                </div><!-- End .product-nav -->
-
                 <div class="details-filter-row details-row-size">
-                    <label for="size">Size:</label>
-                    <div class="select-custom">
-                        <select name="size" id="size" class="form-control">
-                            <option value="#" selected="selected">Select a size</option>
-                            <option value="s">Small</option>
-                            <option value="m">Medium</option>
-                            <option value="l">Large</option>
-                            <option value="xl">Extra Large</option>
-                        </select>
-                    </div><!-- End .select-custom -->
-                </div>
+                    <label>Color:</label>
 
+                    <div class="product-nav product-nav-dots">
+                        <a href="#!" class="active" style="background: #cc9966;"><span class="sr-only">Color name</span></a>
+                        <a href="#!" style="background: #333333;"><span class="sr-only">Color name</span></a>
+                    </div><!-- End .product-nav -->
+                </div><!-- End .details-filter-row -->
 
                 <div class="details-filter-row details-row-size">
                     <label for="qty">Qty:</label>
@@ -115,20 +74,20 @@
                 </div><!-- End .details-filter-row -->
 
                 <div class="product-details-action">
-                    <div class="details-action-wrapper">
-                        <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
-                        <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to Compare</span></a>
-                    </div><!-- End .details-action-wrapper -->
-                    <a href="./cart" class="btn-product btn-cart"><span>add to cart</span></a>
+                    <button class="btn-product btn-cart"><span>add to cart</span></button>
                 </div>
 
                 <div class="product-details-footer">
-                    <div class="product-cat">
-                        <span>Category:</span>
-                        <a href="#">Women</a>,
-                        <a href="#">Dresses</a>,
-                        <a href="#">Yellow</a>
-                    </div><!-- End .product-cat -->
+                    <div class="d-flex col-lg-12 justify-content-around">
+                        <div class="product-cat">
+                            <span>Category:</span>
+                            <a href="#!" class="font-weight-bold">${product.category}</a>
+                        </div><!-- End .product-cat -->
+                        <div class=" product-cat">
+                            <span>Brand:</span>
+                            <a href="#!" class="font-weight-bold">${product.brand}</a>
+                        </div><!-- End .product-cat -->
+                    </div>
 
                     <div class="social-icons social-icons-sm">
                         <span class="social-label">Share:</span>

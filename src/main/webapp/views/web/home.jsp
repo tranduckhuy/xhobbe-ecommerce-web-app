@@ -222,12 +222,8 @@
                            role="tab" aria-controls="new-all-tab" aria-selected="true">All</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="new-tv-link" data-toggle="tab" href="#new-tv-tab" role="tab"
-                           aria-controls="new-tv-tab" aria-selected="false">TV</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" id="new-computers-link" data-toggle="tab" href="#new-computers-tab"
-                           role="tab" aria-controls="new-computers-tab" aria-selected="false">Computers</a>
+                           role="tab" aria-controls="new-laptop-tab" aria-selected="false">Laptop</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="new-phones-link" data-toggle="tab" href="#new-phones-tab" role="tab"
@@ -436,44 +432,6 @@
                                 <a href="#" style="background: #eaeaec;"><span class="sr-only">Color name</span></a>
                                 <a href="#" style="background: #333333;"><span class="sr-only">Color name</span></a>
                             </div><!-- End .product-nav -->
-                        </div><!-- End .product-body -->
-                    </div><!-- End .product -->
-
-                    <div class="product product-2">
-                        <figure class="product-media">
-                            <span class="product-label label-circle label-top">Top</span>
-                            <a href="product-centered.html">
-                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/products/product-5.jpg'/>" alt="Product image"
-                                     class="product-image">
-                            </a>
-
-                            <div class="product-action-vertical">
-                                <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"></a>
-                            </div><!-- End .product-action -->
-
-                            <div class="product-action">
-                                <a href="cart.html" class="btn-product btn-cart" title="Add to cart"><span>add to
-                                        cart</span></a>
-                                <a href="<c:url value='/template/web/popup/quickView.jsp'/>" class="btn-product btn-quickview"
-                                   title="Quick view"><span>quick view</span></a>
-                            </div><!-- End .product-action -->
-                        </figure><!-- End .product-media -->
-
-                        <div class="product-body">
-                            <div class="product-cat">
-                                <a href="#">TV & Home Theater</a>
-                            </div><!-- End .product-cat -->
-                            <h3 class="product-title"><a href="product-centered.html">Samsung - 55" Class LED 2160p
-                                    Smart</a></h3><!-- End .product-title -->
-                            <div class="product-price">
-                                $899.99
-                            </div><!-- End .product-price -->
-                            <div class="ratings-container">
-                                <div class="ratings">
-                                    <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
-                                </div><!-- End .ratings -->
-                                <span class="ratings-text">( 5 Reviews )</span>
-                            </div><!-- End .rating-container -->
                         </div><!-- End .product-body -->
                     </div><!-- End .product -->
 

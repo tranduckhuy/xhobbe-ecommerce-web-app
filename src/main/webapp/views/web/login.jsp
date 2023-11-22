@@ -102,7 +102,7 @@
                                     <form action="#" id="form-signin">
                                         <div class="form-group">
                                             <label for="singin-email-2">Your email address *</label>
-                                            <input type="email" class="form-control" id="singin-email-2" name="singin-email">
+                                            <input type="email" class="form-control" id="singin-email-2" name="singin-email" placeholder="Ex: acb@gmail.com">
                                             <span class="form-message"></span>
                                         </div><!-- End .form-group -->
 
@@ -124,7 +124,7 @@
                                             </div><!-- End .custom-checkbox -->
 
                                             <a href="#" class="forgot-link">Forgot Your Password?</a>
-                                        </div><!-- End .form-footer -->
+                                        </div> <!-- End .form-footer -->
                                     </form>
                                     <div class="form-choice">
                                         <p class="text-center">or sign in with</p>
@@ -195,7 +195,7 @@
                                                 <label class="custom-control-label" for="register-policy-2">I agree to the <a href="#">privacy policy</a> *</label>
                                                 <p class="form-message"></p>
                                             </div><!-- End .custom-checkbox -->
-                                        </div> End .form-footer 
+                                        </div>
                                     </form>
                                     <div class="form-choice">
                                         <p class="text-center">or sign in with</p>
@@ -248,7 +248,6 @@
                 formGroupSelector: '.form-group',
                 rules: [
                     Validator.isRequired('#register-name', 'Please enter your name!'),
-                    Validator.isName('#register-name', 'The name cannot contain numbers or special characters!'),
 
                     Validator.isRequired('#register-email-2', 'Please enter your email!'),
                     Validator.isEmail('#register-email-2', 'Please enter correct email!'),

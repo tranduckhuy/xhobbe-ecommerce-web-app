@@ -48,16 +48,17 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card-style mb-30">
-                        <h6 class="mb-10">Product Category..</h6>
-                        <p class="text-sm mb-20">
-                            Abc
-                        </p>
+                        <div class="d-flex justify-content-start mb-2">
+                            <a href="./admin-product?action=add" class="my-btn">
+                                Add new <i class="fa-solid fa-plus"></i>
+                            </a>
+                        </div>
                         <div class="table-wrapper table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th class="name-info text-center">
-                                            <h6>Name</h6>
+                                            <h6 class="">Name</h6>
                                         </th>
                                         <th class="description text-center">
                                             <h6>Description</h6>
@@ -78,42 +79,49 @@
                                     <!-- end table row-->
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${listP}" var="product">
-                                    <tr>
-                                        <td class="min-width text-center">
-                                            <div class="lead-text">
-                                                <p>${product.name}</p>
-                                            </div>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p><a href="#0">${product.description}</a></p>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p>${product.category}</p>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p>${product.price}$</p>
-                                        </td>
-                                        <td class="min-width d-flex gap-2 product justify-content-center">
-                                            <div class="product-image">
-                                                <img src="<c:url value='/template/admin/assets/images/lead/lead-3.png'/>" alt="" />
-                                            </div>
-                                            <div class="product-image">
-                                                <img src="<c:url value='/template/admin/assets/images/lead/lead-4.png'/>" alt="" />
-                                            </div>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="action d-flex gap-2 justify-content-center">
-                                                <a href="./admin-product?action=edit" class="text-danger " title="Edit">
-                                                    <i class="fa-solid fa-pencil action-hover"></i>
-                                                </a>
-                                                <a href="#" onclick="popupDelete(${product.productId})"class="text-danger" title="Delete">
-                                                    <i class="lni lni-trash-can action-hover"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- end table row -->
+                                    <c:forEach var="product" items="${list}">
+                                        <tr>
+                                            <td class="min-width text-center">
+                                                <div class="lead-text">
+                                                    <p>${product.name}</p>
+                                                </div>
+                                            </td>
+                                            <td class="min-width text-center">
+                                                <c:choose>
+                                                    <c:when test="${fn:length(product.description) > 50}">
+                                                        <p>${fn:substring(product.description, 0, 50)}...</p>
+                                                    </c:when>
+                                                        <c:otherwise>
+                                                        <p>${product.description}</p>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                            </td>
+                                            <td class="min-width text-center">
+                                                <p>${product.category}</p>
+                                            </td>
+                                            <td class="min-width text-center">
+                                                <p>${product.price}$</p>
+                                            </td>
+                                            <td class="min-width d-flex gap-2 product justify-content-center">
+                                                <div class="product-image">
+                                                    <img src="<c:url value='${product.getImageURL().get(0)}'/>" alt="" />
+                                                </div>
+                                                <div class="product-image">
+                                                    <img src="<c:url value='${product.getImageURL().get(1)}'/>" alt="" />
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="action d-flex gap-4 justify-content-center">
+                                                    <a href="./admin-product?action=edit&id=${product.productId}" class="text-danger " title="Edit">
+                                                        <i class="fa-solid fa-pencil action-hover"></i>
+                                                    </a>
+                                                    <a href="./admin-product?action=detail&id=${product.productId}" "class="text-danger" target="_blank" title="Detail">
+                                                        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- end table row -->
                                     </c:forEach>
                                 </tbody>
                             </table>
@@ -132,7 +140,6 @@
 </section>
 <!-- ========== table components end ========== -->
 
-<script src="./template/admin/assets/js/popup/popupDelete.js"></script>
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
