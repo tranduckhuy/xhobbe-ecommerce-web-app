@@ -12917,6 +12917,11 @@ button:focus {
     background-color: #c96
 }
 
+.product-details-action .btn-cart:hover span,
+.product-details-action .btn-cart:focus span {
+    color: #fff;
+}
+
 .details-action-wrapper {
     display: flex;
     align-items: center;

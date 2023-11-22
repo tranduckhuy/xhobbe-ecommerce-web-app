@@ -36,12 +36,6 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public void delete(long id) {
-        
-        productDAO.delete(id);
-    }
-
-    @Override
     public List<Product> findAll(int limit, int offset, String orderBy, String sortBy) {
         
         return productDAO.findAll(limit, offset, sortBy, sortBy);

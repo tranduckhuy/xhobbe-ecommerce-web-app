@@ -34,7 +34,7 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
             }
             return results;
         } catch (SQLException e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
             return Collections.EMPTY_LIST;
         }
     }
@@ -111,16 +111,7 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
             super.insert(sqlImage, product.getProductId(), imageURL);
         }
     }
-
-    @Override
-    public void delete(long id) {
-        String sql = "DELETE FROM productImage WHERE productId = ?";
-        super.update(sql, id);
-        sql = "DELETE FROM product WHERE productId= ?";
-        super.update(sql, id);
-        
-    }
-
+    
     @Override
     public List<Product> findAll(int limit, int offset, String orderBy, String sortBy) {
         StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity ");
@@ -145,8 +136,8 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
     public List<Product> findByCategory(int limit, int offset, String orderBy, String sortBy, String categoryName) {
         StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity ");
         sql.append("FROM product AS p ");
-        sql.append("JOIN category AS c ON p.categoryId = c.categoryId AND p.categoryName = ? ");
-        sql.append("JOIN brand AS b ON p.brandId = b.brandId");
+        sql.append("JOIN category AS c ON p.categoryId = c.categoryId AND c.categoryName = ? ");
+        sql.append("JOIN brand AS b ON p.brandId = b.brandId ");
         
         if ("".equals(orderBy)  || "".equals(sortBy)) {
         } else {
@@ -166,7 +157,7 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
         StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity ");
         sql.append("FROM product AS p ");
         sql.append("JOIN category AS c ON p.categoryId = c.categoryId ");
-        sql.append("JOIN brand AS b ON p.brandId = b.brandId AND p.brandName = ?");
+        sql.append("JOIN brand AS b ON p.brandId = b.brandId AND p.brandName = ? ");
         
         if ("".equals(orderBy)  || "".equals(sortBy)) {
         } else {

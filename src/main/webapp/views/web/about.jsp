@@ -49,7 +49,7 @@
                         <p class="lead text-primary mb-3">Pellentesque odio nisi, euismod pharetra a ultricies <br>in diam. Sed arcu. Cras consequat</p><!-- End .lead text-primary -->
                         <p class="mb-2">Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, uctus metus libero eu augue. </p>
 
-                        <a href="blog.html" class="btn btn-sm btn-minwidth btn-outline-primary-2">
+                        <a href="./views/web/blog.jsp" class="btn btn-sm btn-minwidth btn-outline-primary-2">
                             <span>VIEW OUR NEWS</span>
                             <i class="icon-long-arrow-right"></i>
                         </a>
@@ -230,19 +230,18 @@
                      }'>
                     <blockquote class="testimonial text-center">
                         <img src="<c:url value='/template/web/assets/images/testimonials/user-1.jpg'/>" alt="user">
-                        <p>“ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque aliquet nibh nec urna. <br>In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti. ”</p>
+                        <p style="font-family: monospace">“ Sốp bán đồ quá chất lượng, ngon bổ rẻ, anh chị em nên mua! ”</p>
                         <cite>
-                            Jenson Gregory
-                            <span>Customer</span>
+                            Incognito
+                            <span>King</span>
                         </cite>
                     </blockquote><!-- End .testimonial -->
 
                     <blockquote class="testimonial text-center">
                         <img src="<c:url value='/template/web/assets/images/testimonials/user-2.jpg'/>" alt="user">
-                        <p>“ Impedit, ratione sequi, sunt incidunt magnam et. Delectus obcaecati optio eius error libero perferendis nesciunt atque dolores magni recusandae! Doloremque quidem error eum quis similique doloribus natus qui ut ipsum.Velit quos ipsa exercitationem, vel unde obcaecati impedit eveniet non. ”</p>
-
+                        <p style="font-family: monospace">“ Lại còn phải hỏi ” </br> “ Quá ngon bổ rẻ, quẹo lựa quẹo lựa!! ”</p>
                         <cite>
-                            Victoria Ventura
+                            Incognito
                             <span>Customer</span>
                         </cite>
                     </blockquote><!-- End .testimonial -->

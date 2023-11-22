@@ -159,19 +159,19 @@
                                     <a href="/XHobbeWebApp/">Home</a>
                                 </li>
                                 <li>
-                                    <a href="./product?category=all">Shop</a>
+                                    <a href="./product?action=list&category=all">Shop</a>
                                 </li>
                                 <li>
-                                    <a href="./product?category=phone">Phones</a>
+                                    <a href="./product?action=list&category=Phone">Phones</a>
                                 </li>
                                 <li>
-                                    <a href="./product?category=laptop">Laptops</a>
+                                    <a href="./product?action=list&category=Laptop">Laptops</a>
                                 </li>
                                 <li>
-                                    <a href="./product?category=iPad">iPad</a>
+                                    <a href="./product?action=list&category=IPad">iPad</a>
                                 </li>
                                 <li>
-                                    <a href="./product?category=accessories">Accessories</a>
+                                    <a href="./product?action=list&category=Accessories">Accessories</a>
                                 </li>
                             </ul><!-- End .menu -->
                         </nav><!-- End .main-nav -->

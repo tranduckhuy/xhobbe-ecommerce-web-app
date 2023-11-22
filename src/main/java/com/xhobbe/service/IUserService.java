@@ -9,15 +9,15 @@ import java.util.List;
  */
 public interface IUserService {
 
-    User findOne(String email, String phone);
+    User findOne(String email);
 
     User findByEmailAndPassword(String email, String password);
 
     List<User> findByRole(int roleId);
 
-    Long add(User user);
+    User add(User user);
 
-    void update(User user);
+    User update(User user);
 
     void delete(long id);
 

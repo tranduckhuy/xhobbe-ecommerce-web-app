@@ -16,8 +16,8 @@ public class UserService implements IUserService {
     private IUserDAO userDAO;
 
     @Override
-    public User findOne(String email, String phone) {
-        return userDAO.findOne(email, phone);
+    public User findOne(String email) {
+        return userDAO.findOne(email);
     }
 
     @Override
@@ -31,13 +31,19 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public Long add(User user) {
-        return userDAO.add(user);
+    public User add(User user) {
+        
+        Long id = userDAO.add(user);
+        
+        return id != null ? user: null;
     }
 
     @Override
-    public void update(User user) {
+    public User update(User user) {
+
         userDAO.update(user);
+
+        return userDAO.findOne(user.getEmail());
     }
 
     @Override

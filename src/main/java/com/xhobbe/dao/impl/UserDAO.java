@@ -13,9 +13,9 @@ import java.util.List;
 public class UserDAO extends AbstractDAO<User> implements IUserDAO {
 
     @Override
-    public User findOne(String email, String phone) {
-        String sql = "SELECT u.*, r.roleName FROM user AS u JOIN role AS r ON u.roleId = r.roleId WHERE u.email = ? or u.phoneNumber = ?";
-        List<User> users = query(sql, new UserMapper(), email, phone);
+    public User findOne(String email) {
+        String sql = "SELECT u.*, r.roleName FROM user AS u JOIN role AS r ON u.roleId = r.roleId WHERE u.email = ?";
+        List<User> users = query(sql, new UserMapper(), email);
         return users.isEmpty() ? null : users.get(0);
     }
 

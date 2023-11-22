@@ -12,9 +12,9 @@
     <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
         <div class="container d-flex align-items-center">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Products</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Centered</li>
+                <li class="breadcrumb-item"><a href="./home">Home</a></li>
+                <li class="breadcrumb-item"><a href="./product?action=list&category=all">Shop</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Product Detail</li>
             </ol>
         </div><!-- End .container -->
     </nav><!-- End .breadcrumb-nav -->
@@ -27,7 +27,7 @@
                         <div class="product-gallery product-gallery-vertical">
                             <div class="row">
                                 <figure class="product-main-image">
-                                    <img id="product-zoom" src="<c:url value='/template/web/assets/images/products/single/centered/1.jpg'/>" data-zoom-image="<c:url value='/template/web/assets/images/products/single/centered/1-big.jpg'/>" alt="product image">
+                                    <img id="product-zoom" src="<c:url value='${product.getImageURL().get(0)}'/>" data-zoom-image="<c:url value='${product.getImageURL().get(0)}'/>" alt="product image">
 
                                     <a href="#" id="btn-product-gallery" class="btn-product-gallery">
                                         <i class="icon-arrows"></i>
@@ -35,12 +35,12 @@
                                 </figure><!-- End .product-main-image -->
 
                                 <div id="product-zoom-gallery" class="product-image-gallery">
-                                    <a class="product-gallery-item active" href="#" data-image="<c:url value='/template/web/assets/images/products/single/centered/1.jpg'/>" data-zoom-image="<c:url value='/template/web/assets/images/products/single/centered/1-big.jpg'/>">
-                                        <img src="<c:url value='/template/web/assets/images/products/single/centered/1-small.jpg'/>" alt="product side">
+                                    <a class="product-gallery-item active" href="#" data-image="<c:url value='${product.getImageURL().get(0)}'/>" data-zoom-image="<c:url value='${product.getImageURL().get(0)}'/>">
+                                        <img src="<c:url value='${product.getImageURL().get(0)}'/>" alt="product side">
                                     </a>
 
-                                    <a class="product-gallery-item" href="#" data-image="<c:url value='/template/web/assets/images/products/single/centered/3-big.jpg'/>" data-zoom-image="<c:url value='/template/web/assets/images/products/single/centered/3-big.jpg'/>">
-                                        <img src="<c:url value='/template/web/assets/images/products/single/centered/3-small.jpg'/>" alt="product cross">
+                                    <a class="product-gallery-item" href="#" data-image="<c:url value='${product.getImageURL().get(1)}'/>" data-zoom-image="<c:url value='${product.getImageURL().get(1)}'/>">
+                                        <img src="<c:url value='${product.getImageURL().get(1)}'/>" alt="product cross">
                                     </a>
                                 </div><!-- End .product-image-gallery -->
                             </div><!-- End .row -->
@@ -49,7 +49,7 @@
 
                     <div class="col-md-6">
                         <div class="product-details product-details-centered">
-                            <h1 class="product-title">Beige metal hoop tote bag</h1><!-- End .product-title -->
+                            <h1 class="product-title">${product.name}</h1><!-- End .product-title -->
 
                             <div class="ratings-container">
                                 <div class="ratings">
@@ -59,7 +59,7 @@
                             </div><!-- End .rating-container -->
 
                             <div class="product-price">
-                                $76.00
+                                ${product.price}$
                             </div><!-- End .product-price -->
 
                             <div class="product-content">
@@ -75,21 +75,6 @@
                                 </div><!-- End .product-nav -->
                             </div><!-- End .details-filter-row -->
 
-                            <div class="details-filter-row details-row-size">
-                                <label for="size">Size:</label>
-                                <div class="select-custom">
-                                    <select name="size" id="size" class="form-control">
-                                        <option value="#" selected="selected">One Size</option>
-                                        <option value="s">Small</option>
-                                        <option value="m">Medium</option>
-                                        <option value="l">Large</option>
-                                        <option value="xl">Extra Large</option>
-                                    </select>
-                                </div><!-- End .select-custom -->
-
-                                <a href="#" class="size-guide"><i class="icon-th-list"></i>size guide</a>
-                            </div><!-- End .details-filter-row -->
-
                             <div class="product-details-action">
                                 <div class="details-action-col">
                                     <div class="product-details-quantity">
@@ -99,21 +84,20 @@
                                     <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
                                 </div><!-- End .details-action-col -->
 
-                                <div class="details-action-wrapper">
-                                    <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
-                                    <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to Compare</span></a>
-                                </div><!-- End .details-action-wrapper -->
                             </div><!-- End .product-details-action -->
 
                             <div class="product-details-footer">
-                                <div class="product-cat">
-                                    <span>Category:</span>
-                                    <a href="#">Women</a>,
-                                    <a href="#">Dresses</a>,
-                                    <a href="#">Yellow</a>
-                                </div><!-- End .product-cat -->
-
-                                <div class="social-icons social-icons-sm">
+                                <div class="col-lg-7 d-flex justify-content-around">
+                                    <div class="product-cat">
+                                        <span>Category:</span>
+                                        <a href="#!">${product.category}</a>
+                                    </div><!-- End .product-cat -->
+                                    <div class=" product-cat">
+                                        <span>Brand:</span>
+                                        <a href="#!">${product.brand}</a>
+                                    </div><!-- End .product-cat -->
+                                </div>
+                                <div class="col-lg-5 social-icons social-icons-sm">
                                     <span class="social-label">Share:</span>
                                     <a href="#" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
                                     <a href="#" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
@@ -132,9 +116,6 @@
                         <a class="nav-link active" id="product-desc-link" data-toggle="tab" href="#product-desc-tab" role="tab" aria-controls="product-desc-tab" aria-selected="true">Description</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="product-info-link" data-toggle="tab" href="#product-info-tab" role="tab" aria-controls="product-info-tab" aria-selected="false">Additional information</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" id="product-shipping-link" data-toggle="tab" href="#product-shipping-tab" role="tab" aria-controls="product-shipping-tab" aria-selected="false">Shipping & Returns</a>
                     </li>
                     <li class="nav-item">
@@ -145,33 +126,7 @@
                     <div class="tab-pane fade show active" id="product-desc-tab" role="tabpanel" aria-labelledby="product-desc-link">
                         <div class="product-desc-content">
                             <h3>Product Information</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. </p>
-                            <ul>
-                                <li>Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit. </li>
-                                <li>Vivamus finibus vel mauris ut vehicula.</li>
-                                <li>Nullam a magna porttitor, dictum risus nec, faucibus sapien.</li>
-                            </ul>
-
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. </p>
-                        </div><!-- End .product-desc-content -->
-                    </div><!-- .End .tab-pane -->
-                    <div class="tab-pane fade" id="product-info-tab" role="tabpanel" aria-labelledby="product-info-link">
-                        <div class="product-desc-content">
-                            <h3>Information</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. </p>
-
-                            <h3>Fabric & care</h3>
-                            <ul>
-                                <li>Faux suede fabric</li>
-                                <li>Gold tone metal hoop handles.</li>
-                                <li>RI branding</li>
-                                <li>Snake print trim interior </li>
-                                <li>Adjustable cross body strap</li>
-                                <li> Height: 31cm; Width: 32cm; Depth: 12cm; Handle Drop: 61cm</li>
-                            </ul>
-
-                            <h3>Size</h3>
-                            <p>one size</p>
+                            <p>${product.description}</p>
                         </div><!-- End .product-desc-content -->
                     </div><!-- .End .tab-pane -->
                     <div class="tab-pane fade" id="product-shipping-tab" role="tabpanel" aria-labelledby="product-shipping-link">
