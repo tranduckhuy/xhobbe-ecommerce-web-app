@@ -45,6 +45,7 @@
 <script src="<c:url value='/template/admin/assets/js/world-merc.js'/>"></script>
 <script src="<c:url value='/template/admin/assets/js/polyfill.js'/>"></script>
 <script src="<c:url value='/template/admin/assets/js/main.js'/>"></script>
+<script src="<c:url value='/template/web/assets/js/jquery.min.js'/>"></script>
 
 <script>
     // ======== jvectormap activation

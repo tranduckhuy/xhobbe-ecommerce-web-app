@@ -180,7 +180,7 @@
             //Validate regiter
             Validator({
                 form: '#form-customer-edit-account',
-                erroSelector: '.form-message',
+                errorSelector: '.form-message',
                 formGroupSelector: '.form-group',
                 rules: [
                     Validator.isRequired('#edit-name', 'Please enter your name!'),

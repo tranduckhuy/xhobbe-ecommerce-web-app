@@ -94,8 +94,8 @@ function Validator(options) {
 
                 //Xử lí trường hợp người dùng nhập vào input
                 inputElement.oninput = function () {
-                    var erroElement = getParent(inputElement, options.formGroupSelector).querySelector(options.erroSelector);
-                    erroElement.innerText = '';
+                    var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
+                    errorElement.innerText = '';
                     getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
                 };
             });
