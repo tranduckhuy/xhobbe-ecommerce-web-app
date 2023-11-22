@@ -35,6 +35,9 @@
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/style.css'/>">
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/skins/skin-demo-4.css'/>">
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/demos/demo-4.css'/>">
+        <!-- jQuery -->
+        <script src="<c:url value='/template/jquery/jquery-v3.7.1.min.js'/>"></script>
+        
     </head>
     <body>
         <header class="header header-intro-clearance header-4">
@@ -94,11 +97,12 @@
                     <div class="header-center">
                         <div class="header-search header-search-extended header-search-visible d-none d-lg-block">
                             <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
-                            <form action="#" method="get">
+                            <form action="product" method="post">
                                 <div class="header-search-wrapper search-wrapper-wide">
                                     <label for="search" class="sr-only">Search</label>
                                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
                                     <input type="search" class="form-control" name="search" id="search" placeholder="Search product ..." required>
+                                    <input type="hidden" class="form-control" name="action" required value="search">
                                 </div><!-- End .header-search-wrapper -->
                             </form>
                         </div><!-- End .header-search -->

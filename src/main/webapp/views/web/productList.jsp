@@ -50,7 +50,7 @@
             </div><!-- End .toolbox -->
 
             <div class="products">
-                <div class="row">
+                <div class="row" id="productContainer">
 
                     <!-- comment -->
                     <c:forEach var="item" items="${list}">     
@@ -60,7 +60,7 @@
                                 <figure class="product-media">
                                     <span class="product-label label-new">New</span>
                                     <a href="./product?action=detail&id=${item.productId}">
-                                        <img src="<c:url value='${item.getImageURL().get(0)}'/>" alt="Product image" class="product-image" style="height: 260px">
+                                        <img src="${item.getImageURL().get(0)}" alt="Product image" class="product-image" style="height: 260px">
                                     </a>
 
                                     <div class="product-action-vertical">
@@ -74,9 +74,6 @@
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <div class="product-cat">
-                                        <a href="#">Women</a>
-                                    </div><!-- End .product-cat -->
                                     <h3 class="product-title"><a href="./product?action=detail&id=${item.productId}">${item.getName()}</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         ${item.getPrice()}$
@@ -101,10 +98,11 @@
                     </c:forEach>     
                     <!-- comment -->
 
-                    <div class="col-lg-12 load-more-container text-center d-flex  justify-content-center">
-                        <a href="#" class="btn btn-outline-darker btn-load-more">More Products <i class="icon-refresh"></i></a>
-                    </div><!-- End .load-more-container -->
                 </div><!-- End .products -->
+
+                <div class="col-lg-12 load-more-container text-center d-flex  justify-content-center">
+                    <button id="loadMoreBtn" class="btn btn-outline-darker btn-load-more">More Products <i class="icon-refresh"></i></button >
+                </div><!-- End .load-more-container -->
 
                 <div class="sidebar-filter-overlay"></div><!-- End .sidebar-filter-overlay -->
                 <aside class="sidebar-shop sidebar-filter">
@@ -194,7 +192,7 @@
                                                 <label class="custom-control-label" for="brand-7">Dell</label>
                                             </div><!-- End .custom-checkbox -->
                                         </div><!-- End .filter-item -->
-                                        
+
                                         <div class="filter-item">
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="brand-8">
@@ -211,7 +209,83 @@
                 </aside><!-- End .sidebar-filter -->
             </div><!-- End .container -->
         </div><!-- End .page-content -->
+    </div><!-- End .page-content -->
 </main><!-- End .main -->
 
+
+<script>
+
+    // Get the full URL
+    var url = window.location.href;
+    // Use URLSearchParams to extract parameters
+    var urlParams = new URLSearchParams(url);
+    // Get the value of the 'category' parameter
+    var categoryValue = urlParams.get('category');
+    $(document).ready(function () {
+    // Attach a click event to the "Load More" button
+    $("#loadMoreBtn").click(function () {
+    // Make an AJAX request to the servlet with parameters
+    var currentTotal = $('.product').length;
+    $.ajax({
+    url: "product?action=loadMore",
+            data: {
+            currentTotal: currentTotal,
+                    category: categoryValue
+            },
+            cache: false,
+            type: "get",
+            success: function (data) {
+            // Update the product container with the new products
+            var productContainer = $("#productContainer");
+            $.each(data, function (index, product) {
+            // Append moreProducts to productContainer
+                var productCart = "<div class='col-6 col-md-4 col-lg-4 col-xl-3'>" +
+                        "<div class='product'>" +
+                            "<figure class='product-media'>" +
+                                "<span class='product-label label-new'>New</span>" +
+                                "<a href='./product?action=detail&id=" + product.productId + "'>" +
+                                    "<img src='" + product.imageURL[0] + "' alt='Product image' class='product-image' style='height: 260px'>" +
+                                "</a>" +
+                                "<div class='product-action-vertical'>" +
+                                    "<a href='#' class='btn-product-icon btn-wishlist btn-expandable'><span>xHobbe</span></a>" +
+                                "</div><!-- End .product-action -->" +
+
+                                "<div class='product-action action-icon-top'>" +
+                                    "<a href='./cart' class='btn-product btn-cart'><span>add to cart</span></a>" +
+                                    "<a href='./product?action=quickView&id=" + product.productId + "' class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a>" +
+                                "</div>" +
+                            "</figure><!-- End .product-media -->" +
+
+                            "<div class='product-body'>" +
+                                "<h3 class='product-title'><a href='./product?action=detail&id=" + product.productId + "'>" + product.name + "</a></h3>" +
+                                "<div class='product-price'>" +
+                                    product.price + "$" +
+                                "</div>" +
+                                "<div class='ratings-container'>" +
+                                    "<div class='ratings'>" +
+                                        "<div class='ratings-val' style='width: 0%;'></div>" +
+                                    "</div>" +
+                                    "<span class='ratings-text'>( 0 Reviews )</span>" +
+                                "</div>" +
+                                "<div class='product-nav product-nav-dots'>"+
+                                    "<a href='#' style='background: #cc9966;'><span class='sr-only'>Color name</span></a>"+
+                                    "<a href='#' class='active' style='background: #ebebeb;'><span class='sr-only'>Color name</span></a>"+
+                                "</div>"+
+                            "</div>"+
+                        "</div>"+
+                    "</div>"
+                
+                productContainer.append(productCart);
+                    });
+                },
+                error: function (xhr) {
+                    // Handle errors
+                    console.error("Error loading more products");
+                }
+            });
+        });
+    });
+
+</script>
 
 <%@ include file="/common/web/footer.jsp"%>

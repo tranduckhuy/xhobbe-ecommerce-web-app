@@ -10,17 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5002a470-9025-40fa-b3ce-55627b923b11" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/dao/IProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/dao/IProductDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/dao/impl/OrderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/dao/impl/OrderDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/dao/impl/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/dao/impl/ProductDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/filter/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/filter/AuthorizationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/service/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/service/IProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/service/impl/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/service/impl/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/constant/ActionConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/constant/ActionConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/web/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/web/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/utils/ProductUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/utils/ProductUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/common/web/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/web/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/demos/demo-4/cats/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/demos/demo-4/cats/4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/productList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/productList.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +59,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "productOrderDAO",
+    "git-widget-placeholder": "Authentication-Authorization",
     "last_opened_file_path": "E:/FPTU/Semester 4 - Fall23/PRJ301/Project/XHobbeWebApp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -118,6 +119,7 @@
       <workItem from="1700216751239" duration="464000" />
       <workItem from="1700229625522" duration="2267000" />
       <workItem from="1700365198771" duration="78000" />
+      <workItem from="1700673654196" duration="2878000" />
     </task>
     <servers />
   </component>
