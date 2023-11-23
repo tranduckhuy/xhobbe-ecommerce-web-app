@@ -42,7 +42,7 @@
                     <div class="col-lg-10">
                         <div class="card bg-form" style="border-radius: 1rem;">
                             <div class="card-body p-4 text-center">
-                                <form method="post" enctype='multipart/form-data'>  
+                                <form id="form-edit-product" method="post" enctype='multipart/form-data'>  
                                     <div class="row">
                                         <div class="form-outline form-group col-lg-8 row">
                                             <label class="col-form-label col-lg-4 p-2" for="name">Product name</label>
@@ -52,7 +52,7 @@
                                             <span class="form-message"></span>
                                         </div>
                                         <div class="col-lg-4 form-group">
-                                            <select id="select" name="brand" class="form-select mb-1">
+                                            <select id="brand-select" name="brand" class="form-select mb-1">
                                                 <option value="" disabled selected>Choose category</option>
                                                 <option value="1" <c:if test="${'Apple' eq product.brand}">selected</c:if> >
                                                     Apple
@@ -87,7 +87,7 @@
 
                                     <div class="row">
                                         <div class="col-lg-4 form-group">
-                                            <select id="select" name="category" class="form-select mb-1">
+                                            <select id="category-select" name="category" class="form-select mb-1">
                                                 <option value="" disabled selected>Choose category</option>
                                                 <option value="1" <c:if test="${'Phone' eq product.category}">selected</c:if> >
                                                     Phone
@@ -159,30 +159,39 @@
 <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 <script src="<c:url value='/template/admin/assets/js/firebase/fireBaseUpload.js'/>"></script>
 
+<!-- ========= CKEditor Javascript files linkup ======== -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+<!--<script src="<c:url value='/template/admin/assets/ckeditor5-build-classic/ckeditor.js'/>"></script>-->
+
 <!-- ========= Validate Javascript files linkup ======== -->
 <script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
 
 <script>
+    var editor = '';
+    $(document).ready(function () {
+        editor = CKEDITOR.replace('description');
+    });
+    
     //Validate form add product
     Validator({
-        form: '#form-add-product',
-        erroSelector: '.form-message',
+        form: '#form-edit-product',
+        errorSelector: '.form-message',
         formGroupSelector: '.form-group',
         rules: [
             Validator.isRequired('#name', 'Please enter product name!'),
 
+            Validator.isRequired('#brand-select', 'Please enter product name!'),
+
             Validator.isRequired('#description', 'Please enter product description!'),
 
-            Validator.isRequired('#select', 'Please choose product category!'),
+            Validator.isRequired('#category-select', 'Please choose product category!'),
 
             Validator.isRequired('#price', 'Please enter product price!'),
             Validator.isPositive('#price', 'Please enter product price greater than 0!'),
 
             Validator.isRequired('#quantity', 'Please choose product quantity!'),
             Validator.isPositive('#quantity', 'Please enter product quantity greater than 0!'),
-
-            Validator.isRequired('#productImage1', 'Please choose product image!'),
-            Validator.isRequired('#productImage2', 'Please choose product image!')
         ]
     });
 </script>

@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp" %>
+<link rel="stylesheet" href="<c:url value='/template/web/assets/css/validate/validate.css'/>">
 
 <!DOCTYPE html>
 <html>
@@ -81,19 +82,21 @@
                                         Start creating the best possible user experience for you
                                         customers.
                                     </p>
-                                    <form action="#">
+                                    <form action="#" id="form-login-account">
                                         <div class="row">
                                             <div class="col-12">
-                                                <div class="input-style-1">
+                                                <div class="input-style-1 form-group">
                                                     <label>Email</label>
-                                                    <input type="email" placeholder="Email" />
+                                                    <input id="email" type="email" placeholder="Email" />
+                                                    <span class="form-message"></span>
                                                 </div>
                                             </div>
                                             <!-- end col -->
                                             <div class="col-12">
-                                                <div class="input-style-1">
+                                                <div class="input-style-1 form-group">
                                                     <label>Password</label>
-                                                    <input type="password" placeholder="Password" />
+                                                    <input id="password" type="password" placeholder="Password" />
+                                                    <span class="form-message"></span>
                                                 </div>
                                             </div>
                                             <!-- end col -->
@@ -119,4 +122,21 @@
         </main>
         <!-- ======== main-wrapper end =========== -->
     </body>
+    <!-- Validator JS File -->
+<script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
+<script>
+
+    //Validate regiter
+    Validator({
+        form: '#form-login-account',
+        errorSelector: '.form-message',
+        formGroupSelector: '.form-group',
+        rules: [
+            Validator.isRequired('#email', 'Please enter account email!'),
+            Validator.isEmail('#email', 'Please enter correct email!'),
+
+             Validator.isRequired('#password', 'Please enter account password!'),
+        ]
+    });
+</script>
 </html>

@@ -42,7 +42,7 @@
                     <div class="col-lg-10">
                         <div class="card bg-form" style="border-radius: 1rem;">
                             <div class="card-body p-4 text-center">
-                                <form method="post" enctype='multipart/form-data'>  
+                                <form id="form-add-product" method="post" enctype='multipart/form-data'>  
                                     <div class="row">
                                         <div class="form-outline form-group col-lg-8 row">
                                             <label class="col-form-label col-lg-4 p-2" for="name">Product name</label>
@@ -52,8 +52,8 @@
                                             <span class="form-message"></span>
                                         </div>
                                         <div class="col-lg-4 form-group">
-                                            <select id="select" name="brand" class="form-select mb-1">
-                                                <option value="" disabled selected>Choose category</option>
+                                            <select id="brand-select" name="brand" class="form-select mb-1">
+                                                <option value="" disabled selected>Choose brand</option>
                                                 <option value="1">Apple</option>
                                                 <option value="2">Samsung</option>
                                                 <option value="3">Xiaomi</option>
@@ -73,7 +73,7 @@
 
                                     <div class="row">
                                         <div class="col-lg-4 form-group">
-                                            <select id="select" name="category" class="form-select mb-1">
+                                            <select id="category-select" name="category" class="form-select mb-1">
                                                 <option value="" disabled selected>Choose category</option>
                                                 <option value="1">Phone</option>
                                                 <option value="2">Laptop</option>
@@ -100,6 +100,7 @@
                                             <label for="productImage1">Product image</label>
                                             <div id="imgDiv1"></div>
                                             <progress value="0" max="100" id="uploader1">0%</progress>
+                                            <p class="form-message"></p>
                                         </div>
                                         <div class="col-lg-6 form-group">
                                             <input type="file" class="form-control-file" value="upload" accept=".jpg, .png" id="productImage2">
@@ -107,6 +108,7 @@
                                             <label for="productImage2" class="">Product image</label>
                                             <div id="imgDiv2"></div>
                                             <progress value="0" max="100" id="uploader2">0%</progress>
+                                            <p class="form-message"></p>
                                         </div>
                                     </div>
 
@@ -133,10 +135,20 @@
 <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 <script src="<c:url value='/template/admin/assets/js/firebase/fireBaseUpload.js'/>"></script>
 
+<!-- ========= CKEditor Javascript files linkup ======== -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+<!--<script src="<c:url value='/template/admin/assets/ckeditor5-build-classic/ckeditor.js'/>"></script>-->
+
 <!-- ========= Validate Javascript files linkup ======== -->
 <script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
 
 <script>
+    var editor = '';
+    $(document).ready(function () {
+        editor = CKEDITOR.replace('description');
+    });
+
     //Validate form add product
     Validator({
         form: '#form-add-product',
@@ -145,9 +157,11 @@
         rules: [
             Validator.isRequired('#name', 'Please enter product name!'),
 
+            Validator.isRequired('#brand-select', 'Please enter product name!'),
+
             Validator.isRequired('#description', 'Please enter product description!'),
 
-            Validator.isRequired('#select', 'Please choose product category!'),
+            Validator.isRequired('#category-select', 'Please choose product category!'),
 
             Validator.isRequired('#price', 'Please enter product price!'),
             Validator.isPositive('#price', 'Please enter product price greater than 0!'),
