@@ -35,6 +35,9 @@
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/style.css'/>">
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/skins/skin-demo-4.css'/>">
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/demos/demo-4.css'/>">
+        <!-- jQuery -->
+        <script src="<c:url value='/template/jquery/jquery-v3.7.1.min.js'/>"></script>
+        
     </head>
     <body>
         <header class="header header-intro-clearance header-4">
@@ -70,7 +73,24 @@
                                     <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
                                     <li><a href="./about">About Us</a></li>
                                     <li><a href="./contact">Contact Us</a></li>
-                                    <li><a href="./login"><i class="icon-user"></i>Login</a></li>
+                                    <c:if test="${user != null}">
+                                        <li>
+                                            <div class="header-dropdown">
+                                                <a href="#" class="font-weight-bold text-success" style="font-family: 'Roboto'; padding-bottom: 0">
+                                                    <i class="fa-solid fa-user-tie"> </i>${user.name}
+                                                </a>
+                                                <div class="header-menu">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa-solid fa-gear"></i> Setting</a></li>
+                                                        <li><a href="./login?action=logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                                                    </ul>
+                                                </div><!-- End .header-menu -->
+                                            </div><!-- End .header-dropdown -->
+                                        </li>
+                                    </c:if>
+                                    <c:if test="${user == null}">
+                                        <li><a href="./login"><i class="icon-user"></i>Login</a></li>
+                                    </c:if>
                                 </ul>
                             </li>
                         </ul><!-- End .top-menu -->
@@ -94,11 +114,12 @@
                     <div class="header-center">
                         <div class="header-search header-search-extended header-search-visible d-none d-lg-block">
                             <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
-                            <form action="#" method="get">
+                            <form action="product" method="post">
                                 <div class="header-search-wrapper search-wrapper-wide">
                                     <label for="search" class="sr-only">Search</label>
                                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
                                     <input type="search" class="form-control" name="search" id="search" placeholder="Search product ..." required>
+                                    <input type="hidden" class="form-control" name="action" required value="search">
                                 </div><!-- End .header-search-wrapper -->
                             </form>
                         </div><!-- End .header-search -->

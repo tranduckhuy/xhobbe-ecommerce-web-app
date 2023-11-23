@@ -32,7 +32,7 @@
                         <div class="row align-items-center">
                             <div class="col-md-6">
                                 <div class="title">
-                                    <h2>Sign in</h2>
+                                    <h2>ADMIN</h2>
                                 </div>
                             </div>
                             <!-- end col -->
@@ -40,7 +40,6 @@
                                 <div class="breadcrumb-wrapper">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="#">Auth</a></li>
                                             <li class="breadcrumb-item active" aria-current="page">
                                                 Sign in
                                             </li>
@@ -61,7 +60,7 @@
                                     <div class="title text-center">
                                         <h1 class="text-primary mb-10">Welcome Back</h1>
                                         <p class="text-medium">
-                                            Sign in to your Existing account to continue
+                                            Sign in to your Admin account to continue
                                         </p>
                                     </div>
                                     <div class="cover-image">
@@ -77,17 +76,31 @@
                         <div class="col-lg-6">
                             <div class="signin-wrapper">
                                 <div class="form-wrapper">
-                                    <h6 class="mb-15">Sign In Form</h6>
-                                    <p class="text-sm mb-25">
-                                        Start creating the best possible user experience for you
-                                        customers.
-                                    </p>
-                                    <form action="#" id="form-login-account">
+                                    <div class="text-center">
+                                        <h3 class="mb-15" style="color: #06208b">Sign In Admin</h3>
+                                    </div>
+                                    <c:if test="${message != null && message eq 'fail'}">
+                                        <div class="alert alert-danger text-center my-3" role="alert" style="height: 35px; margin: 0; padding: 4px">
+                                           Email or password is incorrect. Please try again!
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${message != null && message eq 'notLogin'}" >
+                                        <div class="alert alert-danger text-center my-3" role="alert" style="height: 35px; margin: 0; padding: 4px">
+                                            Please sign in to access this feature.
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${message != null && message eq 'notPermission'}">
+                                        <div class="alert text-center align-items-center my-3" role="alert"
+                                            style="color: white; background-color: red; height: 35px; margin: 0; padding: 4px" >
+                                            Permission denied: Insufficient permissions.
+                                        </div>
+                                    </c:if>
+                                    <form id="form-login-account" method="post">
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="input-style-1 form-group">
                                                     <label>Email</label>
-                                                    <input id="email" type="email" placeholder="Email" />
+                                                    <input id="email" type="email" name="singin-email" placeholder="Email" />
                                                     <span class="form-message"></span>
                                                 </div>
                                             </div>
@@ -95,14 +108,14 @@
                                             <div class="col-12">
                                                 <div class="input-style-1 form-group">
                                                     <label>Password</label>
-                                                    <input id="password" type="password" placeholder="Password" />
+                                                    <input id="password" type="password" name="singin-password" placeholder="Password" />
                                                     <span class="form-message"></span>
                                                 </div>
                                             </div>
                                             <!-- end col -->
                                             <div class="col-12">
                                                 <div class="button-group d-flex justify-content-center flex-wrap">
-                                                    <button class="main-btn primary-btn btn-hover w-100 text-center">
+                                                    <button type="submit" class="main-btn primary-btn btn-hover w-100 text-center">
                                                         Sign In
                                                     </button>
                                                 </div>
@@ -123,20 +136,21 @@
         <!-- ======== main-wrapper end =========== -->
     </body>
     <!-- Validator JS File -->
-<script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
-<script>
+    <script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
+    <script>
 
-    //Validate regiter
-    Validator({
-        form: '#form-login-account',
-        errorSelector: '.form-message',
-        formGroupSelector: '.form-group',
-        rules: [
-            Validator.isRequired('#email', 'Please enter account email!'),
-            Validator.isEmail('#email', 'Please enter correct email!'),
+        //Validate regiter
+        Validator({
+            form: '#form-login-account',
+            errorSelector: '.form-message',
+            formGroupSelector: '.form-group',
+            rules: [
+                Validator.isRequired('#email', 'Please enter account email!'),
+                Validator.isEmail('#email', 'Please enter correct email!'),
 
-             Validator.isRequired('#password', 'Please enter account password!'),
-        ]
-    });
-</script>
+                Validator.isRequired('#password', 'Please enter account password!'),
+                Validator.minLength('#password', 6)
+            ]
+        });
+    </script>
 </html>

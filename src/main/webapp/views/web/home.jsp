@@ -38,7 +38,7 @@
                                 </span>
                             </div><!-- End .intro-price -->
 
-                            <a href="category-4cols.html" class="btn btn-primary btn-round">
+                            <a href="./product?action=list&category=all" class="btn btn-primary btn-round">
                                 <span>Shop More</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
@@ -62,7 +62,7 @@
                                 </span>
                             </div><!-- End .intro-price -->
 
-                            <a href="category-4cols.html" class="btn btn-primary btn-round">
+                            <a href="./product?action=list&category=all" class="btn btn-primary btn-round">
                                 <span>Shop More</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
@@ -81,19 +81,19 @@
         <div class="cat-blocks-container">
             <div class="row">
                 <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="category-4cols.html" class="cat-block">
+                    <a href="./product?action=list&category=Laptop" class="cat-block">
                         <figure>
                             <span>
                                 <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/1.png'/>" alt="Category image">
                             </span>
                         </figure>
 
-                        <h3 class="cat-block-title">Computer & Laptop</h3><!-- End .cat-block-title -->
+                        <h3 class="cat-block-title">Laptop</h3><!-- End .cat-block-title -->
                     </a>
                 </div><!-- End .col-sm-4 col-lg-2 -->
 
                 <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="category-4cols.html" class="cat-block">
+                    <a href="./product?action=list&category=Phone" class="cat-block">
                         <figure>
                             <span>
                                 <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/3.png'/>" alt="Category image">
@@ -105,7 +105,7 @@
                 </div><!-- End .col-sm-4 col-lg-2 -->
 
                 <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="category-4cols.html" class="cat-block">
+                    <a href="./product?action=list&category=Accessories" class="cat-block">
                         <figure>
                             <span>
                                 <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/6.png'/>" alt="Category image">
@@ -117,31 +117,31 @@
                 </div><!-- End .col-sm-4 col-lg-2 -->
 
                 <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="category-4cols.html" class="cat-block">
+                    <a href="./product?action=list&category=Accessories" class="cat-block">
                         <figure>
                             <span>
                                 <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/2.png'/>" alt="Category image">
                             </span>
                         </figure>
 
-                        <h3 class="cat-block-title">Accessories</h3><!-- End .cat-block-title -->
+                        <h3 class="cat-block-title">Camera</h3><!-- End .cat-block-title -->
                     </a>
                 </div><!-- End .col-sm-4 col-lg-2 -->
 
                 <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="category-4cols.html" class="cat-block">
+                    <a href="./product?action=list&category=Accessories" class="cat-block">
                         <figure>
                             <span>
                                 <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/4.png'/>" alt="Category image">
                             </span>
                         </figure>
 
-                        <h3 class="cat-block-title">Televisions</h3><!-- End .cat-block-title -->
+                        <h3 class="cat-block-title">Headphone</h3><!-- End .cat-block-title -->
                     </a>
                 </div><!-- End .col-sm-4 col-lg-2 -->
 
                 <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="category-4cols.html" class="cat-block">
+                    <a href="./product?action=list&category=Accessories" class="cat-block">
                         <figure>
                             <span>
                                 <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/5.png'/>" alt="Category image">
