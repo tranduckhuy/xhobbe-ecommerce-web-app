@@ -244,7 +244,7 @@
             //Validate regiter
             Validator({
                 form: '#form-register',
-                erroSelector: '.form-message',
+                errorSelector: '.form-message',
                 formGroupSelector: '.form-group',
                 rules: [
                     Validator.isRequired('#register-name', 'Please enter your name!'),
@@ -273,7 +273,7 @@
             //Validate signin
             Validator({
                 form: '#form-signin',
-                erroSelector: '.form-message',
+                errorSelector: '.form-message',
                 formGroupSelector: '.form-group',
                 rules: [
                     Validator.isRequired('#singin-email-2', 'Please enter your email!'),

@@ -124,7 +124,7 @@
     //Validate regiter
     Validator({
         form: '#form-edit-account',
-        erroSelector: '.form-message',
+        errorSelector: '.form-message',
         formGroupSelector: '.form-group',
         rules: [
             Validator.isRequired('#name', 'Please enter account name!'),
