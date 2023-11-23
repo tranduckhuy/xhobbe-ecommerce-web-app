@@ -50,11 +50,11 @@
             </div><!-- End .toolbox -->
 
             <div class="products">
-                <div class="row" id="productContainer">
+                <div class="row justify-content-center" id="productContainer">
 
                     <!-- comment -->
                     <c:forEach var="item" items="${list}">     
-                        <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                        <div class="col-10 col-sm-6 col-md-4 col-lg-4 col-xl-3">
 
                             <div class="product">
                                 <figure class="product-media">
@@ -216,16 +216,16 @@
 <script>
 
     // Get the full URL
-    var url = window.location.href;
+    let url = window.location.href;
     // Use URLSearchParams to extract parameters
-    var urlParams = new URLSearchParams(url);
+    let urlParams = new URLSearchParams(url);
     // Get the value of the 'category' parameter
-    var categoryValue = urlParams.get('category');
+    let categoryValue = urlParams.get('category');
     $(document).ready(function () {
     // Attach a click event to the "Load More" button
     $("#loadMoreBtn").click(function () {
     // Make an AJAX request to the servlet with parameters
-    var currentTotal = $('.product').length;
+    let currentTotal = $('.product').length;
     $.ajax({
     url: "product?action=loadMore",
             data: {
@@ -236,10 +236,10 @@
             type: "get",
             success: function (data) {
             // Update the product container with the new products
-            var productContainer = $("#productContainer");
+            let productContainer = $("#productContainer");
             $.each(data, function (index, product) {
             // Append moreProducts to productContainer
-                var productCart = "<div class='col-6 col-md-4 col-lg-4 col-xl-3'>" +
+                let productCart = "<div class='col-sm-10 col-md-4 col-lg-4 col-xl-3'>" +
                         "<div class='product'>" +
                             "<figure class='product-media'>" +
                                 "<span class='product-label label-new'>New</span>" +
@@ -252,7 +252,7 @@
 
                                 "<div class='product-action action-icon-top'>" +
                                     "<a href='./cart' class='btn-product btn-cart'><span>add to cart</span></a>" +
-                                    "<a href='./product?action=quickView&id=" + product.productId + "' class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a>" +
+                                    "<a href='./product?action=quickView&id=" + product.productId + "'" + " class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a>" +
                                 "</div>" +
                             "</figure><!-- End .product-media -->" +
 

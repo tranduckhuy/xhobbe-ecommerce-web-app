@@ -182,8 +182,8 @@
                                                     <img src="<c:url value='/template/admin/assets/images/profile/avatar.jpg'/>" alt="" />
                                                 </div>
                                                 <div>
-                                                    <h6 class="fw-500">Trần Đức Huy</h6>
-                                                    <p>Admin</p>
+                                                    <h6 class="fw-500">${user.name}</h6>
+                                                    <p>${user.role}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -192,11 +192,11 @@
                                         <li>
                                             <div class="author-info flex items-center !p-1">
                                                 <div class="image">
-                                                    <img src="<c:url value='/template/admin/assets/images/profile/profile-image.png'/>" alt="image">
+                                                    <img src="<c:url value='/template/admin/assets/images/profile/avatar.jpg'/>" alt="" />
                                                 </div>
                                                 <div class="content">
-                                                    <h4 class="text-sm">Adam Joe</h4>
-                                                    <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs" href="#">Email@gmail.com</a>
+                                                    <h4 class="text-sm">${user.name}</h4>
+                                                    <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs" href="#">${user.email}</a>
                                                 </div>
                                             </div>
                                         </li>
@@ -219,7 +219,7 @@
                                         </li>
                                         <li class="divider"></li>
                                         <li>
-                                            <a href="./admin-logout"> <i class="lni lni-exit"></i> Sign Out </a>
+                                            <a href="./admin-login?action=logout"> <i class="lni lni-exit"></i> Sign Out </a>
                                         </li>
                                     </ul>
                                 </div>

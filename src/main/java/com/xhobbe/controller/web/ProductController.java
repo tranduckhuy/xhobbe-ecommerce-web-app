@@ -86,7 +86,7 @@ public class ProductController extends HttpServlet {
         } else {
             switch (category) {
                 case AppConstant.ALL:
-                    list = productService.findAll(2, 0, "", "");
+                    list = productService.findAll(4, 0, "", "");
                     break;
                 case CategoryConstant.PHONE:
                 case CategoryConstant.LAPTOP:
@@ -134,7 +134,7 @@ public class ProductController extends HttpServlet {
 
         String category = request.getParameter("category");
         int offset = UtilsValidType.getInteger(request.getParameter("currentTotal"));
-        int limit = 2;
+        int limit = 4;
 
         List<Product> list;
 
@@ -144,7 +144,7 @@ public class ProductController extends HttpServlet {
         } else {
             switch (category) {
                 case AppConstant.ALL:
-                    list = productService.findAll(2, offset, "", "");
+                    list = productService.findAll(4, offset, "", "");
                     break;
                 case CategoryConstant.PHONE:
                 case CategoryConstant.LAPTOP:

@@ -73,7 +73,24 @@
                                     <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
                                     <li><a href="./about">About Us</a></li>
                                     <li><a href="./contact">Contact Us</a></li>
-                                    <li><a href="./login"><i class="icon-user"></i>Login</a></li>
+                                    <c:if test="${user != null}">
+                                        <li>
+                                            <div class="header-dropdown">
+                                                <a href="#" class="font-weight-bold text-success" style="font-family: 'Roboto'; padding-bottom: 0">
+                                                    <i class="fa-solid fa-user-tie"> </i>${user.name}
+                                                </a>
+                                                <div class="header-menu">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa-solid fa-gear"></i> Setting</a></li>
+                                                        <li><a href="./login?action=logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                                                    </ul>
+                                                </div><!-- End .header-menu -->
+                                            </div><!-- End .header-dropdown -->
+                                        </li>
+                                    </c:if>
+                                    <c:if test="${user == null}">
+                                        <li><a href="./login"><i class="icon-user"></i>Login</a></li>
+                                    </c:if>
                                 </ul>
                             </li>
                         </ul><!-- End .top-menu -->
