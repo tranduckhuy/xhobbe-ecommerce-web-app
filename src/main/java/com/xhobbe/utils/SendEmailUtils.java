@@ -9,12 +9,11 @@ import javax.mail.Session;
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 import java.util.Properties;
+import java.util.ResourceBundle;
 import javax.mail.Message;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
 
 /**
  *
@@ -22,10 +21,9 @@ import javax.activation.DataSource;
  */
 public class SendEmailUtils {
 
-    //Email: ShopxHobbe@gmail.com
-    //Password: hgeafdbwiegimbwt
-    static final String from = "xhobbeshop@gmail.com";
-    static final String password = "wtdbhhjlerltvkuq";
+    private static final ResourceBundle resourceBundle = ResourceBundle.getBundle("email");
+    private static final String  FROM = resourceBundle.getString("email");
+    private static final String PASSWORD = resourceBundle.getString("password");
 
     public static void sendEmail(String to, String title, String content) {
         //properties : Khai báo thuộc tính
@@ -39,7 +37,7 @@ public class SendEmailUtils {
         Authenticator auth = new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(from, password);
+                return new PasswordAuthentication(FROM, PASSWORD);
             }
         };
 
@@ -55,7 +53,7 @@ public class SendEmailUtils {
             message.addHeader("Content-type", "text/HTML; charset = UTF-8");
 
             //Người gửi
-            message.setFrom(from);
+            message.setFrom(FROM);
 
             //Người nhận
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to, false));
@@ -95,7 +93,7 @@ public class SendEmailUtils {
         }
     }
 
-//    public static void main(String[] args) {
-//        sendEmail("htn10a2@gmail.com", "Verify email", "");
-//    }
+    public static void main(String[] args) {
+        sendEmail("huytde.dev@gmail.com", "Verify email", "");
+    }
 }
