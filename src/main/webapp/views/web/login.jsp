@@ -85,9 +85,24 @@
                 </div><!-- End .container -->
             </nav><!-- End .breadcrumb-nav -->
 
-            <div class="login-page bg-image pt-4 pb-4 pt-md-6 pb-md-6 pt-lg-4 pb-lg-12" style="background-image: url('assets/images/backgrounds/login-bg.jpg');">
+            <div class="login-page bg-image pt-4 pb-4 pt-md-6 pb-md-6 pt-lg-4 pb-lg-12" style="background-image: url('<c:url value='/template/web/assets/images/backgrounds/login-bg.svg.png'/>')">
                 <div class="container">
                     <div class="form-box">
+                        <c:if test="${message != null && message eq 'success'}">
+                            <div class="alert alert-success text-center" role="alert">
+                                Great job! Your action was successful.
+                            </div>
+                        </c:if>
+                        <c:if test="${message != null && message eq 'fail'}">
+                            <div class="alert alert-danger text-center" role="alert">
+                                Error: Unable to complete the requested action.
+                            </div>
+                        </c:if>
+                        <c:if test="${message != null && message eq 'notLogin'}">
+                            <div class="alert alert-warning text-center" role="alert">
+                                Please sign in to access this feature.
+                            </div>
+                        </c:if>
                         <div class="form-tab">
                             <ul class="nav nav-pills nav-fill" role="tablist">
                                 <li class="nav-item">
@@ -99,7 +114,8 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade" id="signin-2" role="tabpanel" aria-labelledby="signin-tab-2">
-                                    <form action="#" id="form-signin">
+                                    <form id="form-signin" method="post">
+                                        <input type="hidden" id="action-signin" name="action">
                                         <div class="form-group">
                                             <label for="singin-email-2">Your email address *</label>
                                             <input type="email" class="form-control" id="singin-email-2" name="singin-email" placeholder="Ex: acb@gmail.com">
@@ -145,9 +161,10 @@
                                     </div><!-- End .form-choice -->
                                 </div><!-- .End .tab-pane -->
                                 <div class="tab-pane fade show active" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
-                                    <form action="#" id="form-register">
+                                    <form id="form-register" method="post">
+                                        <input type="hidden" id="action-register" name="action">
                                         <div class="form-group">
-                                            <label for="register-name-2">Your name *</label>
+                                            <label for="register-name">Your name *</label>
                                             <input type="text" class="form-control" id="register-name" name="register-name" placeholder="Ex: Jon Doe, Jon-Doe, Kiersten F. Latham, Pat O'Brien,...">
                                             <span class="form-message"></span>
                                         </div><!-- End .form-group -->
@@ -173,7 +190,7 @@
 
                                             <div class="form-group col-md-6">
                                                 <label for="register-confirm-password-2">Confirm Password *</label>
-                                                <input type="password" class="form-control" id="register-confirm-password-2" name="register-password">
+                                                <input type="password" class="form-control" id="register-confirm-password-2" name="register-confirm-password">
                                                 <span class="form-message"></span>
                                             </div><!-- End .form-group -->
                                         </div>
@@ -241,6 +258,8 @@
         <script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
         <script>
 
+            document.getElementById('action-signin').value = 'signIn';
+            document.getElementById('action-register').value = 'register';
             //Validate regiter
             Validator({
                 form: '#form-register',

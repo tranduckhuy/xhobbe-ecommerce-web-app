@@ -6,6 +6,11 @@ package com.xhobbe.constant;
  */
 public class AppConstant {
 
+    public static final String SIGNIN = "signIn";
+    public static final String REGISTER = "register";
+    public static final String LOGOUT = "logout";
+    public static final String MESSSAGE = "message";
+    
     public static final String PRODUCT = "product";
     public static final String LIST = "list";
     public static final String ADMIN = "ADMIN";

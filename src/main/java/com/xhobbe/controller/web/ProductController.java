@@ -1,5 +1,6 @@
 package com.xhobbe.controller.web;
 
+import com.google.gson.Gson;
 import com.xhobbe.constant.ActionConstant;
 import com.xhobbe.constant.AppConstant;
 import com.xhobbe.constant.CategoryConstant;
@@ -30,7 +31,7 @@ public class ProductController extends HttpServlet {
             throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-        
+
         String action = request.getParameter("action");
 
         if (action == null) {
@@ -42,15 +43,15 @@ public class ProductController extends HttpServlet {
             case ActionConstant.LIST:
                 listProduct(request, response);
                 break;
-            case ActionConstant.ADD:
-                request.getRequestDispatcher("/views/admin/productForm.jsp").forward(request, response);
-                break;
             case ActionConstant.DETAIL:
                 getDetailProduct(request, response, ActionConstant.DETAIL);
                 break;
             case ActionConstant.QUICKVIEW:
                 getDetailProduct(request, response, ActionConstant.QUICKVIEW);
-                break;    
+                break;
+            case ActionConstant.LOADMORE:
+                loadMoreProduct(request, response);
+                break;
             default:
                 response.sendRedirect("./");
         }
@@ -60,52 +61,109 @@ public class ProductController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        response.setContentType("text/html;charset=UTF-8");
+
+        String action = request.getParameter("action");
+
+        switch (action) {
+            case ActionConstant.SEARCH:
+                postSearchProduct(request, response);
+                break;
+            default:
+                response.sendRedirect("./");
+        }
     }
-    
-    
+
     private void listProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        
 
         String category = request.getParameter("category");
 
         List<Product> list;
-        
+
         if (null == category) {
             response.sendRedirect("./product?action=list&category=all");
             return;
-        } else switch (category) {
-            case AppConstant.ALL:
-                list = productService.findAll(10, 0, "", "");
-                break;
-            case CategoryConstant.PHONE:
-            case CategoryConstant.LAPTOP:
-            case CategoryConstant.IPAD:
-            case CategoryConstant.ACCESSORIES:
-                list = productService.findByCategory(10, 0, "", "", category);
-                break;
-            default:
-                response.sendRedirect("./product?action=list&category=all");
-                return;
+        } else {
+            switch (category) {
+                case AppConstant.ALL:
+                    list = productService.findAll(4, 0, "", "");
+                    break;
+                case CategoryConstant.PHONE:
+                case CategoryConstant.LAPTOP:
+                case CategoryConstant.IPAD:
+                case CategoryConstant.ACCESSORIES:
+                    list = productService.findByCategory(10, 0, "", "", category);
+                    break;
+                default:
+                    response.sendRedirect("./product?action=list&category=all");
+                    return;
+            }
         }
-        
+
         request.setAttribute(AppConstant.LIST, list);
         request.getRequestDispatcher("/views/web/productList.jsp").forward(request, response);
 
     }
 
     private void getDetailProduct(HttpServletRequest request, HttpServletResponse response, String action) throws IOException, ServletException {
-        
+
         Long id = UtilsValidType.getLong(request.getParameter("id"));
-        
+
         Product product = productService.findOne(id);
-        
+
         String views = "/views/web/productDetail.jsp";
-        
+
         if (ActionConstant.QUICKVIEW.equals(action)) {
             views = "/views/web/quickView.jsp";
         }
         request.setAttribute(AppConstant.PRODUCT, product);
         request.getRequestDispatcher(views).forward(request, response);
+    }
+
+    private void postSearchProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        String searchValue = request.getParameter("search");
+
+        List<Product> list = productService.findByName(searchValue);
+
+        request.setAttribute(AppConstant.LIST, list);
+        request.getRequestDispatcher("/views/web/productList.jsp").forward(request, response);
+    }
+
+    private void loadMoreProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        String category = request.getParameter("category");
+        int offset = UtilsValidType.getInteger(request.getParameter("currentTotal"));
+        int limit = 4;
+
+        List<Product> list;
+
+        if (category == null || offset == -1) {
+            response.sendRedirect("./product?action=list&category=all");
+            return;
+        } else {
+            switch (category) {
+                case AppConstant.ALL:
+                    list = productService.findAll(4, offset, "", "");
+                    break;
+                case CategoryConstant.PHONE:
+                case CategoryConstant.LAPTOP:
+                case CategoryConstant.IPAD:
+                case CategoryConstant.ACCESSORIES:
+                    list = productService.findByCategory(limit, offset, "", "", category);
+                    break;
+                default:
+                    response.sendRedirect("./product?action=list&category=all");
+                    return;
+            }
+        }
+
+        String json = new Gson().toJson(list);
+        System.out.println(json);
+
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(json);
     }
 
 }
