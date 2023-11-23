@@ -127,7 +127,9 @@
                                             <input type="password" class="form-control" id="singin-password-2" name="singin-password">
                                             <span class="form-message"></span>
                                         </div><!-- End .form-group -->
-
+                                        <div class="d-flex justify-content-center mt-3 mb-2" > <!-- Add text-center class here -->
+                                            <div class="g-recaptcha" id="recaptcha" data-sitekey="6LcTHtQoAAAAAEir6px0o-hcQiOCMi50ojtxuvrd"></div>
+                                        </div>
                                         <div class="form-footer">
                                             <button type="submit" class="btn btn-outline-primary-2">
                                                 <span>LOG IN</span>
@@ -256,6 +258,24 @@
 
         <!-- Validator JS File -->
         <script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+        <script>
+
+            window.onload = () => {
+                const form = document.getElementById("form-signin");
+                form.addEventListener("submit", (event) => {
+                    event.preventDefault();
+                    const response = grecaptcha.getResponse();
+                    if (response) {
+                        form.submit();
+                    } else {
+                    }
+                });
+            };
+
+        </script>
+        
         <script>
 
             document.getElementById('action-signin').value = 'signIn';
@@ -299,10 +319,12 @@
                     Validator.isEmail('#singin-email-2', 'Please enter correct email!'),
 
                     Validator.isRequired('#singin-password-2', 'Please enter your password!'),
-                    Validator.minLength('#singin-password-2', 6)
+                    Validator.minLength('#singin-password-2', 6),
+                    Validator.isRequired('#recaptcha', 'You must be verify!')
                 ]
             });
         </script>
+        
     </body>
 
 </html>
