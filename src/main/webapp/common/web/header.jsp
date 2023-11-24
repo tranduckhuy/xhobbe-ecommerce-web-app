@@ -15,16 +15,10 @@
         <!-- fontawsome -->
         <script src="https://kit.fontawesome.com/24eee81337.js" crossorigin="anonymous"></script>
         <!-- Favicon -->
-        <link rel="apple-touch-icon" sizes="180x180" href="<c:url value='/template/web/assets/images/icons/apple-touch-icon.png'/>">
-        <link rel="icon" type="image/png" sizes="32x32" href="<c:url value='/template/web/assets/images/icons/favicon-32x32.png'/>">
-        <link rel="icon" type="image/png" sizes="16x16" href="<c:url value='/template/web/assets/images/icons/favicon-16x16.png'/>">
-        <link rel="manifest" href="<c:url value='/template/web/assets/images/icons/site.html'/>">
-        <link rel="mask-icon" href="<c:url value='/template/web/assets/images/icons/safari-pinned-tab.svg'/>" color="#666666">
-        <link rel="shortcut icon" href="<c:url value='/template/web/assets/images/icons/favicon.ico'/>">
-        <meta name="apple-mobile-web-app-title" content="Molla">
-        <meta name="application-name" content="Molla">
+        <link rel="icon" type="image/png" sizes="64x64" href="<c:url value='/template/web/assets/images/icons/xhobbe-logo.png'/>">
+        <meta name="apple-mobile-web-app-title" content="xHobbe">
+        <meta name="application-name" content="xHobbe">
         <meta name="msapplication-TileColor" content="#cc9966">
-        <meta name="msapplication-config" content="href="<c:url value='/template/web/assets/images/icons/browserconfig.xml'/>">
         <meta name="theme-color" content="#ffffff">
         <link rel="stylesheet" href="<c:url value='/template/web/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css'/>">
         <!-- Plugins CSS File -->
@@ -68,8 +62,8 @@
                     <div class="header-right">
                         <ul class="top-menu">
                             <li>
-                                <a href="#">Links</a>
-                                <ul>
+                                <a href="#"><i class="fa-solid fa-bars"></i></a>
+                                <ul style="white-space: nowrap">
                                     <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
                                     <li><a href="./about">About Us</a></li>
                                     <li><a href="./contact">Contact Us</a></li>
@@ -114,12 +108,12 @@
                     <div class="header-center">
                         <div class="header-search header-search-extended header-search-visible d-none d-lg-block">
                             <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
-                            <form action="product" method="post">
+                            <form action="product" method="get">
                                 <div class="header-search-wrapper search-wrapper-wide">
                                     <label for="search" class="sr-only">Search</label>
                                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-                                    <input type="search" class="form-control" name="search" id="search" placeholder="Search product ..." required>
                                     <input type="hidden" class="form-control" name="action" required value="search">
+                                    <input type="search" class="form-control" name="search" id="search" placeholder="Search product ..." required>
                                 </div><!-- End .header-search-wrapper -->
                             </form>
                         </div><!-- End .header-search -->

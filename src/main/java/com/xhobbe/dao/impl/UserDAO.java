@@ -1,4 +1,3 @@
-
 package com.xhobbe.dao.impl;
 
 import com.xhobbe.dao.IUserDAO;
@@ -25,24 +24,24 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
         List<User> users = query(sql, new UserMapper(), email, password);
         return users.isEmpty() ? null : users.get(0);
     }
-    
+
     @Override
     public List<User> findByRole(int roleId) {
         String sql = "SELECT u.*, r.roleName FROM user AS u JOIN role AS r ON u.roleId = r.roleId WHERE u.roleId = ? ";
         return query(sql, new UserMapper(), roleId);
     }
-    
+
     @Override
     public Long add(User user) {
-        String sql = "INSERT INTO user (name, email, address, phoneNumber, password, roleId) VALUES (?, ?, ?, ?, ?, ?)";
-        return insert(sql, user.getName(), user.getEmail(), user.getAddress(), 
-                user.getPhone(), user.getPassword(), user.getRoleId());
+        String sql = "INSERT INTO user (name, email, address, phoneNumber, password, roleId, active, activeToken) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        return insert(sql, user.getName(), user.getEmail(), user.getAddress(),
+                user.getPhone(), user.getPassword(), user.getRoleId(), user.getActive(),user.getActiveToken());
     }
 
     @Override
     public void update(User user) {
         String sql = "UPDATE user SET name = ?, email = ?, address = ?, phoneNumber = ?, password = ?, roleId = ? WHERE userId = ?";
-        update(sql, user.getName(), user.getEmail(), user.getAddress(), 
+        update(sql, user.getName(), user.getEmail(), user.getAddress(),
                 user.getPhone(), user.getPassword(), user.getRoleId(), user.getUserId());
     }
 
@@ -62,6 +61,12 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
     public int countTotalItem() {
         String sql = "SELECT COUNT(*) FROM user";
         return count(sql);
+    }
+
+    @Override
+    public void active(User user) {
+        String sql = "UPDATE user SET active = ? WHERE userId = ?";
+        update(sql, 1, user.getUserId());
     }
 
 }

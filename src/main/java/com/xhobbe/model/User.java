@@ -15,6 +15,8 @@ public class User {
     private String password;
     private String role;
     private int roleId;
+    private int active;
+    private String activeToken;
 
     public User() {
     }
@@ -83,9 +85,26 @@ public class User {
         this.roleId = roleId;
     }
 
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
+    }
+
+    public String getActiveToken() {
+        return activeToken;
+    }
+
+    public void setActiveToken(String activeToken) {
+        this.activeToken = activeToken;
+    }
+
     @Override
     public String toString() {
-        return "User{" + "userId=" + userId + ", name=" + name + ", email=" + email + ", address=" + address + ", phone=" + phone + ", password=" + password + ", role=" + role + ", roleId=" + roleId + '}';
+        return "User{" + "userId=" + userId + ", name=" + name + ", email=" + email + ", address=" + address + ", phone=" + phone + 
+                ", password=" + password + ", role=" + role + ", roleId=" + roleId + ", active=" + active + ", activeToken=" + activeToken + '}';
     }
     
 }

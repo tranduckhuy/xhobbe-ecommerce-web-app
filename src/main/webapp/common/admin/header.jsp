@@ -16,6 +16,7 @@
         <!-- fontawsome -->
         <script src="https://kit.fontawesome.com/24eee81337.js" crossorigin="anonymous"></script>
         <!-- ========== All CSS files linkup ========= -->
+        <link rel="icon" type="image/png" sizes="64x64" href="<c:url value='/template/web/assets/images/icons/xhobbe-logo.png'/>">
         <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/bootstrap.min.css'/>" />
         <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/lineicons.css'/>" />
         <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/materialdesignicons.min.css'/>" />

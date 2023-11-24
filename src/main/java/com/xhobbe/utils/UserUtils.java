@@ -2,6 +2,7 @@ package com.xhobbe.utils;
 
 import com.xhobbe.model.User;
 import java.io.IOException;
+import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -27,10 +28,23 @@ public class UserUtils {
                 user.setPhone(phone);
                 user.setPassword(Encode.toSHA256(password));
                 user.setAddress(address);
+                user.setActive(0);
                 user.setRoleId(3);
+                user.setActiveToken(UUID.randomUUID().toString());
                 return user;
             }
         }
         return null;
+    }
+    
+    public static User setDefaultGoogleAccount(User user) {
+        
+        user.setRoleId(3);
+        user.setActive(1);
+        user.setAddress("");
+        user.setPhone("");
+        user.setPassword(UUID.randomUUID().toString());
+        user.setActiveToken(UUID.randomUUID().toString());
+        return user;
     }
 }
