@@ -52,6 +52,9 @@ public class ProductController extends HttpServlet {
             case ActionConstant.LOADMORE:
                 loadMoreProduct(request, response);
                 break;
+            case ActionConstant.SEARCH:
+                postSearchProduct(request, response);
+                break;    
             default:
                 response.sendRedirect("./");
         }
@@ -63,15 +66,7 @@ public class ProductController extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
-        String action = request.getParameter("action");
-
-        switch (action) {
-            case ActionConstant.SEARCH:
-                postSearchProduct(request, response);
-                break;
-            default:
-                response.sendRedirect("./");
-        }
+        response.sendRedirect("./");
     }
 
     private void listProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

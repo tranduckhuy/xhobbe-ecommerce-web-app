@@ -110,10 +110,11 @@
     <div class="mobile-menu-wrapper">
         <span class="mobile-menu-close"><i class="icon-close"></i></span>
 
-        <form action="#" method="get" class="mobile-search">
-            <label for="mobile-search" class="sr-only">Search</label>
-            <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required>
+        <form action="product" method="get" class="mobile-search">
+            <label for="search" class="sr-only">Search</label>
             <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+            <input type="hidden" class="form-control" name="action" required value="search">
+            <input type="search" class="form-control" name="search" id="mobile-search" placeholder="Search product ..." required>
         </form>
 
         <ul class="nav nav-pills-mobile nav-border-anim" role="tablist">
@@ -130,81 +131,22 @@
                 <nav class="mobile-nav">
                     <ul class="mobile-menu">
                         <li class="active">
-                            <a href="#">Home</a>
+                            <a href="/XHobbeWebApp/">Home</a>
                         </li>
                         <li>
-                            <a href="category-4cols.html">Shop</a>
-                            <ul>
-                                <li><a href="category-4cols.html">Shop Grid 4 Columns</a></li>
-                                <li><a href="cart.html">Cart</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li>
-                                <li><a href="#">Lookbook</a></li>
-                            </ul>
+                            <a href="./product?action=list&category=all">Shop</a>
                         </li>
                         <li>
-                            <a href="product-centered.html" class="sf-with-ul">Product</a>
-                            <ul>
-                                <li><a href="product-centered.html">Centered</a></li>
-                            </ul>
+                            <a href="./product?action=list&category=Phone">Phones</a>
                         </li>
                         <li>
-                            <a href="#">Pages</a>
-                            <ul>
-                                <li>
-                                    <a href="about.html">About</a>
-
-                                    <ul>
-                                        <li><a href="about.html">About 01</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="contact.html">Contact</a>
-
-                                    <ul>
-                                        <li><a href="contact.html">Contact 01</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="faq.html">FAQs</a></li>
-                                <li><a href="404.html">Error 404</a></li>
-                                <li><a href="coming-soon.html">Coming Soon</a></li>
-                            </ul>
+                            <a href="./product?action=list&category=Laptop">Laptops</a>
                         </li>
                         <li>
-                            <a href="blog-mask-grid.html" class="sf-with-ul">Blog</a>
-
-                            <ul>
-                                <li>
-                                    <a href="#">Mask</a>
-                                    <ul>
-                                        <li><a href="blog-mask-grid.html">Blog mask grid</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Single Post</a>
-                                    <ul>
-                                        <li><a href="single-fullwidth.html">Fullwidth no sidebar</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-
+                            <a href="./product?action=list&category=IPad">iPad</a>
                         </li>
                         <li>
-                            <a href="elements-list.html">Elements</a>
-                            <ul>
-                                <li><a href="elements-products.html">Products</a></li>
-                                <li><a href="elements-typography.html">Typography</a></li>
-                                <li><a href="elements-titles.html">Titles</a></li>
-                                <li><a href="elements-banners.html">Banners</a></li>
-                                <li><a href="elements-video-banners.html">Video Banners</a></li>
-                                <li><a href="elements-buttons.html">Buttons</a></li>
-                                <li><a href="elements-accordions.html">Accordions</a></li>
-                                <li><a href="elements-tabs.html">Tabs</a></li>
-                                <li><a href="elements-blog-posts.html">Blog Posts</a></li>
-                                <li><a href="elements-portfolio.html">Portfolio</a></li>
-                                <li><a href="elements-icon-boxes.html">Icon Boxes</a></li>
-                            </ul>
+                            <a href="./product?action=list&category=Accessories">Accessories</a>
                         </li>
                     </ul>
                 </nav><!-- End .mobile-nav -->
@@ -212,18 +154,14 @@
             <div class="tab-pane fade" id="mobile-cats-tab" role="tabpanel" aria-labelledby="mobile-cats-link">
                 <nav class="mobile-cats-nav">
                     <ul class="mobile-cats-menu">
-                        <li><a class="mobile-cats-lead" href="#">Daily offers</a></li>
-                        <li><a class="mobile-cats-lead" href="#">Gift Ideas</a></li>
-                        <li><a href="#">Beds</a></li>
-                        <li><a href="#">Lighting</a></li>
-                        <li><a href="#">Sofas & Sleeper sofas</a></li>
-                        <li><a href="#">Storage</a></li>
-                        <li><a href="#">Armchairs & Chaises</a></li>
-                        <li><a href="#">Decoration </a></li>
-                        <li><a href="#">Kitchen Cabinets</a></li>
-                        <li><a href="#">Coffee & Tables</a></li>
-                        <li><a href="#">Outdoor Furniture </a></li>
+                        <li class="mobile-cats-lead"><a href="#">Daily offers</a></li>
+                        <li class="mobile-cats-lead"><a href="#">Gift Ideas</a></li>
+                        <li><a href="./product?category=phone">Phones</a></li>
+                        <li><a href="./product?category=laptop">Laptops</a></li>
+                        <li><a href="./product?category=iPad">iPad</a></li>
+                        <li><a href="./product?category=accessories">Accessories</a></li>
                     </ul><!-- End .mobile-cats-menu -->
+
                 </nav><!-- End .mobile-cats-nav -->
             </div><!-- .End .tab-pane -->
         </div><!-- End .tab-content -->
@@ -356,21 +294,21 @@
     </div><!-- End .modal-dialog -->
 </div><!-- End .modal -->
 
-    <!-- Plugins JS File -->
-    <script src="<c:url value='/template/web/assets/js/jquery.min.js'/>"></script>
-    <script src="<c:url value='/template/web/assets/js/bootstrap.bundle.min.js'/>"></script>
-    <script src="<c:url value='/template/web/assets/js/jquery.hoverIntent.min.js'/>"></script>
-    <script src="<c:url value='/template/web/assets/js/jquery.waypoints.min.js'/>"></script>
-    <script src="<c:url value='/template/web/assets/js/superfish.min.js'/>"></script>
-    <script src="<c:url value='/template/web/assets/js/owl.carousel.min.js'/>"></script>
-    <script src="<c:url value='/template/web/assets/js/bootstrap-input-spinner.js'/>"></script>
-    <script src="<c:url value='/template/web/assets/js/jquery.plugin.min.js'/>"></script>
-    <script src="<c:url value='/template/web/assets/js/jquery.magnific-popup.min.js'/>"></script>
-    <script src="<c:url value='/template/web/assets/js/jquery.elevateZoom.min.js'/>"></script>
-    
-    <!-- Main JS File -->
-    <script src="<c:url value='/template/web/assets/js/main.js'/>"></script>
-    <script src="<c:url value='/template/web/assets/js/demos/demo-4.js'/>"></script>
+<!-- Plugins JS File -->
+<script src="<c:url value='/template/web/assets/js/jquery.min.js'/>"></script>
+<script src="<c:url value='/template/web/assets/js/bootstrap.bundle.min.js'/>"></script>
+<script src="<c:url value='/template/web/assets/js/jquery.hoverIntent.min.js'/>"></script>
+<script src="<c:url value='/template/web/assets/js/jquery.waypoints.min.js'/>"></script>
+<script src="<c:url value='/template/web/assets/js/superfish.min.js'/>"></script>
+<script src="<c:url value='/template/web/assets/js/owl.carousel.min.js'/>"></script>
+<script src="<c:url value='/template/web/assets/js/bootstrap-input-spinner.js'/>"></script>
+<script src="<c:url value='/template/web/assets/js/jquery.plugin.min.js'/>"></script>
+<script src="<c:url value='/template/web/assets/js/jquery.magnific-popup.min.js'/>"></script>
+<script src="<c:url value='/template/web/assets/js/jquery.elevateZoom.min.js'/>"></script>
+
+<!-- Main JS File -->
+<script src="<c:url value='/template/web/assets/js/main.js'/>"></script>
+<script src="<c:url value='/template/web/assets/js/demos/demo-4.js'/>"></script>
 </body>
 
 </html>

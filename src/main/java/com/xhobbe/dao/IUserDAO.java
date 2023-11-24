@@ -23,6 +23,8 @@ public interface IUserDAO extends GenericDAO<User> {
     void delete(long id);
 
     List<User> findAll(int limit, int offset);
+    
+    void active(User user);
 
     int countTotalItem();
 }

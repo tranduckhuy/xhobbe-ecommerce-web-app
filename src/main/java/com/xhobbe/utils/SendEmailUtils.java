@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.xhobbe.utils;
 
 import java.util.Date;
@@ -10,7 +6,10 @@ import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 import java.util.Properties;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.mail.Message;
+import javax.mail.MessagingException;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -21,11 +20,8 @@ import javax.mail.internet.MimeMessage;
  */
 public class SendEmailUtils {
 
-    private static final ResourceBundle resourceBundle = ResourceBundle.getBundle("email");
-    private static final String  FROM = resourceBundle.getString("email");
-    private static final String PASSWORD = resourceBundle.getString("password");
-
     public static void sendEmail(String to, String title, String content) {
+
         //properties : Khai báo thuộc tính
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com"); //smtp host
@@ -33,67 +29,77 @@ public class SendEmailUtils {
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
 
-        //Create Authenticator
-        Authenticator auth = new Authenticator() {
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("email");
+        final String from = resourceBundle.getString("email");
+        final String password = resourceBundle.getString("password");
+
+        Session session = Session.getInstance(props, new Authenticator() {
+
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(FROM, PASSWORD);
+                return new PasswordAuthentication(from, password);
             }
-        };
 
-        //Session
-        Session session = Session.getInstance(props, auth);
+        });
 
-        //Send email 
-        //Create new message
-        MimeMessage message = new MimeMessage(session);
+        String textMessage = activeMessage(to, content);
+        new Thread(() -> {
+            try {
+                Message message = prepareMessage(session, from, to, title, textMessage);
+                Transport.send(message);
+                System.out.println("Send email success!");
+            } catch (MessagingException ex) {
+                System.out.println("Send email fail!");
+                Logger.getLogger(SendEmailUtils.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }).start();
+    }
+
+    private static Message prepareMessage(Session session, String from, String recipient, String title, String textMessage) {
 
         try {
-            //kiểu nội dung
+            Message message = new MimeMessage(session);
             message.addHeader("Content-type", "text/HTML; charset = UTF-8");
-
-            //Người gửi
-            message.setFrom(FROM);
-
-            //Người nhận
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to, false));
-
-            //tiêu đề email
+            message.setFrom(new InternetAddress(from));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient, false));
+            message.setReplyTo(InternetAddress.parse(from, false));
             message.setSubject(title);
-
-            //Ngày gửi
             message.setSentDate(new Date());
-            //Quy định email nhận phản hồi
-//            message.setReplyTo(InternetAddress.parse(from, false));
+            message.setContent(textMessage, "text/html");
+            return message;
 
-            //Nội dung
-            message.setContent("<!DOCTYPE html>\n"
-                    + "<html lang=\"en\">\n"
-                    + "<head>\n"
-                    + "    <meta charset=\"UTF-8\">\n"
-                    + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
-                    + "    <title>Document</title>\n"
-                    + "</head>\n"
-                    + "<body>\n"
-                    + "    <h4>Verify successfuly</h4>\n"
-                    + "    <p>Link to login here: </p>\n"
-                    + "    <button style=\"height: 40px; width: 100px; background-color: rgb(104, 104, 245); border: 2px solid black; border-radius: 10px;\">\n"
-                    + "        <a href=\"#\" style=\"text-decoration: none; color: white;\">LOGIN</a>\n"
-                    + "    </button>\n"
-                    + "</body>\n"
-                    + "</html>", "text/html");
-
-            //Gửi email
-            Transport.send(message);
-            System.out.println("Send email success!");
-
-        } catch (Exception e) {
-            System.out.println("Send email fail!");
-            e.printStackTrace();
+        } catch (MessagingException exception) {
+            Logger.getLogger(SendEmailUtils.class.getName()).log(Level.SEVERE, null, exception);
         }
+        return null;
+
+    }
+
+    private static String activeMessage(String to, String content) {
+        String activationLink = "http://localhost:8080/XHobbeWebApp/login?action=active&email=" + to + "&token=" + content;
+        return "<!DOCTYPE html>\n"
+                + "<html lang=\"en\">\n"
+                + "<head>\n"
+                + "    <meta charset=\"UTF-8\">\n"
+                + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+                + "    <title>Active</title>\n"
+                + "</head>\n"
+                + "<body style=\"margin-bottom: 10px;\">\n"
+                + "<img src=\"https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/logo%2Fxhobbe-high-resolution-logo.png?alt=media&token=61a3c357-6d99-4565-bdeb-76e4d0aedbdd\" style=\"width: 250px;\">\n"
+                + "    <h3>Wellcome to xHobbe</h3>\n"
+                + "    <p>Click the active button to activate your account now!</p>\n"
+                + "    <p>Here: " + activationLink + " </p>\n"
+                + "</body>\n"
+                + "</html>";
+        
+//        return  "Welcome to xHobbe! Your sign-up was successful.\n"
+//                + "Click the active button to activate your account now!\n"
+//                + "Active: " + activationLink + "\n"
+//                + "Thank you for signing up!\n";
+
     }
 
     public static void main(String[] args) {
-        sendEmail("huytde.dev@gmail.com", "Verify email", "");
+        sendEmail("huytde.dev@gmail.com", "Verify email", "token-here");
     }
 }
