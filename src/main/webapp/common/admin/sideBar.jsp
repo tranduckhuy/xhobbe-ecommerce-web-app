@@ -112,13 +112,13 @@
                 </a>
                 <ul id="ddmenu_4" class="collapse dropdown-nav">
                     <li>
-                        <a href="./admin-account"> Admin </a>
+                        <a href="./admin-account?action=list&role=ADMIN"> Admin </a>
                     </li>
                     <li>
-                        <a href="./admin-account"> Staff </a>
+                        <a href="./admin-account?action=list&role=STAFF"> Staff </a>
                     </li>
                     <li>
-                        <a href="./admin-account"> Customer </a>
+                        <a href="./admin-account?action=list&role=CUSTOMER"> Customer </a>
                     </li>
                 </ul>
             </li>

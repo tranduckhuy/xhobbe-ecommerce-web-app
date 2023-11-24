@@ -4,7 +4,7 @@ package com.xhobbe.constant;
  *
  * @author ADMIN
  */
-public class Constants {
+public class GoogleConstants {
     
   public static String GOOGLE_CLIENT_ID = "968629766334-ib9g601qejl32aqv0sep9dnvklnskt9d.apps.googleusercontent.com";
   

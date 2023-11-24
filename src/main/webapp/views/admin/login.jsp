@@ -22,6 +22,13 @@
         <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/main.css'/>" />
     </head>
     <body>
+
+        <!-- ======== Preloader =========== -->
+        <div id="preloader">
+            <div class="spinner"></div>
+        </div>
+        <!-- ======== Preloader =========== -->
+
         <!-- ======== main-wrapper start =========== -->
         <main class="container">
             <!-- ========== signin-section start ========== -->
@@ -81,7 +88,7 @@
                                     </div>
                                     <c:if test="${message != null && message eq 'fail'}">
                                         <div class="alert alert-danger text-center my-3" role="alert" style="height: 35px; margin: 0; padding: 4px">
-                                           Email or password is incorrect. Please try again!
+                                            Email or password is incorrect. Please try again!
                                         </div>
                                     </c:if>
                                     <c:if test="${message != null && message eq 'notLogin'}" >
@@ -91,7 +98,7 @@
                                     </c:if>
                                     <c:if test="${message != null && message eq 'notPermission'}">
                                         <div class="alert text-center align-items-center my-3" role="alert"
-                                            style="color: white; background-color: red; height: 35px; margin: 0; padding: 4px" >
+                                             style="color: white; background-color: red; height: 35px; margin: 0; padding: 4px" >
                                             Permission denied: Insufficient permissions.
                                         </div>
                                     </c:if>
@@ -135,6 +142,9 @@
         </main>
         <!-- ======== main-wrapper end =========== -->
     </body>
+
+    <script src="<c:url value='/template/admin/assets/js/main.js'/>"></script>
+
     <!-- Validator JS File -->
     <script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
     <script>

@@ -46,7 +46,7 @@ public class AuthorizationFilter implements Filter {
             if (user != null) {
                 if (AppConstant.ADMIN.equals(user.getRole()) || AppConstant.STAFF.equals(user.getRole())) {
                     chain.doFilter(request, response);
-                } else if (user.getRole().equals(AppConstant.USER)) {
+                } else if (user.getRole().equals(AppConstant.CUSTOMER)) {
                     response.sendRedirect("./admin-login?message=notPermission");
                 }
             } else {

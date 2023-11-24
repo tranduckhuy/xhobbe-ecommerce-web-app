@@ -48,11 +48,22 @@
         <div class="tables-wrapper">
             <div class="row">
                 <div class="col-lg-12">
+                    <c:if test="${msg != null && msg eq 'success'}">
+                        <div class="alert alert-success text-center" role="alert">
+                            Great job! Your action was successful.
+                        </div>
+                    </c:if>
+                    <c:if test="${msg != null && msg eq 'fail'}">
+                        <div class="alert alert-danger text-center" role="alert">
+                            Error: Unable to complete the requested action.
+                        </div>
+                    </c:if>
                     <div class="card-style mb-30">
-                        <h6 class="mb-10">Account role..</h6>
-                        <p class="text-sm mb-20">
-                            Abc
-                        </p>
+                        <div class="d-flex justify-content-start mb-2">
+                            <a href="./admin-account?action=add" class="my-btn">
+                                Add new <i class="fa-solid fa-plus"></i>
+                            </a>
+                        </div>
                         <div class="table-wrapper table-responsive">
                             <table class="table">
                                 <thead>
@@ -79,66 +90,37 @@
                                     <!-- end table row-->
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="min-width text-center">
-                                            <div class="lead-text">
-                                                <p>Trần Đức Huy</p>
-                                            </div>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p><a href="#0">huytd.dev@gmail.com</a></p>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p>0123456789</p>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p>Quy Nhon</p>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p class="text-primary text-bold">Admin</p>
-                                        </td>
-                                        <td>
-                                            <div class="action d-flex gap-2 justify-content-center">
-                                                <a href="#" class="text-danger " title="Edit">
-                                                    <i class="fa-solid fa-pencil action-hover"></i>
-                                                </a>
-                                                <a href="#" class="text-danger" title="Delete">
-                                                    <i class="lni lni-trash-can action-hover"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- end table row -->
-                                    <tr>
-                                        <td class="min-width text-center">
-                                            <div class="lead-text">
-                                                <p>Trần Huy</p>
-                                            </div>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p><a href="#0">duchuy81.1610@gmail.com</a></p>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p>0123456788</p>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p>Quy Nhon</p>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p class="text-warning text-bold">Staff</p>
-                                        </td>
-                                        <td>
-                                            <div class="action d-flex gap-2 justify-content-center">
-                                                <a href="#" class="text-danger " title="Edit">
-                                                    <i class="fa-solid fa-pencil action-hover"></i>
-                                                </a>
-                                                <a href="#" class="text-danger" title="Delete">
-                                                    <i class="lni lni-trash-can action-hover"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- end table row -->
+                                    <c:forEach var="account" items="${list}">
+                                        <tr>
+                                            <td class="min-width text-center">
+                                                <div class="lead-text">
+                                                    <p>${account.name}</p>
+                                                </div>
+                                            </td>
+                                            <td class="min-width text-center">
+                                                <p><a href="#0">${account.email}</a></p>
+                                            </td>
+                                            <td class="min-width text-center">
+                                                <p>${account.phone}</p>
+                                            </td>
+                                            <td class="min-width text-center">
+                                                <p>${account.address}</p>
+                                            </td>
+                                            <td class="min-width text-center">
+                                                <p class="${account.roleId == 1 ? 'text-primary' : 'text-secondary'} text-bold">${account.role}</p>
+                                            </td>
+                                            <td>
+                                                <div class="action d-flex gap-2 justify-content-center">
+                                                    <a href="./admin-account?action=edit&email=${account.email}" class="text-danger " title="Edit">
+                                                        <i class="fa-solid fa-pencil action-hover"></i>
+                                                    </a>
+                                                    <a href="./admin-account?action=delete&email=${account.email}" class="text-danger" title="Delete">
+                                                        <i class="lni lni-trash-can action-hover"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                             <!-- end table -->
