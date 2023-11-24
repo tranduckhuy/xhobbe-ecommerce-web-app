@@ -58,6 +58,9 @@ function Validator(options) {
         formElement.onsubmit = function (e) {
             e.preventDefault();
             
+            // Cập nhật CKEditor trước khi kiểm tra
+            CKEDITOR.instances['description'].updateElement();
+            
             var isFormValid = true;
             
             //Lặp qua từng rule và validate

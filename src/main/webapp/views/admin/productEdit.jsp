@@ -161,8 +161,8 @@
 
 <!-- ========= CKEditor Javascript files linkup ======== -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
-<!--<script src="<c:url value='/template/admin/assets/ckeditor5-build-classic/ckeditor.js'/>"></script>-->
+<script src="https://cdn.ckeditor.com/4.16.1/basic/ckeditor.js"></script>
+<script src="<c:url value='/template/admin/assets/ckeditor/build/ckeditor.js'/>"></script>
 
 <!-- ========= Validate Javascript files linkup ======== -->
 <script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
@@ -182,6 +182,8 @@
             Validator.isRequired('#name', 'Please enter product name!'),
 
             Validator.isRequired('#brand-select', 'Please enter product name!'),
+            
+            Validator.isRequired('#description', 'Please enter product description!'),
 
             Validator.isRequired('#description', 'Please enter product description!'),
 
