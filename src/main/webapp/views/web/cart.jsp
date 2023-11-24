@@ -121,7 +121,7 @@
                                     <tbody>
                                         <tr class="summary-subtotal">
                                             <td>Subtotal:</td>
-                                            <td>$160.00</td>
+                                            <td>$0.00</td>
                                         </tr><!-- End .summary-subtotal -->
                                         <tr class="summary-shipping">
                                             <td>Shipping:</td>
@@ -131,7 +131,7 @@
                                         <tr class="summary-shipping-row">
                                             <td>
                                                 <div class="custom-control custom-radio">
-                                                    <input type="radio" id="free-shipping" name="shipping" class="custom-control-input">
+                                                    <input type="radio" id="free-shipping" name="shipping" class="custom-control-input" value="0">
                                                     <label class="custom-control-label" for="free-shipping">Free Shipping</label>
                                                 </div><!-- End .custom-control -->
                                             </td>
@@ -141,7 +141,7 @@
                                         <tr class="summary-shipping-row">
                                             <td>
                                                 <div class="custom-control custom-radio">
-                                                    <input type="radio" id="standart-shipping" name="shipping" class="custom-control-input">
+                                                    <input type="radio" id="standart-shipping" name="shipping" class="custom-control-input" value="10.00">
                                                     <label class="custom-control-label" for="standart-shipping">Standart:</label>
                                                 </div><!-- End .custom-control -->
                                             </td>
@@ -151,7 +151,7 @@
                                         <tr class="summary-shipping-row">
                                             <td>
                                                 <div class="custom-control custom-radio">
-                                                    <input type="radio" id="express-shipping" name="shipping" class="custom-control-input">
+                                                    <input type="radio" id="express-shipping" name="shipping" class="custom-control-input" value="20.00">
                                                     <label class="custom-control-label" for="express-shipping">Express:</label>
                                                 </div><!-- End .custom-control -->
                                             </td>
@@ -160,7 +160,7 @@
 
                                         <tr class="summary-total">
                                             <td>Total:</td>
-                                            <td>$160.00</td>
+                                            <td>$0.00</td>
                                         </tr><!-- End .summary-total -->
                                     </tbody>
                                 </table><!-- End .table table-summary -->
@@ -194,5 +194,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('product-select-all').addEventListener('change', updateProductSelection);
 });
 </script>
+<script src="<c:url value='/template/web/assets/js/cart/cart.js'/>"></script>
 
 <%@ include file="/common/web/footer.jsp"%>
