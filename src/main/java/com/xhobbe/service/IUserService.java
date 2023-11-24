@@ -23,5 +23,7 @@ public interface IUserService {
 
     List<User> findAll(int limit, int offset);
 
+    User active(User user);
+        
     int countTotalItem();
 }

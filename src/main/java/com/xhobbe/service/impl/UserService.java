@@ -32,10 +32,15 @@ public class UserService implements IUserService {
 
     @Override
     public User add(User user) {
-        
+        // Check if the user with the given email already exists
+        if (userDAO.findOne(user.getEmail()) != null) {
+            return null;
+        }
+        // If the user doesn't exist, add them to the database
         Long id = userDAO.add(user);
-        
-        return id != null ? user: null;
+
+        // Return the user object if the addition was successful, otherwise return null
+        return (id != null) ? user : null;
     }
 
     @Override
@@ -59,5 +64,11 @@ public class UserService implements IUserService {
     @Override
     public int countTotalItem() {
         return userDAO.countTotalItem();
+    }
+
+    @Override
+    public User active(User user) {
+        userDAO.active(user);
+        return userDAO.findOne(user.getEmail());
     }
 }

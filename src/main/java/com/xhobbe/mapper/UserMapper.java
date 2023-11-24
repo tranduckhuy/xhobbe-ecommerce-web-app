@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.xhobbe.mapper;
 
 import com.xhobbe.model.User;
@@ -26,6 +23,9 @@ public class UserMapper implements RowMapper<User> {
             user.setPassword(rs.getString("password"));
             user.setRole(rs.getString("roleName"));
             user.setRoleId(rs.getInt("roleId"));
+            user.setRoleId(rs.getInt("roleId"));
+            user.setActive(rs.getInt("active"));
+            user.setActiveToken(rs.getString("activeToken"));
             return user;
         } catch (SQLException e) {
             e.printStackTrace();

@@ -13,7 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Admin Login</title>
-
+        <link rel="icon" type="image/png" sizes="64x64" href="<c:url value='/template/web/assets/images/icons/xhobbe-logo.png'/>">
         <!-- ========== All CSS files linkup ========= -->
         <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/bootstrap.min.css'/>" />
         <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/lineicons.css'/>" />

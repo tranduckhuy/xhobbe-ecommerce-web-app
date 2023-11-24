@@ -14,16 +14,10 @@
         <title>xHobbe</title>
 
         <!-- Favicon -->
-        <link rel="apple-touch-icon" sizes="180x180" href="<c:url value='/template/web/assets/images/icons/apple-touch-icon.png'/>">
-        <link rel="icon" type="image/png" sizes="32x32" href="<c:url value='/template/web/assets/images/icons/favicon-32x32.png'/>">
-        <link rel="icon" type="image/png" sizes="16x16" href="<c:url value='/template/web/assets/images/icons/favicon-16x16.png'/>">
-        <link rel="manifest" href="<c:url value='/template/web/assets/images/icons/site.html'/>">
-        <link rel="mask-icon" href="<c:url value='/template/web/assets/images/icons/safari-pinned-tab.svg'/>" color="#666666">
-        <link rel="shortcut icon" href="<c:url value='/template/web/assets/images/icons/favicon.ico'/>">
-        <meta name="apple-mobile-web-app-title" content="Molla">
-        <meta name="application-name" content="Molla">
+        <link rel="icon" type="image/png" sizes="64x64" href="<c:url value='/template/web/assets/images/icons/xhobbe-logo.png'/>">
+        <meta name="apple-mobile-web-app-title" content="xHobbe">
+        <meta name="application-name" content="xHobbe">
         <meta name="msapplication-TileColor" content="#cc9966">
-        <meta name="msapplication-config" content="href="<c:url value='/template/web/assets/images/icons/browserconfig.xml'/>">
         <meta name="theme-color" content="#ffffff">
         <link rel="stylesheet" href="<c:url value='/template/web/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css'/>">
         <!-- Plugins CSS File -->
@@ -88,21 +82,38 @@
             <div class="login-page bg-image pt-4 pb-4 pt-md-6 pb-md-6 pt-lg-4 pb-lg-12" style="background-image: url('<c:url value='/template/web/assets/images/backgrounds/login-bg.svg.png'/>')">
                 <div class="container">
                     <div class="form-box">
-                        <c:if test="${message != null && message eq 'success'}">
-                            <div class="alert alert-success text-center" role="alert">
-                                Great job! Your action was successful.
-                            </div>
-                        </c:if>
-                        <c:if test="${message != null && message eq 'fail'}">
-                            <div class="alert alert-danger text-center" role="alert">
-                                Error: Unable to complete the requested action.
-                            </div>
-                        </c:if>
-                        <c:if test="${message != null && message eq 'notLogin'}">
-                            <div class="alert alert-warning text-center" role="alert">
-                                Please sign in to access this feature.
-                            </div>
-                        </c:if>
+                        <c:choose>
+                            <c:when test="${message eq 'success'}">
+                                <div class="alert alert-success text-center" role="alert">
+                                    Great job! Your action was successful.
+                                </div>
+                            </c:when>
+                            <c:when test="${message eq 'fail'}">
+                                <div class="alert alert-danger text-center" role="alert">
+                                    Error: Unable to complete the requested action.
+                                </div>
+                            </c:when>
+                            <c:when test="${message eq 'notLogin'}">
+                                <div class="alert alert-warning text-center" role="alert">
+                                    Please sign in to access this feature.
+                                </div>
+                            </c:when>
+                            <c:when test="${message eq 'emailExist'}">
+                                <div class="alert alert-danger text-center" role="alert">
+                                    Email already exists. Please use a different email address.
+                                </div>
+                            </c:when>
+                            <c:when test="${message eq 'activeEmail'}">
+                                <div class="alert alert-warning text-center" role="alert">
+                                    Please check your email and follow the instructions to activate your account.
+                                </div>
+                            </c:when>
+                            <c:when test="${message eq 'notActive'}">
+                                <div class="alert alert-warning text-center" role="alert">
+                                    Account not active. Please check your email for activation!.
+                                </div>
+                            </c:when>
+                        </c:choose>
                         <div class="form-tab">
                             <ul class="nav nav-pills nav-fill" role="tablist">
                                 <li class="nav-item">
@@ -148,13 +159,14 @@
                                         <p class="text-center">or sign in with</p>
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login btn-g">
+                                                <a href="https://accounts.google.com/o/oauth2/v2/auth?scope=email%20profile&state=state_parameter_passthrough_value&access_type=offline&response_type=code&include_granted_scopes=true&redirect_uri=http://localhost:8080/XHobbeWebApp/LoginGoogleHandler&client_id=968629766334-ib9g601qejl32aqv0sep9dnvklnskt9d.apps.googleusercontent.com"
+                                                   class="btn btn-login btn-g">
                                                     <i class="icon-google"></i>
                                                     Login With Google
                                                 </a>
                                             </div><!-- End .col-6 -->
                                             <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login btn-f">
+                                                <a href="#!" class="btn btn-login btn-f">
                                                     <i class="icon-facebook-f"></i>
                                                     Login With Facebook
                                                 </a>
@@ -166,40 +178,44 @@
                                     <form id="form-register" method="post">
                                         <input type="hidden" id="action-register" name="action">
                                         <div class="form-group">
-                                            <label for="register-name">Your name *</label>
-                                            <input type="text" class="form-control" id="register-name" name="register-name" placeholder="Ex: Jon Doe, Jon-Doe, Kiersten F. Latham, Pat O'Brien,...">
+                                            <label for="register-name" class="font-weight-bolder">Your name *</label>
+                                            <input type="text" class="form-control" id="register-name" name="register-name" placeholder="Ex: Huy Đẹp Trai, Jon-Doe, ,..."
+                                                   value="${not empty newUser ? newUser.name : ''}">
                                             <span class="form-message"></span>
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
-                                            <label for="register-email-2">Your email address *</label>
-                                            <input type="email" class="form-control" id="register-email-2" name="register-email" placeholder="Ex: acb@gmail.com">
+                                            <label for="register-email-2" class="font-weight-bolder">Your email address *</label>
+                                            <input type="email" class="form-control" id="register-email-2" name="register-email" placeholder="Ex: acb@gmail.com"
+                                                   value="${not empty newUser ? newUser.email : ''}">
                                             <span class="form-message"></span>
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
-                                            <label for="register-phone">Your phone number *</label>
-                                            <input type="text" class="form-control" id="register-phone" name="register-phone" placeholder="Must be 10 digits. Ex: 0123456789">
+                                            <label for="register-phone" class="font-weight-bolder">Your phone number *</label>
+                                            <input type="text" class="form-control" id="register-phone" name="register-phone" placeholder="Must be 10 digits. Ex: 0987678979"
+                                                   value="${not empty newUser ? newUser.phone : ''}">
                                             <span class="form-message"></span>
                                         </div><!-- End .form-group -->
 
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label for="register-password-2">Password *</label>
+                                                <label for="register-password-2" class="font-weight-bolder">Password *</label>
                                                 <input type="password" class="form-control" id="register-password-2" name="register-password" placeholder="More than 6 character">
                                                 <span class="form-message"></span>
                                             </div><!-- End .form-group -->
 
                                             <div class="form-group col-md-6">
-                                                <label for="register-confirm-password-2">Confirm Password *</label>
+                                                <label for="register-confirm-password-2" class="font-weight-bolder">Confirm Password *</label>
                                                 <input type="password" class="form-control" id="register-confirm-password-2" name="register-confirm-password">
                                                 <span class="form-message"></span>
                                             </div><!-- End .form-group -->
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="register-address">Your address *</label>
-                                            <input type="text" class="form-control" id="register-address" name="register-address">
+                                            <label for="register-address" class="font-weight-bolder">Your address *</label>
+                                            <input type="text" class="form-control" id="register-address" name="register-address" 
+                                                   value="${not empty newUser ? newUser.address : ''}">
                                             <span class="form-message"></span>
                                         </div><!-- End .form-group -->
 
@@ -220,13 +236,14 @@
                                         <p class="text-center">or sign in with</p>
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login btn-g">
+                                                <a href="https://accounts.google.com/o/oauth2/v2/auth?scope=email%20profile&state=state_parameter_passthrough_value&access_type=offline&response_type=code&include_granted_scopes=true&redirect_uri=http://localhost:8080/XHobbeWebApp/LoginGoogleHandler&client_id=968629766334-ib9g601qejl32aqv0sep9dnvklnskt9d.apps.googleusercontent.com"
+                                                   class="btn btn-login btn-g">
                                                     <i class="icon-google"></i>
                                                     Login With Google
                                                 </a>
                                             </div><!-- End .col-6 -->
                                             <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login  btn-f">
+                                                <a href="#!" class="btn btn-login  btn-f">
                                                     <i class="icon-facebook-f"></i>
                                                     Login With Facebook
                                                 </a>
@@ -275,7 +292,7 @@
             };
 
         </script>
-        
+
         <script>
 
             document.getElementById('action-signin').value = 'signIn';
@@ -324,7 +341,7 @@
                 ]
             });
         </script>
-        
+
     </body>
 
 </html>
