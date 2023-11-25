@@ -83,7 +83,7 @@
                                         </li>
                                     </c:if>
                                     <c:if test="${user == null}">
-                                        <li><a href="./login"><i class="icon-user"></i>Login</a></li>
+                                        <li style="font-weight: 600;"><a href="./login" ><i class="icon-user"></i>Login</a></li>
                                     </c:if>
                                 </ul>
                             </li>
@@ -124,20 +124,20 @@
                         <div class="wishlist">
                             <a href="./cart" title="Cart">
                                 <div class="icon">
-                                    <i class="icon-shopping-cart" style="font-size: 22px;"></i>
+                                    <i class="icon-shopping-cart" style="font-size: 30px;"></i>
                                     <span class="wishlist-count badge">2</span>
                                 </div>
-                                <p>Cart</p>
+                                <p style="font-weight: 600; font-size: 12px;">Cart</p>
                             </a>
                         </div><!-- End .compare-dropdown -->
                         
                         <div class="wishlist">
                             <a href="./order" title="Order">
                                 <div class="icon">
-                                    <i class="fa-solid fa-truck" style="font-size: 22px;"></i>
+                                    <i class="fa-solid fa-truck" style="font-size: 23px;"></i>
                                     <span class="wishlist-count badge">3</span>
                                 </div>
-                                <p>Order</p>
+                                <p style="font-weight: 600; font-size: 12px;">Order</p>
                             </a>
                         </div><!-- End .compare-dropdown -->
                     </div><!-- End .header-right -->

@@ -2,6 +2,7 @@ package com.xhobbe.controller.admin;
 
 import com.xhobbe.constant.ActionConstant;
 import com.xhobbe.constant.AppConstant;
+import com.xhobbe.constant.MessageAlertConstant;
 import com.xhobbe.model.User;
 import com.xhobbe.service.IUserService;
 import com.xhobbe.utils.UserUtils;
@@ -152,8 +153,15 @@ public class AccountController extends HttpServlet {
             response.sendRedirect("./admin");
             return;
         }
-        userService.delete(user.getUserId());
-        response.sendRedirect("./admin-account?action=list&role=" + user.getRole() + "&msg=success");
+        
+        boolean check = userService.delete(user.getUserId(), email);
+        
+        if (check) {
+            response.sendRedirect("./admin-account?action=list&role=" + user.getRole() + "&message=success");
+        } else {
+            response.sendRedirect("./admin-account?action=list&role=" + user.getRole() + "&message=fail");
+        }
+        
     }
 
 }

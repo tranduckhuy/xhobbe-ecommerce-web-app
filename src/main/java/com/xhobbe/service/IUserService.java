@@ -19,7 +19,7 @@ public interface IUserService {
 
     User update(User user);
 
-    void delete(long id);
+    boolean delete(long id, String email);
 
     List<User> findAll(int limit, int offset);
 

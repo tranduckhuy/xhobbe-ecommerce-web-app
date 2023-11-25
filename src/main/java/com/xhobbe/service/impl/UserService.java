@@ -52,8 +52,13 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public void delete(long id) {
+    public boolean delete(long id, String email) {
+        if (id == 1) {
+            return false;
+        }
         userDAO.delete(id);
+        
+        return (userDAO.findOne(email)) == null;
     }
 
     @Override

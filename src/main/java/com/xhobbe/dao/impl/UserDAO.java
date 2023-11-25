@@ -47,8 +47,23 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
 
     @Override
     public void delete(long id) {
-        String sql = "DELETE FROM user WHERE userId = ?";
-        update(sql, id);
+        
+        // delete all cart
+        String sqlDelete = "DELETE FROM `shoppingCart` WHERE userId = ?";
+        update(sqlDelete, id);
+        
+        // delete all `orderDetails`
+        StringBuilder sql = new StringBuilder("DELETE FROM `orderDetails` AS od ");
+        sql.append("WHERE od.orderId = (SELECT o.orderId FROM `user` AS u JOIN `order` AS o ON o.userId = u.userId WHERE u.userId = ?)");
+        update(sql.toString(), id);
+        
+        // delete all `order`
+        sqlDelete = "DELETE FROM `order` WHERE userId = ?";
+        update(sqlDelete, id);
+        
+        //delete `user`
+        sqlDelete = "DELETE FROM user WHERE userId = ?";
+        update(sqlDelete, id);
     }
 
     @Override
