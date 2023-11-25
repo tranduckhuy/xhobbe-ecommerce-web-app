@@ -182,6 +182,8 @@
             Validator.isRequired('#name', 'Please enter product name!'),
 
             Validator.isRequired('#brand-select', 'Please enter product name!'),
+            
+            Validator.isRequiredDescription('#description', 'Please enter product description!'),
 
             Validator.isRequired('#description', 'Please enter product description!'),
 
@@ -191,7 +193,7 @@
             Validator.isPositive('#price', 'Please enter product price greater than 0!'),
 
             Validator.isRequired('#quantity', 'Please choose product quantity!'),
-            Validator.isPositive('#quantity', 'Please enter product quantity greater than 0!'),
+            Validator.isPositive('#quantity', 'Please enter product quantity greater than 0!')
         ]
     });
 </script>

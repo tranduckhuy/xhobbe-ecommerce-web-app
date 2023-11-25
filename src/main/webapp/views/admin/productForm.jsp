@@ -158,6 +158,8 @@
             Validator.isRequired('#name', 'Please enter product name!'),
 
             Validator.isRequired('#brand-select', 'Please enter product name!'),
+            
+            Validator.isRequiredDescription('#description', 'Please enter product description!'),
 
             Validator.isRequired('#category-select', 'Please choose product category!'),
 
