@@ -130,12 +130,25 @@
                                         </div>
                                         <!-- end row -->
                                     </form>
+                                    <div class="singup-option pt-20">
+                                        <p class="text-sm text-medium text-center text-gray">
+                                            Or Sign Up With
+                                        </p>
+                                        <div class="button-group pt-20 pb-20 d-flex justify-content-center flex-wrap">
+                                            <a href="https://accounts.google.com/o/oauth2/v2/auth?scope=email%20profile&state=state_parameter_passthrough_value&access_type=offline&response_type=code&include_granted_scopes=true&redirect_uri=http://localhost:8080/XHobbeWebApp/LoginGoogleHandler&client_id=968629766334-ib9g601qejl32aqv0sep9dnvklnskt9d.apps.googleusercontent.com"
+                                               class="main-btn danger-btn-outline m-2">
+                                                <i class="lni lni-google mr-10"></i>
+                                                Google
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- end col -->
                     </div>
-                    <!-- end row -->
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
                 </div>
             </section>
             <!-- ========== signin-section end ========== -->

@@ -1,5 +1,6 @@
 package com.xhobbe.controller.web;
 
+import com.xhobbe.constant.AppConstant;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -54,8 +55,8 @@ public class LoginGoogleHandler extends HttpServlet {
             userSerice.add(user);
             SessionUtils.getInstance().putValue(request, "user", user);
         }
-
-        response.sendRedirect("./");
+        user = (User) SessionUtils.getInstance().getValue(request, "user");
+        response.sendRedirect((!AppConstant.CUSTOMER.equals(user.getRole())) ? "./admin" : "./");
     }
 
     @Override

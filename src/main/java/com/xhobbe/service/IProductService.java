@@ -25,4 +25,6 @@ public interface IProductService {
     List<Product> findByName(String name);
 
     int getTotalItem();
+    
+    int getTotalItem(int categoryId);
 }

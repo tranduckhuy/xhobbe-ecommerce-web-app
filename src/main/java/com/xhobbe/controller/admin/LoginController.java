@@ -35,9 +35,8 @@ public class LoginController extends HttpServlet {
 
         if (action == null) {
             User user = (User) SessionUtils.getInstance().getValue(request, "user");
-            if (user != null) {
-                String redirectPath = AppConstant.CUSTOMER.equals(user.getRole()) ? "./" : "./admin";
-                response.sendRedirect(redirectPath);
+            if (user != null &&  !AppConstant.CUSTOMER.equals(user.getRole())) {
+                response.sendRedirect("./admin");
                 return;
             } 
             if (message != null) {

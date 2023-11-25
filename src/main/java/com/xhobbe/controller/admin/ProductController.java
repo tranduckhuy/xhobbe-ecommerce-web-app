@@ -113,7 +113,7 @@ public class ProductController extends HttpServlet {
             response.sendRedirect("./admin-product?action=add");
             return;
         }
-        response.sendRedirect("admin-product?action=list&category="+ CategoryUtils.getCategoryName(product.getCategoryId()));
+        response.sendRedirect("admin-product?action=list&category="+ product.getCategory());
     }
 
     private void getFormEdit(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

@@ -6,6 +6,7 @@ import com.xhobbe.constant.AppConstant;
 import com.xhobbe.constant.CategoryConstant;
 import com.xhobbe.model.Product;
 import com.xhobbe.service.IProductService;
+import com.xhobbe.utils.CategoryUtils;
 import com.xhobbe.utils.UtilsValidType;
 import java.io.IOException;
 import java.util.List;
@@ -53,7 +54,7 @@ public class ProductController extends HttpServlet {
                 loadMoreProduct(request, response);
                 break;
             case ActionConstant.SEARCH:
-                postSearchProduct(request, response);
+                getSearchProduct(request, response);
                 break;    
             default:
                 response.sendRedirect("./");
@@ -89,7 +90,7 @@ public class ProductController extends HttpServlet {
                 case CategoryConstant.LAPTOP:
                 case CategoryConstant.IPAD:
                 case CategoryConstant.ACCESSORIES:
-                    request.setAttribute("total", productService.getTotalItem());
+                    request.setAttribute("total", productService.getTotalItem(CategoryUtils.getCategoryId(category)));
                     request.setAttribute("category", category);
                     list = productService.findByCategory(10, 0, "", "", category);
                     break;
@@ -121,12 +122,13 @@ public class ProductController extends HttpServlet {
         request.getRequestDispatcher(views).forward(request, response);
     }
 
-    private void postSearchProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private void getSearchProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String searchValue = request.getParameter("search");
-
+        
         List<Product> list = productService.findByName(searchValue);
 
+        request.setAttribute("total", list.size());
         request.setAttribute(AppConstant.LIST, list);
         request.getRequestDispatcher("/views/web/productList.jsp").forward(request, response);
     }

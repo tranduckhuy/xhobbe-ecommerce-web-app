@@ -89,16 +89,16 @@
                                         <div class="col-lg-4 form-group">
                                             <select id="category-select" name="category" class="form-select mb-1">
                                                 <option value="" disabled selected>Choose category</option>
-                                                <option value="1" <c:if test="${'Phone' eq product.category}">selected</c:if> >
+                                                <option value="Phone" <c:if test="${'Phone' eq product.category}">selected</c:if> >
                                                     Phone
                                                 </option>
-                                                <option value="2" <c:if test="${'Laptop' eq product.category}"> selected</c:if> >
+                                                <option value="Laptop" <c:if test="${'Laptop' eq product.category}"> selected</c:if> >
                                                     Laptop
                                                 </option>
-                                                <option value="3" <c:if test="${'iPad' eq product.category}"> selected</c:if> >
+                                                <option value="iPad" <c:if test="${'iPad' eq product.category}"> selected</c:if> >
                                                     iPad
                                                 </option>
-                                                <option value="4" <c:if test="${'Accessories' eq product.category}"> selected</c:if> >
+                                                <option value="Accessories" <c:if test="${'Accessories' eq product.category}"> selected</c:if> >
                                                     Accessories
                                                 </option>
                                             </select>
