@@ -58,6 +58,9 @@ function Validator(options) {
         formElement.onsubmit = function (e) {
             e.preventDefault();
             
+            // Cập nhật CKEditor trước khi kiểm tra
+            CKEDITOR.instances['description'].updateElement();
+            
             var isFormValid = true;
             
             //Lặp qua từng rule và validate
@@ -190,3 +193,24 @@ Validator.isPositive = function (selector, message) {
         }
     };
 };
+
+Validator.isRequiredDescription = function (selector, message) {
+    return {
+        selector: selector,
+        test: function () {
+            // Lấy nội dung văn bản từ CKEditor
+            var cleanDescription = getCleanTextFromEditor('description');
+            return cleanDescription !== "" ? undefined : message || 'Please enter product description!';
+        }
+    };
+};
+
+// Hàm để lấy nội dung text từ CKEditor
+function getCleanTextFromEditor(editorId) {
+    var editor = CKEDITOR.instances[editorId];
+    var content = editor.getData();
+    var doc = new DOMParser().parseFromString(content, 'text/html');
+    var cleanText = doc.body.textContent || "";
+    cleanText = cleanText.trim();
+    return cleanText;
+}
