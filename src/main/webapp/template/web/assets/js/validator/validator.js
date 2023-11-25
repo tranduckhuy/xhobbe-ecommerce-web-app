@@ -2,7 +2,7 @@
 //Object 'Validator'
 
 function Validator(options) {
-    
+
     function getParent(element, selector) {
         while (element.parentElement) {
             if (element.parentElement.matches(selector)) {
@@ -11,31 +11,32 @@ function Validator(options) {
             element = element.parentElement;
         }
     }
-    
+
     var selectorRules = {};
 
     //Hàm thực hiện validate
     function validate(inputElement, rule) {
         var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
         var errorMessage;
-        
+
         //Lấy ra các rule của selector
         var rules = selectorRules[rule.selector];
-        
+
         //Lặp qua từng rule và kiểm tra
         //Nếu có lỗi thì dừng việc kiểm tra
         for (var i = 0; i < rules.length; ++i) {
-            switch (inputElement.type){
+            switch (inputElement.type) {
                 case 'checkbox':
                     errorMessage = rules[i](
                             formElement.querySelector(rule.selector + ':checked')
-                    );
+                            );
                     break;
                 default:
                     errorMessage = rules[i](inputElement.value);
             }
-            
-            if (errorMessage) break;
+
+            if (errorMessage)
+                break;
         }
 
         if (errorMessage) {
@@ -45,50 +46,51 @@ function Validator(options) {
             errorElement.innerText = '';
             getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
         }
-        
+
         return !errorMessage;
-    };
+    }
+    ;
 
     //Lấy element của form cần validate
     var formElement = document.querySelector(options.form);
 
     if (formElement) {
-        
+
         //Khi submit form
         formElement.onsubmit = function (e) {
             e.preventDefault();
-            
+
             // Cập nhật CKEditor trước khi kiểm tra
-            CKEDITOR.instances['description'].updateElement();
-            
+            updateCKEditor();
+
             var isFormValid = true;
-            
+
             //Lặp qua từng rule và validate
             options.rules.forEach(function (rule) {
                 var inputElement = formElement.querySelector(rule.selector);
                 var isValid = validate(inputElement, rule);
-                if (!isValid){
+                if (!isValid) {
                     isFormValid = false;
                 }
             });
-            
-            if (isFormValid){
+
+            if (isFormValid) {
                 formElement.submit();
             }
         };
-        
+
         //Lặp qua mỗi rule và xử lý (lắng nghe sự kiện blur, input,...)
         options.rules.forEach(function (rule) {
-            
+
             //Lưu lại các rule cho mỗi input
-            if (Array.isArray(selectorRules[rule.selector])){
+            if (Array.isArray(selectorRules[rule.selector])) {
                 selectorRules[rule.selector].push(rule.test);
             } else {
                 selectorRules[rule.selector] = [rule.test];
             }
-                     
+
             var inputElements = formElement.querySelectorAll(rule.selector);
-            
+
             Array.from(inputElements).forEach(function (inputElement) {
                 //Xử lí trường hợp blur khỏi input
                 inputElement.onblur = function () {
@@ -213,4 +215,11 @@ function getCleanTextFromEditor(editorId) {
     var cleanText = doc.body.textContent || "";
     cleanText = cleanText.trim();
     return cleanText;
+}
+
+// Hàm để cập nhật CKEditor (hoặc kiểm tra xem CKEditor có sẵn không)
+function updateCKEditor() {
+    if (typeof CKEDITOR !== 'undefined' && CKEDITOR.instances['description']) {
+        CKEDITOR.instances['description'].updateElement();
+    }
 }
