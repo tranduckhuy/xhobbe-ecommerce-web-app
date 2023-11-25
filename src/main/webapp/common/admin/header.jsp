@@ -197,7 +197,7 @@
                                                 </div>
                                                 <div class="content">
                                                     <h4 class="text-sm">${user.name}</h4>
-                                                    <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs" href="#">${user.email}</a>
+                                                    <a class="" style="overflow-wrap: break-word; word-break: break-word;" href="#">${user.email}</a>
                                                 </div>
                                             </div>
                                         </li>

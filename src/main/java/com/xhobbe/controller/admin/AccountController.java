@@ -27,7 +27,8 @@ public class AccountController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.setContentType("text/html;charset=UTF-8");
+        
         String action = request.getParameter("action");
 
         if (action == null) {
@@ -56,6 +57,8 @@ public class AccountController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
 
         if (action == null) {
@@ -119,8 +122,6 @@ public class AccountController extends HttpServlet {
     }
     
     private void postFormEdit(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        
-        request.setCharacterEncoding("UTF-8");
         
         String email = request.getParameter("email");
         User user = userService.findOne(email);

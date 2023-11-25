@@ -33,9 +33,9 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
 
     @Override
     public Long add(User user) {
-        String sql = "INSERT INTO user (name, email, address, phoneNumber, password, roleId, active, activeToken) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO user (name, email, address, phoneNumber, password, roleId, active) VALUES (?, ?, ?, ?, ?, ?, ?)";
         return insert(sql, user.getName(), user.getEmail(), user.getAddress(),
-                user.getPhone(), user.getPassword(), user.getRoleId(), user.getActive(),user.getActiveToken());
+                user.getPhone(), user.getPassword(), user.getRoleId(), user.getActive());
     }
 
     @Override

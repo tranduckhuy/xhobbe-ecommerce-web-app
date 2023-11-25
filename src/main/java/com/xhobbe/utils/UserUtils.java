@@ -1,5 +1,6 @@
 package com.xhobbe.utils;
 
+import com.xhobbe.constant.AppConstant;
 import com.xhobbe.model.User;
 import java.io.IOException;
 import java.util.UUID;
@@ -12,9 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 public class UserUtils {
 
     public static User getParamAndCreateUser(HttpServletRequest request) throws IOException {
-        
-        request.setCharacterEncoding("UTF-8");
-        
+
         String name = request.getParameter("register-name");
         String email = request.getParameter("register-email");
         String phone = request.getParameter("register-phone");
@@ -33,15 +32,14 @@ public class UserUtils {
                 user.setAddress(address);
                 user.setActive(0);
                 user.setRoleId(3);
-                user.setActiveToken(UUID.randomUUID().toString());
                 return user;
             }
         }
         return null;
     }
-    
+
     public static User setDefaultGoogleAccount(User user) {
-        
+
         user.setRoleId(3);
         user.setRole("CUSTOMER");
         user.setActive(1);
@@ -51,27 +49,25 @@ public class UserUtils {
         user.setActiveToken(UUID.randomUUID().toString());
         return user;
     }
-    
+
     public static User getUpdateUser(HttpServletRequest request, User user) throws IOException {
-        
-        request.setCharacterEncoding("UTF-8");
-        
+
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
         int roleId = UtilsValidType.getInteger(request.getParameter("role"));
-        
+
         User userUpdate = new User();
         userUpdate.setUserId(user.getUserId());
         userUpdate.setName(name);
         userUpdate.setEmail(email);
-        
-        userUpdate.setAddress((address == null || !address.isEmpty()) ? address : user.getAddress());
-        userUpdate.setPhone((phone == null || !phone.isEmpty()) ? phone : user.getPhone());
+        userUpdate.setAddress(address != null && !address.isEmpty() ? address : user.getAddress());
+        userUpdate.setPhone(phone != null && !phone.isEmpty() ? phone : user.getPhone());
         userUpdate.setPassword(user.getPassword());
         userUpdate.setRoleId(roleId);
-        
+        userUpdate.setRole(roleId == 1 ? AppConstant.ADMIN : (roleId == 2 ? AppConstant.STAFF : AppConstant.CUSTOMER));
+
         return userUpdate;
     }
 }
