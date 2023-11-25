@@ -81,15 +81,21 @@ public class ProductController extends HttpServlet {
         } else {
             switch (category) {
                 case AppConstant.ALL:
+                    request.setAttribute("total", productService.getTotalItem());
+                    request.setAttribute("category", category);
                     list = productService.findAll(4, 0, "", "");
                     break;
                 case CategoryConstant.PHONE:
                 case CategoryConstant.LAPTOP:
                 case CategoryConstant.IPAD:
                 case CategoryConstant.ACCESSORIES:
+                    request.setAttribute("total", productService.getTotalItem());
+                    request.setAttribute("category", category);
                     list = productService.findByCategory(10, 0, "", "", category);
                     break;
                 default:
+                    request.setAttribute("total", productService.getTotalItem());
+                    request.setAttribute("category", category);
                     response.sendRedirect("./product?action=list&category=all");
                     return;
             }

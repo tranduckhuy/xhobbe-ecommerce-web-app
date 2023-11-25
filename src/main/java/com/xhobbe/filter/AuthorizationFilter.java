@@ -1,7 +1,6 @@
 package com.xhobbe.filter;
 
 import com.xhobbe.constant.AppConstant;
-import com.xhobbe.constant.MessageAlertConstant;
 import com.xhobbe.model.User;
 import com.xhobbe.utils.SessionUtils;
 import java.io.IOException;
@@ -61,7 +60,6 @@ public class AuthorizationFilter implements Filter {
         } else {
             chain.doFilter(request, response);
         }
-
     }
 
     @Override

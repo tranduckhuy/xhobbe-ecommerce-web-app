@@ -34,13 +34,17 @@ public class LoginController extends HttpServlet {
         String message = request.getParameter("message");
 
         if (action == null) {
+            User user = (User) SessionUtils.getInstance().getValue(request, "user");
+            if (user != null) {
+                String redirectPath = AppConstant.CUSTOMER.equals(user.getRole()) ? "./" : "./admin";
+                response.sendRedirect(redirectPath);
+                return;
+            } 
             if (message != null) {
                 request.setAttribute(AppConstant.MESSSAGE, message);
             }
             request.getRequestDispatcher("/views/admin/login.jsp").forward(request, response);
-            return;
-        }
-        if (AppConstant.LOGOUT.equals(action)) {
+        } else if (AppConstant.LOGOUT.equals(action)) {
             logout(request, response);
         } 
     }

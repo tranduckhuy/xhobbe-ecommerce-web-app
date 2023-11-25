@@ -31,8 +31,14 @@
                 </div><!-- End .toolbox-left -->
 
                 <div class="toolbox-center">
-                    <div class="toolbox-info">
-                        Showing <span>12 of 56</span> Products
+                    <div class="text-gray">
+                        Showing
+                        <span id="currentProducts" class="font-weight-bolder"></span>
+                        of
+                        <span class="font-weight-bolder">
+                            ${(category eq 'all' && total != null) ? total : list.size()}
+                        </span>
+                        Products
                     </div><!-- End .toolbox-info -->
                 </div><!-- End .toolbox-center -->
 
@@ -215,73 +221,80 @@
 
 <script>
 
+
     // Get the full URL
     let url = window.location.href;
     // Use URLSearchParams to extract parameters
     let urlParams = new URLSearchParams(url);
     // Get the value of the 'category' parameter
-    let categoryValue = urlParams.get('category');
+    
     $(document).ready(function () {
-    // Attach a click event to the "Load More" button
-    $("#loadMoreBtn").click(function () {
-    // Make an AJAX request to the servlet with parameters
-    let currentTotal = $('.product').length;
-    $.ajax({
-    url: "product?action=loadMore",
-            data: {
-            currentTotal: currentTotal,
-                    category: categoryValue
-            },
-            cache: false,
-            type: "get",
-            success: function (data) {
-            // Update the product container with the new products
-            let productContainer = $("#productContainer");
-            $.each(data, function (index, product) {
-            // Append moreProducts to productContainer
-                let productCart = "<div class='col-sm-10 col-md-4 col-lg-4 col-xl-3'>" +
-                        "<div class='product'>" +
-                            "<figure class='product-media'>" +
-                                "<span class='product-label label-new'>New</span>" +
-                                "<a href='./product?action=detail&id=" + product.productId + "'>" +
-                                    "<img src='" + product.imageURL[0] + "' alt='Product image' class='product-image' style='height: 260px'>" +
-                                "</a>" +
-                                "<div class='product-action-vertical'>" +
-                                    "<a href='#' class='btn-product-icon btn-wishlist btn-expandable'><span>xHobbe</span></a>" +
-                                "</div><!-- End .product-action -->" +
+        let categoryValue = urlParams.get('category');
+        let currentTotal = $('.product').length;
+        $("#currentProducts").html(currentTotal);
+        // Attach a click event to the "Load More" button
+        $("#loadMoreBtn").click(function () {
+        // Make an AJAX request to the servlet with parameters
+            let currentTotal = $('.product').length;
+            $("#currentProducts").html(currentTotal);
+            $.ajax({
+                url: "product?action=loadMore",
+                data: {
+                currentTotal: currentTotal,
+                        category: categoryValue
+                },
+                cache: false,
+                type: "get",
+                success: function (data) {
+                // Update the product container with the new products
+                let productContainer = $("#productContainer");
+                $.each(data, function (index, product) {
+                // Append moreProducts to productContainer
+                    let productCart = "<div class='col-sm-10 col-md-4 col-lg-4 col-xl-3'>" +
+                            "<div class='product'>" +
+                                "<figure class='product-media'>" +
+                                    "<span class='product-label label-new'>New</span>" +
+                                    "<a href='./product?action=detail&id=" + product.productId + "'>" +
+                                        "<img src='" + product.imageURL[0] + "' alt='Product image' class='product-image' style='height: 260px'>" +
+                                    "</a>" +
+                                    "<div class='product-action-vertical'>" +
+                                        "<a href='#' class='btn-product-icon btn-wishlist btn-expandable'><span>xHobbe</span></a>" +
+                                    "</div><!-- End .product-action -->" +
 
-                                "<div class='product-action action-icon-top'>" +
-                                    "<a href='./cart' class='btn-product btn-cart'><span>add to cart</span></a>" +
-                                    "<a href='./product?action=quickView&id=" + product.productId + "'" + " class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a>" +
-                                "</div>" +
-                            "</figure><!-- End .product-media -->" +
-
-                            "<div class='product-body'>" +
-                                "<h3 class='product-title'><a href='./product?action=detail&id=" + product.productId + "'>" + product.name + "</a></h3>" +
-                                "<div class='product-price'>" +
-                                    product.price + "$" +
-                                "</div>" +
-                                "<div class='ratings-container'>" +
-                                    "<div class='ratings'>" +
-                                        "<div class='ratings-val' style='width: 0%;'></div>" +
+                                    "<div class='product-action action-icon-top'>" +
+                                        "<a href='./cart' class='btn-product btn-cart'><span>add to cart</span></a>" +
+                                        "<a href='./product?action=quickView&id=" + product.productId + "'" + " class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a>" +
                                     "</div>" +
-                                    "<span class='ratings-text'>( 0 Reviews )</span>" +
-                                "</div>" +
-                                "<div class='product-nav product-nav-dots'>"+
-                                    "<a href='#' style='background: #cc9966;'><span class='sr-only'>Color name</span></a>"+
-                                    "<a href='#' class='active' style='background: #ebebeb;'><span class='sr-only'>Color name</span></a>"+
+                                "</figure><!-- End .product-media -->" +
+
+                                "<div class='product-body'>" +
+                                    "<h3 class='product-title'><a href='./product?action=detail&id=" + product.productId + "'>" + product.name + "</a></h3>" +
+                                    "<div class='product-price'>" +
+                                        product.price + "$" +
+                                    "</div>" +
+                                    "<div class='ratings-container'>" +
+                                        "<div class='ratings'>" +
+                                            "<div class='ratings-val' style='width: 0%;'></div>" +
+                                        "</div>" +
+                                        "<span class='ratings-text'>( 0 Reviews )</span>" +
+                                    "</div>" +
+                                    "<div class='product-nav product-nav-dots'>"+
+                                        "<a href='#' style='background: #cc9966;'><span class='sr-only'>Color name</span></a>"+
+                                        "<a href='#' class='active' style='background: #ebebeb;'><span class='sr-only'>Color name</span></a>"+
+                                    "</div>"+
                                 "</div>"+
                             "</div>"+
-                        "</div>"+
-                    "</div>"
-                
-                productContainer.append(productCart);
+                        "</div>"
+
+                        productContainer.append(productCart);
+                        currentTotal = $('.product').length;
+                        $("#currentProducts").html(currentTotal);
                     });
                 },
-                error: function (xhr) {
-                    // Handle errors
-                    console.error("Error loading more products");
-                }
+            error: function (xhr) {
+                // Handle errors
+                console.error("Error loading more products");
+            }
             });
         });
     });

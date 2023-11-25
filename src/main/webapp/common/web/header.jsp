@@ -70,7 +70,7 @@
                                     <c:if test="${user != null}">
                                         <li>
                                             <div class="header-dropdown">
-                                                <a href="#" class="font-weight-bold text-success" style="font-family: 'Roboto'; padding-bottom: 0">
+                                                <a href="#" class="font-weight-bold text-success" style="font-family: initial; padding-bottom: 0">
                                                     <i class="fa-solid fa-user-tie"> </i>${user.name}
                                                 </a>
                                                 <div class="header-menu">
@@ -157,10 +157,10 @@
                                     <ul class="menu-vertical sf-arrows">
                                         <li class="item-lead"><a href="#">Daily offers</a></li>
                                         <li class="item-lead"><a href="#">Gift Ideas</a></li>
-                                        <li><a href="./product?category=phone">Phones</a></li>
-                                        <li><a href="./product?category=laptop">Laptops</a></li>
-                                        <li><a href="./product?category=iPad">iPad</a></li>
-                                        <li><a href="./product?category=accessories">Accessories</a></li>
+                                        <li><a href="./product?action=list&category=Phone">Phones</a></li>
+                                        <li><a href="./product?action=list&category=Laptop">Laptops</a></li>
+                                        <li><a href="./product?action=list&category=IPad">iPad</a></li>
+                                        <li><a href="./product?action=list&category=Accessories">Accessories</a></li>
                                     </ul><!-- End .menu-vertical -->
                                 </nav><!-- End .side-nav -->
                             </div><!-- End .dropdown-menu -->
@@ -170,22 +170,22 @@
                     <div class="header-center">
                         <nav class="main-nav">
                             <ul class="menu sf-arrows">
-                                <li class="megamenu-container active">
+                                <li class="${category == null ? 'active' : ''} ">
                                     <a href="/XHobbeWebApp/">Home</a>
                                 </li>
-                                <li>
+                                <li class="${category eq 'all' ? 'active' : ''} ">
                                     <a href="./product?action=list&category=all">Shop</a>
                                 </li>
-                                <li>
+                                <li class="${category eq 'Phone' ? 'active' : ''} ">
                                     <a href="./product?action=list&category=Phone">Phones</a>
                                 </li>
-                                <li>
+                                <li class="${category eq 'Laptop' ? 'active' : ''} ">
                                     <a href="./product?action=list&category=Laptop">Laptops</a>
                                 </li>
-                                <li>
+                                <li class="${category eq 'IPad' ? 'active' : ''} ">
                                     <a href="./product?action=list&category=IPad">iPad</a>
                                 </li>
-                                <li>
+                                <li class="${category eq 'Accessories' ? 'active' : ''} ">
                                     <a href="./product?action=list&category=Accessories">Accessories</a>
                                 </li>
                             </ul><!-- End .menu -->

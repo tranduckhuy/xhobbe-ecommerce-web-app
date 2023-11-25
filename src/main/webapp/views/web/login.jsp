@@ -61,7 +61,16 @@
                                     <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
                                     <li><a href="./about">About Us</a></li>
                                     <li><a href="./contact">Contact Us</a></li>
-                                    <li><a href="./login"><i class="icon-user"></i>Login</a></li>
+                                    <c:if test="${user != null}">
+                                        <li>
+                                            <a href="#" class="font-weight-bold text-success" style="font-family: initial; padding-bottom: 0">
+                                                <i class="fa-solid fa-user-tie"> </i>${user.name}
+                                            </a>
+                                        </li>
+                                    </c:if>
+                                    <c:if test="${user == null}">
+                                        <li><a href="./login"><i class="icon-user"></i>Login</a></li>
+                                    </c:if>
                                 </ul>
                             </li>
                         </ul><!-- End .top-menu -->

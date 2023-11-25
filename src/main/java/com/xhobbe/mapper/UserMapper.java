@@ -25,7 +25,6 @@ public class UserMapper implements RowMapper<User> {
             user.setRoleId(rs.getInt("roleId"));
             user.setRoleId(rs.getInt("roleId"));
             user.setActive(rs.getInt("active"));
-            user.setActiveToken(rs.getString("activeToken"));
             return user;
         } catch (SQLException e) {
             e.printStackTrace();
