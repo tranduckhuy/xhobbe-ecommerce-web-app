@@ -48,16 +48,12 @@
         <div class="tables-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <c:if test="${msg != null && msg eq 'success'}">
-                        <div class="alert alert-success text-center" role="alert">
-                            Great job! Your action was successful.
-                        </div>
-                    </c:if>
-                    <c:if test="${msg != null && msg eq 'fail'}">
-                        <div class="alert alert-danger text-center" role="alert">
-                            Error: Unable to complete the requested action.
-                        </div>
-                    </c:if>
+                    <div id="alertSuccess" class="alert alert-success text-center mb-2" style="height: 35px; margin: 0; padding: 4px; display: none" role="alert">
+                        Great job! Your action was successful.
+                    </div>
+                    <div id="alertFail" class="alert alert-danger text-center" style="height: 35px; margin: 0; padding: 4px; display: none" role="alert">
+                        Error: Unable to complete the requested action.
+                    </div>
                     <div class="card-style mb-30">
                         <div class="d-flex justify-content-start mb-2">
                             <a href="./admin-account?action=add" class="my-btn">
@@ -137,5 +133,32 @@
     <!-- end container -->
 </section>
 <!-- ========== table components end ========== -->
+
+<script>
+        // Get the full URL
+    let url = window.location.href;
+    // Use URLSearchParams to extract parameters
+    let urlParams = new URLSearchParams(url);
+    // Get the value of the 'category' parameter
+    
+    let alertMessage = urlParams.get('message');
+    let alertSuccess = document.getElementById('alertSuccess');
+    let alertFail = document.getElementById('alertFail');
+    
+    console.log(alertMessage);
+    console.log(alertSuccess);
+    console.log(alertFail);
+    
+    if (alertMessage !== null) {
+        if (alertMessage === 'success') {
+            alertSuccess.style.dislay = "block";
+        } else if (alertMessage === 'fail') {
+            alertFail.style.dislay = "block";
+        }
+    } else {
+        alertSuccess.style.dislay = "none";
+        alertFail.style.dislay = "none";
+    }
+</script>
 
 <%@include file="/common/admin/footer.jsp" %>
