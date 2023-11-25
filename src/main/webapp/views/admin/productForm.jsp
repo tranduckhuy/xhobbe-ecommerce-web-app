@@ -75,10 +75,10 @@
                                         <div class="col-lg-4 form-group">
                                             <select id="category-select" name="category" class="form-select mb-1">
                                                 <option value="" disabled selected>Choose category</option>
-                                                <option value="1">Phone</option>
-                                                <option value="2">Laptop</option>
-                                                <option value="3">iPad</option>
-                                                <option value="4">Accessories</option>
+                                                <option value="Phone">Phone</option>
+                                                <option value="Laptop">Laptop</option>
+                                                <option value="IPad">iPad</option>
+                                                <option value="Accessories">Accessories</option>
                                             </select>
                                             <span class="form-message"></span>
                                         </div>

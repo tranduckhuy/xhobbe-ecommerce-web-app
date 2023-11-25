@@ -17,7 +17,7 @@ public class ProductUtils {
         String name = request.getParameter("name");
         int brand = UtilsValidType.getInteger(request.getParameter("brand"));
         String description = request.getParameter("description");
-        int category = UtilsValidType.getInteger(request.getParameter("category"));
+        String category = request.getParameter("category");
         double price = UtilsValidType.getDouble(request.getParameter("price"));
         int quantity = UtilsValidType.getInteger(request.getParameter("quantity"));
         String imageURL1 = request.getParameter("proImage1");
@@ -35,13 +35,14 @@ public class ProductUtils {
             }
         }
 
-        if (!name.isEmpty() && brand != -1 && !description.isEmpty() && category != -1 && price != -1
+        if (!name.isEmpty() && brand != -1 && !description.isEmpty() && !category.isEmpty() && price != -1
                 && quantity != -1 && !imageURL1.isEmpty() && !imageURL2.isEmpty()) {
             Product product = new Product();
             product.setName(name);
             product.setBrandId(brand);
             product.setDescription(description);
-            product.setCategoryId(category);
+            product.setCategory(category);
+            product.setCategoryId(CategoryUtils.getCategoryId(category));
             product.setPrice(price);
             product.setStockQuantity(quantity);
             product.setImageURL(Arrays.asList(imageURL1, imageURL2));

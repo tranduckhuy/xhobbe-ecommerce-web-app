@@ -1,5 +1,6 @@
 package com.xhobbe.model;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -17,6 +18,7 @@ public class Product {
     private String category;
     private int categoryId;
     private int stockQuantity;
+    private Timestamp createdAt;
     private List<String> imageURL;
 
     public Product() {
@@ -94,6 +96,14 @@ public class Product {
         this.stockQuantity = stockQuantity;
     }
 
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+    
     public List<String> getImageURL() {
         return imageURL;
     }
@@ -104,7 +114,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" + "productId=" + productId + ", name=" + name + ", description=" + description + ", brand=" + brand + ", price=" + price + ", category=" + category + ", stockQuantity=" + stockQuantity + ", imageURL=" + imageURL + '}';
+        return "Product{" + "productId=" + productId + ", name=" + name + ", description=" + description + ", brand=" + brand + ", brandId=" + brandId + ", price=" + price + ", category=" + category + ", categoryId=" + categoryId + ", stockQuantity=" + stockQuantity + ", createdAt=" + createdAt + ", imageURL=" + imageURL + '}';
     }
 
 }

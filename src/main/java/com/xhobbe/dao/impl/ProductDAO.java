@@ -64,7 +64,7 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
 
     @Override
     public Product findOne(long id) {
-        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity ");
+        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity, createdAt ");
         sql.append("FROM product AS p ");
         sql.append("JOIN category AS c ON p.categoryId = c.categoryId ");
         sql.append("JOIN brand AS b ON p.brandId = b.brandId ");
@@ -114,7 +114,7 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
     
     @Override
     public List<Product> findAll(int limit, int offset, String orderBy, String sortBy) {
-        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity ");
+        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity, createdAt ");
         sql.append("FROM product AS p ");
         sql.append("JOIN category AS c ON p.categoryId = c.categoryId ");
         sql.append("JOIN brand AS b ON p.brandId = b.brandId ");
@@ -134,7 +134,7 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
 
     @Override
     public List<Product> findByCategory(int limit, int offset, String orderBy, String sortBy, String categoryName) {
-        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity ");
+        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity, createdAt ");
         sql.append("FROM product AS p ");
         sql.append("JOIN category AS c ON p.categoryId = c.categoryId AND c.categoryName = ? ");
         sql.append("JOIN brand AS b ON p.brandId = b.brandId ");
@@ -154,7 +154,7 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
 
     @Override
     public List<Product> findByBrand(int limit, int offset, String orderBy, String sortBy, String brandName) {
-        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity ");
+        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity, createdAt ");
         sql.append("FROM product AS p ");
         sql.append("JOIN category AS c ON p.categoryId = c.categoryId ");
         sql.append("JOIN brand AS b ON p.brandId = b.brandId AND p.brandName = ? ");
@@ -174,7 +174,7 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
 
     @Override
     public List<Product> findByName(String name) {
-        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity ");
+        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity, createdAt ");
         sql.append("FROM product AS p ");
         sql.append("JOIN category AS c ON p.categoryId = c.categoryId ");
         sql.append("JOIN brand AS b ON p.brandId = b.brandId ");
@@ -189,5 +189,11 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
     public int getTotalItem() {
         String sql = "SELECT count(*) FROM product";
         return count(sql);
+    }
+    
+    @Override
+    public int getTotalItem(int categoryId) {
+        String sql = "SELECT count(*) FROM product WHERE categoryId = ?";
+        return count(sql, categoryId);
     }
 }

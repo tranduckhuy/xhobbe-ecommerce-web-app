@@ -221,7 +221,6 @@
 
 <script>
 
-
     // Get the full URL
     let url = window.location.href;
     // Use URLSearchParams to extract parameters
@@ -232,8 +231,17 @@
         let categoryValue = urlParams.get('category');
         let currentTotal = $('.product').length;
         $("#currentProducts").html(currentTotal);
+        var total = ${total};
+        console.log("Total: " + total);
+        console.log("CurTotal: " + currentTotal);
+        var loadMoreBtn = $("#loadMoreBtn");
+        if (currentTotal === total) {
+            loadMoreBtn.hide();
+        } else {
+            loadMoreBtn.show();
+        }
         // Attach a click event to the "Load More" button
-        $("#loadMoreBtn").click(function () {
+        loadMoreBtn.click(function () {
         // Make an AJAX request to the servlet with parameters
             let currentTotal = $('.product').length;
             $("#currentProducts").html(currentTotal);
@@ -289,6 +297,11 @@
                         productContainer.append(productCart);
                         currentTotal = $('.product').length;
                         $("#currentProducts").html(currentTotal);
+                        if (currentTotal === total) {
+                            loadMoreBtn.hide();
+                        } else {
+                            loadMoreBtn.show();
+                        }
                     });
                 },
             error: function (xhr) {

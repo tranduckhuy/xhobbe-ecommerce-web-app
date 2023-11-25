@@ -1,6 +1,8 @@
 
 package com.xhobbe.model;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author ADMIN
@@ -17,6 +19,7 @@ public class User {
     private int roleId;
     private int active;
     private String activeToken;
+    private Timestamp createdAt;
 
     public User() {
     }
@@ -101,10 +104,19 @@ public class User {
         this.activeToken = activeToken;
     }
 
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
     @Override
     public String toString() {
         return "User{" + "userId=" + userId + ", name=" + name + ", email=" + email + ", address=" + address + ", phone=" + phone + 
-                ", password=" + password + ", role=" + role + ", roleId=" + roleId + ", active=" + active + ", activeToken=" + activeToken + '}';
+                ", password=" + password + ", role=" + role + ", roleId=" + roleId + ", active=" + active + 
+                ", activeToken=" + activeToken + ", createdAt=" + createdAt + '}';
     }
-    
+
 }

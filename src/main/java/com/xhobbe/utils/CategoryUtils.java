@@ -5,16 +5,16 @@ package com.xhobbe.utils;
  *
  * @author ADMIN
  */
-public class CategoryUtils {
+public class CategoryUtils {   
     
-    public static String getCategoryName(int categoryId) {
+    public static int getCategoryId(String category) {
         
-        switch(categoryId) {
-            case 1: return "Phone";
-            case 2: return "Laptop";
-            case 3: return "IPad";
-            case 4: return "Accessories";
-            default: return "Phone";
+        switch(category) {
+            case "Phone": return 1;
+            case "Laptop": return 2;
+            case "IPad": return 3;
+            case "Accessories": return 4;
+            default: return 1;
         }
     }
 }

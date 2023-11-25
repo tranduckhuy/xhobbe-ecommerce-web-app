@@ -64,5 +64,11 @@ public class ProductService implements IProductService {
         
         return productDAO.getTotalItem();
     }
+    
+    @Override
+    public int getTotalItem(int categoryId) {
+        
+        return productDAO.getTotalItem(categoryId);
+    }
 
 }
