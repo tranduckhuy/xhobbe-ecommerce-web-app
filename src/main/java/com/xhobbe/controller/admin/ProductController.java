@@ -4,9 +4,11 @@ import com.xhobbe.constant.ActionConstant;
 import com.xhobbe.constant.AppConstant;
 import com.xhobbe.constant.CategoryConstant;
 import com.xhobbe.model.Product;
+import com.xhobbe.model.User;
 import com.xhobbe.service.IProductService;
-import com.xhobbe.utils.CategoryUtils;
+import com.xhobbe.service.IUserService;
 import com.xhobbe.utils.ProductUtils;
+import com.xhobbe.utils.SessionUtils;
 import com.xhobbe.utils.UtilsValidType;
 import java.io.IOException;
 import java.util.List;
@@ -29,11 +31,24 @@ public class ProductController extends HttpServlet {
     @Inject
     IProductService productService;
 
+    @Inject
+    IUserService userService;
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
+        // Check actual current user information in database if not match remove session
+        User userSession = (User) SessionUtils.getInstance().getValue(request, "user");
+        User currentUserStatus = userService.findOne(userSession.getEmail());
+        
+        if (currentUserStatus == null || currentUserStatus.getRoleId() != 1 && currentUserStatus.getRoleId() != 2) {
+            SessionUtils.getInstance().removeValue(request, "user");
+            response.sendRedirect("./");
+            return;
+        }
+        
         String action = request.getParameter("action");
 
         if (action == null) {

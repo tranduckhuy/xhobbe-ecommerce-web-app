@@ -5,8 +5,12 @@ import com.xhobbe.constant.ActionConstant;
 import com.xhobbe.constant.AppConstant;
 import com.xhobbe.constant.CategoryConstant;
 import com.xhobbe.model.Product;
+import com.xhobbe.model.User;
+import com.xhobbe.service.ICartService;
+import com.xhobbe.service.IOrderService;
 import com.xhobbe.service.IProductService;
 import com.xhobbe.utils.CategoryUtils;
+import com.xhobbe.utils.SessionUtils;
 import com.xhobbe.utils.UtilsValidType;
 import java.io.IOException;
 import java.util.List;
@@ -26,6 +30,12 @@ public class ProductController extends HttpServlet {
 
     @Inject
     private IProductService productService;
+
+    @Inject
+    ICartService cartService;
+
+    @Inject
+    IOrderService orderService;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -55,7 +65,7 @@ public class ProductController extends HttpServlet {
                 break;
             case ActionConstant.SEARCH:
                 getSearchProduct(request, response);
-                break;    
+                break;
             default:
                 response.sendRedirect("./");
         }
@@ -101,7 +111,14 @@ public class ProductController extends HttpServlet {
                     return;
             }
         }
-
+        
+        // badge alert
+        User user = (User) SessionUtils.getInstance().getValue(request, "user");
+        if (user != null) {
+            request.setAttribute("totalCart", cartService.getTotalItemByUserId(user.getUserId()));
+            request.setAttribute("totalOrder", orderService.getTotalItemByStatus(1));
+        }
+        
         request.setAttribute(AppConstant.LIST, list);
         request.getRequestDispatcher("/views/web/productList.jsp").forward(request, response);
 
@@ -125,7 +142,7 @@ public class ProductController extends HttpServlet {
     private void getSearchProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String searchValue = request.getParameter("search");
-        
+
         List<Product> list = productService.findByName(searchValue);
 
         request.setAttribute("total", list.size());

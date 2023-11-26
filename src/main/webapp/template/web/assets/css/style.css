@@ -7606,7 +7606,6 @@ p {
     display: block;
     background-color: #fff;
     margin-bottom: 0;
-    overflow: hidden
 }
 
 .product-media>a {
@@ -9071,7 +9070,6 @@ p {
 .product.product-list .product-media img {
     width: 100%;
     height: 100%;
-    object-fit: cover
 }
 
 .product.product-list .product-body {
@@ -11340,8 +11338,8 @@ button:focus {
 }
 
 .brand img {
-    width: auto !important;
-    max-width: 100% !important
+    width: 100% !important;
+    max-width: 60px !important
 }
 
 .brand:focus {
@@ -12134,7 +12132,6 @@ button:focus {
 .toolbox label {
     font-weight: 400;
     color: #333;
-    font-size: 1.2rem;
     letter-spacing: -.01em;
     margin: 0
 }
@@ -12223,10 +12220,6 @@ button:focus {
 
 .products .product {
     width: 100%
-}
-
-.product {
-    overflow: hidden
 }
 
 .carousel-equal-height .owl-stage,
@@ -16111,7 +16104,8 @@ button:focus {
     margin: 0;
     margin-right: 2.8rem;
     flex-shrink: 0;
-    max-width: 60px
+    max-width: 80px;
+    max-height: 80px
 }
 
 .product-col .product-title {
@@ -19913,7 +19907,6 @@ button:focus {
     content: '\f7e3'
 }
 
-
 .order-header {
     min-width: 130px;
 }
@@ -19925,5 +19918,14 @@ button:focus {
 
 .order-header-address {
     min-width: 200px;
+}
+
+.order-detail-field {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.tbh-color {
+    color: #039;
 }
 /*# sourceMappingURL=style.css.map */

@@ -69,6 +69,9 @@
                                         <th class="price text-center">
                                             <h6>Price</h6>
                                         </th>
+                                        <th class="price text-center">
+                                            <h6>Stock</h6>
+                                        </th>
                                         <th class="image-product text-center">
                                             <h6>Images</h6>
                                         </th>
@@ -81,15 +84,15 @@
                                 <tbody>
                                     <c:forEach var="product" items="${list}">
                                         <tr>
-                                            <td class="min-width text-center">
-                                                <div class="lead-text">
-                                                    <p>${product.name}</p>
+                                            <td class="min-width text-center" >
+                                                <div class="lead-text font-weight-bold">
+                                                    <strong class="text-primary">${product.name}</strong>
                                                 </div>
                                             </td>
-                                            <td class="min-width text-center">
+                                            <td class="min-width text-center description-small">
                                                 <c:choose>
-                                                    <c:when test="${fn:length(product.description) > 50}">
-                                                        <p>${fn:substring(product.description, 0, 50)}...</p>
+                                                    <c:when test="${fn:length(product.description) > 30}">
+                                                        <p>${fn:substring(product.description, 0, 30)}...</p>
                                                     </c:when>
                                                         <c:otherwise>
                                                         <p>${product.description}</p>
@@ -97,10 +100,13 @@
                                                     </c:choose>
                                             </td>
                                             <td class="min-width text-center">
-                                                <p>${product.category}</p>
+                                                <strong>${product.category}</strong>
                                             </td>
                                             <td class="min-width text-center">
-                                                <p>${product.price}$</p>
+                                                <strong class="text-info">${product.price}$</strong>
+                                            </td>
+                                            <td class="min-width text-center">
+                                                <strong class="text-info-emphasis">${product.stockQuantity}</strong>
                                             </td>
                                             <td class="min-width d-flex gap-2 product justify-content-center">
                                                 <div class="product-image">

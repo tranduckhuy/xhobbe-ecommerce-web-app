@@ -12,6 +12,8 @@ public class ActionConstant {
     public static final String DELETE = "delete";
     public static final String DETAIL = "detail";
     public static final String SEARCH = "search";
+    public static final String ORDER = "order";
+    public static final String ADD_TO_CART = "addToCart";
     public static final String QUICKVIEW = "quickView";
     public static final String LOADMORE = "loadMore";
     public static final String CHANGESTATUS = "changeStatus";

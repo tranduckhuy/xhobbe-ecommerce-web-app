@@ -4,7 +4,10 @@ import com.xhobbe.constant.ActionConstant;
 import com.xhobbe.constant.AppConstant;
 import com.xhobbe.model.Order;
 import com.xhobbe.model.OrderDetail;
+import com.xhobbe.model.User;
 import com.xhobbe.service.IOrderService;
+import com.xhobbe.service.IUserService;
+import com.xhobbe.utils.SessionUtils;
 import com.xhobbe.utils.UtilsValidType;
 import java.io.IOException;
 import java.util.List;
@@ -21,16 +24,30 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "admin-order", urlPatterns = {"/admin-order"})
 public class OrderController extends HttpServlet {
+    
+    private static final String ORDER_LIST_URL = "./admin-order";
 
     @Inject
     IOrderService orderService;
+    
+    @Inject
+    IUserService userService;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-
+        
+        User userSession = (User) SessionUtils.getInstance().getValue(request, "user");
+        User actutalUserStatus = userService.findOne(userSession.getEmail());
+        
+        if (actutalUserStatus == null || actutalUserStatus.getRoleId() != 1 && actutalUserStatus.getRoleId() != 2) {
+            SessionUtils.getInstance().removeValue(request, "user");
+            response.sendRedirect("./");
+            return;
+        }
+        
         String action = request.getParameter("action");
 
         request.setAttribute(AppConstant.TOTAL, orderService.getTotalItemByStatus(1));
@@ -88,7 +105,7 @@ public class OrderController extends HttpServlet {
         Order order = orderService.findOne(orderId);
 
         if (order == null) {
-            response.sendRedirect("./order?action=list");
+            response.sendRedirect(ORDER_LIST_URL);
             return;
 
         }
@@ -99,20 +116,29 @@ public class OrderController extends HttpServlet {
     }
 
     private void getSearchOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         request.getRequestDispatcher("/views/admin/orderList.jsp").forward(request, response);
     }
 
     private void deleteOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        
+        long id = UtilsValidType.getLong(request.getParameter("id"));
+        
+        if (id == -1) {
+            response.sendRedirect(ORDER_LIST_URL);
+            return;
+        }
+        orderService.delete(id);
+        response.sendRedirect(ORDER_LIST_URL);
     }
 
     private void changeStatusOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         long id = UtilsValidType.getLong(request.getParameter("id"));
 
         if (id == -1) {
-            response.sendRedirect("./order?action=list");
+            response.sendRedirect(ORDER_LIST_URL);
             return;
         }
         
@@ -123,7 +149,7 @@ public class OrderController extends HttpServlet {
             orderService.updateStatus(id, 3);
         } 
         
-        response.sendRedirect("./admin-order");
+        response.sendRedirect(ORDER_LIST_URL);
     }
 
 }

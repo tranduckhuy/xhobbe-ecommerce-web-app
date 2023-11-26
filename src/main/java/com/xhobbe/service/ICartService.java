@@ -19,5 +19,5 @@ public interface ICartService {
 
     void delete(long id);
 
-    int getTotalItem();
+    int getTotalItemByUserId(long id);
 }

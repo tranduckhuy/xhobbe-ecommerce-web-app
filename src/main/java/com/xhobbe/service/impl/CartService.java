@@ -28,7 +28,12 @@ public class CartService implements ICartService {
 
     @Override
     public List<Cart> findByUserId(long userId) {
-        return cartDAO.findByUserId(userId);
+        
+        List<Cart> listCart = cartDAO.findByUserId(userId);
+        
+        listCart.forEach(cart -> cart.setTotal(cart.getPrice() * cart.getQuantity()));
+        
+        return listCart;
     }
 
     @Override
@@ -42,8 +47,8 @@ public class CartService implements ICartService {
     }
 
     @Override
-    public int getTotalItem() {
-        return cartDAO.getTotalItem();
+    public int getTotalItemByUserId(long id) {
+        return cartDAO.getTotalItemByUserId(id);
     }
 
 }

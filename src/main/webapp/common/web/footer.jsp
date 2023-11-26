@@ -31,13 +31,15 @@
     </div><!-- End .cta -->
     <div class="footer-middle">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="widget widget-about">
-                        <img src="<c:url value='/template/web/assets/images/demos/demo-4/xhobbe-high-resolution-logo.png'/>" class="footer-logo" alt="Footer Logo" width="150" height="30">
-                        <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. </p>
+            <div class="row text-center">
+                <div class="col-sm-6 offset-sm-3 col-lg-3 offset-lg-0">
+                    <div class="widget text-justify">
+                        <div class="d-flex justify-content-center">
+                            <img src="<c:url value='/template/web/assets/images/demos/demo-4/xhobbe-high-resolution-logo.png'/>" class="footer-logo" alt="Footer Logo" width="150" height="30">
+                        </div>
+                        <p>Explore the future with phones, laptops, iPads, and accessories, all curated for you at unbeatable prices. Elevate your tech game at xHobbe – where innovation meets simplicity!</p>
 
-                        <div class="widget-call">
+                        <div class="widget-call mt-2 text-center">
                             <i class="icon-phone"></i>
                             Got Question? Call us 24/7
                             <a href="tel:#">+0123 456 789</a>
@@ -45,45 +47,45 @@
                     </div><!-- End .widget about-widget -->
                 </div><!-- End .col-sm-6 col-lg-3 -->
 
-                <div class="col-sm-6 col-lg-3">
+                <div class="col-sm-6 offset-sm-3 col-lg-3 offset-lg-0">
                     <div class="widget">
                         <h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
 
                         <ul class="widget-list">
-                            <li><a href="about.html">About Molla</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">How to shop on Molla</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="contact.html">Contact us</a></li>
+                            <li><a href="./about">About xHobbe</a></li>
+                            <li><a href="#!">Our Services</a></li>
+                            <li><a href="#!">How to shop on xHobbe</a></li>
+                            <li><a href="#!">FAQ</a></li>
+                            <li><a href="./contact">Contact us</a></li>
                         </ul><!-- End .widget-list -->
                     </div><!-- End .widget -->
                 </div><!-- End .col-sm-6 col-lg-3 -->
 
-                <div class="col-sm-6 col-lg-3">
+                <div class="col-sm-6 offset-sm-3 col-lg-3 offset-lg-0">
                     <div class="widget">
                         <h4 class="widget-title">Customer Service</h4><!-- End .widget-title -->
 
                         <ul class="widget-list">
-                            <li><a href="#">Payment Methods</a></li>
-                            <li><a href="#">Money-back guarantee!</a></li>
-                            <li><a href="#">Returns</a></li>
-                            <li><a href="#">Shipping</a></li>
-                            <li><a href="#">Terms and conditions</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#!">Payment Methods</a></li>
+                            <li><a href="#!">Money-back guarantee!</a></li>
+                            <li><a href="#!">Returns</a></li>
+                            <li><a href="#!">Shipping</a></li>
+                            <li><a href="#!">Terms and conditions</a></li>
+                            <li><a href="#!">Privacy Policy</a></li>
                         </ul><!-- End .widget-list -->
                     </div><!-- End .widget -->
                 </div><!-- End .col-sm-6 col-lg-3 -->
 
-                <div class="col-sm-6 col-lg-3">
+                <div class="col-sm-6 offset-sm-3 col-lg-3 offset-lg-0">
                     <div class="widget">
                         <h4 class="widget-title">My Account</h4><!-- End .widget-title -->
 
                         <ul class="widget-list">
-                            <li><a href="#">Sign In</a></li>
-                            <li><a href="cart.html">View Cart</a></li>
-                            <li><a href="#">My Orders</a></li>
-                            <li><a href="#">Track My Order</a></li>
-                            <li><a href="#">Help</a></li>
+                            <li><a href="./login">Sign In</a></li>
+                            <li><a href="./cart">View Cart</a></li>
+                            <li><a href="./order">My Orders</a></li>
+                            <li><a href="#!">Track My Order</a></li>
+                            <li><a href="#!">Help</a></li>
                         </ul><!-- End .widget-list -->
                     </div><!-- End .widget -->
                 </div><!-- End .col-sm-6 col-lg-3 -->

@@ -41,59 +41,35 @@
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td style="width: 50px">
-                                        <input type="checkbox" class="product-select" id="product-select" style="width: 100%;">
-                                    </td>
+                                <c:forEach var="cart" items="${list}">
+                                    <tr>
+                                        <td style="width: 50px">
+                                            <input type="checkbox" class="product-select" id="product-select" style="width: 100%;">
+                                        </td>
 
-                                    <td class="product-col">
-                                        <div class="product">
-                                            <figure class="product-media">
-                                                <a href="#">
-                                                    <img src="<c:url value='/template/web/assets/images/products/table/product-1.jpg'/>" alt="Product image">
-                                                </a>
-                                            </figure>
+                                        <td class="product-col">
+                                            <div class="product">
+                                                <figure class="product-media">
+                                                    <a href="#">
+                                                        <img src="${cart.imageURL}" alt="Product image">
+                                                    </a>
+                                                </figure>
 
-                                            <h3 class="product-title">
-                                                <a href="#">Beige knitted elastic runner shoes</a>
-                                            </h3><!-- End .product-title -->
-                                        </div><!-- End .product -->
-                                    </td>
-                                    <td class="price-col">$84.00</td>
-                                    <td class="quantity-col">
-                                        <div class="cart-product-quantity">
-                                            <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
-                                        </div><!-- End .cart-product-quantity -->
-                                    </td>
-                                    <td class="total-col">$84.00</td>
-                                    <td class="remove-col"><a href="#" class="btn-remove"><i class="icon-close"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td style="width: 50px">
-                                        <input type="checkbox" class="product-select" id="product-select" style="width: 100%;">
-                                    </td>
-                                    <td class="product-col">
-                                        <div class="product">
-                                            <figure class="product-media">
-                                                <a href="#">
-                                                    <img src="<c:url value='/template/web/assets/images/products/table/product-2.jpg'/>" alt="Product image">
-                                                </a>
-                                            </figure>
-
-                                            <h3 class="product-title">
-                                                <a href="#">Blue utility pinafore denim dress</a>
-                                            </h3><!-- End .product-title -->
-                                        </div><!-- End .product -->
-                                    </td>
-                                    <td class="price-col">$76.00</td>
-                                    <td class="quantity-col">
-                                        <div class="cart-product-quantity">
-                                            <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
-                                        </div><!-- End .cart-product-quantity -->                                 
-                                    </td>
-                                    <td class="total-col">$76.00</td>
-                                    <td class="remove-col"><a href="#" class="btn-remove"><i class="icon-close"></i></a></td>
-                                </tr>
+                                                <h3 class="product-title">
+                                                    <a href="#">${cart.productName}</a>
+                                                </h3><!-- End .product-title -->
+                                            </div><!-- End .product -->
+                                        </td>
+                                        <td class="price-col">${cart.price}$</td>
+                                        <td class="quantity-col">
+                                            <div class="cart-product-quantity">
+                                                <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                            </div><!-- End .cart-product-quantity -->
+                                        </td>
+                                        <td class="total-col">${cart.total}$</td>
+                                        <td class="remove-col"><a href="#" class="btn-remove"><i class="icon-close"></i></a></td>
+                                    </tr>
+                                </c:forEach>
                             </tbody>
                         </table><!-- End .table table-wishlist -->
 
@@ -181,18 +157,18 @@
 </main><!-- End .main -->
 <script>
 // Wait for the DOM to be ready
-document.addEventListener('DOMContentLoaded', function() {
-    // Function to update all product checkboxes based on the 'select all' checkbox
-    function updateProductSelection() {
-        var selectAllCheckbox = document.getElementById('product-select-all');
-        var productCheckboxes = document.querySelectorAll('.product-select');
-        productCheckboxes.forEach(function(checkbox) {
-            checkbox.checked = selectAllCheckbox.checked;
-        });
-    }
-    // Attach the updateProductSelection function to the change event of the 'select all' checkbox
-    document.getElementById('product-select-all').addEventListener('change', updateProductSelection);
-});
+    document.addEventListener('DOMContentLoaded', function () {
+        // Function to update all product checkboxes based on the 'select all' checkbox
+        function updateProductSelection() {
+            var selectAllCheckbox = document.getElementById('product-select-all');
+            var productCheckboxes = document.querySelectorAll('.product-select');
+            productCheckboxes.forEach(function (checkbox) {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+        }
+        // Attach the updateProductSelection function to the change event of the 'select all' checkbox
+        document.getElementById('product-select-all').addEventListener('change', updateProductSelection);
+    });
 </script>
 <script src="<c:url value='/template/web/assets/js/cart/cart.js'/>"></script>
 

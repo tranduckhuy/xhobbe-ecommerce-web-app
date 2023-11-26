@@ -23,10 +23,12 @@ public class CartDAO extends AbstractDAO<Cart> implements ICartDAO{
 
     @Override
     public List<Cart> findAll(int limit, int offset, String orderBy, String sortBy) {
-        StringBuilder sql = new StringBuilder("SELECT s.cartId, s.userId, s.productId, p.name, p.price, s.quantity, s.createdAt ");
+        StringBuilder sql = new StringBuilder("SELECT s.cartId, s.userId, s.productId, p.name, p.price, s.quantity, s.createdAt, MIN(pi.imageUrl) AS selectedImageUrl ");
         sql.append("FROM `shoppingCart` AS s ");
         sql.append("JOIN `user` AS u ON s.userId = u.userId ");
         sql.append("JOIN `product` AS p ON s.productId = p.productId ");
+        sql.append("LEFT JOIN `productImage` AS pi ON p.productId = pi.productId ");
+        sql.append("GROUP BY s.cartId, s.userId, s.productId, p.name, p.price, s.quantity, s.createdAt ");
         
         if ("".equals(orderBy)  || "".equals(sortBy)) {
         } else {
@@ -43,10 +45,12 @@ public class CartDAO extends AbstractDAO<Cart> implements ICartDAO{
 
     @Override
     public List<Cart> findByUserId(long userId) {
-        StringBuilder sql = new StringBuilder("SELECT s.cartId, s.userId, s.productId, p.name, p.price, s.quantity, s.createdAt ");
+        StringBuilder sql = new StringBuilder("SELECT s.cartId, s.userId, s.productId, p.name, p.price, s.quantity, s.createdAt, MIN(pi.imageUrl) AS selectedImageUrl ");
         sql.append("FROM `shoppingCart` AS s ");
         sql.append("JOIN `user` AS u ON s.userId = u.userId AND u.userId = ? ");
         sql.append("JOIN `product` AS p ON s.productId = p.productId ");
+        sql.append("LEFT JOIN `productImage` AS pi ON p.productId = pi.productId ");
+        sql.append("GROUP BY s.cartId, s.userId, s.productId, p.name, p.price, s.quantity, s.createdAt ");
 
         List<Cart> resutls = super.query(sql.toString(), new CartMapper(), userId);
 
@@ -66,10 +70,16 @@ public class CartDAO extends AbstractDAO<Cart> implements ICartDAO{
         super.update(sql, id);
     }
 
-    @Override
+     @Override
     public int getTotalItem() {
         String sql = "SELECT count(*) FROM `shoppingCart`";
         return count(sql);
+    }
+    
+    @Override
+    public int getTotalItemByUserId(long id) {
+        String sql = "SELECT count(*) FROM `shoppingCart` WHERE userId = ?";
+        return count(sql, id);
     }
     
 }

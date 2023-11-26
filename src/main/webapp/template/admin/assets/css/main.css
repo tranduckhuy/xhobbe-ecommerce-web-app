@@ -6006,3 +6006,9 @@ h6,
 .form-group span {
     margin-bottom: 10px;
 }
+
+.description-small h1, 
+.description-small h2,
+.description-small h3{
+    font-size: 16px;
+}

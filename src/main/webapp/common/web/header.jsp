@@ -101,7 +101,7 @@
                         </button>
 
                         <a href="#" class="logo">
-                            <img src="<c:url value='/template/web/assets/images/demos/demo-4/xhobbe-high-resolution-logo.png'/>" alt="Molla Logo" style="width: 160px; height: 50px;">
+                            <img src="<c:url value='/template/web/assets/images/demos/demo-4/xhobbe-high-resolution-logo.png'/>" alt="xHobbe Logo" style="width: 160px; height: 50px;">
                         </a>
                     </div><!-- End .header-left -->
 
@@ -125,7 +125,10 @@
                             <a href="./cart" title="Cart">
                                 <div class="icon">
                                     <i class="icon-shopping-cart" style="font-size: 30px;"></i>
-                                    <span class="wishlist-count badge">2</span>
+                                    <c:if test="${totalCart != null && totalCart != 0}">
+                                        <span class="wishlist-count badge">${totalCart}</span>
+                                    </c:if>
+                                    
                                 </div>
                                 <p style="font-weight: 600; font-size: 12px;">Cart</p>
                             </a>
@@ -135,7 +138,9 @@
                             <a href="./order?action=list" title="Order">
                                 <div class="icon">
                                     <i class="fa-solid fa-truck" style="font-size: 23px;"></i>
-                                    <span class="wishlist-count badge">3</span>
+                                    <c:if test="${totalOrder != null && totalOrder != 0}">
+                                        <span class="wishlist-count badge">${totalOrder}</span>
+                                    </c:if>
                                 </div>
                                 <p style="font-weight: 600; font-size: 12px;">Order</p>
                             </a>

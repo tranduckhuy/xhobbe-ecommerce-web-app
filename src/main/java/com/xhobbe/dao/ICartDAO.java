@@ -22,4 +22,6 @@ public interface ICartDAO {
 
     int getTotalItem();
     
+    int getTotalItemByUserId(long id);
+    
 }
