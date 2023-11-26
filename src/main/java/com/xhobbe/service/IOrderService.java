@@ -15,7 +15,7 @@ public interface IOrderService {
 
     List<Order> findAll(int limit, int offset, String orderBy, String sortBy);
     
-    List<Order> findByStatusAndUserId(long userId, String status);
+    String findByStatusAndUserId(long userId, String status);
     
     String findByStatus(String status);
     

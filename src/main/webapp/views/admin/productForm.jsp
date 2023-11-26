@@ -83,7 +83,7 @@
                                             <span class="form-message"></span>
                                         </div>
                                         <div class="col-lg-4 form-group">
-                                            <input type="number" class="form-control mb-1" id="price" min="0" name="price" placeholder="Price"/>
+                                            <input type="number" class="form-control mb-1" id="price" min="0" step="0.01" name="price" placeholder="Price"/>
                                             <span class="form-message"></span>
                                         </div>
                                         <div class="col-lg-4 form-group">

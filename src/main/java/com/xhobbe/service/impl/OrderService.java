@@ -55,8 +55,20 @@ public class OrderService implements IOrderService {
     }
 
     @Override
-    public List<Order> findByStatusAndUserId(long userId, String status) {
-        return orderDAO.findByStatusAndUserId(userId, status);
+    public String findByStatusAndUserId(long userId, String status) {
+        List<Order> listOrder = orderDAO.findByStatusAndUserId(userId, status);
+        if (listOrder.isEmpty()) {
+            return "";
+        }
+
+        List<String> results = new ArrayList<>();
+
+        for (Order order : listOrder) {
+            results.add(OrderUtils.getOrderElementWeb(order));
+        }
+
+        return !results.isEmpty() ? String.join("", results) : "";
+
     }
 
     @Override
