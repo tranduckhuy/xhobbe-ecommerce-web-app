@@ -14,4 +14,5 @@ public class ActionConstant {
     public static final String SEARCH = "search";
     public static final String QUICKVIEW = "quickView";
     public static final String LOADMORE = "loadMore";
+    public static final String CHANGESTATUS = "changeStatus";
 }

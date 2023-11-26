@@ -1,8 +1,6 @@
 
 package com.xhobbe.model;
 
-import java.sql.Timestamp;
-
 /**
  *
  * @author ADMIN
@@ -15,7 +13,7 @@ public class Cart {
     private String productName;
     private double price;
     private int quantity;
-    private Timestamp createdAt;
+    private String createdAt;
 
     public Cart() {
     }
@@ -44,11 +42,11 @@ public class Cart {
         this.productId = productId;
     }
 
-    public Timestamp getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 

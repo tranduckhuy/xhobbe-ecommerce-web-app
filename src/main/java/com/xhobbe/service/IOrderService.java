@@ -15,10 +15,16 @@ public interface IOrderService {
 
     List<Order> findAll(int limit, int offset, String orderBy, String sortBy);
     
-    List<Order> findByStatusIdAndUserId(long userId, int statusId);
+    List<Order> findByStatusAndUserId(long userId, String status);
+    
+    String findByStatus(String status);
+    
+    Order findOne(long id);
 
     void updateStatus(long orderId, int statusId);
     
     int getTotalItem();
+    
+    int getTotalItemByStatus(int statusId);
 
 }

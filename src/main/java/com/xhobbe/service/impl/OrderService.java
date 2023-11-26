@@ -3,6 +3,8 @@ package com.xhobbe.service.impl;
 import com.xhobbe.dao.IOrderDAO;
 import com.xhobbe.model.Order;
 import com.xhobbe.service.IOrderService;
+import com.xhobbe.utils.OrderUtils;
+import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -36,15 +38,14 @@ public class OrderService implements IOrderService {
     }
 
     @Override
-    public List<Order> findByStatusIdAndUserId(long userId, int statusId) {
+    public int getTotalItem() {
 
-        return orderDAO.findByStatusAndUserId(userId, statusId);
+        return orderDAO.getTotalItem();
     }
 
     @Override
-    public int getTotalItem() {
-        
-        return orderDAO.getTotalItem();
+    public int getTotalItemByStatus(int statusId) {
+        return orderDAO.getTotalItemByStatus(statusId);
     }
 
     @Override
@@ -53,4 +54,38 @@ public class OrderService implements IOrderService {
 
     }
 
+    @Override
+    public List<Order> findByStatusAndUserId(long userId, String status) {
+        return orderDAO.findByStatusAndUserId(userId, status);
+    }
+
+    @Override
+    public String findByStatus(String status) {
+        List<Order> listOrder = orderDAO.findByStatus(status);
+        if (listOrder.isEmpty()) {
+            return "";
+        }
+
+        List<String> results = new ArrayList<>();
+
+        for (Order order : listOrder) {
+            results.add(OrderUtils.getOrderElement(order));
+        }
+
+        return !results.isEmpty() ? String.join("", results) : "";
+    }
+
+    @Override
+    public Order findOne(long id) {
+
+        Order order = orderDAO.findOne(id);
+
+        if (order != null) {
+            order.getListOrderDetail().forEach(od
+                    -> od.setTotal(od.getPriceOrder() * od.getQuantity())
+            );
+        }
+
+        return order;
+    }
 }

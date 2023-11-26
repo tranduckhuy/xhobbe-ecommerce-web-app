@@ -13,12 +13,18 @@ public interface IOrderDAO {
 
     List<Order> findAll(int limit, int offset, String orderBy, String sortBy);
     
-    List<Order> findByStatusAndUserId(long userId, int statusId);
+    List<Order> findByStatusAndUserId(long userId, String status);
+    
+    List<Order> findByStatus(String status);
+    
+    Order findOne(long id);
     
     void updateStatus(long orderId, int statusId);
     
     void delete(long id);
 
     int getTotalItem();
+    
+    int getTotalItemByStatus(int statusId);
 
 }

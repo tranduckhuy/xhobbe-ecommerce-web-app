@@ -4,6 +4,8 @@ package com.xhobbe.mapper;
 import com.xhobbe.model.Product;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -22,7 +24,13 @@ public class ProductMapper implements RowMapper<Product>{
             product.setPrice(rs.getDouble("price"));
             product.setCategory(rs.getString("categoryName"));
             product.setStockQuantity(rs.getInt("stockQuantity"));
-            product.setCreatedAt(rs.getTimestamp("createdAt"));
+            
+            // Time
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            Timestamp timeCreated = rs.getTimestamp("createdAt");
+            product.setCreatedAt(sdf.format(timeCreated));
+            
+            
             return product;
         } catch (SQLException e) {
             return null;
