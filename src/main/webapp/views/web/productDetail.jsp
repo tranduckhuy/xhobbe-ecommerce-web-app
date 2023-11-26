@@ -63,7 +63,7 @@
                             </div><!-- End .product-price -->
 
                             <div class="product-content">
-                                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero.</p>
+                                <p>Apple Inc (Apple) designs, manufactures, and markets smartphones, tablets, personal computers, and wearable devices. The company offers software applications and related services, accessories, and third-party digital content.</p>
                             </div><!-- End .product-content -->
 
                             <div class="details-filter-row details-row-size">

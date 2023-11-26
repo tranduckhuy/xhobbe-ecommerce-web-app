@@ -63,10 +63,10 @@
                         <div class="col-10 col-sm-6 col-md-4 col-lg-4 col-xl-3">
 
                             <div class="product">
-                                <figure class="product-media">
+                                <figure class="product-media ${item.category != 'Laptop' ? 'px-5' : 'pt-8'}">
                                     <span class="product-label label-new">New</span>
                                     <a href="./product?action=detail&id=${item.productId}">
-                                        <img src="${item.getImageURL().get(0)}" alt="Product image" class="product-image" style="height: 260px">
+                                        <img src="${item.getImageURL().get(0)}" alt="Product image" class="product-image" ${item.category != 'Laptop' ? 'style="height: 260px"' : 'style="height: 180px"'} >
                                     </a>
 
                                     <div class="product-action-vertical">

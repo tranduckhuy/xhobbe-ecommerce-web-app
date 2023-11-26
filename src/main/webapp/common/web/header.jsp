@@ -159,7 +159,7 @@
                                         <li class="item-lead"><a href="#">Gift Ideas</a></li>
                                         <li><a href="./product?action=list&category=Phone">Phones</a></li>
                                         <li><a href="./product?action=list&category=Laptop">Laptops</a></li>
-                                        <li><a href="./product?action=list&category=IPad">iPad</a></li>
+                                        <li><a href="./product?action=list&category=iPad">iPad</a></li>
                                         <li><a href="./product?action=list&category=Accessories">Accessories</a></li>
                                     </ul><!-- End .menu-vertical -->
                                 </nav><!-- End .side-nav -->
@@ -182,8 +182,8 @@
                                 <li class="${category eq 'Laptop' ? 'active' : ''} ">
                                     <a href="./product?action=list&category=Laptop">Laptops</a>
                                 </li>
-                                <li class="${category eq 'IPad' ? 'active' : ''} ">
-                                    <a href="./product?action=list&category=IPad">iPad</a>
+                                <li class="${category eq 'iPad' ? 'active' : ''} ">
+                                    <a href="./product?action=list&category=iPad">iPad</a>
                                 </li>
                                 <li class="${category eq 'Accessories' ? 'active' : ''} ">
                                     <a href="./product?action=list&category=Accessories">Accessories</a>

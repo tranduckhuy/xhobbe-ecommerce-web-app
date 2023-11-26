@@ -1,8 +1,11 @@
 package com.xhobbe.controller.web;
 
 import com.xhobbe.constant.ActionConstant;
-import com.xhobbe.constant.AppConstant;
+import com.xhobbe.model.User;
+import com.xhobbe.service.IOrderService;
+import com.xhobbe.utils.SessionUtils;
 import java.io.IOException;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,16 +19,18 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "order", urlPatterns = {"/order"})
 public class OrderController extends HttpServlet {
 
+    @Inject
+    IOrderService orderService;
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-//        request.getRequestDispatcher("/views/web/orderDetail.jsp").forward(request, response);
         String action = request.getParameter("action");
 
         if (action == null) {
-            response.sendRedirect("./");
+            request.getRequestDispatcher("/views/web/order.jsp").forward(request, response);
             return;
         }
 
@@ -56,7 +61,17 @@ public class OrderController extends HttpServlet {
     private void listProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("/views/web/order.jsp").forward(request, response);
+        response.setCharacterEncoding("UTF-8");
+        String status = request.getParameter("status");
+        User user = (User) SessionUtils.getInstance().getValue(request, "user");
+        if (status == null || status.isEmpty() || user == null) {
+            request.getRequestDispatcher("/views/web/order.jsp").forward(request, response);
+            return;
+        }
+        
+        String htmlContent = orderService.findByStatusAndUserId(user.getUserId(), status);
+
+        response.getWriter().write(htmlContent);
     }
 
     private void getDetailProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -29,271 +29,100 @@
                 <div class="col-md-12">
                     <ul class="nav nav-tabs" id="tabs-2" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="tab-5-tab" data-toggle="tab" href="#tab-5" role="tab" aria-controls="tab-5" aria-selected="true">All</a>
+                            <a class="nav-link active tab-link" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="tab-6-tab" data-toggle="tab" href="#tab-6" role="tab" aria-controls="tab-6" aria-selected="false">Pending</a>
+                            <a class="nav-link tab-link" id="pending-tab" data-toggle="tab" href="#Pending" role="tab" aria-controls="Pending" aria-selected="false">Pending</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="tab-7-tab" data-toggle="tab" href="#tab-7" role="tab" aria-controls="tab-7" aria-selected="false">Shipped</a>
+                            <a class="nav-link tab-link" id="shipped-tab" data-toggle="tab" href="#Shipped" role="tab" aria-controls="Shipped" aria-selected="false">Shipped</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="tab-8-tab" data-toggle="tab" href="#tab-8" role="tab" aria-controls="tab-8" aria-selected="false">Delivered</a>
+                            <a class="nav-link tab-link" id="Delivered-tab" data-toggle="tab" href="#Delivered" role="tab" aria-controls="Delivered" aria-selected="false">Delivered</a>
                         </li>
                     </ul>
                     <div class="tab-content tab-content-border" id="tab-content-2">
-                        <div class="tab-pane fade show active" id="tab-5" role="tabpanel" aria-labelledby="tab-5-tab">
-                            <div class="table-wrapper table-responsive">
+                        <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                            <div class="table-wrapper table-responsive px-5">
                                 <table class="table table-cart">
                                     <thead>
                                         <tr>
-                                            <th>Product</th>
-                                            <th>Status</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>Total</th>
-                                            <th>Order date</th>
-                                            <th>Action</th>
+                                            <th class="text-center order-header">Your phone</th>
+                                            <th class="text-center order-header">Status</th>
+                                            <th class="text-center order-header-address">Delivery address</th>
+                                            <th class="text-center order-header">Total</th>
+                                            <th class="text-center order-header">Order date</th>
+                                            <th class="text-center order-header">Action</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td class="product-col" style="min-width: 400px;">
-                                                <div class="product">
-                                                    <figure class="product-media">
-                                                        <a href="#">
-                                                            <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
-                                                        </a>
-                                                    </figure>
 
-                                                    <h3 class="product-title">
-                                                        <a href="#">Beige knitted elastic runner shoes</a>
-                                                    </h3><!-- End .product-title -->
-                                                </div><!-- End .product -->
-                                            </td>
-                                            <td class="stock-col" style="min-width: 100px;"><span class="in-stock">Pending</span></td>
-                                            <td class="price-col" style="min-width: 100px;">$84.00</td>
-                                            <td class="quantity-col">
-                                                1
-                                            </td>
-                                            <td class="total-col" style="min-width: 100px;">$84.00</td>
-                                            <td class="order-col" style="min-width: 150px;"><span>16/10/2003</span></td>
-                                            <td style="max-width: 50px;">
-                                                <div class="text-center">
-                                                    <a href="./order?action=detail" class="btn-success" style="padding: 5px 12px">
-                                                        <i class="fa-solid fa-box" title="Detail"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-col" style="min-width: 400px;">
-                                                <div class="product">
-                                                    <figure class="product-media">
-                                                        <a href="#">
-                                                            <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
-                                                        </a>
-                                                    </figure>
 
-                                                    <h3 class="product-title">
-                                                        <a href="#">Beige knitted elastic runner shoes</a>
-                                                    </h3><!-- End .product-title -->
-                                                </div><!-- End .product -->
-                                            </td>
-                                            <td class="stock-col" style="min-width: 100px;"><span class="in-stock">Pending</span></td>
-                                            <td class="price-col" style="min-width: 100px;">$84.00</td>
-                                            <td class="quantity-col">
-                                                1
-                                            </td>
-                                            <td class="total-col" style="min-width: 100px;">$84.00</td>
-                                            <td class="order-col" style="min-width: 150px;"><span>16/10/2003</span></td>
-                                            <td style="max-width: 50px;">
-                                                <div class="text-center">
-                                                    <a href="./order?action=detail" class="btn-success" style="padding: 5px 12px">
-                                                        <i class="fa-solid fa-box" title="Detail"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-col" style="min-width: 400px;">
-                                                <div class="product">
-                                                    <figure class="product-media">
-                                                        <a href="#">
-                                                            <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
-                                                        </a>
-                                                    </figure>
-
-                                                    <h3 class="product-title">
-                                                        <a href="#">Beige knitted elastic runner shoes</a>
-                                                    </h3><!-- End .product-title -->
-                                                </div><!-- End .product -->
-                                            </td>
-                                            <td class="stock-col" style="min-width: 100px;"><span class="in-stock">Pending</span></td>
-                                            <td class="price-col" style="min-width: 100px;">$84.00</td>
-                                            <td class="quantity-col">
-                                                1
-                                            </td>
-                                            <td class="total-col" style="min-width: 100px;">$84.00</td>
-                                            <td class="order-col" style="min-width: 150px;"><span>16/10/2003</span></td>
-                                            <td style="max-width: 50px;">
-                                                <div class="text-center">
-                                                    <a href="./order?action=detail" class="btn-success" style="padding: 5px 12px">
-                                                        <i class="fa-solid fa-box" title="Detail"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>    
                         </div><!-- .End .tab-pane -->
-                        <div class="tab-pane fade" id="tab-6" role="tabpanel" aria-labelledby="tab-6-tab">
-                            <div class="table-wrapper table-responsive">
+                        <div class="tab-pane fade" id="Pending" role="tabpanel" aria-labelledby="Pending-tab">
+                            <div class="table-wrapper table-responsive px-5">
                                 <table class="table table-cart">
                                     <thead>
                                         <tr>
-                                            <th>Product</th>
-                                            <th>Status</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>Total</th>
-                                            <th>Order date</th>
-                                            <th>Action</th>
+                                            <th class="text-center order-header">Your phone</th>
+                                            <th class="text-center order-header">Status</th>
+                                            <th class="text-center order-header-address">Delivery address</th>
+                                            <th class="text-center order-header">Total</th>
+                                            <th class="text-center order-header">Order date</th>
+                                            <th class="text-center order-header">Action</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td class="product-col" style="min-width: 400px;">
-                                                <div class="product">
-                                                    <figure class="product-media">
-                                                        <a href="#">
-                                                            <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
-                                                        </a>
-                                                    </figure>
 
-                                                    <h3 class="product-title">
-                                                        <a href="#">Beige knitted elastic runner shoes</a>
-                                                    </h3><!-- End .product-title -->
-                                                </div><!-- End .product -->
-                                            </td>
-                                            <td class="stock-col" style="min-width: 100px;"><span class="in-stock">Pending</span></td>
-                                            <td class="price-col" style="min-width: 100px;">$84.00</td>
-                                            <td class="quantity-col">
-                                                1
-                                            </td>
-                                            <td class="total-col" style="min-width: 100px;">$84.00</td>
-                                            <td class="order-col" style="min-width: 150px;"><span>16/10/2003</span></td>
-                                            <td style="max-width: 50px;">
-                                                <div class="text-center">
-                                                    <a href="./order?action=detail" class="btn-success" style="padding: 5px 12px">
-                                                        <i class="fa-solid fa-box" title="Detail"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
+
                                     </tbody>
-                                </table><!-- End .table table-wishlist -->
+                                </table>
                             </div>
                         </div><!-- .End .tab-pane -->
-                        <div class="tab-pane fade" id="tab-7" role="tabpanel" aria-labelledby="tab-7-tab">
-                            <div class="table-wrapper table-responsive">
+                        <div class="tab-pane fade" id="Shipped" role="tabpanel" aria-labelledby="Shipped-tab">
+                            <div class="table-wrapper table-responsive px-5">
                                 <table class="table table-cart">
                                     <thead>
                                         <tr>
-                                            <th>Product</th>
-                                            <th>Status</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>Total</th>
-                                            <th>Order date</th>
-                                            <th>Action</th>
+                                            <th class="text-center order-header">Your phone</th>
+                                            <th class="text-center order-header">Status</th>
+                                            <th class="text-center order-header-address">Delivery address</th>
+                                            <th class="text-center order-header">Total</th>
+                                            <th class="text-center order-header">Order date</th>
+                                            <th class="text-center order-header">Action</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td class="product-col" style="min-width: 400px;">
-                                                <div class="product">
-                                                    <figure class="product-media">
-                                                        <a href="#">
-                                                            <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
-                                                        </a>
-                                                    </figure>
 
-                                                    <h3 class="product-title">
-                                                        <a href="#">Beige knitted elastic runner shoes</a>
-                                                    </h3><!-- End .product-title -->
-                                                </div><!-- End .product -->
-                                            </td>
-                                            <td class="stock-col" style="min-width: 100px;"><span class="in-stock">Pending</span></td>
-                                            <td class="price-col" style="min-width: 100px;">$84.00</td>
-                                            <td class="quantity-col">
-                                                1
-                                            </td>
-                                            <td class="total-col" style="min-width: 100px;">$84.00</td>
-                                            <td class="order-col" style="min-width: 150px;"><span>16/10/2003</span></td>
-                                            <td style="max-width: 50px;">
-                                                <div class="text-center">
-                                                    <a href="./order?action=detail" class="btn-success" style="padding: 5px 12px">
-                                                        <i class="fa-solid fa-box" title="Detail"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
+
                                     </tbody>
-                                </table><!-- End .table table-wishlist -->
+                                </table>
                             </div>
                         </div><!-- .End .tab-pane -->
-                        <div class="tab-pane fade" id="tab-8" role="tabpanel" aria-labelledby="tab-8-tab">
-                            <div class="table-wrapper table-responsive">
+                        <div class="tab-pane fade" id="Delivered" role="tabpanel" aria-labelledby="Delivered-tab">
+                            <div class="table-wrapper table-responsive px-5">
                                 <table class="table table-cart">
                                     <thead>
                                         <tr>
-                                            <th>Product</th>
-                                            <th>Status</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>Total</th>
-                                            <th>Order date</th>
-                                            <th>Action</th>
+                                            <th class="text-center order-header">Your phone</th>
+                                            <th class="text-center order-header">Status</th>
+                                            <th class="text-center order-header-address">Delivery address</th>
+                                            <th class="text-center order-header">Total</th>
+                                            <th class="text-center order-header">Order date</th>
+                                            <th class="text-center order-header">Action</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td class="product-col" style="min-width: 400px;">
-                                                <div class="product">
-                                                    <figure class="product-media">
-                                                        <a href="#">
-                                                            <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
-                                                        </a>
-                                                    </figure>
 
-                                                    <h3 class="product-title">
-                                                        <a href="#">Beige knitted elastic runner shoes</a>
-                                                    </h3><!-- End .product-title -->
-                                                </div><!-- End .product -->
-                                            </td>
-                                            <td class="stock-col" style="min-width: 100px;"><span class="in-stock">Pending</span></td>
-                                            <td class="price-col" style="min-width: 100px;">$84.00</td>
-                                            <td class="quantity-col">
-                                                1
-                                            </td>
-                                            <td class="total-col" style="min-width: 100px;">$84.00</td>
-                                            <td class="order-col" style="min-width: 150px;"><span>16/10/2003</span></td>
-                                            <td style="max-width: 50px;">
-                                                <div class="text-center">
-                                                    <a href="./order?action=detail" class="btn-success" style="padding: 5px 12px">
-                                                        <i class="fa-solid fa-box" title="Detail"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
                                     </tbody>
-                                </table><!-- End .table table-wishlist -->
+                                </table>
                             </div>
                         </div><!-- .End .tab-pane -->
                     </div><!-- End .tab-content -->
@@ -314,5 +143,42 @@
         </div><!-- End .container -->
     </div><!-- End .page-content -->
 </main><!-- End .main -->
+
+<script>
+    $(document).ready(function () {
+        // Handle tab changes
+        $('.tab-link').on('shown.bs.tab', function (e) {
+            var tabId = $(e.target).attr('href');
+            tabId = tabId.substring(1);
+            fetchData(tabId);
+        });
+
+        // Initial data load for the active tab
+        var initialTabId = $('.tab-link.active').attr('href');
+        initialTabId = initialTabId.substring(1);
+        console.log(initialTabId);
+        fetchData(initialTabId);
+
+        // Function to make AJAX request and update content
+        function fetchData(tabId) {
+            $.ajax({
+                url: 'order?action=list&status=' + tabId,
+                method: 'GET',
+                success: function (data) {
+                    if (data !== null) {
+                        let tabElement = document.getElementById(tabId);
+                        let tbodyElement = tabElement.querySelector("tbody");
+                        console.log(tbodyElement);
+                        tbodyElement.innerHTML = data; // Update the content of the tab
+                    }
+
+                },
+                error: function () {
+                    console.error('Error fetching data');
+                }
+            });
+        }
+    });
+</script>
 
 <%@ include file="/common/web/footer.jsp"%>
