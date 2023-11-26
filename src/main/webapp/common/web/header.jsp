@@ -132,7 +132,7 @@
                         </div><!-- End .compare-dropdown -->
                         
                         <div class="wishlist">
-                            <a href="./order" title="Order">
+                            <a href="./order?action=list" title="Order">
                                 <div class="icon">
                                     <i class="fa-solid fa-truck" style="font-size: 23px;"></i>
                                     <span class="wishlist-count badge">3</span>
