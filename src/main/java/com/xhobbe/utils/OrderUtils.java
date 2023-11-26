@@ -50,7 +50,7 @@ public class OrderUtils {
                 + "                                                    <a href=\"./admin-order?action=detail&id=" + order.getOrderId() + "\" class=\"btn btn-success\">\n"
                 + "                                                        <i class=\"fa-solid fa-box\" title=\"Detail\"></i>\n"
                 + "                                                    </a>\n"
-                + "                                                    <a href=\"./admin-order?action=delete&id=" + order.getOrderId() + "\" class=\"btn btn-danger\">\n"
+                + "                                                    <a href=\"javascript:void(0);\" onclick=\"confirmDelete(" +order.getOrderId()+ ", 'oder')\" class=\"btn btn-danger\">\n"
                 + "                                                        <i class=\"lni lni-trash-can action-hover\" title=\"Refuse\"></i>\n"
                 + "                                                    </a>\n"
                 + "                                                </div>\n"
