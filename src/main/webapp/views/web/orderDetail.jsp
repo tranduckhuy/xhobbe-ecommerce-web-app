@@ -35,83 +35,54 @@
                     </ul>
                     <div class="tab-content tab-content-border" id="tab-content-2">
                         <div class="tab-pane fade show active" id="tab-5" role="tabpanel" aria-labelledby="tab-5-tab">
-                            <table class="table table-cart table-mobile">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">
-                                            <h6>Product Image</h6>
-                                        </th>
-                                        <th class="text-center">
-                                            <h6>Product Name</h6>
-                                        </th>
-                                        <th class="text-center">
-                                            <h6>Quantity</h6>
-                                        </th>
-                                        <th class="text-center">
-                                            <h6>Price Order</h6>
-                                        </th>
-                                        <th class="text-center">
-                                            <h6>Total</h6>
-                                        </th>                                                                                
-                                    </tr>
-                                </thead>
+                            <div class="table-wrapper table-responsive">
+                                <table class="table table-cart">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">
+                                                <h6>Product</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Quantity</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Price Order</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Total</h6>
+                                            </th>                                                                                
+                                        </tr>
+                                    </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td class="min-width d-flex product justify-content-center">                     
-                                            <img src="<c:url value='/template/web/assets/images/products/table/product-1.jpg'/>" alt="Product image">
-                                        </td>
-                                        <td class="min-width text-center">                                            
-                                            <p>iPhone 15</p>                                            
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p>1</p> 
-                                        </td>
-                                        <td class="min-width text-center">
-                                            84.00$
-                                        </td>
-                                        <td class="min-width text-center">
-                                            84.00$
-                                        </td>
-                                    </tr>
+                                    <tbody>
+                                        <tr>
+                                            <td class="product-col " style="min-width: 400px;">
+                                                <div class="product justify-content-start px-5">
+                                                    <figure class="product-media">
+                                                        <a href="#">
+                                                            <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
+                                                        </a>
+                                                    </figure>
 
-                                    <tr>
-                                        <td class="min-width d-flex product justify-content-center">                     
-                                            <img src="<c:url value='/template/web/assets/images/products/table/product-1.jpg'/>" alt="Product image">
-                                        </td>
-                                        <td class="min-width text-center">                                            
-                                            <p>iPhone 15</p>                                            
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p>1</p> 
-                                        </td>
-                                        <td class="min-width text-center">
-                                            84.00$
-                                        </td>
-                                        <td class="min-width text-center">
-                                            84.00$
-                                        </td>
-                                    </tr>
+                                                    <h3 class="product-title">
+                                                        <a href="#">iPhone 15 iPhone 15 iPhone 15 iPhone 15 iPhone 15 iPhone 15</a>
+                                                    </h3><!-- End .product-title -->
+                                                </div><!-- End .product -->
+                                            </td>
+                                            <td class=" text-center" style="max-width: 200px; min-width: 100px">
+                                                <p>1</p> 
+                                            </td>
+                                            <td class="text-center" style="max-width: 200px; min-width: 100px">
+                                                84.00$
+                                            </td>
+                                            <td class="text-center" style="max-width: 200px; min-width: 100px">
+                                                84.00$
+                                            </td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="min-width d-flex product justify-content-center">                     
-                                            <img src="<c:url value='/template/web/assets/images/products/table/product-1.jpg'/>" alt="Product image">
-                                        </td>
-                                        <td class="min-width text-center">                                            
-                                            <p>iPhone 15</p>                                            
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p>1</p> 
-                                        </td>
-                                        <td class="min-width text-center">
-                                            84.00$
-                                        </td>
-                                        <td class="min-width text-center">
-                                            84.00$
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table><!-- End .table table-wishlist -->
+                                    </tbody>
+                                </table><!-- End .table table-wishlist -->
+                            </div>    
                         </div><!-- .End .tab-pane -->
                     </div><!-- End .tab-content -->
                 </div><!-- End .col-md-6 -->

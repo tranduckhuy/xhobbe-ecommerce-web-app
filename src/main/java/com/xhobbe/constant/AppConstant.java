@@ -21,7 +21,7 @@ public class AppConstant {
     public static final String CUSTOMER = "CUSTOMER";
     public static final String ALL = "all";
 
-    public static final String PENDING = "pending";
-    public static final String SHIPPED = "shipped";
-    public static final String DERLIVERED = "derlivered";
+    public static final String PENDING = "Pending";
+    public static final String SHIPPED = "Shipped";
+    public static final String DERLIVERED = "Derlivered";
 }

@@ -12,19 +12,20 @@
         <!-- ========== title-wrapper start ========== -->
         <div class="title-wrapper pt-30">
             <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div class="d-flex title gap-4">
-                        <h2>Orders</h2>
-                        <form class="form-inline my-2 my-lg-0 d-flex gap-2">
-                            <input class="form-control mr-sm-2" type="search" id="searchValue" name="searchValue" placeholder="Search">
-                            <input type="hidden" name="searchField" id="searchField"/>
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
+                <div class="col-md-8">
+                    <div class="title row">
+                        <div class="col-md-4"><h3 class="text-danger-emphasis">Orders Manager</h3></div>
+                        <div class="col-md-8">
+                            <form class="form-inline my-2 my-lg-0 d-flex gap-2">
+                                <input class="form-control" type="search" id="search" name="search" placeholder="Search (Email or Phone)">
+                                <input type="hidden" name="action" id="action" value="search"/>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </div>
                     </div>
-
                 </div>
                 <!-- end col -->
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="breadcrumb-wrapper">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
@@ -47,13 +48,13 @@
                 <div class="col-lg-12">
                     <ul class="nav nav-tabs" id="tabs-2" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active tab-link" id="pendingTab" data-bs-toggle="tab" href="#pending" role="tab" aria-controls="tab-5" aria-selected="true">Pending</a>
+                            <a class="nav-link active tab-link" id="pendingTab" data-bs-toggle="tab" href="#Pending" role="tab" aria-controls="tab-5" aria-selected="true">Pending</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link tab-link" id="shippedTab" data-bs-toggle="tab" href="#shipped" role="tab" aria-controls="tab-6" aria-selected="false">Shipped</a>
+                            <a class="nav-link tab-link" id="shippedTab" data-bs-toggle="tab" href="#Shipped" role="tab" aria-controls="tab-6" aria-selected="false">Shipped</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link tab-link" id="deliveredTab" data-bs-toggle="tab" href="#delivered" role="tab" aria-controls="tab-7" aria-selected="false">Delivered</a>
+                            <a class="nav-link tab-link" id="deliveredTab" data-bs-toggle="tab" href="#Delivered" role="tab" aria-controls="tab-7" aria-selected="false">Delivered</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link tab-link" id="allTab" data-bs-toggle="tab" href="#all" role="tab" aria-controls="tab-8" aria-selected="false">All</a>
@@ -63,27 +64,158 @@
                     <div class="tab-content tab-content-border" id="tab-content">
 
                         <!-- Pending tab -->
-                        <div class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-tab">
+                        <div class="tab-pane fade show active" id="Pending" role="tabpanel" aria-labelledby="pending-tab">
+                            <div class="table-wrapper table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">
+                                                <h6>Customer name</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Customer phone</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Delivery address</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Total</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Status</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Order date</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Action</h6>
+                                            </th>
+                                        </tr>
+                                        <!-- end table row-->
+                                    </thead>
+                                    <tbody>
 
 
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- End. Pending tab -->
 
                         <!-- Shipped tab -->
-                        <div class="tab-pane fade" id="shipped" role="tabpanel" aria-labelledby="shipped-tab">
+                        <div class="tab-pane fade" id="Shipped" role="tabpanel" aria-labelledby="shipped-tab">
+                            <div class="table-wrapper table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">
+                                                <h6>Customer name</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Customer phone</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Delivery address</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Total</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Status</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Order date</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Action</h6>
+                                            </th>
+                                        </tr>
+                                        <!-- end table row-->
+                                    </thead>
+                                    <tbody>
 
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- End. Shipped tab -->
 
                         <!-- Delivered tab -->
-                        <div class="tab-pane fade" id="delivered" role="tabpanel" aria-labelledby="delivered-tab">
+                        <div class="tab-pane fade" id="Delivered" role="tabpanel" aria-labelledby="delivered-tab">
+                            <div class="table-wrapper table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">
+                                                <h6>Customer name</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Customer phone</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Delivery address</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Total</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Status</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Order date</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Action</h6>
+                                            </th>
+                                        </tr>
+                                        <!-- end table row-->
+                                    </thead>
+                                    <tbody>
 
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- End. Delivered tab -->
 
                         <!--status All tab -->
                         <div class="tab-pane fade" id="all" role="tabpanel" aria-labelledby="all-tab">
+                            <div class="table-wrapper table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">
+                                                <h6>Customer name</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Customer phone</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Delivery address</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Total</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Status</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Order date</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Action</h6>
+                                            </th>
+                                        </tr>
+                                        <!-- end table row-->
+                                    </thead>
+                                    <tbody>
 
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- .End .tab-pane -->
 
@@ -118,9 +250,13 @@
                 url: 'admin-order?action=list&status=' + tabId,
                 method: 'GET',
                 success: function (data) {
-                    let tagAppend = document.getElementById(tabId);
-                    console.log(tagAppend);
-                    tagAppend.innerHTML = data; // Update the content of the tab
+                    if (data !== null) {
+                        let tabElement = document.getElementById(tabId);
+                        let tbodyElement = tabElement.querySelector("tbody");
+                        console.log(tbodyElement);
+                        tbodyElement.innerHTML = data; // Update the content of the tab
+                    }
+
                 },
                 error: function () {
                     console.error('Error fetching data');

@@ -1,8 +1,6 @@
 
 package com.xhobbe.model;
 
-import java.sql.Timestamp;
-
 /**
  *
  * @author ADMIN
@@ -19,7 +17,7 @@ public class User {
     private int roleId;
     private int active;
     private String activeToken;
-    private Timestamp createdAt;
+    private String createdAt;
 
     public User() {
     }
@@ -104,11 +102,11 @@ public class User {
         this.activeToken = activeToken;
     }
 
-    public Timestamp getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 

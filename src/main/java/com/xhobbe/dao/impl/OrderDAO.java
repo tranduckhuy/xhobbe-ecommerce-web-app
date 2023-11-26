@@ -129,8 +129,27 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
         sql.append("FROM `order` AS o ");
         sql.append("JOIN `user` AS u ON o.userId = u.userId ");
         sql.append("JOIN `orderStatusCheck` AS s ON o.orderStatusId = s.orderStatusId ");
-        sql.append("AND s.status = ?");
-        return this.queryOrder(sql.toString(), new OrderMapper(),status);
+        
+        List<Order> resutls;
+        if (AppConstant.ALL.equals(status)) {
+            resutls = this.queryOrder(sql.toString(), new OrderMapper());
+        } else {
+            sql.append("AND s.status = ?");
+            resutls = this.queryOrder(sql.toString(), new OrderMapper(),status);
+        }
+        return resutls;
+    }
+    
+    @Override
+    public Order findOne(long id) {
+        StringBuilder sql = new StringBuilder("SELECT o.orderId, u.userId, u.name, u.phoneNumber, o.deliveryAddress, o.total, o.orderStatusId, s.status, o.orderDate ");
+        sql.append("FROM `order` AS o ");
+        sql.append("JOIN `user` AS u ON o.userId = u.userId ");
+        sql.append("JOIN `orderStatusCheck` AS s ON o.orderStatusId = s.orderStatusId ");
+        sql.append("WHERE o.orderId = ?");
+        
+        List<Order> order = this.queryOrder(sql.toString(), new OrderMapper(),id);
+        return order != null ? order.get(0) : null;
     }
     
     @Override

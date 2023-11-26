@@ -4,6 +4,8 @@ package com.xhobbe.mapper;
 import com.xhobbe.model.User;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -25,7 +27,12 @@ public class UserMapper implements RowMapper<User> {
             user.setRoleId(rs.getInt("roleId"));
             user.setRoleId(rs.getInt("roleId"));
             user.setActive(rs.getInt("active"));
-            user.setCreatedAt(rs.getTimestamp("createdAt"));
+            
+            // Time
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            Timestamp timeCreated = rs.getTimestamp("createdAt");
+            user.setCreatedAt(sdf.format(timeCreated));
+            
             return user;
         } catch (SQLException e) {
             e.printStackTrace();

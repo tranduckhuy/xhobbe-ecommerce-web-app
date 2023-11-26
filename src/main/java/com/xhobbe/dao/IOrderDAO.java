@@ -17,6 +17,8 @@ public interface IOrderDAO {
     
     List<Order> findByStatus(String status);
     
+    Order findOne(long id);
+    
     void updateStatus(long orderId, int statusId);
     
     void delete(long id);

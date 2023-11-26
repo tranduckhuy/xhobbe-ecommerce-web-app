@@ -73,47 +73,29 @@
                                     <!-- end table row-->
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="min-width text-center">
-                                            <p>iPhone 15 Pro Max</p>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p>2</p>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            1000$
-                                        </td>
-                                        <td class="min-width text-center">
-                                            2000$
-                                        </td>
-                                        <td class="min-width d-flex product justify-content-center">
-                                            <div class="product-image">
-                                                <img src="<c:url value='/template/admin/assets/images/lead/lead-3.png'/>" alt="" />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- end table row -->
+                                    <c:forEach var="orderDetail" items="${list}">
+                                        <tr>
+                                            <td class="min-width text-center">
+                                                <p>${orderDetail.productName}</p>
+                                            </td>
+                                            <td class="min-width text-center">
+                                                <p>${orderDetail.quantity}</p>
+                                            </td>
+                                            <td class="min-width text-center">
+                                                ${orderDetail.priceOrder}$
+                                            </td>
+                                            <td class="min-width text-center">
+                                                ${orderDetail.total}$
+                                            </td>
+                                            <td class="min-width d-flex product justify-content-center">
+                                                <div class="product-image">
+                                                    <img src="${orderDetail.imageURL}$" alt="" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- end table row -->
 
-                                    <tr>
-                                        <td class="min-width text-center">
-                                            <p>iPhone 15 Pro Max</p>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            <p>2</p>
-                                        </td>
-                                        <td class="min-width text-center">
-                                            1000$
-                                        </td>
-                                        <td class="min-width text-center">
-                                            2000$
-                                        </td>
-                                        <td class="min-width d-flex product justify-content-center">
-                                            <div class="product-image">
-                                                <img src="<c:url value='/template/admin/assets/images/lead/lead-3.png'/>" alt="" />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- end table row -->
+                                    </c:forEach>
                                 </tbody>
                             </table>
                             <!-- end table -->

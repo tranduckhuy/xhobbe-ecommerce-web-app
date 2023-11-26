@@ -18,6 +18,8 @@ public interface IOrderService {
     List<Order> findByStatusAndUserId(long userId, String status);
     
     String findByStatus(String status);
+    
+    Order findOne(long id);
 
     void updateStatus(long orderId, int statusId);
     

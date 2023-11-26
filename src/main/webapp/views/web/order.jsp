@@ -43,204 +43,258 @@
                     </ul>
                     <div class="tab-content tab-content-border" id="tab-content-2">
                         <div class="tab-pane fade show active" id="tab-5" role="tabpanel" aria-labelledby="tab-5-tab">
-                            <table class="table table-cart table-mobile">
-                                <thead>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Status</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Total</th>
-                                        <th>Order date</th>
-                                    </tr>
-                                </thead>
+                            <div class="table-wrapper table-responsive">
+                                <table class="table table-cart">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Status</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                            <th>Order date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td class="product-col">
-                                            <div class="product">
-                                                <figure class="product-media">
-                                                    <a href="#">
-                                                        <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
+                                    <tbody>
+                                        <tr>
+                                            <td class="product-col" style="min-width: 400px;">
+                                                <div class="product">
+                                                    <figure class="product-media">
+                                                        <a href="#">
+                                                            <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
+                                                        </a>
+                                                    </figure>
+
+                                                    <h3 class="product-title">
+                                                        <a href="#">Beige knitted elastic runner shoes</a>
+                                                    </h3><!-- End .product-title -->
+                                                </div><!-- End .product -->
+                                            </td>
+                                            <td class="stock-col" style="min-width: 100px;"><span class="in-stock">Pending</span></td>
+                                            <td class="price-col" style="min-width: 100px;">$84.00</td>
+                                            <td class="quantity-col">
+                                                1
+                                            </td>
+                                            <td class="total-col" style="min-width: 100px;">$84.00</td>
+                                            <td class="order-col" style="min-width: 150px;"><span>16/10/2003</span></td>
+                                            <td style="max-width: 50px;">
+                                                <div class="text-center">
+                                                    <a href="./order?action=detail" class="btn-success" style="padding: 5px 12px">
+                                                        <i class="fa-solid fa-box" title="Detail"></i>
                                                     </a>
-                                                </figure>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="product-col" style="min-width: 400px;">
+                                                <div class="product">
+                                                    <figure class="product-media">
+                                                        <a href="#">
+                                                            <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
+                                                        </a>
+                                                    </figure>
 
-                                                <h3 class="product-title">
-                                                    <a href="#">Beige knitted elastic runner shoes</a>
-                                                </h3><!-- End .product-title -->
-                                            </div><!-- End .product -->
-                                        </td>
-                                        <td class="stock-col"><span class="in-stock">Pending</span></td>
-                                        <td class="price-col">$84.00</td>
-                                        <td class="quantity-col">
-                                            1
-                                        </td>
-                                        <td class="total-col">$84.00</td>
-                                        <td class="order-col"><span>16/10/2003</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product-col">
-                                            <div class="product">
-                                                <figure class="product-media">
-                                                    <a href="#">
-                                                        <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
+                                                    <h3 class="product-title">
+                                                        <a href="#">Beige knitted elastic runner shoes</a>
+                                                    </h3><!-- End .product-title -->
+                                                </div><!-- End .product -->
+                                            </td>
+                                            <td class="stock-col" style="min-width: 100px;"><span class="in-stock">Pending</span></td>
+                                            <td class="price-col" style="min-width: 100px;">$84.00</td>
+                                            <td class="quantity-col">
+                                                1
+                                            </td>
+                                            <td class="total-col" style="min-width: 100px;">$84.00</td>
+                                            <td class="order-col" style="min-width: 150px;"><span>16/10/2003</span></td>
+                                            <td style="max-width: 50px;">
+                                                <div class="text-center">
+                                                    <a href="./order?action=detail" class="btn-success" style="padding: 5px 12px">
+                                                        <i class="fa-solid fa-box" title="Detail"></i>
                                                     </a>
-                                                </figure>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="product-col" style="min-width: 400px;">
+                                                <div class="product">
+                                                    <figure class="product-media">
+                                                        <a href="#">
+                                                            <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
+                                                        </a>
+                                                    </figure>
 
-                                                <h3 class="product-title">
-                                                    <a href="#">Beige knitted elastic runner shoes</a>
-                                                </h3><!-- End .product-title -->
-                                            </div><!-- End .product -->
-                                        </td>
-                                        <td class="stock-col"><span class="in-stock">Shipped</span></td>
-                                        <td class="price-col">$84.00</td>
-                                        <td class="quantity-col">
-                                            1
-                                        </td>
-                                        <td class="total-col">$84.00</td>
-                                        <td class="order-col"><span>16/10/2003</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product-col">
-                                            <div class="product">
-                                                <figure class="product-media">
-                                                    <a href="#">
-                                                        <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
+                                                    <h3 class="product-title">
+                                                        <a href="#">Beige knitted elastic runner shoes</a>
+                                                    </h3><!-- End .product-title -->
+                                                </div><!-- End .product -->
+                                            </td>
+                                            <td class="stock-col" style="min-width: 100px;"><span class="in-stock">Pending</span></td>
+                                            <td class="price-col" style="min-width: 100px;">$84.00</td>
+                                            <td class="quantity-col">
+                                                1
+                                            </td>
+                                            <td class="total-col" style="min-width: 100px;">$84.00</td>
+                                            <td class="order-col" style="min-width: 150px;"><span>16/10/2003</span></td>
+                                            <td style="max-width: 50px;">
+                                                <div class="text-center">
+                                                    <a href="./order?action=detail" class="btn-success" style="padding: 5px 12px">
+                                                        <i class="fa-solid fa-box" title="Detail"></i>
                                                     </a>
-                                                </figure>
-
-                                                <h3 class="product-title">
-                                                    <a href="#">Beige knitted elastic runner shoes</a>
-                                                </h3><!-- End .product-title -->
-                                            </div><!-- End .product -->
-                                        </td>
-                                        <td class="stock-col"><span class="out-of-stock">Delivered</span></td>
-                                        <td class="price-col">$84.00</td>
-                                        <td class="quantity-col">
-                                            1
-                                        </td>
-                                        <td class="total-col">$84.00</td>
-                                        <td class="order-col"><span>16/10/2003</span></td>
-                                    </tr>
-                                </tbody>
-                            </table><!-- End .table table-wishlist -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>    
                         </div><!-- .End .tab-pane -->
                         <div class="tab-pane fade" id="tab-6" role="tabpanel" aria-labelledby="tab-6-tab">
-                            <table class="table table-cart table-mobile">
-                                <thead>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Status</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Total</th>
-                                        <th>Order date</th>
-                                    </tr>
-                                </thead>
+                            <div class="table-wrapper table-responsive">
+                                <table class="table table-cart">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Status</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                            <th>Order date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td class="product-col">
-                                            <div class="product">
-                                                <figure class="product-media">
-                                                    <a href="#">
-                                                        <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
+                                    <tbody>
+                                        <tr>
+                                            <td class="product-col" style="min-width: 400px;">
+                                                <div class="product">
+                                                    <figure class="product-media">
+                                                        <a href="#">
+                                                            <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
+                                                        </a>
+                                                    </figure>
+
+                                                    <h3 class="product-title">
+                                                        <a href="#">Beige knitted elastic runner shoes</a>
+                                                    </h3><!-- End .product-title -->
+                                                </div><!-- End .product -->
+                                            </td>
+                                            <td class="stock-col" style="min-width: 100px;"><span class="in-stock">Pending</span></td>
+                                            <td class="price-col" style="min-width: 100px;">$84.00</td>
+                                            <td class="quantity-col">
+                                                1
+                                            </td>
+                                            <td class="total-col" style="min-width: 100px;">$84.00</td>
+                                            <td class="order-col" style="min-width: 150px;"><span>16/10/2003</span></td>
+                                            <td style="max-width: 50px;">
+                                                <div class="text-center">
+                                                    <a href="./order?action=detail" class="btn-success" style="padding: 5px 12px">
+                                                        <i class="fa-solid fa-box" title="Detail"></i>
                                                     </a>
-                                                </figure>
-
-                                                <h3 class="product-title">
-                                                    <a href="#">Beige knitted elastic runner shoes</a>
-                                                </h3><!-- End .product-title -->
-                                            </div><!-- End .product -->
-                                        </td>
-                                        <td class="stock-col"><span class="in-stock">Pending</span></td>
-                                        <td class="price-col">$84.00</td>
-                                        <td class="quantity-col">
-                                            1
-                                        </td>
-                                        <td class="total-col">$84.00</td>
-                                        <td class="order-col"><span>16/10/2003</span></td>
-                                    </tr>
-                                </tbody>
-                            </table><!-- End .table table-wishlist -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table><!-- End .table table-wishlist -->
+                            </div>
                         </div><!-- .End .tab-pane -->
                         <div class="tab-pane fade" id="tab-7" role="tabpanel" aria-labelledby="tab-7-tab">
-                            <table class="table table-cart table-mobile">
-                                <thead>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Status</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Total</th>
-                                        <th>Order date</th>
-                                    </tr>
-                                </thead>
+                            <div class="table-wrapper table-responsive">
+                                <table class="table table-cart">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Status</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                            <th>Order date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td class="product-col">
-                                            <div class="product">
-                                                <figure class="product-media">
-                                                    <a href="#">
-                                                        <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
+                                    <tbody>
+                                        <tr>
+                                            <td class="product-col" style="min-width: 400px;">
+                                                <div class="product">
+                                                    <figure class="product-media">
+                                                        <a href="#">
+                                                            <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
+                                                        </a>
+                                                    </figure>
+
+                                                    <h3 class="product-title">
+                                                        <a href="#">Beige knitted elastic runner shoes</a>
+                                                    </h3><!-- End .product-title -->
+                                                </div><!-- End .product -->
+                                            </td>
+                                            <td class="stock-col" style="min-width: 100px;"><span class="in-stock">Pending</span></td>
+                                            <td class="price-col" style="min-width: 100px;">$84.00</td>
+                                            <td class="quantity-col">
+                                                1
+                                            </td>
+                                            <td class="total-col" style="min-width: 100px;">$84.00</td>
+                                            <td class="order-col" style="min-width: 150px;"><span>16/10/2003</span></td>
+                                            <td style="max-width: 50px;">
+                                                <div class="text-center">
+                                                    <a href="./order?action=detail" class="btn-success" style="padding: 5px 12px">
+                                                        <i class="fa-solid fa-box" title="Detail"></i>
                                                     </a>
-                                                </figure>
-
-                                                <h3 class="product-title">
-                                                    <a href="#">Beige knitted elastic runner shoes</a>
-                                                </h3><!-- End .product-title -->
-                                            </div><!-- End .product -->
-                                        </td>
-                                        <td class="stock-col"><span class="in-stock">Shipped</span></td>
-                                        <td class="price-col">$84.00</td>
-                                        <td class="quantity-col">
-                                            1
-                                        </td>
-                                        <td class="total-col">$84.00</td>
-                                        <td class="order-col"><span>16/10/2003</span></td>
-                                    </tr>
-                                </tbody>
-                            </table><!-- End .table table-wishlist -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table><!-- End .table table-wishlist -->
+                            </div>
                         </div><!-- .End .tab-pane -->
                         <div class="tab-pane fade" id="tab-8" role="tabpanel" aria-labelledby="tab-8-tab">
-                            <table class="table table-cart table-mobile">
-                                <thead>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Status</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Total</th>
-                                        <th>Order date</th>
-                                    </tr>
-                                </thead>
+                            <div class="table-wrapper table-responsive">
+                                <table class="table table-cart">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Status</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                            <th>Order date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td class="product-col">
-                                            <div class="product">
-                                                <figure class="product-media">
-                                                    <a href="#">
-                                                        <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
+                                    <tbody>
+                                        <tr>
+                                            <td class="product-col" style="min-width: 400px;">
+                                                <div class="product">
+                                                    <figure class="product-media">
+                                                        <a href="#">
+                                                            <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
+                                                        </a>
+                                                    </figure>
+
+                                                    <h3 class="product-title">
+                                                        <a href="#">Beige knitted elastic runner shoes</a>
+                                                    </h3><!-- End .product-title -->
+                                                </div><!-- End .product -->
+                                            </td>
+                                            <td class="stock-col" style="min-width: 100px;"><span class="in-stock">Pending</span></td>
+                                            <td class="price-col" style="min-width: 100px;">$84.00</td>
+                                            <td class="quantity-col">
+                                                1
+                                            </td>
+                                            <td class="total-col" style="min-width: 100px;">$84.00</td>
+                                            <td class="order-col" style="min-width: 150px;"><span>16/10/2003</span></td>
+                                            <td style="max-width: 50px;">
+                                                <div class="text-center">
+                                                    <a href="./order?action=detail" class="btn-success" style="padding: 5px 12px">
+                                                        <i class="fa-solid fa-box" title="Detail"></i>
                                                     </a>
-                                                </figure>
-
-                                                <h3 class="product-title">
-                                                    <a href="#">Beige knitted elastic runner shoes</a>
-                                                </h3><!-- End .product-title -->
-                                            </div><!-- End .product -->
-                                        </td>
-                                        <td class="stock-col"><span class="out-of-stock">Delivered</span></td>
-                                        <td class="price-col">$84.00</td>
-                                        <td class="quantity-col">
-                                            1
-                                        </td>
-                                        <td class="total-col">$84.00</td>
-                                        <td class="order-col"><span>16/10/2003</span></td>
-                                    </tr>
-                                </tbody>
-                            </table><!-- End .table table-wishlist -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table><!-- End .table table-wishlist -->
+                            </div>
                         </div><!-- .End .tab-pane -->
                     </div><!-- End .tab-content -->
                 </div><!-- End .col-md-6 -->

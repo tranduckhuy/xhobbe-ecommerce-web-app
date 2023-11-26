@@ -1,15 +1,17 @@
-
 package com.xhobbe.mapper;
 
 import com.xhobbe.model.Order;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 /**
  *
  * @author ADMIN
  */
-public class OrderMapper implements RowMapper<Order>{
+public class OrderMapper implements RowMapper<Order> {
+
     @Override
     public Order mapRow(ResultSet rs) {
         try {
@@ -22,8 +24,12 @@ public class OrderMapper implements RowMapper<Order>{
             order.setTotal(rs.getDouble("total"));
             order.setStatusID(rs.getInt("orderStatusId"));
             order.setStatus(rs.getString("status"));
-            order.setOrderDate(rs.getTimestamp("orderDate"));
-            
+
+            // Time
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            Timestamp timeCreated = rs.getTimestamp("orderDate");
+            order.setOrderDate(sdf.format(timeCreated));
+
             return order;
         } catch (SQLException e) {
             return null;

@@ -1,6 +1,5 @@
 package com.xhobbe.model;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class Order {
     private double total;
     private int statusID;
     private String status;
-    private Timestamp orderDate;
+    private String orderDate;
     private List<OrderDetail> listOrderDetail = new ArrayList<>();
 
     public Order() {
@@ -88,11 +87,11 @@ public class Order {
         this.statusID = statusID;
     }
 
-    public Timestamp getOrderDate() {
+    public String getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Timestamp orderDate) {
+    public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
     }
 
