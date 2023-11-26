@@ -43,7 +43,7 @@
 
             <span class="divider"><hr /></span>
             <li class="nav-item">
-                <a href="./admin-order?action=list">
+                <a href="./admin-order">
                     <span class="icon">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -56,7 +56,12 @@
                                 d="M7.48901 17.1925C8.10004 17.8918 8.99841 18.3335 10 18.3335C11.0016 18.3335 11.9 17.8918 12.511 17.1925C10.8482 17.4634 9.15183 17.4634 7.48901 17.1925Z" />
                         </svg>
                     </span>
-                    <span class="text">Orders</span>
+                    <div class="text badge-alert">
+                        Orders
+                        <c:if test="${total != null}">
+                            <span class="notification-badge">${total}</span>
+                        </c:if>
+                    </div>
                 </a>
             </li>
 

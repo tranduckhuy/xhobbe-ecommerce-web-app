@@ -38,24 +38,12 @@
 <!-- ========= All Javascript files linkup ======== -->
 <script src="<c:url value='/template/admin/assets/js/bootstrap.bundle.min.js'/>"></script>
 <script src="<c:url value='/template/admin/assets/js/Chart.min.js'/>"></script>
-<script src="<c:url value='/template/admin/assets/js/dynamic-pie-chart.js'/>"></script>
-<script src="<c:url value='/template/admin/assets/js/moment.min.js'/>"></script>
 <script src="<c:url value='/template/admin/assets/js/fullcalendar.js'/>"></script>
-<script src="<c:url value='/template/admin/assets/js/jvectormap.min.js'/>"></script>
-<script src="<c:url value='/template/admin/assets/js/world-merc.js'/>"></script>
-<script src="<c:url value='/template/admin/assets/js/polyfill.js'/>"></script>
 <script src="<c:url value='/template/admin/assets/js/main.js'/>"></script>
 <script src="<c:url value='/template/web/assets/js/jquery.min.js'/>"></script>
 
+
 <script>
-    // ======== jvectormap activation
-    var markers = [
-        {name: "Egypt", coords: [26.8206, 30.8025]},
-        {name: "Russia", coords: [61.524, 105.3188]},
-        {name: "Canada", coords: [56.1304, -106.3468]},
-        {name: "Greenland", coords: [71.7069, -42.6043]},
-        {name: "Brazil", coords: [-14.235, -51.9253]}
-    ];
 
     // ====== calendar activation
     document.addEventListener("DOMContentLoaded", function () {

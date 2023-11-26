@@ -61,7 +61,7 @@
                                             <div class="product">
                                                 <figure class="product-media">
                                                     <a href="#">
-                                                        <img src="<c:url value='/template/web/assets/images/products/table/product-1.jpg'/>" alt="Product image">
+                                                        <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
                                                     </a>
                                                 </figure>
 
@@ -83,7 +83,7 @@
                                             <div class="product">
                                                 <figure class="product-media">
                                                     <a href="#">
-                                                        <img src="<c:url value='/template/web/assets/images/products/table/product-1.jpg'/>" alt="Product image">
+                                                        <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
                                                     </a>
                                                 </figure>
 
@@ -105,7 +105,7 @@
                                             <div class="product">
                                                 <figure class="product-media">
                                                     <a href="#">
-                                                        <img src="<c:url value='/template/web/assets/images/products/table/product-1.jpg'/>" alt="Product image">
+                                                        <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
                                                     </a>
                                                 </figure>
 
@@ -144,7 +144,7 @@
                                             <div class="product">
                                                 <figure class="product-media">
                                                     <a href="#">
-                                                        <img src="<c:url value='/template/web/assets/images/products/table/product-1.jpg'/>" alt="Product image">
+                                                        <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
                                                     </a>
                                                 </figure>
 
@@ -183,7 +183,7 @@
                                             <div class="product">
                                                 <figure class="product-media">
                                                     <a href="#">
-                                                        <img src="<c:url value='/template/web/assets/images/products/table/product-1.jpg'/>" alt="Product image">
+                                                        <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
                                                     </a>
                                                 </figure>
 
@@ -222,7 +222,7 @@
                                             <div class="product">
                                                 <figure class="product-media">
                                                     <a href="#">
-                                                        <img src="<c:url value='/template/web/assets/images/products/table/product-1.jpg'/>" alt="Product image">
+                                                        <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
                                                     </a>
                                                 </figure>
 

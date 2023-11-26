@@ -61,7 +61,7 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
             }
             return results;
         } catch (SQLException e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
             return Collections.EMPTY_LIST;
         }
     }
@@ -106,7 +106,7 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
     }
 
     @Override
-    public List<Order> findByStatusAndUserId(long userId, int statusId) {
+    public List<Order> findByStatusAndUserId(long userId, String status) {
         StringBuilder sql = new StringBuilder("SELECT o.orderId, u.userId, u.name, u.phoneNumber, o.deliveryAddress, o.total, o.orderStatusId, s.status, o.orderDate ");
         sql.append("FROM `order` AS o ");
         sql.append("JOIN `user` AS u ON o.userId = u.userId AND u.userId = ? ");
@@ -114,15 +114,25 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
         
         List<Order> resutls;
         
-        if (AppConstant.ALL_STATUS == statusId) {
+        if (AppConstant.ALL.equals(status)) {
             resutls = this.queryOrder(sql.toString(), new OrderMapper(), userId);
         } else {
-            sql.append("AND s.orderStatusId = ?");
-            resutls = this.queryOrder(sql.toString(), new OrderMapper(), userId, statusId);
+            sql.append("AND s.status = ?");
+            resutls = this.queryOrder(sql.toString(), new OrderMapper(), userId, status);
         }
         return resutls;
     }
 
+    @Override
+    public List<Order> findByStatus(String status) {
+        StringBuilder sql = new StringBuilder("SELECT o.orderId, u.userId, u.name, u.phoneNumber, o.deliveryAddress, o.total, o.orderStatusId, s.status, o.orderDate ");
+        sql.append("FROM `order` AS o ");
+        sql.append("JOIN `user` AS u ON o.userId = u.userId ");
+        sql.append("JOIN `orderStatusCheck` AS s ON o.orderStatusId = s.orderStatusId ");
+        sql.append("AND s.status = ?");
+        return this.queryOrder(sql.toString(), new OrderMapper(),status);
+    }
+    
     @Override
     public void delete(long id) {
 
@@ -137,6 +147,12 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
     public int getTotalItem() {
         String sql = "SELECT count(*) FROM `order`";
         return count(sql);
+    }
+    
+    @Override
+    public int getTotalItemByStatus(int statusId) {
+        String sql = "SELECT count(*) FROM `order` WHERE orderStatusId = ? ";
+        return count(sql, statusId);
     }
 
 }

@@ -22,8 +22,11 @@
         <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/materialdesignicons.min.css'/>" />
         <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/fullcalendar.css'/>" />
         <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/main.css'/>" />
+        <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/orderList.css'/>" />
         <!-- Validate CSS File -->
         <link rel="stylesheet" href="<c:url value='/template/web/assets/css/validate/validate.css'/>">
+        <!-- jQuery -->
+        <script src="<c:url value='/template/jquery/jquery-v3.7.1.min.js'/>"></script>
     </head>
 
     <body>
@@ -50,13 +53,13 @@
                                         <i class="lni lni-chevron-left me-2"></i> Menu
                                     </button>
                                 </div>
-                                <!--                                <div class="header-search d-none d-md-flex">
-                                                                    <form action="#">
-                                                                        <input type="text" id="searchValue" name="searchValue" placeholder="Search..." />
-                                                                        <input type="hidden" name="searchField" id="searchField"/>
-                                                                        <button type="submit"><i class="lni lni-search-alt"></i></button>
-                                                                    </form>
-                                                                </div>-->
+                                <!-- <div class="header-search d-none d-md-flex">
+                                        <form action="#">
+                                            <input type="text" id="searchValue" name="searchValue" placeholder="Search..." />
+                                            <input type="hidden" name="searchField" id="searchField"/>
+                                            <button type="submit"><i class="lni lni-search-alt"></i></button>
+                                        </form>
+                                    </div>-->
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7 col-6">
