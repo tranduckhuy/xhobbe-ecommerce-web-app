@@ -90,7 +90,7 @@
                         <a href="./admin-product?action=list&category=Laptop"> <i class="fa-solid fa-laptop"></i> Laptop </a>
                     </li>
                     <li>
-                        <a href="./admin-product?action=list&category=IPad"> <i class="fa-solid fa-tablet-button"></i> iPad </a>
+                        <a href="./admin-product?action=list&category=iPad"> <i class="fa-solid fa-tablet-button"></i> iPad </a>
                     </li>
                     <li>
                         <a href="./admin-product?action=list&category=Accessories"> <i class="fa-solid fa-headphones"></i> Accessories </a>

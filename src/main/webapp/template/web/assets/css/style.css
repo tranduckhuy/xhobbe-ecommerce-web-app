@@ -7604,7 +7604,7 @@ p {
 .product-media {
     position: relative;
     display: block;
-    background-color: #d7d7d7;
+    background-color: #fff;
     margin-bottom: 0;
     overflow: hidden
 }
@@ -16140,6 +16140,18 @@ button:focus {
     color: #ef837b
 }
 
+.pending-color {
+    color: #506acf
+}
+
+.shipped-color {
+    color: #bce915
+}
+
+.delivered-color {
+    color: #61b32d
+}
+
 .btn-remove {
     display: inline-flex;
     align-items: center;
@@ -19901,4 +19913,17 @@ button:focus {
     content: '\f7e3'
 }
 
+
+.order-header {
+    min-width: 130px;
+}
+
+.order-description {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.order-header-address {
+    min-width: 200px;
+}
 /*# sourceMappingURL=style.css.map */
