@@ -98,7 +98,9 @@
                                             <input type="file" class="form-control-file" value="upload" accept=".jpg" id="productImage1">
                                             <input name="proImage1" type="text" id="proImage1" style="display: none">
                                             <label for="productImage1">Product image</label>
-                                            <div id="imgDiv1"></div>
+                                            <div id="imgDiv1">
+                                                
+                                            </div>
                                             <progress value="0" max="100" id="uploader1">0%</progress>
                                             <p class="form-message"></p>
                                         </div>
@@ -106,7 +108,9 @@
                                             <input type="file" class="form-control-file" value="upload" accept=".jpg, .png" id="productImage2">
                                             <input name="proImage2" type="text" id="proImage2" style="display: none">
                                             <label for="productImage2" class="">Product image</label>
-                                            <div id="imgDiv2"></div>
+                                            <div id="imgDiv2">
+                                                
+                                            </div>
                                             <progress value="0" max="100" id="uploader2">0%</progress>
                                             <p class="form-message"></p>
                                         </div>

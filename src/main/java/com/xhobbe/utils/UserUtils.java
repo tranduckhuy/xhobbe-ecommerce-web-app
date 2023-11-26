@@ -57,7 +57,11 @@ public class UserUtils {
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
         int roleId = UtilsValidType.getInteger(request.getParameter("role"));
-
+        
+        if (user.getUserId() == 1) {
+            return null;
+        }
+        
         User userUpdate = new User();
         userUpdate.setUserId(user.getUserId());
         userUpdate.setName(name);

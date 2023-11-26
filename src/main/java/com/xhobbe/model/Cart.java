@@ -13,7 +13,10 @@ public class Cart {
     private String productName;
     private double price;
     private int quantity;
+    private double total;
+    private String imageURL;
     private String createdAt;
+    
 
     public Cart() {
     }
@@ -74,10 +77,26 @@ public class Cart {
         this.quantity = quantity;
     }
 
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+    
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
     @Override
     public String toString() {
-        return "Cart{" + "cartId=" + cartId + ", userId=" + userId + ", productId=" + productId + 
-                ", productName=" + productName + ", price=" + price + ", quantity=" + quantity + ", createdAt=" + createdAt + '}';
+        return "Cart{" + "cartId=" + cartId + ", userId=" + userId + ", productId=" + productId + ", productName=" + productName + 
+                ", price=" + price + ", quantity=" + quantity + ", total=" + total + ", imageURL=" + imageURL + ", createdAt=" + createdAt + '}';
     }
 
 }

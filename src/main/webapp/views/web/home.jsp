@@ -1691,6 +1691,12 @@
             <a href="#" class="brand">
                 <img src="<c:url value='/template/web/assets/images/brands/6.png'/>" alt="Brand Name">
             </a>
+            <a href="#" class="brand">
+                <img src="<c:url value='/template/web/assets/images/brands/7.png'/>" alt="Brand Name">
+            </a>
+            <a href="#" class="brand">
+                <img src="<c:url value='/template/web/assets/images/brands/8.png'/>" alt="Brand Name">
+            </a>
         </div><!-- End .owl-carousel -->
     </div><!-- End .container -->
 

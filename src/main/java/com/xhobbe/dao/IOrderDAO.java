@@ -25,6 +25,8 @@ public interface IOrderDAO {
 
     int getTotalItem();
     
+    int getTotalItemByUserId(long id);
+    
     int getTotalItemByStatus(int statusId);
 
 }

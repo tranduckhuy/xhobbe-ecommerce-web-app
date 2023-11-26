@@ -163,6 +163,12 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
     }
 
     @Override
+    public int getTotalItemByUserId(long id) {
+        String sql = "SELECT count(*) FROM `order` WHERE userId = ?";
+        return count(sql, id);
+    }
+    
+    @Override
     public int getTotalItem() {
         String sql = "SELECT count(*) FROM `order`";
         return count(sql);

@@ -22,6 +22,7 @@ public class CartMapper implements RowMapper<Cart> {
             cart.setProductName(rs.getString("name"));
             cart.setPrice(rs.getDouble("price"));
             cart.setQuantity(rs.getInt("quantity"));
+            cart.setImageURL(rs.getString("selectedImageUrl"));
 
             // Time
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");

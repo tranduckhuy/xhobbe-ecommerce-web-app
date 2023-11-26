@@ -5,6 +5,7 @@ import com.xhobbe.constant.AppConstant;
 import com.xhobbe.constant.MessageAlertConstant;
 import com.xhobbe.model.User;
 import com.xhobbe.service.IUserService;
+import com.xhobbe.utils.SessionUtils;
 import com.xhobbe.utils.UserUtils;
 import java.io.IOException;
 import java.util.List;
@@ -29,7 +30,7 @@ public class AccountController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         String action = request.getParameter("action");
 
         if (action == null) {
@@ -48,7 +49,7 @@ public class AccountController extends HttpServlet {
                 break;
             case ActionConstant.DELETE:
                 deleteAccount(request, response);
-                break;    
+                break;
             default:
                 response.sendRedirect("./admin");
         }
@@ -58,7 +59,7 @@ public class AccountController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
 
@@ -79,14 +80,23 @@ public class AccountController extends HttpServlet {
     }
 
     private void listAccount(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        User user = (User) SessionUtils.getInstance().getValue(request, "user");
+        User currentUserStatus = userService.findOne(user.getEmail());
+        
+        if (currentUserStatus == null || currentUserStatus.getRoleId() != 1) {
+            SessionUtils.getInstance().removeValue(request, "user");
+            response.sendRedirect("./");
+            return;
+        }
         
         String role = request.getParameter("role");
-        
+
         if (role == null || role.isEmpty()) {
             response.sendRedirect("./admin");
             return;
         }
-            
+
         List<User> list;
 
         switch (role) {
@@ -108,12 +118,12 @@ public class AccountController extends HttpServlet {
         request.setAttribute(AppConstant.LIST, list);
         request.getRequestDispatcher("/views/admin/accountList.jsp").forward(request, response);
     }
-    
+
     private void getFormEdit(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String email = request.getParameter("email");
-        
+
         User user = userService.findOne(email);
-        
+
         if (user == null) {
             response.sendRedirect("./admin");
             return;
@@ -121,47 +131,47 @@ public class AccountController extends HttpServlet {
         request.setAttribute("user", user);
         request.getRequestDispatcher("/views/admin/accountEdit.jsp").forward(request, response);
     }
-    
+
     private void postFormEdit(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        
+
         String email = request.getParameter("email");
         User user = userService.findOne(email);
-        
+
         if (user == null) {
             response.sendRedirect("./admin");
             return;
         }
-        
+
         user = UserUtils.getUpdateUser(request, user);
-        
+
         if (userService.update(user) != null) {
             String views = "./admin-account?action=list&role=" + user.getRole() + "&msg=success";
             System.out.println(views);
             response.sendRedirect(views);
-        }  else {
+        } else {
             response.sendRedirect("./admin-account?action=list&msg=fail");
         }
-        
+
     }
-    
+
     private void deleteAccount(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String email = request.getParameter("email");
-        
+
         User user = userService.findOne(email);
-        
+
         if (user == null) {
             response.sendRedirect("./admin");
             return;
         }
-        
+
         boolean check = userService.delete(user.getUserId(), email);
-        
+
         if (check) {
             response.sendRedirect("./admin-account?action=list&role=" + user.getRole() + "&message=success");
         } else {
             response.sendRedirect("./admin-account?action=list&role=" + user.getRole() + "&message=fail");
         }
-        
+
     }
 
 }

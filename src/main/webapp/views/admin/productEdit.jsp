@@ -120,8 +120,8 @@
                                             <input type="file" class="form-control-file" value="upload" accept=".jpg" id="productImage1">
                                             <input name="proImage1" type="text" id="proImage1" style="display: none">
                                             <label for="productImage1" style="font-weight: bold; color: #3f5092">Product image</label>
-                                            <div id="imgDiv1">
-                                                <img src="<c:url value='${product.getImageURL().get(0)}'/>" alt="Product image" style="max-width: 200px; height: auto">
+                                            <div id="imgDiv1" >
+                                                <img src="<c:url value='${product.getImageURL().get(0)}'/>" alt="Product image" style="max-width: 200px; max-height: 200px; margin: auto" >
                                             </div>
                                             <progress value="0" max="100" id="uploader1">0%</progress>
                                         </div>
@@ -130,13 +130,13 @@
                                             <input name="proImage2" type="text" id="proImage2" style="display: none">
                                             <label for="productImage2" style="font-weight: bold; color: #3f5092">Product image</label>
                                             <div id="imgDiv2">
-                                                <img src="<c:url value='${product.getImageURL().get(1)}'/>" alt="Product image" style="max-width: 200px; height: auto">
+                                                <img src="<c:url value='${product.getImageURL().get(1)}'/>" alt="Product image" style="max-width: 200px; max-height: 200px; margin: auto">
                                             </div>
                                             <progress value="0" max="100" id="uploader2">0%</progress>
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary px-4">Edit</button>
+                                    <button type="submit" class="btn btn-primary mt-3 px-5 pt-2 pb-2">Edit</button>
                                 </form>
                             </div>
                         </div>

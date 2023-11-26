@@ -36,11 +36,16 @@ public class OrderService implements IOrderService {
         return orderDAO.findAll(limit, offset, orderBy, sortBy);
 
     }
-
+    
     @Override
     public int getTotalItem() {
-
         return orderDAO.getTotalItem();
+    }
+
+    @Override
+    public int getTotalItemByUserId(long id) {
+
+        return orderDAO.getTotalItemByUserId(id);
     }
 
     @Override

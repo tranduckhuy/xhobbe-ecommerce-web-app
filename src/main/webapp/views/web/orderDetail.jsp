@@ -29,9 +29,6 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="nav nav-tabs" id="tabs-2" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="tab-5-tab" data-toggle="tab" href="#tab-5" role="tab" aria-controls="tab-5" aria-selected="true">All</a>
-                        </li>
                     </ul>
                     <div class="tab-content tab-content-border" id="tab-content-2">
                         <div class="tab-pane fade show active" id="tab-5" role="tabpanel" aria-labelledby="tab-5-tab">
@@ -40,46 +37,47 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">
-                                                <h6>Product</h6>
+                                                <h6 class="tbh-color">Product</h6>
                                             </th>
                                             <th class="text-center">
-                                                <h6>Quantity</h6>
+                                                <h6 class="tbh-color">Quantity</h6>
                                             </th>
                                             <th class="text-center">
-                                                <h6>Price Order</h6>
+                                                <h6 class="tbh-color">Price Order</h6>
                                             </th>
                                             <th class="text-center">
-                                                <h6>Total</h6>
+                                                <h6 class="tbh-color">Total</h6>
                                             </th>                                                                                
                                         </tr>
                                     </thead>
 
                                     <tbody>
+                                        <c:forEach var="orderDetail" items="${list}">
                                         <tr>
-                                            <td class="product-col " style="min-width: 400px;">
-                                                <div class="product justify-content-start px-5">
-                                                    <figure class="product-media">
-                                                        <a href="#">
-                                                            <img src="https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/productImage%2FLaptop%2Fmac-air-m2-gray-5.jpg?alt=media&token=7f344730-b397-4305-b1ed-e852960aefe4" alt="Product image">
-                                                        </a>
-                                                    </figure>
+                                                <td class="product-col " style="min-width: 350px;">
+                                                    <div class="product justify-content-start px-5">
+                                                        <figure class="product-media">
+                                                            <a href="#">
+                                                                <img src="${orderDetail.imageURL}" alt="Product image">
+                                                            </a>
+                                                        </figure>
 
-                                                    <h3 class="product-title">
-                                                        <a href="#">iPhone 15 iPhone 15 iPhone 15 iPhone 15 iPhone 15 iPhone 15</a>
-                                                    </h3><!-- End .product-title -->
-                                                </div><!-- End .product -->
-                                            </td>
-                                            <td class=" text-center" style="max-width: 200px; min-width: 100px">
-                                                <p>1</p> 
-                                            </td>
-                                            <td class="text-center" style="max-width: 200px; min-width: 100px">
-                                                84.00$
-                                            </td>
-                                            <td class="text-center" style="max-width: 200px; min-width: 100px">
-                                                84.00$
-                                            </td>
-                                        </tr>
-
+                                                        <h3 class="product-title">
+                                                            <a href="#">${orderDetail.productName}</a>
+                                                        </h3><!-- End .product-title -->
+                                                    </div><!-- End .product -->
+                                                </td>
+                                                <td class=" text-center" style="min-width: 120px">
+                                                    <p class="order-detail-field text-primary">${orderDetail.quantity}</p> 
+                                                </td>
+                                                <td class="text-center" style="min-width: 120px">
+                                                    <p class="order-detail-field text-success">${orderDetail.priceOrder}$</p> 
+                                                </td>
+                                                <td class="text-center" style="min-width: 120px">
+                                                    <p class="order-detail-field text-danger">${orderDetail.total}$</p> 
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table><!-- End .table table-wishlist -->
                             </div>    
