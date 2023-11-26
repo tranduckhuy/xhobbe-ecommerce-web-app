@@ -110,8 +110,7 @@
                                                     <a href="./admin-account?action=edit&email=${account.email}" class="text-danger " title="Edit">
                                                         <i class="fa-solid fa-pencil action-hover"></i>
                                                     </a>
-                                                    <a href="./admin-account?action=delete&email=${account.email}" class="text-danger" title="Delete">
-                                                        <i class="lni lni-trash-can action-hover"></i>
+                                                    <a href="javascript:void(0);" onclick="popupDelete('${account.email}', 'account')" class="text-danger" title="Delete">                                                        <i class="lni lni-trash-can action-hover"></i>
                                                     </a>
                                                 </div>
                                             </td>
@@ -134,30 +133,37 @@
 </section>
 <!-- ========== table components end ========== -->
 
+<script src="<c:url value='/template/admin/assets/js/popup/popupDelete.js'/>"></script>
+
+<!-- jQuery -->
+<script src="<c:url value='/template/admin/assets/js/jquery.min.js'/>"></script>
+
+<!-- SweetAlert -->
+<script src="<c:url value='/template/admin/assets/js/sweetalert.min.js'/>"></script>
 <script>
-        // Get the full URL
+    // Get the full URL
     let url = window.location.href;
     // Use URLSearchParams to extract parameters
     let urlParams = new URLSearchParams(url);
     // Get the value of the 'category' parameter
-    
+
     let alertMessage = urlParams.get('message');
     let alertSuccess = document.getElementById('alertSuccess');
     let alertFail = document.getElementById('alertFail');
-    
+
     console.log(alertMessage);
     console.log(alertSuccess);
     console.log(alertFail);
-    
+
     if (alertMessage !== null) {
         if (alertMessage === 'success') {
-            alertSuccess.style.dislay = "block";
+            alertSuccess.style.display = "block";
         } else if (alertMessage === 'fail') {
-            alertFail.style.dislay = "block";
+            alertFail.style.display = "block";
         }
     } else {
-        alertSuccess.style.dislay = "none";
-        alertFail.style.dislay = "none";
+        alertSuccess.style.display = "none";
+        alertFail.style.display = "none";
     }
 </script>
 

@@ -229,6 +229,14 @@
     <!-- end container -->
 </section>
 
+<script src="<c:url value='/template/admin/assets/js/popup/popupDelete.js'/>"></script>
+
+<!-- jQuery -->
+<script src="<c:url value='/template/admin/assets/js/jquery.min.js'/>"></script>
+
+<!-- SweetAlert -->
+<script src="<c:url value='/template/admin/assets/js/sweetalert.min.js'/>"></script>
+
 <script>
     $(document).ready(function () {
         // Handle tab changes
