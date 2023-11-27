@@ -28,6 +28,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "product", urlPatterns = {"/product"})
 public class ProductController extends HttpServlet {
 
+    private static final String PRODUCT_URL = "./product?action=list&category=all";
+
     @Inject
     private IProductService productService;
 
@@ -87,7 +89,7 @@ public class ProductController extends HttpServlet {
         List<Product> list;
 
         if (null == category) {
-            response.sendRedirect("./product?action=list&category=all");
+            response.sendRedirect(PRODUCT_URL);
             return;
         } else {
             switch (category) {
@@ -107,18 +109,19 @@ public class ProductController extends HttpServlet {
                 default:
                     request.setAttribute("total", productService.getTotalItem());
                     request.setAttribute("category", category);
-                    response.sendRedirect("./product?action=list&category=all");
+                    response.sendRedirect(PRODUCT_URL);
                     return;
             }
         }
-        
+
         // badge alert
         User user = (User) SessionUtils.getInstance().getValue(request, "user");
         if (user != null) {
             request.setAttribute("totalCart", cartService.getTotalItemByUserId(user.getUserId()));
-            request.setAttribute("totalOrder", orderService.getTotalItemByStatus(1));
+            request.setAttribute("totalOrder", orderService.getTotalItemByUserIdAndStatus(
+                    user.getUserId(), AppConstant.PENDING_SHIPPED_STATUS_ID));
         }
-        
+
         request.setAttribute(AppConstant.LIST, list);
         request.getRequestDispatcher("/views/web/productList.jsp").forward(request, response);
 
@@ -130,13 +133,13 @@ public class ProductController extends HttpServlet {
 
         Product product = productService.findOne(id);
 
-        String views = "/views/web/productDetail.jsp";
-
-        if (ActionConstant.QUICKVIEW.equals(action)) {
-            views = "/views/web/quickView.jsp";
+        if (product == null) {
+            response.sendRedirect(PRODUCT_URL);
+            return;
         }
+
         request.setAttribute(AppConstant.PRODUCT, product);
-        request.getRequestDispatcher(views).forward(request, response);
+        request.getRequestDispatcher("/views/web/productDetail.jsp").forward(request, response);
     }
 
     private void getSearchProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -159,7 +162,7 @@ public class ProductController extends HttpServlet {
         List<Product> list;
 
         if (category == null || offset == -1) {
-            response.sendRedirect("./product?action=list&category=all");
+            response.sendRedirect(PRODUCT_URL);
             return;
         } else {
             switch (category) {
@@ -173,7 +176,7 @@ public class ProductController extends HttpServlet {
                     list = productService.findByCategory(limit, offset, "", "", category);
                     break;
                 default:
-                    response.sendRedirect("./product?action=list&category=all");
+                    response.sendRedirect(PRODUCT_URL);
                     return;
             }
         }

@@ -16,9 +16,16 @@ public class CartService implements ICartService {
     ICartDAO cartDAO;
 
     @Override
-    public Cart add(Cart cart) {
-        Long id = cartDAO.add(cart);
-        return id != null ? cart: null;
+    public Long add(Cart cart) {
+        
+        Cart cartCheck = cartDAO.findOneByUserIdAndProductId(cart.getUserId(), cart.getProductId());
+        if (cartCheck != null) {
+            cartDAO.updateQuantity(cartCheck.getQuantity() + 1, cartCheck.getCartId());
+            return cartCheck.getCartId();
+        } else {
+            Long id = cartDAO.add(cart);
+            return id;
+        }
     }
 
     @Override

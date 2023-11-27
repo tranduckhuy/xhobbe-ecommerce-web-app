@@ -16,6 +16,10 @@ public interface ICartDAO {
     
     List<Cart> findByUserId(long userId);
     
+    Cart findOne(long cartId);
+    
+    Cart findOneByUserIdAndProductId(long userId, long productId);
+    
     void updateQuantity(int quantity, long cartId);
     
     void delete(long id);

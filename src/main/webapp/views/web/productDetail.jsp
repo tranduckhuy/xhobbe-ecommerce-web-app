@@ -76,14 +76,16 @@
                             </div><!-- End .details-filter-row -->
 
                             <div class="product-details-action">
-                                <div class="details-action-col">
-                                    <div class="product-details-quantity">
-                                        <input type="number" id="qty" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
-                                    </div><!-- End .product-details-quantity -->
-
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                </div><!-- End .details-action-col -->
-
+                                <form action="cart" method="post">
+                                    <div class="details-action-col">
+                                        <div class="product-details-quantity">
+                                            <input type="number" id="quantity" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                        </div><!-- End .product-details-quantity -->
+                                        <input type="hidden" name="id" value="${product.productId}">
+                                        <input type="hidden" name="action" value="add">
+                                        <button type="submit" class="btn-product btn-cart"><span>add to cart</span></button>
+                                    </div><!-- End .details-action-col -->
+                                </form>
                             </div><!-- End .product-details-action -->
 
                             <div class="product-details-footer">

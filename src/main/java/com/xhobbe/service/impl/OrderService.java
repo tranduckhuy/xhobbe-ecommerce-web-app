@@ -16,13 +16,15 @@ public class OrderService implements IOrderService {
 
     @Inject
     IOrderDAO orderDAO;
-
+    
     @Override
     public Order add(Order order) {
-
+        
         Long id = orderDAO.add(order);
-
-        return id != null ? order : null;
+        
+        order = orderDAO.findOne(id);
+        
+        return order != null ? order : null;
     }
 
     @Override
@@ -43,9 +45,9 @@ public class OrderService implements IOrderService {
     }
 
     @Override
-    public int getTotalItemByUserId(long id) {
+    public int getTotalItemByUserIdAndStatus(long id, int statusId) {
 
-        return orderDAO.getTotalItemByUserId(id);
+        return orderDAO.getTotalItemByUserIdAndStatus(id, statusId);
     }
 
     @Override
@@ -96,12 +98,6 @@ public class OrderService implements IOrderService {
     public Order findOne(long id) {
 
         Order order = orderDAO.findOne(id);
-
-        if (order != null) {
-            order.getListOrderDetail().forEach(od
-                    -> od.setTotal(od.getPriceOrder() * od.getQuantity())
-            );
-        }
 
         return order;
     }

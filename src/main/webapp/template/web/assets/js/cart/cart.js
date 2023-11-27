@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var totalProductPrice = price * quantity;
 
             // Update the total price for each product row
-            row.querySelector('.total-col').innerText = '$' + totalProductPrice.toFixed(2);
+            row.querySelector('.total-col').innerText = totalProductPrice.toFixed(2) + '$';
 
             if (checkbox.checked) {
                 totalCartPrice += totalProductPrice;
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Calculate the shipping cost based on the selected shipping option
         var shippingCost = 0;
         var selectedShippingOption = document.querySelector('input[name="shipping"]:checked');
-        
+
         // Check if subtotal is greater than zero before adding shipping cost
         if (totalCartPrice > 0 && selectedShippingOption) {
             shippingCost = parseFloat(selectedShippingOption.value);
@@ -31,13 +31,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Update the total price in the summary by adding the shipping cost
         totalPrice = totalCartPrice + shippingCost;
-        document.querySelector('.summary-total td:last-child').innerText = '$' + totalPrice.toFixed(2);
+        document.getElementById("total-price").innerText = totalPrice.toFixed(2);
+        document.getElementById("sub-total-price").innerText = totalPrice.toFixed(2);
 
         // Update the total cart price in the summary only if a product is selected
         if (totalCartPrice > 0) {
-            document.querySelector('.summary-subtotal td:last-child').innerText = '$' + totalCartPrice.toFixed(2);
+            document.getElementById("sub-total-price").innerText = totalCartPrice.toFixed(2);
         } else {
-            document.querySelector('.summary-subtotal td:last-child').innerText = '$0.00';
+            document.getElementById("sub-total-price").innerText.innerText = '0.00$';
         }
     }
 
@@ -71,7 +72,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Attach the updateProductSelection function to the change event of the 'select all' checkbox
     document.getElementById('product-select-all').addEventListener('change', updateProductSelection);
-    
+
     // Initial update when the page loads
     updateTotal();
 });
+
+
+function orderProducts() {
+
+    let selectedCartIds = [];
+    let cartSelected = document.getElementsByClassName('product-select');
+    //    var cartSelected = $("input[name = 'product-select']");
+    let shipping = $("input[name='shipping']:checked").val();
+    let phone = $('#phone').val();
+    let address = $('#address').val();
+    let total = $('#total-price').text();
+
+    for (var i = 0; i < cartSelected.length; i++) {
+        if (cartSelected[i].checked) {
+            selectedCartIds.push(cartSelected[i].value);
+        }
+    }
+    
+    $.ajax({
+        type: 'POST',
+        url: './order?action=add',
+        data: {
+            shipping: shipping,
+            phone: phone,
+            address: address,
+            total: total,
+            cartIds: selectedCartIds.toString()
+        },
+        cache: false,
+        success: function (response) {
+            window.location.href = './order';
+            console.log('Action performed successfully:', response);
+        },
+        error: function (error) {
+            console.error('Error performing action:', error);
+        }
+    });
+}

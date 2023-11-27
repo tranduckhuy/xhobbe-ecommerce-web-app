@@ -11,7 +11,7 @@
 <main class="main">
     <div class="page-header text-center" style="background-image: url('<c:url value='/template/web/assets/images/page-header-bg.jpg'/>')">
         <div class="container">
-            <h1 class="page-title">List Devices<span>Shop</span></h1>
+            <h1 class="page-title" id="page-title"><span>Shop</span></h1>
         </div><!-- End .container -->
     </div><!-- End .page-header -->
     <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
@@ -73,14 +73,20 @@
                                         <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>xHobbe</span></a>
                                     </div><!-- End .product-action -->
 
-                                    <div class="product-action action-icon-top">
-                                        <a href="./cart" class="btn-product btn-cart"><span>add to cart</span></a>
-                                        <a href="./product?action=quickView&id=${item.productId}" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
-                                    </div><!-- End .product-action -->
+                                    <form action="cart" method="post">
+                                        <div class="product-action d-flex">
+                                            <input type="hidden" name="id" value="${item.productId}">
+                                            <input type="hidden" name="action" value="add">
+                                            <input type="hidden" name="quantity" value="1">
+                                            <button type="submit" class="btn-product btn-cart mx-10" style="border: none; background-color: #f6f7fa">
+                                                <span>add to cart</span>
+                                            </button>
+                                        </div><!-- End .product-action -->
+                                    </form>
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <h3 class="product-title"><a href="./product?action=detail&id=${item.productId}">${item.getName()}</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="./product?action=detail&id=${item.productId}" target="_blank">${item.getName()}</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         ${item.getPrice()}$
                                     </div><!-- End .product-price -->
@@ -226,57 +232,67 @@
     // Use URLSearchParams to extract parameters
     let urlParams = new URLSearchParams(url);
     // Get the value of the 'category' parameter
-    
+    let categoryValue = urlParams.get('category');
+    // set title
+    if (categoryValue !== 'all') {
+        console.log($('#page-title'));
+        $('#page-title').html('List of ' + categoryValue + 's');
+    } else {
+        $('#page-title').html('List all Devices');
+    }
     $(document).ready(function () {
-        let categoryValue = urlParams.get('category');
-        let currentTotal = $('.product').length;
-        $("#currentProducts").html(currentTotal);
-        var total = ${total};
+            
+            let currentTotal = $('.product').length;
+            $("#currentProducts").html(currentTotal);
+            var total = ${total};
         console.log("Total: " + total);
         console.log("CurTotal: " + currentTotal);
         var loadMoreBtn = $("#loadMoreBtn");
-        if (currentTotal === total) {
-            loadMoreBtn.hide();
-        } else {
-            loadMoreBtn.show();
-        }
-        // Attach a click event to the "Load More" button
-        loadMoreBtn.click(function () {
-        // Make an AJAX request to the servlet with parameters
-            let currentTotal = $('.product').length;
-            $("#currentProducts").html(currentTotal);
-            $.ajax({
-                url: "product?action=loadMore",
-                data: {
-                currentTotal: currentTotal,
-                        category: categoryValue
-                },
-                cache: false,
-                type: "get",
-                success: function (data) {
-                // Update the product container with the new products
-                let productContainer = $("#productContainer");
-                $.each(data, function (index, product) {
-                // Append moreProducts to productContainer
-                    let productCart = "<div class='col-sm-10 col-md-4 col-lg-4 col-xl-3'>" +
-                            "<div class='product'>" +
-                                "<figure class='product-media'>" +
-                                    "<span class='product-label label-new'>New</span>" +
-                                    "<a href='./product?action=detail&id=" + product.productId + "'>" +
-                                        "<img src='" + product.imageURL[0] + "' alt='Product image' class='product-image' style='height: 260px'>" +
+    if (currentTotal === total) {
+        loadMoreBtn.hide();
+    } else {
+        loadMoreBtn.show();     
+    }
+                                // Attach a click event to the "Load More" button
+    loadMoreBtn.click(function () {
+                            // Make an AJAX request to the servlet with parameters
+    let currentTotal = $('.product').length;
+                            $("#currentProducts").html(currentTotal);
+                                    $.ajax({
+                                    url: "product?action=loadMore",
+                                    data: {
+                                            currentTotal: currentTotal,
+                                            category: categoryValue
+                                                    },
+                                            cache: false,
+                                            type: "get",
+                                            success: function (data) {
+                                            // Update the product container with the new products
+                                            let productContainer = $("#productContainer");
+                                                    $.each(data, function (index, product) {
+                                                    // Append moreProducts to productContainer
+                                                            let productCart = "<div class='col-sm-10 col-md-4 col-lg-4 col-xl-3'>" +
+                                                            "<div class='product'>" +
+                                                            "<figure class='product-media'>" +
+                                                    "<span class='product-label label-new'>New</span>" +
+                                                            "<a href='./product?action=detail&id=" + product.productId + "' target='_blank'>" +
+                                    "<img src='" + product.imageURL[0] + "' alt='Product image' class='product-image' style='height: 260px'>" +
                                     "</a>" +
                                     "<div class='product-action-vertical'>" +
-                                        "<a href='#' class='btn-product-icon btn-wishlist btn-expandable'><span>xHobbe</span></a>" +
+                                    "<a href='#' class='btn-product-icon btn-wishlist btn-expandable'><span>xHobbe</span></a>" +
                                     "</div><!-- End .product-action -->" +
-
-                                    "<div class='product-action action-icon-top'>" +
-                                        "<a href='./cart' class='btn-product btn-cart'><span>add to cart</span></a>" +
-                                        "<a href='./product?action=quickView&id=" + product.productId + "'" + " class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a>" +
-                                    "</div>" +
-                                "</figure><!-- End .product-media -->" +
+                                    "<form action='cart' method='post'>" +
+                                        "<div class='product-action d-flex'>" +
+                                            "<input type='hidden' name='id' value='" + product.productId + "'>" +
+                                            "<input type='hidden' name='action' value='add'>" +
+                                            "<input type='hidden' name='quantity' value='1'>" +
+                                            "<button type='submit' class='btn-product btn-cart mx-10' style='border: none; background-color: #f6f7fa'><span>add to cart</span></button>" +
+                                        "</div>" +
+                                    "</form>" +
+                                    "</figure><!-- End .product-media -->" +
 
                                 "<div class='product-body'>" +
-                                    "<h3 class='product-title'><a href='./product?action=detail&id=" + product.productId + "'>" + product.name + "</a></h3>" +
+                                    "<h3 class='product-title'><a href='./product?action=detail&id=" + product.productId + "' target='_blank'>" + product.name + "</a></h3>" +
                                     "<div class='product-price'>" +
                                         product.price + "$" +
                                     "</div>" +

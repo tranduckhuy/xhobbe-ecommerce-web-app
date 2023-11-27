@@ -101,4 +101,4 @@
     </div><!-- End .page-content -->
 </main><!-- End .main -->
 
-<%@include file="/common/admin/footer.jsp" %>
+<%@include file="/common/web/footer.jsp" %>

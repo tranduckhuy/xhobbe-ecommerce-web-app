@@ -24,4 +24,6 @@ public class AppConstant {
     public static final String PENDING = "Pending";
     public static final String SHIPPED = "Shipped";
     public static final String DELIVERED = "Delivered";
+    
+    public static final int PENDING_SHIPPED_STATUS_ID = 12;
 }
