@@ -25,7 +25,7 @@ public interface IOrderService {
     
     int getTotalItem();
     
-    int getTotalItemByUserId(long id);
+    int getTotalItemByUserIdAndStatus(long id, int statusId);
     
     int getTotalItemByStatus(int statusId);
 

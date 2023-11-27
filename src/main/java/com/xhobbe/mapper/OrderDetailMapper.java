@@ -15,6 +15,7 @@ public class OrderDetailMapper implements RowMapper<OrderDetail> {
     public OrderDetail mapRow(ResultSet rs) {
         try {
             OrderDetail orderDetail = new OrderDetail();
+            orderDetail.setOrderId(rs.getLong("orderId"));
             orderDetail.setOrderDetailId(rs.getLong("orderDetailId"));
             orderDetail.setProductId(rs.getLong("productId"));
             orderDetail.setProductName(rs.getString("name"));

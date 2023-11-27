@@ -6,6 +6,7 @@ package com.xhobbe.model;
  */
 public class OrderDetail {
 
+    private long orderId;
     private long orderDetailId;
     private long productId;
     private String productName;
@@ -15,6 +16,14 @@ public class OrderDetail {
     private String imageURL;
 
     public OrderDetail() {
+    }
+
+    public long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(long orderId) {
+        this.orderId = orderId;
     }
 
     public long getOrderDetailId() {
@@ -75,7 +84,8 @@ public class OrderDetail {
 
     @Override
     public String toString() {
-        return "OrderDetail{" + "orderDetailId=" + orderDetailId + ", productId=" + productId + ", productName=" + productName + ", quantity=" + quantity + ", priceOrder=" + priceOrder + ", total=" + total + ", imageURL=" + imageURL + '}';
+        return "OrderDetail{" + "orderId=" + orderId + ", orderDetailId=" + orderDetailId + ", productId=" + productId + 
+                ", productName=" + productName + ", quantity=" + quantity + ", priceOrder=" + priceOrder + ", total=" + total + ", imageURL=" + imageURL + '}';
     }
-    
+
 }

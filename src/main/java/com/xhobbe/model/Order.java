@@ -18,7 +18,6 @@ public class Order {
     private int statusID;
     private String status;
     private String orderDate;
-    private List<OrderDetail> listOrderDetail = new ArrayList<>();
 
     public Order() {
     }
@@ -95,19 +94,11 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public List<OrderDetail> getListOrderDetail() {
-        return listOrderDetail;
-    }
-
-    public void setListOrderDetail(List<OrderDetail> listOrderDetail) {
-        this.listOrderDetail = listOrderDetail;
-    }
-
     @Override
     public String toString() {
         return "Order{" + "orderId=" + orderId + ", customerName=" + customerName + ", customerPhone=" + customerPhone
                 + ", address=" + address + ", total=" + total + ", status=" + status + ", statusID=" + statusID
-                + ", orderDate=" + orderDate + ", listOrderDetail=" + listOrderDetail + '}';
+                + ", orderDate=" + orderDate + '}';
     }
 
 }

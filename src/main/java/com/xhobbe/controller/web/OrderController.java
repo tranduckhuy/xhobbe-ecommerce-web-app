@@ -3,14 +3,14 @@ package com.xhobbe.controller.web;
 import com.xhobbe.constant.ActionConstant;
 import com.xhobbe.constant.AppConstant;
 import com.xhobbe.model.Order;
-import com.xhobbe.model.OrderDetail;
 import com.xhobbe.model.User;
-import com.xhobbe.service.ICartService;
+import com.xhobbe.service.IOrderDetailService;
 import com.xhobbe.service.IOrderService;
+import com.xhobbe.service.IUserService;
+import com.xhobbe.utils.CartUtils;
+import com.xhobbe.utils.OrderUtils;
 import com.xhobbe.utils.SessionUtils;
-import com.xhobbe.utils.UtilsValidType;
 import java.io.IOException;
-import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,10 +28,13 @@ public class OrderController extends HttpServlet {
     private static final String ORDER_LIST_URL = "./order";
 
     @Inject
-    ICartService cartService;
+    IOrderDetailService orderDetailService;
 
     @Inject
     IOrderService orderService;
+    
+    @Inject
+    IUserService userService;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,11 +42,11 @@ public class OrderController extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("action");
-        
+
         User user = (User) SessionUtils.getInstance().getValue(request, "user");
         if (user != null) {
-            request.setAttribute("totalCart", cartService.getTotalItemByUserId(user.getUserId()));
-            request.setAttribute("totalOrder", orderService.getTotalItemByStatus(1));
+            request.setAttribute("totalOrder", orderService.getTotalItemByUserIdAndStatus(
+                    user.getUserId(), AppConstant.PENDING_SHIPPED_STATUS_ID));
         }
         if (action == null) {
             request.getRequestDispatcher("views/web/order.jsp").forward(request, response);
@@ -53,9 +56,6 @@ public class OrderController extends HttpServlet {
         switch (action) {
             case ActionConstant.LIST:
                 listOrder(request, response);
-                break;
-            case ActionConstant.DETAIL:
-                getDetailOrder(request, response);
                 break;
             case ActionConstant.SEARCH:
                 getSearchOrder(request, response);
@@ -72,8 +72,20 @@ public class OrderController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-    }
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
 
+        String action = request.getParameter("action");
+        switch (action) {
+            case ActionConstant.ADD:
+                addOrder(request, response);
+                break;
+            default:
+                response.sendRedirect(ORDER_LIST_URL);
+        }
+
+    }
+    
     private void listOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
@@ -90,30 +102,36 @@ public class OrderController extends HttpServlet {
         response.getWriter().write(htmlContent);
     }
 
-    private void getDetailOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        long id = UtilsValidType.getLong(request.getParameter("id"));
-
-        if (id == -1) {
-            response.sendRedirect(ORDER_LIST_URL);
-            return;
-        }
-
-        Order order = orderService.findOne(id);
-
-        if (order == null) {
-            response.sendRedirect(ORDER_LIST_URL);
-            return;
-
-        }
-        List<OrderDetail> orderDetail = order.getListOrderDetail();
-        request.setAttribute(AppConstant.LIST, orderDetail);
-        response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("/views/web/orderDetail.jsp").forward(request, response);
-    }
-
     private void getSearchOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.getRequestDispatcher("/views/web/order.jsp").forward(request, response);
+    }
+
+    private void addOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String cartIdsString = request.getParameter("cartIds");
+        long[] cartIds = CartUtils.getListCartIds(cartIdsString.split(","));
+        Order order = OrderUtils.getParamAndCreateOrder(request);
+        
+        if (cartIds.length == 0 || order == null) {
+            response.sendRedirect("./cart&message=fail");
+            return;
+        }
+        
+        User user = (User) SessionUtils.getInstance().getValue(request, "user");
+        if (user.getPhone() == null || user.getAddress() == null) {
+            user.setAddress(order.getAddress());
+            user.setPhone(order.getCustomerPhone());
+            userService.update(user);
+        }
+        order.setUserId(user.getUserId());
+        order = orderService.add(order);
+        if (order != null) {
+            orderDetailService.add(cartIds, order.getOrderId());
+            response.sendRedirect("./order");
+        } else {
+            response.sendRedirect("./cart&message=fail");
+        }
+        
+        
     }
 }

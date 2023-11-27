@@ -1,6 +1,7 @@
 
 package com.xhobbe.controller.web;
 
+import com.xhobbe.constant.AppConstant;
 import com.xhobbe.model.User;
 import com.xhobbe.service.ICartService;
 import com.xhobbe.service.IOrderService;
@@ -35,7 +36,8 @@ public class HomeController extends HttpServlet {
         
         if (user != null) {
             request.setAttribute("totalCart", cartService.getTotalItemByUserId(user.getUserId()));
-            request.setAttribute("totalOrder", orderService.getTotalItemByStatus(1));
+            request.setAttribute("totalOrder", orderService.getTotalItemByUserIdAndStatus(
+                    user.getUserId(), AppConstant.PENDING_SHIPPED_STATUS_ID));
         }
         
         response.setContentType("text/html;charset=UTF-8");

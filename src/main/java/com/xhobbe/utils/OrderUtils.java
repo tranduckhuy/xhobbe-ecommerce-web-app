@@ -3,12 +3,31 @@ package com.xhobbe.utils;
 
 import com.xhobbe.constant.AppConstant;
 import com.xhobbe.model.Order;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
  * @author ADMIN
  */
 public class OrderUtils {
+    
+    public static Order getParamAndCreateOrder(HttpServletRequest request) {
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        double shipping = UtilsValidType.getDouble(request.getParameter("shipping"));
+        double total = UtilsValidType.getDouble(request.getParameter("total"));
+        
+        if (phone.isEmpty() || address.isEmpty() || shipping == -1 || total == -1) {
+            return null;
+        }
+        
+        Order order = new Order();
+        order.setCustomerPhone(phone);
+        order.setAddress(address);
+        order.setTotal(total);
+        
+        return order;
+    }
 
     public static String getOrderElement(Order order) {
         String orderAction = "";
@@ -78,7 +97,7 @@ public class OrderUtils {
 "                    <td class=\"text-center order-description\" style=\"min-width: 150px;\"><span>" + order.getOrderDate() + "</span></td>\n" +
 "                    <td style=\"max-width: 50px;\">\n" +
 "                        <div class=\"text-center\">\n" +
-"                            <a href=\"./order?action=detail&id=" + order.getOrderId() + "\" class=\"btn-success\" style=\"padding: 5px 12px\">\n" +
+"                            <a href=\"./order-detail?action=detail&id=" + order.getOrderId() + "\" class=\"btn-success\" style=\"padding: 5px 12px\">\n" +
 "                                <i class=\"fa-solid fa-box\" title=\"Detail\"></i>\n" +
 "                            </a>\n" +
 "                        </div>\n" +

@@ -13227,6 +13227,9 @@ button:focus {
     font-size: 1.4rem;
     margin-bottom: 0
 }
+.details-action-col button {
+    background-color: #fff;
+}
 
 .product-details-extended .nav.nav-pills {
     border-top: .1rem solid #ebebeb

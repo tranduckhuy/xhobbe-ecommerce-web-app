@@ -5,6 +5,7 @@ import com.xhobbe.constant.AppConstant;
 import com.xhobbe.model.Order;
 import com.xhobbe.model.OrderDetail;
 import com.xhobbe.model.User;
+import com.xhobbe.service.IOrderDetailService;
 import com.xhobbe.service.IOrderService;
 import com.xhobbe.service.IUserService;
 import com.xhobbe.utils.SessionUtils;
@@ -32,6 +33,9 @@ public class OrderController extends HttpServlet {
     
     @Inject
     IUserService userService;
+    
+    @Inject
+    IOrderDetailService orderDetailService;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -102,14 +106,18 @@ public class OrderController extends HttpServlet {
 
         long orderId = UtilsValidType.getLong(request.getParameter("id"));
 
-        Order order = orderService.findOne(orderId);
+        if (orderId == -1) {
+            response.sendRedirect(ORDER_LIST_URL);
+            return;
+        }
+        
+        List<OrderDetail> orderDetail = orderDetailService.findByOrderId(orderId);
 
-        if (order == null) {
+        if (orderDetail == null || orderDetail.isEmpty()) {
             response.sendRedirect(ORDER_LIST_URL);
             return;
 
         }
-        List<OrderDetail> orderDetail = order.getListOrderDetail();
         request.setAttribute(AppConstant.LIST, orderDetail);
         request.getRequestDispatcher("/views/admin/orderDetailList.jsp").forward(request, response);
 
