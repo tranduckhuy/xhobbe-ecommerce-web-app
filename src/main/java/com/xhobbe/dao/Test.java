@@ -2,6 +2,8 @@ package com.xhobbe.dao;
 
 import com.xhobbe.dao.impl.OrderDAO;
 import com.xhobbe.dao.impl.ProductDAO;
+import com.xhobbe.model.Product;
+import java.util.List;
 
 
 /**
@@ -53,6 +55,9 @@ public class Test {
 
 
     ProductDAO dao = new ProductDAO();
-            
+        List<Product> products = dao.findAll(5, 0, "createdAt", "DESC");
+        for (Product p : products) {
+            System.out.println(p.getImageURL().get(0));
+        }
     }
 }

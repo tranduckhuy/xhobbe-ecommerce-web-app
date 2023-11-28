@@ -26,7 +26,7 @@ public class OrderMapper implements RowMapper<Order> {
             order.setStatus(rs.getString("status"));
 
             // Time
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Timestamp timeCreated = rs.getTimestamp("orderDate");
             order.setOrderDate(sdf.format(timeCreated));
 

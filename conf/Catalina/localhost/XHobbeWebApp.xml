@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context docBase="E:/FPTU/Semester 4 - Fall23/PRJ301/Project/XHobbeWebApp/src/main/webapp" path="/XHobbeWebApp">
+  <Resources cacheMaxSize="10240">
+    <PreResources base="E:/FPTU/Semester 4 - Fall23/PRJ301/Project/XHobbeWebApp/target/classes" className="org.apache.catalina.webresources.DirResourceSet" webAppMount="/WEB-INF/classes"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/commons-logging-1.2.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/org/apache/httpcomponents/fluent-hc/4.5.5/fluent-hc-4.5.5.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/fluent-hc-4.5.5.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/httpcore-4.4.13.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/httpclient-4.5.13.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/commons-codec-1.11.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/gson-2.8.9.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.14.2/jackson-databind-2.14.2.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jackson-databind-2.14.2.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.14.2/jackson-annotations-2.14.2.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jackson-annotations-2.14.2.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.14.2/jackson-core-2.14.2.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jackson-core-2.14.2.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/org/jboss/weld/servlet/weld-servlet/2.4.8.Final/weld-servlet-2.4.8.Final.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/weld-servlet-2.4.8.Final.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/jstl/jstl/1.2/jstl-1.2.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jstl-1.2.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/mysql-connector-j-8.0.33.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/com/google/protobuf/protobuf-java/3.21.9/protobuf-java-3.21.9.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/protobuf-java-3.21.9.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/com/sun/mail/javax.mail/1.6.2/javax.mail-1.6.2.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/javax.mail-1.6.2.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/activation-1.1.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/com/sun/activation/javax.activation/1.2.0/javax.activation-1.2.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/javax.activation-1.2.0.jar"/>
+    <PostResources base="C:/Users/ADMIN/.m2/repository/javax/mail/javax.mail-api/1.6.2/javax.mail-api-1.6.2.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/javax.mail-api-1.6.2.jar"/>
+  </Resources>
+</Context>

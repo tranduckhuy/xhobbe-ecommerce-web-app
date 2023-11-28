@@ -66,16 +66,22 @@
                     </div><!-- End .product-nav -->
                 </div><!-- End .details-filter-row -->
 
-                <div class="details-filter-row details-row-size">
-                    <label for="qty">Qty:</label>
-                    <div class="product-details-quantity">
-                        <input type="number" id="qty" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
-                    </div><!-- End .product-details-quantity -->
-                </div><!-- End .details-filter-row -->
+                <form action="cart" method="post">
 
-                <div class="product-details-action">
-                    <button class="btn-product btn-cart"><span>add to cart</span></button>
-                </div>
+                    <div class="details-filter-row details-row-size">
+                        <label for="qty" class="mr-4">Quantity:</label>
+                        <div class="product-details-quantity">
+                            <input type="number" name="quantity" id="quantity" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                        </div><!-- End .product-details-quantity -->
+                    </div><!-- End .details-filter-row -->
+
+
+                    <div class="product-details-action">
+                            <input type="hidden" name="id" value="${product.productId}">
+                            <input type="hidden" name="action" value="add">
+                            <button type="submit" class="btn-product btn-cart"><span>add to cart</span></button>
+                    </div>
+                </form>
 
                 <div class="product-details-footer">
                     <div class="d-flex col-lg-12 justify-content-around">

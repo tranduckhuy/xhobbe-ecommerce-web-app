@@ -33,13 +33,17 @@ public class LoginController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         String action = request.getParameter("action");
-
+        String message = request.getParameter("message");
+        
         if (action == null) {
             User user = (User) SessionUtils.getInstance().getValue(request, "user");
             if (user != null) {
                 String redirectPath = AppConstant.CUSTOMER.equals(user.getRole()) ? "./" : "./admin";
                 response.sendRedirect(redirectPath);
             } else {
+                if (message != null) {
+                    request.setAttribute(AppConstant.MESSSAGE, message);
+                }
                 request.getRequestDispatcher("/views/web/login.jsp").forward(request, response);
             }
         } else if (AppConstant.LOGOUT.equals(action)) {
@@ -87,8 +91,7 @@ public class LoginController extends HttpServlet {
         User user = userService.findByEmailAndPassword(email, password);
 
         if (user == null) {
-            request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.FAIL);
-            doGet(request, response);
+            response.sendRedirect("./login?message=notCorrect");
         } else {
             if (user.getActive() != 0) {
                 SessionUtils.getInstance().putValue(request, "user", user);

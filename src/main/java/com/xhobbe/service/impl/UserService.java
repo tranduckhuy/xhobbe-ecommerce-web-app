@@ -3,6 +3,7 @@ package com.xhobbe.service.impl;
 import com.xhobbe.dao.IUserDAO;
 import com.xhobbe.model.User;
 import com.xhobbe.service.IUserService;
+import com.xhobbe.utils.Encode;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -23,6 +24,20 @@ public class UserService implements IUserService {
     @Override
     public User findByEmailAndPassword(String email, String password) {
         return userDAO.findByEmailAndPassword(email, password);
+    }
+    
+    @Override
+    public User changePassword(User user, String oldPassword, String newPassword) {
+        
+        oldPassword = Encode.toSHA256(oldPassword);
+        
+        if (!user.getPassword().equals(oldPassword)) {
+            return null;
+        }
+        user.setPassword(Encode.toSHA256(newPassword));
+        userDAO.update(user);
+        
+        return userDAO.findOne(user.getEmail());
     }
 
     @Override

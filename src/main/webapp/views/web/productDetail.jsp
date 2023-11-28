@@ -79,7 +79,7 @@
                                 <form action="cart" method="post">
                                     <div class="details-action-col">
                                         <div class="product-details-quantity">
-                                            <input type="number" id="quantity" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                            <input type="number" name="quantity" id="quantity" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
                                         </div><!-- End .product-details-quantity -->
                                         <input type="hidden" name="id" value="${product.productId}">
                                         <input type="hidden" name="action" value="add">

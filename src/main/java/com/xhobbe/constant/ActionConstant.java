@@ -16,4 +16,6 @@ public class ActionConstant {
     public static final String QUICKVIEW = "quickView";
     public static final String LOADMORE = "loadMore";
     public static final String CHANGESTATUS = "changeStatus";
+    public static final String CHANGEPASSWORD = "changePassword";
+    public static final String FORGOTPASSWORD = "forgotPassword";
 }

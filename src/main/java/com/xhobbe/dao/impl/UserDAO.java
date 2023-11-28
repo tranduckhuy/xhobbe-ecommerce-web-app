@@ -83,5 +83,5 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
         String sql = "UPDATE user SET active = ? WHERE userId = ?";
         update(sql, 1, user.getUserId());
     }
-
+    
 }

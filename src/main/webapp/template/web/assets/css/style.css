@@ -19911,7 +19911,9 @@ button:focus {
 }
 
 .order-header {
+    color: #039;
     min-width: 130px;
+    margin: 0
 }
 
 .order-description {
@@ -19920,7 +19922,13 @@ button:focus {
 }
 
 .order-header-address {
+    color: #039;
     min-width: 200px;
+    margin: 0
+}
+
+.max-height-image-od {
+    max-height: 80px;
 }
 
 .order-detail-field {
@@ -19930,5 +19938,17 @@ button:focus {
 
 .tbh-color {
     color: #039;
+}
+
+.product-image-edit {
+    max-height: 190px;
+}
+
+.product-media {
+    max-height: 220px
+}
+
+.style-image .owl-item {
+    max-width: 250px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -25,7 +25,7 @@ public class CartMapper implements RowMapper<Cart> {
             cart.setImageURL(rs.getString("selectedImageUrl"));
 
             // Time
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Timestamp timeCreated = rs.getTimestamp("createdAt");
             cart.setCreatedAt(sdf.format(timeCreated));
             

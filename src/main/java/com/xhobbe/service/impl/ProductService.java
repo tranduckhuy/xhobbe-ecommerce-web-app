@@ -38,19 +38,19 @@ public class ProductService implements IProductService {
     @Override
     public List<Product> findAll(int limit, int offset, String orderBy, String sortBy) {
         
-        return productDAO.findAll(limit, offset, sortBy, sortBy);
+        return productDAO.findAll(limit, offset, orderBy, sortBy);
     }
 
     @Override
     public List<Product> findByCategory(int limit, int offset, String orderBy, String sortBy, String categoryName) {
         
-        return productDAO.findByCategory(limit, offset, sortBy, sortBy, categoryName);
+        return productDAO.findByCategory(limit, offset, orderBy, sortBy, categoryName);
     }
 
     @Override
     public List<Product> findByBrand(int limit, int offset, String orderBy, String sortBy, String brandName) {
         
-        return productDAO.findByBrand(limit, offset, sortBy, sortBy, brandName);
+        return productDAO.findByBrand(limit, offset, orderBy, sortBy, brandName);
     }
 
     @Override

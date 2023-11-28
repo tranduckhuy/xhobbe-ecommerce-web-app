@@ -82,19 +82,16 @@
                                         <li>
                                             <a href="#0">
                                                 <div class="image">
-                                                    <img src="<c:url value='/template/admin/assets/images/lead/lead-6.png'/>" alt="" />
+                                                    <img src="<c:url value='/template/admin/assets/images/lead/lead-2.png'/>" alt="" />
                                                 </div>
                                                 <div class="content">
                                                     <h6>
-                                                        John Doe
+                                                        King
                                                         <span class="text-regular">
                                                             comment on a product.
                                                         </span>
                                                     </h6>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consect etur adipiscing
-                                                        elit Vivamus tortor.
-                                                    </p>
+                                                    <p style="font-family: monospace">“ Sốp bán đồ quá chất lượng, ngon bổ rẻ, anh chị em nên mua! ”</p>
                                                     <span>10 mins ago</span>
                                                 </div>
                                             </a>
@@ -106,15 +103,12 @@
                                                 </div>
                                                 <div class="content">
                                                     <h6>
-                                                        Jonathon
+                                                        Incognito
                                                         <span class="text-regular">
-                                                            like on a product.
+                                                            comment on a product.
                                                         </span>
                                                     </h6>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consect etur adipiscing
-                                                        elit Vivamus tortor.
-                                                    </p>
+                                                    <p style="font-family: monospace">“ Lại còn phải hỏi ” </br> “ Quá ngon bổ rẻ, quẹo lựa quẹo lựa!! ”</p>
                                                     <span>10 mins ago</span>
                                                 </div>
                                             </a>
@@ -140,10 +134,10 @@
                                         <li>
                                             <a href="#0">
                                                 <div class="image">
-                                                    <img src="<c:url value='/template/admin/assets/images/lead/lead-5.png'/>" alt="" />
+                                                    <img src="<c:url value='/template/admin/assets/images/lead/lead-1.png'/>" alt="" />
                                                 </div>
                                                 <div class="content">
-                                                    <h6>Jacob Jones</h6>
+                                                    <h6>Incognito</h6>
                                                     <p>Hey!I can across your profile and ...</p>
                                                     <span>10 mins ago</span>
                                                 </div>
@@ -152,10 +146,10 @@
                                         <li>
                                             <a href="#0">
                                                 <div class="image">
-                                                    <img src="<c:url value='/template/admin/assets/images/lead/lead-3.png'/>" alt="" />
+                                                    <img src="<c:url value='/template/admin/assets/images/lead/lead-5.png'/>" alt="" />
                                                 </div>
                                                 <div class="content">
-                                                    <h6>John Doe</h6>
+                                                    <h6>Incognito</h6>
                                                     <p>Would you mind please checking out</p>
                                                     <span>12 mins ago</span>
                                                 </div>
@@ -164,11 +158,11 @@
                                         <li>
                                             <a href="#0">
                                                 <div class="image">
-                                                    <img src="<c:url value='/template/admin/assets/images/lead/lead-2.png'/>" alt="" />
+                                                    <img src="<c:url value='/template/admin/assets/images/lead/lead-4.png'/>" alt="" />
                                                 </div>
                                                 <div class="content">
-                                                    <h6>Anee Lee</h6>
-                                                    <p>Hey! are you available for freelance?</p>
+                                                    <h6>Incognito</h6>
+                                                    <p>Hey! are you available for iPhone 15?</p>
                                                     <span>1h ago</span>
                                                 </div>
                                             </a>
