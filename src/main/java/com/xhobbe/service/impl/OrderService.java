@@ -5,6 +5,7 @@ import com.xhobbe.model.Order;
 import com.xhobbe.service.IOrderService;
 import com.xhobbe.utils.OrderUtils;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -40,8 +41,8 @@ public class OrderService implements IOrderService {
     }
     
     @Override
-    public int getTotalItem() {
-        return orderDAO.getTotalItem();
+    public int getTotalItemByDays(int days) {
+        return orderDAO.getTotalItemByDays(days);
     }
 
     @Override
@@ -59,6 +60,25 @@ public class OrderService implements IOrderService {
     public void updateStatus(long orderId, int statusId) {
         orderDAO.updateStatus(orderId, statusId);
 
+    }
+    
+    @Override
+    public List<Double> getTotalIncomeByMonth(int month) {
+        
+        List<Double> incomes = new ArrayList();
+        if (month != 0) {
+            incomes.add(orderDAO.getTotalIncomeByMonth(month));
+        } else {
+            for (int i = 0; i < 12; i++) {
+                incomes.add(orderDAO.getTotalIncomeByMonth(i + 1));
+            }
+        }
+        return incomes;
+    }
+    
+    @Override
+    public int getTotalItemCurrentMonth() {
+        return orderDAO.getTotalItemCurrentMonth();
     }
 
     @Override

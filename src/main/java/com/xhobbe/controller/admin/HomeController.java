@@ -5,8 +5,10 @@ import com.xhobbe.constant.AppConstant;
 import com.xhobbe.model.User;
 import com.xhobbe.service.IOrderService;
 import com.xhobbe.service.IUserService;
+import com.xhobbe.utils.OrderUtils;
 import com.xhobbe.utils.SessionUtils;
 import java.io.IOException;
+import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,6 +44,16 @@ public class HomeController extends HttpServlet {
             response.sendRedirect("./");
             return;
         }
+        
+        request.setAttribute("totalIncome", orderService.getTotalIncomeByMonth(-1));
+        
+        List<Double> incomes = orderService.getTotalIncomeByMonth(0);
+        double totalOfYear = OrderUtils.getTotalIcomeOfYear(incomes);
+        
+        request.setAttribute("totalIncomeEachMonth", incomes);
+        request.setAttribute("totalIncomeThisYear", totalOfYear);
+        request.setAttribute("totalOrders", orderService.getTotalItemCurrentMonth());
+        request.setAttribute("totalUsers", userService.countTotalItem());
         
         request.setAttribute(AppConstant.TOTAL, orderService.getTotalItemByStatus(1));
         response.setContentType("text/html;charset=UTF-8");

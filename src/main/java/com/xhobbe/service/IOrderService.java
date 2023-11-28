@@ -23,10 +23,14 @@ public interface IOrderService {
 
     void updateStatus(long orderId, int statusId);
     
-    int getTotalItem();
+    int getTotalItemByDays(int days);
     
     int getTotalItemByUserIdAndStatus(long id, int statusId);
     
     int getTotalItemByStatus(int statusId);
+    
+    List<Double> getTotalIncomeByMonth(int month);
+    
+    int getTotalItemCurrentMonth();
 
 }

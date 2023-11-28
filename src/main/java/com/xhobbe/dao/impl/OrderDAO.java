@@ -148,9 +148,16 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
     }
 
     @Override
-    public int getTotalItem() {
-        String sql = "SELECT count(*) FROM `order`";
-        return count(sql);
+    public int getTotalItemByDays(int days) {
+        String sql = "SELECT count(*) FROM `order` WHERE `orderDate` >= CURDATE() - INTERVAL ? DAY AND orderStatusId = 3 ";
+        return count(sql, days);
+    }
+    
+    @Override
+    public int getTotalItemCurrentMonth() {
+        StringBuilder sql = new StringBuilder("SELECT COUNT(*) FROM `order` WHERE MONTH(orderDate) = MONTH(CURRENT_DATE()) ");
+        sql.append("AND YEAR(orderDate) = YEAR(CURRENT_DATE()) AND orderStatusId = 3 ");
+        return count(sql.toString());
     }
 
     @Override
@@ -159,4 +166,48 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
         return count(sql, statusId);
     }
 
+    @Override
+    public double getTotalIncomeByMonth(int month) {
+        StringBuilder sql = new StringBuilder("SELECT ROUND(SUM(`total`), 2) FROM `order` ");
+        
+        // month = -1 - get all order
+        if (month == -1) {
+            return countDouble(sql.toString());
+        }
+        
+        sql.append(" WHERE YEAR(orderDate) = YEAR(CURRENT_DATE()) ");
+        
+        if (month != 0) {
+            sql.append("AND MONTH(orderDate) = ").append(month);
+        }
+        
+        return countDouble(sql.toString());
+    }
+    
+    
+    private double countDouble(String sql, Object... parameters) {
+        double total = 0;
+        
+        try ( Connection conn = getConnection();  PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            setParameter(ps, parameters);
+
+            try ( ResultSet rs = ps.executeQuery();) {
+                if (rs.next()) {
+                    total = rs.getDouble(1);
+                }
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return total;
+    }
+    
+    
+    public static void main(String[] args) {
+        OrderDAO o = new OrderDAO();
+        System.out.println(o.getTotalIncomeByMonth(11));
+    }
+    
 }

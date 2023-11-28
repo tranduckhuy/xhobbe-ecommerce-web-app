@@ -3,6 +3,7 @@ package com.xhobbe.utils;
 
 import com.xhobbe.constant.AppConstant;
 import com.xhobbe.model.Order;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -27,6 +28,14 @@ public class OrderUtils {
         order.setTotal(total);
         
         return order;
+    }
+    
+    public static double getTotalIcomeOfYear(List<Double> incomes) {
+        double total = 0;
+        for (Double d : incomes) {
+            total += d;
+        }
+        return Math.round(total * 100.0) / 100.0;
     }
 
     public static String getOrderElement(Order order) {
