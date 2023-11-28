@@ -1,3 +1,4 @@
 /target/
 /conf/
 /logs/
+/src/main/resources/db.properties

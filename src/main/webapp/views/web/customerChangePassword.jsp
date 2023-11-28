@@ -11,8 +11,8 @@
     <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
         <div class="container">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/XHobbeWebApp/">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Login</li>
+                <li class="breadcrumb-item"><a href="./">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Change Password</li>
             </ol>
         </div><!-- End .container -->
     </nav><!-- End .breadcrumb-nav -->
@@ -29,12 +29,12 @@
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
                             <c:if test="${message eq 'success'}">
-                                <div class="alert alert-success text-center" role="alert">
+                                <div class="alert alert-success text-center mb-2" role="alert">
                                     Great job! Your action was successful.
                                 </div>
                             </c:if>
                             <c:if test="${message eq 'fail'}">
-                                <div class="alert alert-danger text-center" role="alert">
+                                <div class="alert alert-danger text-center mb-2" role="alert">
                                     Error: Unable to complete the requested action. </br> (Old password is not correct!)
                                 </div>
                             </c:if>
@@ -75,6 +75,9 @@
                                         <i class="icon-long-arrow-right"></i>
                                     </button>
                                 </div><!-- End .form-footer -->
+                                <div class="d-flex justify-content-start mt-3">
+                                    <a href="./" class="font-italic font-weight-bold" style="text-decoration: underline"><i class="fa-solid fa-left-long"></i> Return to home Page</a>
+                                </div>
                             </form>
                         </div><!-- .End .tab-pane -->
                     </div><!-- End .tab-content -->
