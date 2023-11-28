@@ -11,15 +11,14 @@
 <main class="main">
     <div class="page-header text-center" style="background-image: url('<c:url value='/template/web/assets/images/page-header-bg.jpg'/>')">
         <div class="container">
-            <h1 class="page-title">Blog Mask Grid<span>Blog</span></h1>
+            <h1 class="page-title">Blog<span>News & Hot</span></h1>
         </div><!-- End .container -->
     </div><!-- End .page-header -->
     <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
         <div class="container">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Blog</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Mask Grid</li>
+                <li class="breadcrumb-item"><a href="/XHobbeWebApp/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Blog</li>
             </ol>
         </div><!-- End .container -->
     </nav><!-- End .breadcrumb-nav -->
@@ -29,11 +28,10 @@
             <nav class="blog-nav">
                 <ul class="menu-cat entry-filter justify-content-center">
                     <li class="active"><a href="#" data-filter="*">All Blog Posts<span>9</span></a></li>
-                    <li><a href="#" data-filter=".lifestyle">Lifestyle<span>3</span></a></li>
-                    <li><a href="#" data-filter=".shopping">Shopping<span>1</span></a></li>
-                    <li><a href="#" data-filter=".fashion">Fashion<span>2</span></a></li>
-                    <li><a href="#" data-filter=".travel">Travel<span>4</span></a></li>
-                    <li><a href="#" data-filter=".hobbies">Hobbies<span>2</span></a></li>
+                    <li><a href="#" data-filter=".lifestyle">News<span>3</span></a></li>                   
+                    <li><a href="#" data-filter=".fashion">Hot<span>5</span></a></li>
+                    <li><a href="#" data-filter=".shopping">Sale<span>2</span></a></li>
+                    <li><a href="#" data-filter=".hobbies">App<span>3</span></a></li>
                 </ul><!-- End .blog-menu -->
             </nav><!-- End .blog-nav -->
 
@@ -41,25 +39,25 @@
                 <div class="entry-item lifestyle shopping col-sm-6 col-lg-4">
                     <article class="entry entry-mask">
                         <figure class="entry-media">
-                            <a href="single.html">
+                            <a>
                                 <img src="<c:url value='/template/web/assets/images/blog/mask/grid/post-1.jpg'/>" alt="image desc">
                             </a>
                         </figure><!-- End .entry-media -->
 
                         <div class="entry-body">
                             <div class="entry-meta">
-                                <a href="#">Nov 22, 2018</a>
+                                <a href="#">Nov 28, 2023</a>
                                 <span class="meta-separator">|</span>
-                                <a href="#">2 Comments</a>
+                                <a href="#">6 Comments</a>
                             </div><!-- End .entry-meta -->
 
                             <h2 class="entry-title">
-                                <a href="single.html">Cras ornare tristique elit.</a>
+                                <a>M2 MacBook Air Gets Speed Boost With This Novel Cooling System.</a>
                             </h2><!-- End .entry-title -->
 
                             <div class="entry-cats">
-                                in <a href="#">Lifestyle</a>,
-                                <a href="#">Shopping</a>
+                                in <a href="#">News</a>,
+                                <a href="#">Hot</a>
                             </div><!-- End .entry-cats -->
                         </div><!-- End .entry-body -->
                     </article><!-- End .entry -->
@@ -68,24 +66,24 @@
                 <div class="entry-item lifestyle col-sm-6 col-lg-4">
                     <article class="entry entry-mask">
                         <figure class="entry-media entry-video">
-                            <a href="single.html">
+                            <a>
                                 <img src="<c:url value='/template/web/assets/images/blog/mask/grid/post-2.jpg'/>" alt="image desc">
                             </a>
                         </figure><!-- End .entry-media -->
 
                         <div class="entry-body">
                             <div class="entry-meta">
-                                <a href="#">Nov 21, 2018</a>
+                                <a href="#">Nov 27, 2023</a>
                                 <span class="meta-separator">|</span>
                                 <a href="#">0 Comments</a>
                             </div><!-- End .entry-meta -->
 
                             <h2 class="entry-title">
-                                <a href="single.html">Vivamus vestibulum ntulla necante.</a>
+                                <a>5 Reasons to Wait for Next Year's Apple Watch.</a>
                             </h2><!-- End .entry-title -->
 
                             <div class="entry-cats">
-                                in <a href="#">Lifestyle</a>
+                                in <a href="#">News</a>
                             </div><!-- End .entry-cats -->
                         </div><!-- End .entry-body -->
                     </article><!-- End .entry -->
@@ -94,25 +92,24 @@
                 <div class="entry-item lifestyle fashion col-sm-6 col-lg-4">
                     <article class="entry entry-mask">
                         <figure class="entry-media entry-gallery">
-                            <a href="single.html">
+                            <a>
                                 <img src="<c:url value='/template/web/assets/images/blog/mask/grid/post-3.jpg'/>" alt="image desc">
                             </a>
                         </figure><!-- End .entry-media -->
 
                         <div class="entry-body">
                             <div class="entry-meta">
-                                <a href="#">Nov 18, 2018</a>
+                                <a href="#">Nov 21, 2023</a>
                                 <span class="meta-separator">|</span>
-                                <a href="#">3 Comments</a>
+                                <a href="#">6 Comments</a>
                             </div><!-- End .entry-meta -->
 
                             <h2 class="entry-title">
-                                <a href="single.html">Utaliquam sollicitudin leo.</a>
+                                <a>Apple with iOS 17.1 and watchOS 10.1 introduced a new NameDrop feature.</a>
                             </h2><!-- End .entry-title -->
 
                             <div class="entry-cats">
-                                in <a href="#">Fashion</a>,
-                                <a href="#">Lifestyle</a>
+                                in <a href="#">Hot</a>
                             </div><!-- End .entry-cats -->
                         </div><!-- End .entry-body -->
                     </article><!-- End .entry -->
@@ -121,24 +118,25 @@
                 <div class="entry-item travel col-sm-6 col-lg-4">
                     <article class="entry entry-mask">
                         <figure class="entry-media">
-                            <a href="single.html">
+                            <a>
                                 <img src="<c:url value='/template/web/assets/images/blog/mask/grid/post-4.jpg'/>" alt="image desc">
                             </a>
                         </figure><!-- End .entry-media -->
 
                         <div class="entry-body">
                             <div class="entry-meta">
-                                <a href="#">Nov 15, 2018</a>
+                                <a href="#">Nov 24, 2023</a>
                                 <span class="meta-separator">|</span>
                                 <a href="#">4 Comments</a>
                             </div><!-- End .entry-meta -->
 
                             <h2 class="entry-title">
-                                <a href="single.html">Fusce pellentesque suscipit.</a>
+                                <a>iOS 17.1.2 Update for iPhone Likely to Be Released This Week.</a>
                             </h2><!-- End .entry-title -->
 
                             <div class="entry-cats">
-                                in <a href="#">Travel</a>
+                                in <a href="#">News</a>,
+                                <a href="#">Hot</a>
                             </div><!-- End .entry-cats -->
                         </div><!-- End .entry-body -->
                     </article><!-- End .entry -->
@@ -147,25 +145,24 @@
                 <div class="entry-item travel hobbies col-sm-6 col-lg-4">
                     <article class="entry entry-mask">
                         <figure class="entry-media">
-                            <a href="single.html">
+                            <a>
                                 <img src="<c:url value='/template/web/assets/images/blog/mask/grid/post-5.jpg'/>" alt="image desc">
                             </a>
                         </figure><!-- End .entry-media -->
 
                         <div class="entry-body">
                             <div class="entry-meta">
-                                <a href="#">Nov 11, 2018</a>
+                                <a href="#">Nov 27, 2023</a>
                                 <span class="meta-separator">|</span>
                                 <a href="#">2 Comments</a>
                             </div><!-- End .entry-meta -->
 
                             <h2 class="entry-title">
-                                <a href="single.html">Aenean dignissim pellente squefelis.</a>
+                                <a>5 Best Cyber Monday Apple Watch Deals.</a>
                             </h2><!-- End .entry-title -->
 
                             <div class="entry-cats">
-                                in <a href="#">Travel</a>,
-                                <a href="#">Hobbies</a>
+                                in <a href="#">Sale</a>
                             </div><!-- End .entry-cats -->
                         </div><!-- End .entry-body -->
                     </article><!-- End .entry -->
@@ -174,24 +171,24 @@
                 <div class="entry-item hobbies col-sm-6 col-lg-4">
                     <article class="entry entry-mask">
                         <figure class="entry-media">
-                            <a href="single.html">
+                            <a>
                                 <img src="<c:url value='/template/web/assets/images/blog/mask/grid/post-6.jpg'/>" alt="image desc">
                             </a>
                         </figure><!-- End .entry-media -->
 
                         <div class="entry-body">
                             <div class="entry-meta">
-                                <a href="#">Nov 10, 2018</a>
+                                <a href="#">Nov 20, 2023</a>
                                 <span class="meta-separator">|</span>
-                                <a href="#">4 Comments</a>
+                                <a href="#">3 Comments</a>
                             </div><!-- End .entry-meta -->
 
                             <h2 class="entry-title">
-                                <a href="single.html">Quisque volutpat mattiseros.</a>
+                                <a>Sunbird Shuts Down iMessage App for Android Over Security Concerns.</a>
                             </h2><!-- End .entry-title -->
 
                             <div class="entry-cats">
-                                in <a href="#">Hobbies</a>
+                                in <a href="#">App</a>
                             </div><!-- End .entry-cats -->
                         </div><!-- End .entry-body -->
                     </article><!-- End .entry -->
@@ -200,24 +197,25 @@
                 <div class="entry-item travel col-sm-6 col-lg-4">
                     <article class="entry entry-mask">
                         <figure class="entry-media entry-gallery">
-                            <a href="single.html">
+                            <a>
                                 <img src="<c:url value='/template/web/assets/images/blog/mask/grid/post-7.jpg'/>" alt="image desc">
                             </a>
                         </figure><!-- End .entry-media -->
 
                         <div class="entry-body">
                             <div class="entry-meta">
-                                <a href="#">Nov 11, 2018</a>
+                                <a href="#">Nov 23, 2023</a>
                                 <span class="meta-separator">|</span>
-                                <a href="#">3 Comments</a>
+                                <a href="#">6 Comments</a>
                             </div><!-- End .entry-meta -->
 
                             <h2 class="entry-title">
-                                <a href="single.html">Utaliquam sollicitudin leo.</a>
+                                <a>Spotify Trials New Option to Turn Off Personalized Recommendations.</a>
                             </h2><!-- End .entry-title -->
 
                             <div class="entry-cats">
-                                in <a href="#">Travel</a>
+                                in <a href="#">Hot</a>,
+                                in <a href="#">App</a>
                             </div><!-- End .entry-cats -->
                         </div><!-- End .entry-body -->
                     </article><!-- End .entry -->
@@ -226,24 +224,25 @@
                 <div class="entry-item fashion col-sm-6 col-lg-4">
                     <article class="entry entry-mask">
                         <figure class="entry-media">
-                            <a href="single.html">
+                            <a>
                                 <img src="<c:url value='/template/web/assets/images/blog/mask/grid/post-8.jpg'/>" alt="image desc">
                             </a>
                         </figure><!-- End .entry-media -->
 
                         <div class="entry-body">
                             <div class="entry-meta">
-                                <a href="#">Nov 08, 2018</a>
+                                <a href="#">Nov 25, 2023</a>
                                 <span class="meta-separator">|</span>
-                                <a href="#">0 Comments</a>
+                                <a href="#">5 Comments</a>
                             </div><!-- End .entry-meta -->
 
                             <h2 class="entry-title">
-                                <a href="single.html">Quisque a lectus. </a>
+                                <a>ChatGPT iPhone App's Voice Chat Feature Now Free to All Users.</a>
                             </h2><!-- End .entry-title -->
 
                             <div class="entry-cats">
-                                in <a href="#">Fashion</a>
+                                in <a href="#">Hot</a>,
+                                <a href="#">App</a>
                             </div><!-- End .entry-cats -->
                         </div><!-- End .entry-body -->
                     </article><!-- End .entry -->
@@ -252,24 +251,24 @@
                 <div class="entry-item travel col-sm-6 col-lg-4">
                     <article class="entry entry-mask">
                         <figure class="entry-media">
-                            <a href="single.html">
+                            <a>
                                 <img src="<c:url value='/template/web/assets/images/blog/mask/grid/post-9.jpg'/>" alt="image desc">
                             </a>
                         </figure><!-- End .entry-media -->
 
                         <div class="entry-body">
                             <div class="entry-meta">
-                                <a href="#">Nov 07, 2018</a>
+                                <a href="#">Nov 24, 2023</a>
                                 <span class="meta-separator">|</span>
-                                <a href="#">5 Comments</a>
+                                <a href="#">1 Comments</a>
                             </div><!-- End .entry-meta -->
 
                             <h2 class="entry-title">
-                                <a href="single.html">Fusce lacinia arcu etnulla.</a>
+                                <a>Samsung has expanded its Black Friday sale with new discounts across smartphones, computers,...</a>
                             </h2><!-- End .entry-title -->
 
                             <div class="entry-cats">
-                                in <a href="#">Travel</a>
+                                in <a href="#">Sale</a>
                             </div><!-- End .entry-cats -->
                         </div><!-- End .entry-body -->
                     </article><!-- End .entry -->

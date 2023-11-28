@@ -12,8 +12,7 @@
     <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
         <div class="container">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item"><a href="/XHobbeWebApp/">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">About us</li>
             </ol>
         </div><!-- End .container -->
@@ -29,12 +28,12 @@
             <div class="row">
                 <div class="col-lg-6 mb-3 mb-lg-0">
                     <h2 class="title">Our Vision</h2><!-- End .title -->
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. </p>
+                    <p>xHobbe's vision is “to make the best products on Earth, and to leave the world better than we found it.” This corporate vision includes excellence and the net benefits of the technology company’s products. We aims for the leadership in product and delivery, and emphasis on excellence in the business organization. </p>
                 </div><!-- End .col-lg-6 -->
 
                 <div class="col-lg-6">
                     <h2 class="title">Our Mission</h2><!-- End .title -->
-                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. <br>Praesent elementum hendrerit tortor. Sed semper lorem at felis. </p>
+                    <p>Our mission is “to deliver the best technology that empowers people and enriches their lives.” xHobbe based on this corporate mission statement, which touches on the interface between people and technology. </p>
                 </div><!-- End .col-lg-6 -->
             </div><!-- End .row -->
 
@@ -46,8 +45,8 @@
                 <div class="row">
                     <div class="col-lg-5 mb-3 mb-lg-0">
                         <h2 class="title">Who We Are</h2><!-- End .title -->
-                        <p class="lead text-primary mb-3">Pellentesque odio nisi, euismod pharetra a ultricies <br>in diam. Sed arcu. Cras consequat</p><!-- End .lead text-primary -->
-                        <p class="mb-2">Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, uctus metus libero eu augue. </p>
+                        <p class="lead text-primary mb-3">"xHobbe" is a Vietnamese multinational technology company, which was launched in 2023 in Vietnam,<br>specialising in e-commerce</p><!-- End .lead text-primary -->
+                        <p class="mb-2">Our shop started as a consumer-to-consumer (C2C) marketplace and business-to-consumer (B2C) hybrid model.</p>
 
                         <a href="./views/web/blog.jsp" class="btn btn-sm btn-minwidth btn-outline-primary-2">
                             <span>VIEW OUR NEWS</span>
@@ -70,7 +69,7 @@
                 <div class="col-lg-5">
                     <div class="brands-text">
                         <h2 class="title">The world's premium design brands in one destination.</h2><!-- End .title -->
-                        <p>Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nis</p>
+                        <p>We partners with over 70 courier service providers across markets it serves to provide logistical support for users.</p>
                     </div><!-- End .brands-text -->
                 </div><!-- End .col-lg-5 -->
                 <div class="col-lg-7">
@@ -139,15 +138,14 @@
             <h2 class="title text-center mb-4">Meet Our Team</h2><!-- End .title text-center mb-2 -->
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="member member-anim text-center">
                         <figure class="member-media">
                             <img src="<c:url value='/template/web/assets/images/team/member-1.jpg'/>" alt="member photo">
 
                             <figcaption class="member-overlay">
                                 <div class="member-overlay-content">
-                                    <h3 class="member-title">Samanta Grey<span>Founder & CEO</span></h3><!-- End .member-title -->
-                                    <p>Sed pretium, ligula sollicitudin viverra, tortor libero sodales leo, eget blandit nunc.</p> 
+                                    <h3 class="member-title">Trần Đức Huy<span>Leader</span></h3><!-- End .member-title -->
                                     <div class="social-icons social-icons-simple">
                                         <a href="#" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
                                         <a href="#" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
@@ -157,20 +155,41 @@
                             </figcaption><!-- End .member-overlay -->
                         </figure><!-- End .member-media -->
                         <div class="member-content">
-                            <h3 class="member-title">Samanta Grey<span>Founder & CEO</span></h3><!-- End .member-title -->
+                            <h3 class="member-title">Trần Đức Huy<span>Leader</span></h3><!-- End .member-title -->
                         </div><!-- End .member-content -->
                     </div><!-- End .member -->
-                </div><!-- End .col-md-4 -->
+                </div><!-- End .col-md-3 -->
 
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <div class="member member-anim text-center">
+                        <figure class="member-media">
+                            <img src="<c:url value='/template/web/assets/images/team/member-1.jpg'/>" alt="member photo">
+
+                            <figcaption class="member-overlay">
+                                <div class="member-overlay-content">
+                                    <h3 class="member-title">Hồ Trọng Nghĩa<span>Member</span></h3><!-- End .member-title -->
+                                    <div class="social-icons social-icons-simple">
+                                        <a href="#" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                                        <a href="#" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                                        <a href="#" class="social-icon" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
+                                    </div><!-- End .soial-icons -->
+                                </div><!-- End .member-overlay-content -->
+                            </figcaption><!-- End .member-overlay -->
+                        </figure><!-- End .member-media -->
+                        <div class="member-content">
+                            <h3 class="member-title">Hồ Trọng Nghĩa<span>Member</span></h3><!-- End .member-title -->
+                        </div><!-- End .member-content -->
+                    </div><!-- End .member -->
+                </div><!-- End .col-md-3 -->
+
+                <div class="col-md-3">
                     <div class="member member-anim text-center">
                         <figure class="member-media">
                             <img src="<c:url value='/template/web/assets/images/team/member-2.jpg'/>" alt="member photo">
 
                             <figcaption class="member-overlay">
                                 <div class="member-overlay-content">
-                                    <h3 class="member-title">Bruce Sutton<span>Sales & Marketing Manager</span></h3><!-- End .member-title -->
-                                    <p>Sed pretium, ligula sollicitudin viverra, tortor libero sodales leo, eget blandit nunc.</p> 
+                                    <h3 class="member-title">Ngô Gia Hoàng<span>Member</span></h3><!-- End .member-title -->
                                     <div class="social-icons social-icons-simple">
                                         <a href="#" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
                                         <a href="#" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
@@ -180,20 +199,19 @@
                             </figcaption><!-- End .member-overlay -->
                         </figure><!-- End .member-media -->
                         <div class="member-content">
-                            <h3 class="member-title">Bruce Sutton<span>Sales & Marketing Manager</span></h3><!-- End .member-title -->
+                            <h3 class="member-title">Ngô Gia Hoàng<span>Member</span></h3><!-- End .member-title -->
                         </div><!-- End .member-content -->
                     </div><!-- End .member -->
-                </div><!-- End .col-md-4 -->
+                </div><!-- End .col-md-3 -->
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="member member-anim text-center">
                         <figure class="member-media">
                             <img src="<c:url value='/template/web/assets/images/team/member-3.jpg'/>" alt="member photo">
 
                             <figcaption class="member-overlay">
                                 <div class="member-overlay-content">
-                                    <h3 class="member-title">Janet Joy<span>Product Manager</span></h3><!-- End .member-title -->
-                                    <p>Sed pretium, ligula sollicitudin viverra, tortor libero sodales leo, eget blandit nunc.</p> 
+                                    <h3 class="member-title">Trầm Kim Long<span>Member</span></h3><!-- End .member-title -->
                                     <div class="social-icons social-icons-simple">
                                         <a href="#" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
                                         <a href="#" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
@@ -203,10 +221,10 @@
                             </figcaption><!-- End .member-overlay -->
                         </figure><!-- End .member-media -->
                         <div class="member-content">
-                            <h3 class="member-title">Janet Joy<span>Product Manager</span></h3><!-- End .member-title -->
+                            <h3 class="member-title">Trầm Kim Long<span>Member</span></h3><!-- End .member-title -->
                         </div><!-- End .member-content -->
                     </div><!-- End .member -->
-                </div><!-- End .col-md-4 -->
+                </div><!-- End .col-md-3 -->
             </div><!-- End .row -->
         </div><!-- End .container -->
 
