@@ -22,14 +22,17 @@
              }
              }
              }'>
-            <div class="intro-slide" style="background-image: url(<c:url value='/template/web/assets/images/demos/demo-4/slider/slide-1.png'/>);">
+            <div class="intro-slide" style="background-image: url(<c:url value='/template/web/assets/images/demos/demo-4/slider/slide-intro.jpg'/>);">
+            </div><!-- End .intro-slide -->
+
+            <div class="intro-slide" style="background-image: url(<c:url value='/template/web/assets/images/demos/demo-4/slider/slide-1.jpg'/>);">
                 <div class="container intro-content">
                     <div class="row justify-content-end">
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
                             <h3 class="intro-subtitle text-third">Deals and Promotions</h3>
                             <!-- End .h3 intro-subtitle -->
                             <h1 class="intro-title">Beats by</h1>
-                            <h1 class="intro-title">Dre Studio 3</h1><!-- End .intro-title -->
+                            <h1 class="intro-title">iPhone 15 & iPad Air</h1><!-- End .intro-title -->
 
                             <div class="intro-price">
                                 <sup class="intro-old-price">$349,95</sup>
@@ -52,7 +55,7 @@
                     <div class="row justify-content-end">
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
                             <h3 class="intro-subtitle text-primary">New Arrival</h3><!-- End .h3 intro-subtitle -->
-                            <h1 class="intro-title">Apple iPad Pro <br>12.9 Inch, 64GB </h1>
+                            <h1 class="intro-title">Apple AirPods Pro <br>2nd Generation </h1>
                             <!-- End .intro-title -->
 
                             <div class="intro-price">
@@ -70,6 +73,31 @@
                     </div><!-- End .row -->
                 </div><!-- End .intro-content -->
             </div><!-- End .intro-slide -->
+
+            <div class="intro-slide" style="background-image: url(<c:url value='/template/web/assets/images/demos/demo-4/slider/slide-3.png'/>);">
+                <div class="container intro-content">
+                    <div class="row justify-content-end">
+                        <div class="col-auto col-sm-7 col-md-6 col-lg-5">
+                            <h3 class="intro-subtitle text-primary">New Arrival</h3><!-- End .h3 intro-subtitle -->
+                            <h1 class="intro-title">Acer Nitro 5 <br>Gaming Laptop </h1>
+                            <!-- End .intro-title -->
+
+                            <div class="intro-price">
+                                <sup>Today:</sup>
+                                <span class="text-primary">
+                                    $999<sup>.99</sup>
+                                </span>
+                            </div><!-- End .intro-price -->
+
+                            <a href="./product?action=list&category=all" class="btn btn-primary btn-round">
+                                <span>Shop More</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a>
+                        </div><!-- End .col-md-6 offset-md-6 -->
+                    </div><!-- End .row -->
+                </div><!-- End .intro-content -->
+            </div><!-- End .intro-slide -->
+
         </div><!-- End .intro-slider owl-carousel owl-simple -->
 
         <span class="slider-loader"></span><!-- End .slider-loader -->
@@ -163,13 +191,13 @@
             <div class="col-md-6 col-lg-4">
                 <div class="banner banner-overlay banner-overlay-light">
                     <a href="#">
-                        <img src="<c:url value='/template/web/assets/images/demos/demo-4/banners/banner-1.png'/>" alt="Banner">
+                        <img src="<c:url value='/template/web/assets/images/demos/demo-4/banners/banner-1.jpg'/>" alt="Banner">
                     </a>
 
                     <div class="banner-content">
                         <h4 class="banner-subtitle"><a href="#">Smart Offer</a></h4><!-- End .banner-subtitle -->
                         <h3 class="banner-title"><a href="#">Save $150 <strong>on Samsung <br>Galaxy
-                                    Note9</strong></a></h3><!-- End .banner-title -->
+                                    S23</strong></a></h3><!-- End .banner-title -->
                         <a href="#" class="banner-link">Shop Now<i class="icon-long-arrow-right"></i></a>
                     </div><!-- End .banner-content -->
                 </div><!-- End .banner -->
@@ -183,7 +211,7 @@
 
                     <div class="banner-content">
                         <h4 class="banner-subtitle"><a href="#">Time Deals</a></h4><!-- End .banner-subtitle -->
-                        <h3 class="banner-title"><a href="#"><strong>Bose SoundSport</strong> <br>Time Deal -30%</a>
+                        <h3 class="banner-title"><a href="#"><strong>Apple AirPods Max</strong> <br>Time Deal -30%</a>
                         </h3><!-- End .banner-title -->
                         <a href="#" class="banner-link">Shop Now<i class="icon-long-arrow-right"></i></a>
                     </div><!-- End .banner-content -->
@@ -193,12 +221,12 @@
             <div class="col-md-6 col-lg-4">
                 <div class="banner banner-overlay banner-overlay-light">
                     <a href="#">
-                        <img src="<c:url value='/template/web/assets/images/demos/demo-4/banners/banner-3.png'/>" alt="Banner">
+                        <img src="<c:url value='/template/web/assets/images/demos/demo-4/banners/banner-3.jpg'/>" alt="Banner">
                     </a>
 
                     <div class="banner-content">
                         <h4 class="banner-subtitle"><a href="#">Clearance</a></h4><!-- End .banner-subtitle -->
-                        <h3 class="banner-title"><a href="#"><strong>GoPro - Fusion 360</strong> <br>Save $70</a>
+                        <h3 class="banner-title"><a href="#"><strong>Apple Watch SE</strong> <br>Save $70</a>
                         </h3><!-- End .banner-title -->
                         <a href="#" class="banner-link">Shop Now<i class="icon-long-arrow-right"></i></a>
                     </div><!-- End .banner-content -->
@@ -1628,12 +1656,12 @@
 
     <div class="container">
         <div class="cta cta-border mb-5" style="background-image: url(<c:url value='/template/web/assets/images/demos/demo-4/bg-1.jpg'/>);">
-            <img src="<c:url value='/template/web/assets/images/demos/demo-4/camera.png'/>" alt="camera" class="cta-img">
+            <img src="<c:url value='/template/web/assets/images/demos/demo-4/acer-nitro.png'/>" alt="camera" class="cta-img">
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="cta-content">
                         <div class="cta-text text-right text-white">
-                            <p>Shop Today’s Deals <br><strong>Awesome Made Easy. HERO7 Black</strong></p>
+                            <p>Shop Today’s Deals <br><strong>Awesome Made Easy. Acer Nitro</strong></p>
                         </div><!-- End .cta-text -->
                         <a href="#" class="btn btn-primary btn-round"><span>Shop Now - $429.99</span><i
                                 class="icon-long-arrow-right"></i></a>
@@ -1760,5 +1788,24 @@
         </div><!-- End .container -->
     </div><!-- End .icon-boxes-container -->
 </main><!-- End .main -->
+
+<script>
+    $(document).ready(function () {
+        var introSlider = $('.intro-slider');
+        var slideTime = 2200; // Thời gian giữa các slide (đơn vị mili giây)
+
+        introSlider.owlCarousel({
+            items: 1,
+            loop: true,
+            autoplay: true, // Chạy tự động
+            autoplayTimeout: slideTime + 3000,
+            autoplaySpeed: 2000, // Điều chỉnh giá trị này để giảm tốc độ (đơn vị mili giây, ở đây là 0.8 giây)
+            autoplayHoverPause: true, // Dừng khi di chuột qua slider
+            dots: true,
+            nav: false,
+//            animateOut: 'fadeOut' // Hiệu ứng trượt khi chuyển ra khỏi slide
+        });
+    });
+</script>
 
 <%@ include file="/common/web/footer.jsp"%>
