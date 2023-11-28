@@ -42,9 +42,4 @@ public class OrderDetailDAO extends AbstractDAO<OrderDetail> implements IOrderDe
         super.update(sql, orderId);
     }
     
-    public static void main(String[] args) {
-        OrderDetailDAO d = new OrderDetailDAO();
-        System.out.println(d.findByOrderId(7));
-    }
-    
 }

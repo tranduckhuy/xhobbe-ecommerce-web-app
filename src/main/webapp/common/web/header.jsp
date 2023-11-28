@@ -75,7 +75,7 @@
                                                 </a>
                                                 <div class="header-menu">
                                                     <ul>
-                                                        <li><a href="#"><i class="fa-solid fa-gear"></i> Setting</a></li>
+                                                        <li><a href="./account?action=edit"><i class="fa-solid fa-gear"></i> Setting</a></li>
                                                         <li><a href="./login?action=logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
                                                     </ul>
                                                 </div><!-- End .header-menu -->
@@ -137,7 +137,7 @@
                         <div class="wishlist">
                             <a href="./order?action=list" title="Order">
                                 <div class="icon">
-                                    <i class="fa-solid fa-truck" style="font-size: 23px;"></i>
+                                    <i class="fa-solid fa-truck" style="font-size: 21px;"></i>
                                     <c:if test="${totalOrder != null && totalOrder != 0}">
                                         <span class="wishlist-count badge">${totalOrder}</span>
                                     </c:if>

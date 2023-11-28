@@ -20,7 +20,7 @@ public class CartService implements ICartService {
         
         Cart cartCheck = cartDAO.findOneByUserIdAndProductId(cart.getUserId(), cart.getProductId());
         if (cartCheck != null) {
-            cartDAO.updateQuantity(cartCheck.getQuantity() + 1, cartCheck.getCartId());
+            cartDAO.updateQuantity(cartCheck.getQuantity() + cart.getQuantity(), cartCheck.getCartId());
             return cartCheck.getCartId();
         } else {
             Long id = cartDAO.add(cart);

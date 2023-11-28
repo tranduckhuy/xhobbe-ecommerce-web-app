@@ -10,34 +10,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5002a470-9025-40fa-b3ce-55627b923b11" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/web/customerChangePassword.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nb-configuration.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nb-configuration.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/constant/ActionConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/constant/ActionConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/admin/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/admin/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/admin/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/admin/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/admin/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/admin/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/admin/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/admin/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/web/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/web/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/web/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/web/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/utils/OrderUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/utils/OrderUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/utils/UserUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/utils/UserUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/web/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/web/footer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/web/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/web/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/web/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/web/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/web/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/controller/web/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/dao/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/dao/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/dao/impl/OrderDetailDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/dao/impl/OrderDetailDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/dao/impl/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/dao/impl/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/filter/AuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/filter/AuthorizationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/mapper/CartMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/mapper/CartMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/mapper/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/mapper/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/mapper/ProductMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/service/impl/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/service/impl/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/service/impl/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/service/impl/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xhobbe/service/impl/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xhobbe/service/impl/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/common/web/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/web/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/admin/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/admin/assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/css/demos/demo-4.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/web/assets/css/demos/demo-4.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/web/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/7.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/8.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/web/assets/images/brands/8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/productEdit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/productEdit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/productForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/productForm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/productList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/productList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-10.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-11.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-12.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-13.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-14.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-15.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-16.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-17.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-18.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-19.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-20.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-21.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-24.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-6.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-7.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/web/assets/js/demos/demo-9.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/cart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/customerEdit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/customerEdit.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/order.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/orderDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/orderDetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/productDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/productDetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/quickView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/quickView.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,6 +164,7 @@
       <workItem from="1700754375229" duration="120000" />
       <workItem from="1700923771807" duration="131000" />
       <workItem from="1701016365517" duration="212000" />
+      <workItem from="1701164307629" duration="934000" />
     </task>
     <servers />
   </component>
@@ -158,5 +181,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xhobbe/controller/web/AccountController.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

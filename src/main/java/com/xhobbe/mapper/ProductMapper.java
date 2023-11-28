@@ -26,7 +26,7 @@ public class ProductMapper implements RowMapper<Product>{
             product.setStockQuantity(rs.getInt("stockQuantity"));
             
             // Time
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Timestamp timeCreated = rs.getTimestamp("createdAt");
             product.setCreatedAt(sdf.format(timeCreated));
             

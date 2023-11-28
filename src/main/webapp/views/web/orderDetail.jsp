@@ -17,7 +17,7 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="./home">Home</a></li>
-                <li class="breadcrumb-item"><a href="./product?category=all">Shop</a></li>
+                <li class="breadcrumb-item"><a href="./product?action=list&category=all">Shop</a></li>
                 <li class="breadcrumb-item"><a href="./order">Order</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Order Detail</li>
             </ol>
@@ -54,16 +54,16 @@
                                     <tbody>
                                         <c:forEach var="orderDetail" items="${list}">
                                         <tr>
-                                                <td class="product-col " style="min-width: 350px;">
-                                                    <div class="product justify-content-start px-5">
+                                                <td class="product-col max-height-image-od" style="min-width: 350px;">
+                                                    <div class="product justify-content-start px-5 ">
                                                         <figure class="product-media">
-                                                            <a href="#">
+                                                            <a href="./product?action=detail&id=${orderDetail.productId}" target="_blank">
                                                                 <img src="${orderDetail.imageURL}" alt="Product image">
                                                             </a>
                                                         </figure>
 
                                                         <h3 class="product-title">
-                                                            <a href="#">${orderDetail.productName}</a>
+                                                            <a href="./product?action=detail&id=${orderDetail.productId}" target="_blank">${orderDetail.productName}</a>
                                                         </h3><!-- End .product-title -->
                                                     </div><!-- End .product -->
                                                 </td>

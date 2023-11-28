@@ -17,7 +17,7 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="./home">Home</a></li>
-                <li class="breadcrumb-item"><a href="./product?category=all">Shop</a></li>
+                <li class="breadcrumb-item"><a href="./product?action=list&category=all">Shop</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
             </ol>
         </div><!-- End .container -->

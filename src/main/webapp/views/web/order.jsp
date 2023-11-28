@@ -17,7 +17,7 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="./home">Home</a></li>
-                <li class="breadcrumb-item"><a href="./product?category=all">Shop</a></li>
+                <li class="breadcrumb-item"><a href="./product?action=list&category=all">Shop</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Order</li>
             </ol>
         </div><!-- End .container -->
@@ -47,12 +47,12 @@
                                 <table class="table table-cart">
                                     <thead>
                                         <tr>
-                                            <th class="text-center order-header">Your phone</th>
-                                            <th class="text-center order-header">Status</th>
-                                            <th class="text-center order-header-address">Delivery address</th>
-                                            <th class="text-center order-header">Total</th>
-                                            <th class="text-center order-header">Order date</th>
-                                            <th class="text-center order-header">Action</th>
+                                            <th class="text-center"><h6 class="order-header">Your phone</h6></th>
+                                            <th class="text-center"><h6 class="order-header">Status</h6></th>
+                                            <th class="text-center"><h6 class="order-header-address">Delivery address</h6></th>
+                                            <th class="text-center"><h6 class="order-header">Total</h6></th>
+                                            <th class="text-center"><h6 class="order-header">Order date</h6></th>
+                                            <th class="text-center"><h6 class="order-header">Order Detail</h6></th>
                                         </tr>
                                     </thead>
 
@@ -73,7 +73,7 @@
                                             <th class="text-center order-header-address">Delivery address</th>
                                             <th class="text-center order-header">Total</th>
                                             <th class="text-center order-header">Order date</th>
-                                            <th class="text-center order-header">Action</th>
+                                            <th class="text-center order-header">Order Detail</th>
                                         </tr>
                                     </thead>
 
@@ -94,7 +94,7 @@
                                             <th class="text-center order-header-address">Delivery address</th>
                                             <th class="text-center order-header">Total</th>
                                             <th class="text-center order-header">Order date</th>
-                                            <th class="text-center order-header">Action</th>
+                                            <th class="text-center order-header">Order Detail</th>
                                         </tr>
                                     </thead>
 
@@ -115,7 +115,7 @@
                                             <th class="text-center order-header-address">Delivery address</th>
                                             <th class="text-center order-header">Total</th>
                                             <th class="text-center order-header">Order date</th>
-                                            <th class="text-center order-header">Action</th>
+                                            <th class="text-center order-header">Order Detail</th>
                                         </tr>
                                     </thead>
 

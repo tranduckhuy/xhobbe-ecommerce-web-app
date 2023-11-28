@@ -55,7 +55,7 @@ public class AuthorizationFilter implements Filter {
             if (user != null) {
                 chain.doFilter(request, response);
             } else {
-                response.sendRedirect("./login");
+                response.sendRedirect("./login?message=notLogin");
             }
         } else {
             chain.doFilter(request, response);

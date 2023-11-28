@@ -12,6 +12,8 @@ public interface IUserService {
     User findOne(String email);
 
     User findByEmailAndPassword(String email, String password);
+    
+    User changePassword(User user, String oldPassword, String newPassword);
 
     List<User> findByRole(int roleId);
 
