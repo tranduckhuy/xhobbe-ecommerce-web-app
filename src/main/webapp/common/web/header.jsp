@@ -101,7 +101,7 @@
                             <i class="icon-bars"></i>
                         </button>
 
-                        <a href="#" class="logo">
+                        <a href="./home" class="logo">
                             <img src="<c:url value='/template/web/assets/images/demos/demo-4/xhobbe-high-resolution-logo.png'/>" alt="xHobbe Logo" style="width: 160px; height: 50px;">
                         </a>
                     </div><!-- End .header-left -->

@@ -102,13 +102,10 @@ public class SendEmailUtils {
                 + "    <h3>Wellcome to xHobbe</h3>\n"
                 + "    <p>Click the active button to activate your account now!</p>\n"
                 + "    <p>Here: " + activationLink + " </p>\n"
+                + "    <p>Thank you for signing up!</p>\n"
                 + "</body>\n"
                 + "</html>";
 
-//        return  "Welcome to xHobbe! Your sign-up was successful.\n"
-//                + "Click the active button to activate your account now!\n"
-//                + "Active: " + activationLink + "\n"
-//                + "Thank you for signing up!\n";
     }
 
     private static String getOTPMessage(String otp) {
