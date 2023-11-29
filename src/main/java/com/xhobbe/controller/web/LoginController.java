@@ -1,5 +1,6 @@
 package com.xhobbe.controller.web;
 
+import com.xhobbe.constant.ActionConstant;
 import com.xhobbe.constant.AppConstant;
 import com.xhobbe.constant.MessageAlertConstant;
 import com.xhobbe.model.User;
@@ -34,7 +35,7 @@ public class LoginController extends HttpServlet {
 
         String action = request.getParameter("action");
         String message = request.getParameter("message");
-        
+
         if (action == null) {
             User user = (User) SessionUtils.getInstance().getValue(request, "user");
             if (user != null) {
@@ -101,7 +102,7 @@ public class LoginController extends HttpServlet {
                 String token = UUID.randomUUID().toString();
                 SessionUtils.getInstance().putValue(request, "token", token);
                 System.out.println(SessionUtils.getInstance().getValue(request, "token").toString());
-                SendEmailUtils.sendEmail(user.getEmail(), "Verify your account", token);
+                SendEmailUtils.sendEmail(user.getEmail(), "Verify your account", token, ActionConstant.ACTIVATE);
                 request.getRequestDispatcher("/views/web/login.jsp").forward(request, response);
             }
 
@@ -124,7 +125,7 @@ public class LoginController extends HttpServlet {
                 String token = UUID.randomUUID().toString();
                 SessionUtils.getInstance().putValue(request, "token", token);
                 System.out.println(SessionUtils.getInstance().getValue(request, "token").toString());
-                SendEmailUtils.sendEmail(newUser.getEmail(), "Verify your account", token);
+                SendEmailUtils.sendEmail(newUser.getEmail(), "Verify your account", token, ActionConstant.ACTIVATE);
                 request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.ACTIVEEMAIL);
             }
         }

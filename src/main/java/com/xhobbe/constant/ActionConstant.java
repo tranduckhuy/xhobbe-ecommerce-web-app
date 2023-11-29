@@ -18,4 +18,11 @@ public class ActionConstant {
     public static final String CHANGESTATUS = "changeStatus";
     public static final String CHANGEPASSWORD = "changePassword";
     public static final String FORGOTPASSWORD = "forgotPassword";
+    
+    public static final String ACTIVATE = "activate";
+    public static final String GETOTP = "getOTP";
+    
+    public static final String CHECKRMAIL = "submitEmail";
+    public static final String CHECKOTP = "submitOtp";
+     public static final String NEWPASSWORD = "newPassword";
 }
