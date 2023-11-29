@@ -35,8 +35,8 @@
                         Showing
                         <span id="currentProducts" class="font-weight-bolder"></span>
                         of
-                        <span class="font-weight-bolder">
-                            ${(category eq 'all' && total != null) ? total : list.size()}
+                        <span id="totalProduct" class="font-weight-bolder">
+                            ${total != null ? total : 0}
                         </span>
                         Products
                     </div><!-- End .toolbox-info -->
@@ -288,7 +288,7 @@
                     }
                     if (product.stockQuantity > 0) {
                         productCart += "<span class='product-label label-new'>New</span>";
-                    } else if (product.stockQuantity == 0) {
+                    } else if (product.stockQuantity === 0) {
                         productCart += "<span class='product-label label-out'>Out of stock</span>";
                     }
                     productCart += "<a href='./product?action=detail&id=" + product.productId + "' target='_blank'>" +

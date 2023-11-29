@@ -104,7 +104,8 @@ public class ProductController extends HttpServlet {
                 case CategoryConstant.LAPTOP:
                 case CategoryConstant.IPAD:
                 case CategoryConstant.ACCESSORIES:
-                    request.setAttribute("total", productService.getTotalItem(CategoryUtils.getCategoryId(category)));
+                    int total = productService.getTotalItem(CategoryUtils.getCategoryId(category));
+                    request.setAttribute("total", total);
                     request.setAttribute("category", category);
                     requestValues.setCategory(category);
                     list = productService.findByCategory(requestValues);
