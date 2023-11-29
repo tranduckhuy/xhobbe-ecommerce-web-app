@@ -1,5 +1,6 @@
 package com.xhobbe.utils;
 
+import com.xhobbe.constant.ActionConstant;
 import java.util.Date;
 import javax.mail.Session;
 import javax.mail.Authenticator;
@@ -20,7 +21,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class SendEmailUtils {
 
-    public static void sendEmail(String to, String title, String content) {
+    public static void sendEmail(String to, String title, String content, String type) {
 
         //properties : Khai báo thuộc tính
         Properties props = new Properties();
@@ -42,7 +43,19 @@ public class SendEmailUtils {
 
         });
 
-        String textMessage = activeMessage(to, content);
+        String textMessage;
+
+        switch (type) {
+            case ActionConstant.ACTIVATE:
+                textMessage = activeMessage(to, content);
+                break;
+            case ActionConstant.GETOTP:
+                textMessage = getOTPMessage(content);
+                break;
+            default:
+                throw new AssertionError();
+        }
+
         new Thread(() -> {
             try {
                 Message message = prepareMessage(session, from, to, title, textMessage);
@@ -91,15 +104,31 @@ public class SendEmailUtils {
                 + "    <p>Here: " + activationLink + " </p>\n"
                 + "</body>\n"
                 + "</html>";
-        
+
 //        return  "Welcome to xHobbe! Your sign-up was successful.\n"
 //                + "Click the active button to activate your account now!\n"
 //                + "Active: " + activationLink + "\n"
 //                + "Thank you for signing up!\n";
+    }
 
+    private static String getOTPMessage(String otp) {
+        return "<!DOCTYPE html>\n"
+                + "<html lang=\"en\">\n"
+                + "<head>\n"
+                + "    <meta charset=\"UTF-8\">\n"
+                + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+                + "    <title>Get OTP</title>\n"
+                + "</head>\n"
+                + "<body style=\"margin-bottom: 10px;\">\n"
+                + "    <img src=\"https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/logo%2Fxhobbe-high-resolution-logo.png?alt=media&token=61a3c357-6d99-4565-bdeb-76e4d0aedbdd\" style=\"width: 250px;\">\n"
+                + "    <h3>Welcome to xHobbe</h3>\n"
+                + "    <p>Your OTP to change account password is: " + otp + "</p>\n"
+                + "    <p>Please usse this OTP to change your old password.</p>\n"
+                + "</body>\n"
+                + "</html>";
     }
 
     public static void main(String[] args) {
-        sendEmail("huytde.dev@gmail.com", "Verify email", "token-here");
+        sendEmail("huytde.dev@gmail.com", "Verify email", "token-here", ActionConstant.ACTIVATE);
     }
 }

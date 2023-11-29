@@ -112,7 +112,7 @@
                     <a href="./product?action=list&category=Laptop" class="cat-block">
                         <figure>
                             <span>
-                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/1.png'/>" alt="Category image">
+                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/laptop.png'/>" alt="Category image">
                             </span>
                         </figure>
 
@@ -124,7 +124,7 @@
                     <a href="./product?action=list&category=Phone" class="cat-block">
                         <figure>
                             <span>
-                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/3.png'/>" alt="Category image">
+                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/smart-phone.png'/>" alt="Category image">
                             </span>
                         </figure>
 
@@ -136,7 +136,7 @@
                     <a href="./product?action=list&category=Accessories" class="cat-block">
                         <figure>
                             <span>
-                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/6.png'/>" alt="Category image">
+                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/smart-watch.png'/>" alt="Category image">
                             </span>
                         </figure>
 
@@ -148,7 +148,7 @@
                     <a href="./product?action=list&category=Accessories" class="cat-block">
                         <figure>
                             <span>
-                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/2.png'/>" alt="Category image">
+                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/camera.png'/>" alt="Category image">
                             </span>
                         </figure>
 
@@ -160,7 +160,7 @@
                     <a href="./product?action=list&category=Accessories" class="cat-block">
                         <figure>
                             <span>
-                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/4.png'/>" alt="Category image">
+                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/head-phone.png'/>" alt="Category image">
                             </span>
                         </figure>
 
@@ -172,7 +172,7 @@
                     <a href="./product?action=list&category=Accessories" class="cat-block">
                         <figure>
                             <span>
-                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/5.png'/>" alt="Category image">
+                                <img src="<c:url value='/template/web/assets/images/demos/demo-4/cats/audio.png'/>" alt="Category image">
                             </span>
                         </figure>
 
