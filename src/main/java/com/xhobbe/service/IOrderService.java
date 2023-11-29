@@ -21,7 +21,7 @@ public interface IOrderService {
     
     Order findOne(long id);
 
-    void updateStatus(long orderId, int statusId);
+    List<String> updateStatus(long orderId, int statusId);
     
     int getTotalItemByDays(int days);
     

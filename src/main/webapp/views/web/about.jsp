@@ -141,15 +141,15 @@
                 <div class="col-md-3">
                     <div class="member member-anim text-center">
                         <figure class="member-media">
-                            <img src="<c:url value='/template/web/assets/images/team/member-1.jpg'/>" alt="member photo">
+                            <img src="<c:url value='/template/web/assets/images/team/huydz.jpg'/>" alt="member photo" style="clip-path: inset(0 10px 0 10px);">
 
                             <figcaption class="member-overlay">
                                 <div class="member-overlay-content">
                                     <h3 class="member-title">Trần Đức Huy<span>Leader</span></h3><!-- End .member-title -->
                                     <div class="social-icons social-icons-simple">
-                                        <a href="#" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
-                                        <a href="#" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
-                                        <a href="#" class="social-icon" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
+                                        <a href="https://www.facebook.com/tranduchuydz/" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                                        <a href="#" class="social-icon" title="Github" target="_blank"><i class="icon-github"></i></a>
+                                        <a href="https://www.instagram.com/duchuy_1610/" class="social-icon" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
                                     </div><!-- End .soial-icons -->
                                 </div><!-- End .member-overlay-content -->
                             </figcaption><!-- End .member-overlay -->

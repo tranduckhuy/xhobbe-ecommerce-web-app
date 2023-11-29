@@ -39,6 +39,11 @@
                 <!-- end col -->
             </div>
             <!-- end row -->
+            <c:forEach var="pn" items="${productError}">
+                <div class="alert alert-danger text-center my-3" role="alert" style="margin: 0; padding: 4px">
+                    The number of requests to order of ${pn} has exceeded the number in stock.
+                </div>
+            </c:forEach>
         </div>
         <!-- ========== title-wrapper end ========== -->
 

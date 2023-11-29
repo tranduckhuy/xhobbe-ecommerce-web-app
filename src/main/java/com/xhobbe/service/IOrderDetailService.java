@@ -12,7 +12,7 @@ public interface IOrderDetailService {
     
     List<OrderDetail> findByOrderId(long id);
     
-    Long add(long[] cartId, long orderId);
+    List<String> add(long[] cartId, long orderId);
     
     void delete(long orderId);
 }

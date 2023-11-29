@@ -11,6 +11,7 @@ import com.xhobbe.utils.CartUtils;
 import com.xhobbe.utils.OrderUtils;
 import com.xhobbe.utils.SessionUtils;
 import java.io.IOException;
+import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,7 +33,7 @@ public class OrderController extends HttpServlet {
 
     @Inject
     IOrderService orderService;
-    
+
     @Inject
     IUserService userService;
 
@@ -85,7 +86,7 @@ public class OrderController extends HttpServlet {
         }
 
     }
-    
+
     private void listOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
@@ -111,14 +112,14 @@ public class OrderController extends HttpServlet {
         String cartIdsString = request.getParameter("cartIds");
         long[] cartIds = CartUtils.getListCartIds(cartIdsString.split(","));
         Order order = OrderUtils.getParamAndCreateOrder(request);
-        
+
         if (cartIds.length == 0 || order == null) {
-            response.sendRedirect("./cart&message=fail");
+            response.sendRedirect("./cart?message=fail");
             return;
         }
-        
+
         User user = (User) SessionUtils.getInstance().getValue(request, "user");
-        if (user.getPhone() == null || user.getAddress() == null) {
+        if (user.getPhone() == null || user.getPhone().isEmpty() || user.getAddress() == null || user.getAddress().isEmpty()) {
             user.setAddress(order.getAddress());
             user.setPhone(order.getCustomerPhone());
             userService.update(user);
@@ -126,12 +127,14 @@ public class OrderController extends HttpServlet {
         order.setUserId(user.getUserId());
         order = orderService.add(order);
         if (order != null) {
-            orderDetailService.add(cartIds, order.getOrderId());
-            response.sendRedirect("./order");
+            List<String> errorProduct = orderDetailService.add(cartIds, order.getOrderId());
+            request.setAttribute("errorProduct", errorProduct);
+//            SessionUtils.getInstance().putValue(request, "errorProduct", errorProduct);
+            request.getRequestDispatcher("views/web/order.jsp").forward(request, response);
+//            response.sendRedirect("./order");
         } else {
-            response.sendRedirect("./cart&message=fail");
+            response.sendRedirect("./cart?message=fail");
         }
-        
-        
+
     }
 }

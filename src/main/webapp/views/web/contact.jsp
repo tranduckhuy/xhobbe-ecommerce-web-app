@@ -126,8 +126,8 @@
                                 </div><!-- End .col-xl-6 -->
                                 <div class="col-sm-7 col-xl-6">
                                     <div class="store-content">
-                                        <h3 class="store-title">Wall Street Plaza</h3><!-- End .store-title -->
-                                        <address>88 Pine St, New York, NY 10005, USA</address>
+                                        <h3 class="store-title">Quy Nhon</h3><!-- End .store-title -->
+                                        <address>Dong Da - Quy Nhon</address>
                                         <div><a href="tel:#">+1 987-876-6543</a></div>
 
                                         <h4 class="store-subtitle">Store Hours:</h4><!-- End .store-subtitle -->
@@ -152,8 +152,8 @@
 
                                 <div class="col-sm-7 col-xl-6">
                                     <div class="store-content">
-                                        <h3 class="store-title">One New York Plaza</h3><!-- End .store-title -->
-                                        <address>88 Pine St, New York, NY 10005, USA</address>
+                                         <h3 class="store-title">Quy Nhon</h3><!-- End .store-title -->
+                                        <address>Dong Da - Quy Nhon</address>
                                         <div><a href="tel:#">+1 987-876-6543</a></div>
 
                                         <h4 class="store-subtitle">Store Hours:</h4><!-- End .store-subtitle -->

@@ -30,7 +30,6 @@ public class GoogleUtils {
   public static User getUserInfo(final String accessToken) throws ClientProtocolException, IOException {
     String link = GoogleConstants.GOOGLE_LINK_GET_USER_INFO + accessToken;
     String response = Request.Get(link).execute().returnContent().asString();
-    System.out.println("Google API Response: " + response);
     User googlePojo = new Gson().fromJson(response, User.class);
     return googlePojo;
   }

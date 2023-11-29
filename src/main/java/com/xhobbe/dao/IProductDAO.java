@@ -1,5 +1,6 @@
 package com.xhobbe.dao;
 
+import com.xhobbe.findRequest.FindRequest;
 import com.xhobbe.model.Product;
 import java.util.List;
 
@@ -15,11 +16,11 @@ public interface IProductDAO {
 
     void update(Product product);
 
-    List<Product> findAll(int limit, int offset, String orderBy, String sortBy);
+    List<Product> findAll(FindRequest values);
     
-    List<Product> findByCategory(int limit, int offset, String orderBy, String sortBy, String categoryName);
+    List<Product> findByCategory(FindRequest values);
     
-    List<Product> findByBrand(int limit, int offset, String orderBy, String sortBy, String brandName);
+    List<Product> findByBrandAndCategory(FindRequest values);
     
     List<Product> findByName(String name);
 

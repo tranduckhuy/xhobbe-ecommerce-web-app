@@ -1,6 +1,7 @@
 package com.xhobbe.service.impl;
 
 import com.xhobbe.dao.IProductDAO;
+import com.xhobbe.findRequest.FindRequest;
 import com.xhobbe.model.Product;
 import com.xhobbe.service.IProductService;
 import java.util.List;
@@ -36,21 +37,21 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public List<Product> findAll(int limit, int offset, String orderBy, String sortBy) {
+    public List<Product> findAll(FindRequest values) {
         
-        return productDAO.findAll(limit, offset, orderBy, sortBy);
+        return productDAO.findAll(values);
     }
 
     @Override
-    public List<Product> findByCategory(int limit, int offset, String orderBy, String sortBy, String categoryName) {
+    public List<Product> findByCategory(FindRequest values) {
         
-        return productDAO.findByCategory(limit, offset, orderBy, sortBy, categoryName);
+        return productDAO.findByCategory(values);
     }
 
     @Override
-    public List<Product> findByBrand(int limit, int offset, String orderBy, String sortBy, String brandName) {
+    public List<Product> findByBrandAndCategory(FindRequest values) {
         
-        return productDAO.findByBrand(limit, offset, orderBy, sortBy, brandName);
+        return productDAO.findByBrandAndCategory(values);
     }
 
     @Override

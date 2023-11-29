@@ -13,6 +13,7 @@ public class Cart {
     private String productName;
     private double price;
     private int quantity;
+    private int productQuantity;
     private double total;
     private String imageURL;
     private String createdAt;
@@ -77,6 +78,14 @@ public class Cart {
         this.quantity = quantity;
     }
 
+    public int getProductQuantity() {
+        return productQuantity;
+    }
+
+    public void setProductQuantity(int productQuantity) {
+        this.productQuantity = productQuantity;
+    }
+    
     public double getTotal() {
         return total;
     }
@@ -95,8 +104,7 @@ public class Cart {
 
     @Override
     public String toString() {
-        return "Cart{" + "cartId=" + cartId + ", userId=" + userId + ", productId=" + productId + ", productName=" + productName + 
-                ", price=" + price + ", quantity=" + quantity + ", total=" + total + ", imageURL=" + imageURL + ", createdAt=" + createdAt + '}';
+        return "Cart{" + "cartId=" + cartId + ", userId=" + userId + ", productId=" + productId + ", productName=" + productName + ", price=" + price + ", quantity=" + quantity + ", productQuantity=" + productQuantity + ", total=" + total + ", imageURL=" + imageURL + ", createdAt=" + createdAt + '}';
     }
 
 }

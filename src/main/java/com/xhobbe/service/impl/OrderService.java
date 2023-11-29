@@ -1,11 +1,14 @@
 package com.xhobbe.service.impl;
 
 import com.xhobbe.dao.IOrderDAO;
+import com.xhobbe.dao.IOrderDetailDAO;
+import com.xhobbe.dao.IProductDAO;
 import com.xhobbe.model.Order;
+import com.xhobbe.model.OrderDetail;
+import com.xhobbe.model.Product;
 import com.xhobbe.service.IOrderService;
 import com.xhobbe.utils.OrderUtils;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -17,6 +20,12 @@ public class OrderService implements IOrderService {
 
     @Inject
     IOrderDAO orderDAO;
+    
+    @Inject
+    IOrderDetailDAO orderDetailDAO;
+    
+    @Inject
+    IProductDAO productDAO;
     
     @Override
     public Order add(Order order) {
@@ -30,6 +39,15 @@ public class OrderService implements IOrderService {
 
     @Override
     public void delete(long id) {
+        List<OrderDetail> list = orderDetailDAO.findByOrderId(id);
+        
+        for (OrderDetail o : list) {
+            Product product = productDAO.findOne(o.getProductId());
+            product.setStockQuantity(product.getStockQuantity() + o.getQuantity());
+            productDAO.update(product);
+        }
+        orderDetailDAO.delete(id);
+        
         orderDAO.delete(id);
     }
 
@@ -57,9 +75,28 @@ public class OrderService implements IOrderService {
     }
 
     @Override
-    public void updateStatus(long orderId, int statusId) {
+    public List<String> updateStatus(long orderId, int statusId) {
+        
+        // check product have quantity < 0;
+        List<String> productNames = new ArrayList<>();
+        
+        List<OrderDetail> list = orderDetailDAO.findByOrderId(orderId);
+        
+        Order order = orderDAO.findOne(orderId);
+        
+        for (OrderDetail od : list) {
+            Product product = productDAO.findOne(od.getProductId());
+            
+            int quantity = product.getStockQuantity() - od.getQuantity();
+            if (quantity < 0) {
+                productNames.add("<p style='font-weight: 800'>" + product.getName() + " - Customer: " + order.getCustomerName() + " - Phone: " 
+                        + order.getCustomerPhone() + " - Time " + order.getOrderDate() + "</p>");
+                product.setStockQuantity(0);
+            }
+            
+        }
         orderDAO.updateStatus(orderId, statusId);
-
+        return productNames;
     }
     
     @Override

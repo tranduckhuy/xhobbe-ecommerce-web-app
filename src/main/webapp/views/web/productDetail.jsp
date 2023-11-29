@@ -53,11 +53,9 @@
 
                             <div class="ratings-container">
                                 <div class="ratings">
-                                    <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
+                                    <div class="ratings-val" style="width: 95%;"></div><!-- End .ratings-val -->
                                 </div><!-- End .ratings -->
-                                <a class="ratings-text" href="#product-review-link" id="review-link">( 2 Reviews )</a>
                             </div><!-- End .rating-container -->
-
                             <div class="product-price">
                                 ${product.price}$
                             </div><!-- End .product-price -->
@@ -79,13 +77,22 @@
                                 <form action="cart" method="post">
                                     <div class="details-action-col">
                                         <div class="product-details-quantity">
-                                            <input type="number" name="quantity" id="quantity" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                            <input type="number" name="quantity" id="quantity" class="form-control" value="1" min="1" max="${product.stockQuantity}" step="1" data-decimals="0" required>
                                         </div><!-- End .product-details-quantity -->
                                         <input type="hidden" name="id" value="${product.productId}">
                                         <input type="hidden" name="action" value="add">
-                                        <button type="submit" class="btn-product btn-cart"><span>add to cart</span></button>
+
+                                        <c:if test="${product.stockQuantity > 0}">
+                                            <button type="submit" class="btn-product btn-cart"><span>add to cart</span></button>
+                                        </c:if>
+                                        <c:if test="${product.stockQuantity == 0}">
+                                            <p href="#!" class="btn-product mx-10 px-5 py-4" style="border: none; background-color: #4d565f;">
+                                                <span class="text-light"><i class="fa-solid fa-circle-xmark"></i> Out of Stock</span>
+                                            </p>
+                                        </c:if>
                                     </div><!-- End .details-action-col -->
                                 </form>
+                                <a class="text-light-emphasis font-weight-bolder" href="#!" id="review-link"> ${product.stockQuantity} available products</a>
                             </div><!-- End .product-details-action -->
 
                             <div class="product-details-footer">

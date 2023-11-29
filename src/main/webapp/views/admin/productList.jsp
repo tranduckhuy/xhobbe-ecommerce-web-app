@@ -94,10 +94,10 @@
                                                     <c:when test="${fn:length(product.description) > 30}">
                                                         <p>${fn:substring(product.description, 0, 30)}...</p>
                                                     </c:when>
-                                                        <c:otherwise>
+                                                    <c:otherwise>
                                                         <p>${product.description}</p>
-                                                        </c:otherwise>
-                                                    </c:choose>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </td>
                                             <td class="min-width text-center">
                                                 <strong>${product.category}</strong>
@@ -142,6 +142,32 @@
         </div>
         <!-- ========== tables-wrapper end ========== -->
     </div>
+    <nav aria-label="..." class="d-flex justify-content-center mb-4">
+        <ul class="pagination pagination-circle">
+            <c:if test="${pageNum > 1}">
+                <li class="page-item">
+                    <a class="page-link" href="./admin-product?action=list&category=${list.get(0).category}&page=${pageNum - 1}">Previous</a>
+                </li>
+            </c:if>
+
+            <li class="page-item ${(pageNum == 1) ? " active" : ""}" aria-current="page">
+                <a class="page-link" href="./admin-product?action=list&category=${list.get(0).category}&page=1">1</a>
+            </li>
+
+            <c:if test="${total > 8}">
+                <c:forEach var = "i" begin = "0" end="${(total - 8) / 8}">
+                    <li class="page-item ${(pageNum == (i + 2)) ? ' active' : ''}">
+                        <a class="page-link" href="./admin-product?action=list&category=${list.get(0).category}&page=${i + 2}">${i + 2}</a>
+                    </li>
+                </c:forEach>
+            </c:if>
+            <c:if test="${pageNum < fn:substringBefore((total div 8), '.') + 1}">
+                <li class="page-item">
+                    <a class="page-link" href="./admin-product?action=list&category=${list.get(0).category}&page=${pageNum + 1}">Next</a>
+                </li>
+            </c:if>
+        </ul>
+    </nav>
     <!-- end container -->
 </section>
 <!-- ========== table components end ========== -->

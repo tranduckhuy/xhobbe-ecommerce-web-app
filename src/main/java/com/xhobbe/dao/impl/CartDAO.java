@@ -26,7 +26,7 @@ public class CartDAO extends AbstractDAO<Cart> implements ICartDAO {
 
     @Override
     public List<Cart> findAll(int limit, int offset, String orderBy, String sortBy) {
-        StringBuilder sql = new StringBuilder("SELECT s.cartId, s.userId, s.productId, p.name, p.price, s.quantity, s.createdAt, MIN(pi.imageUrl) AS selectedImageUrl ");
+        StringBuilder sql = new StringBuilder("SELECT s.cartId, s.userId, s.productId, p.name, p.price, s.quantity, p.stockQuantity, s.createdAt, MIN(pi.imageUrl) AS selectedImageUrl ");
         sql.append("FROM `shoppingCart` AS s ");
         sql.append("JOIN `user` AS u ON s.userId = u.userId ");
         sql.append("JOIN `product` AS p ON s.productId = p.productId ");
@@ -47,7 +47,7 @@ public class CartDAO extends AbstractDAO<Cart> implements ICartDAO {
 
     @Override
     public List<Cart> findByUserId(long userId) {
-        StringBuilder sql = new StringBuilder("SELECT s.cartId, s.userId, s.productId, p.name, p.price, s.quantity, s.createdAt, MIN(pi.imageUrl) AS selectedImageUrl ");
+        StringBuilder sql = new StringBuilder("SELECT s.cartId, s.userId, s.productId, p.name, p.price, s.quantity, p.stockQuantity, s.createdAt, MIN(pi.imageUrl) AS selectedImageUrl ");
         sql.append("FROM `shoppingCart` AS s ");
         sql.append("JOIN `user` AS u ON s.userId = u.userId AND u.userId = ? ");
         sql.append("JOIN `product` AS p ON s.productId = p.productId ");
@@ -112,7 +112,7 @@ public class CartDAO extends AbstractDAO<Cart> implements ICartDAO {
 
     @Override
     public Cart findOne(long cartId) {
-        StringBuilder sql = new StringBuilder("SELECT c.cartId, c.quantity, c.productId, p.price FROM `shoppingCart` AS c ");
+        StringBuilder sql = new StringBuilder("SELECT c.cartId, c.quantity, p.stockQuantity, c.productId, p.price FROM `shoppingCart` AS c ");
         sql.append("JOIN `product` AS p ON c.productId = p.productId ");
         sql.append("WHERE c.cartId = ? ");
 
@@ -125,6 +125,7 @@ public class CartDAO extends AbstractDAO<Cart> implements ICartDAO {
                     cart.setCartId(rs.getLong("c.cartId"));
                     cart.setQuantity(rs.getInt("c.quantity"));
                     cart.setProductId(rs.getInt("c.productId"));
+                    cart.setProductQuantity(rs.getInt("p.stockQuantity"));
                     cart.setPrice(rs.getInt("p.price"));
                     return cart;
                 }

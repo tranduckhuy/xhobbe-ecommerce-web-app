@@ -2,7 +2,6 @@ package com.xhobbe.dao;
 
 import com.xhobbe.model.Order;
 import java.util.List;
-import java.util.Map;
 
 /**
  *

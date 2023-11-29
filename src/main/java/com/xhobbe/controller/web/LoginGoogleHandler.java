@@ -53,6 +53,7 @@ public class LoginGoogleHandler extends HttpServlet {
         } else {
             user = UserUtils.setDefaultGoogleAccount(user);
             userSerice.add(user);
+            user = userSerice.findOne(user.getEmail());
             SessionUtils.getInstance().putValue(request, "user", user);
         }
         user = (User) SessionUtils.getInstance().getValue(request, "user");

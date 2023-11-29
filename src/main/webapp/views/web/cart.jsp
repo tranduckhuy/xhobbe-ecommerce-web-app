@@ -42,32 +42,36 @@
 
                             <tbody>
                                 <c:forEach var="cart" items="${list}">
-                                    <tr>
-                                        <td style="width: 50px">
-                                            <input type="checkbox" class="product-select" id="product-select${cart.cartId}" style="width: 100%;" value="${cart.cartId}">
-                                        </td>
-                                        <td class="product-col">
-                                            <div class="product">
-                                                <figure class="product-media">
-                                                    <a href="./product?action=detail&id=${cart.productId}">
-                                                        <img src="${cart.imageURL}" alt="Product image">
-                                                    </a>
-                                                </figure>
+                                    <c:if test="${cart.productQuantity > 0}">
+                                        <tr>
 
-                                                <h3 class="product-title">
-                                                    <a href="./product?action=detail&id=${cart.productId}" target="_blank">${cart.productName}</a>
-                                                </h3><!-- End .product-title -->
-                                            </div><!-- End .product -->
-                                        </td>
-                                        <td class="price-col">${cart.price}$</td>
-                                        <td class="quantity-col">
-                                            <div class="cart-product-quantity">
-                                                <input type="number" class="form-control" value="${cart.quantity}" min="1" max="10" step="1" data-decimals="0" required>
-                                            </div><!-- End .cart-product-quantity -->
-                                        </td>
-                                        <td class="total-col">${cart.total}$</td>
-                                        <td class="remove-col"><a href="javascript:void(0);" onclick="popupDeleteCart('${cart.cartId}', 'cart')" class="btn-remove"><i class="icon-close"></i></a></td>
-                                    </tr>
+                                            <td style="width: 50px">
+                                                <input type="checkbox" class="product-select" id="product-select${cart.cartId}" style="width: 100%;" value="${cart.cartId}">
+                                            </td>
+
+                                            <td class="product-col">
+                                                <div class="product">
+                                                    <figure class="product-media">
+                                                        <a href="./product?action=detail&id=${cart.productId}">
+                                                            <img src="${cart.imageURL}" alt="Product image">
+                                                        </a>
+                                                    </figure>
+
+                                                    <h3 class="product-title">
+                                                        <a href="./product?action=detail&id=${cart.productId}" target="_blank">${cart.productName}</a>
+                                                    </h3><!-- End .product-title -->
+                                                </div><!-- End .product -->
+                                            </td>
+                                            <td class="price-col">${cart.price}$</td>
+                                            <td class="quantity-col">
+                                                <div class="cart-product-quantity">
+                                                    <input type="number" class="form-control" value="${cart.quantity}" min="1" max="${cart.productQuantity}" step="1" data-decimals="0" required>
+                                                </div><!-- End .cart-product-quantity -->
+                                            </td>
+                                            <td class="total-col">${cart.total}$</td>
+                                            <td class="remove-col"><a href="javascript:void(0);" onclick="popupDeleteCart('${cart.cartId}', 'cart')" class="btn-remove"><i class="icon-close"></i></a></td>
+                                        </tr>
+                                    </c:if>
                                 </c:forEach>
                             </tbody>
                         </table><!-- End .table table-wishlist -->
@@ -141,17 +145,17 @@
                                 <div class="form-group mb-2">
                                     <h6>Your phone</h6>
                                     <input type="tel" class="form-control" name="phone"  id="phone" required placeholder="Phone Number" 
-                                           style="border-color: #ddd; background-color: #fff" value="${user.phone}">
+                                           style="border-color: #ddd; background-color: #fff" value="${(user.phone != null && user.phone != '') ? user.phone : ''}">
                                     <span class="form-message" style="color: red"></span>
                                 </div>
                                 <div class="form-group">
                                     <h6>Delivery address</h6>
                                     <input type="text" class="form-control" name="address"  id="address" required placeholder="Address" 
-                                           style="border-color: #ddd; background-color: #fff" value="${user.address}">
+                                           style="border-color: #ddd; background-color: #fff" value="${(user.address != null && user.address != '') ? user.address : ''}">
                                     <span class="form-message" style="color: red"></span>
                                 </div>
                             </div><!-- End .summary-shipping-estimate -->
-                            <button onclick="orderProducts()" class="btn btn-outline-primary-2 btn-order btn-block">ORDER</button>
+                            <button onclick="validateAndOrder()" type="submit" class="btn btn-outline-primary-2 btn-order btn-block">ORDER</button>
                         </div><!-- End .summary -->
                         <a href="./product?action=list&category=all" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i class="icon-refresh"></i></a>
                     </aside><!-- End .col-lg-3 -->
@@ -161,42 +165,27 @@
     </div><!-- End .page-content -->
 </main><!-- End .main -->
 
-<script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
 <script src="<c:url value='/template/admin/assets/js/popup/popupDelete.js'/>"></script>
 <script src="<c:url value='/template/admin/assets/js/jquery.min.js'/>"></script>
 <script src="<c:url value='/template/admin/assets/js/sweetalert.min.js'/>"></script>
-
-<script>
-                                    // Wait for the DOM to be ready
-                                    document.addEventListener('DOMContentLoaded', function () {
-                                        // Function to update all product checkboxes based on the 'select all' checkbox
-                                        function updateProductSelection() {
-                                            var selectAllCheckbox = document.getElementById('product-select-all');
-                                            var productCheckboxes = document.querySelectorAll('.product-select');
-                                            productCheckboxes.forEach(function (checkbox) {
-                                                checkbox.checked = selectAllCheckbox.checked;
-                                            });
-                                        }
-                                        // Attach the updateProductSelection function to the change event of the 'select all' checkbox
-                                        document.getElementById('product-select-all').addEventListener('change', updateProductSelection);
-                                    });
-</script>
-
-<script>
-
-    Validator({
-        form: '#order-form',
-        errorSelector: '.form-message',
-        formGroupSelector: '.form-group',
-        rules: [
-            Validator.isRequired('#address', 'Please enter your address!'),
-            Validator.minLength('#address', 18, 'Please enter your address correctly and clearly to receive the items!'),
-            Validator.isRequired('#phone', 'Please enter your phone number!'),
-            Validator.isNumber('#phone', 'Please enter correct phone number!')
-        ]
-    });
-</script>
-
 <script src="<c:url value='/template/web/assets/js/cart/cart.js'/>"></script>
+<script src="<c:url value='/template/web/assets/js/validator/validator.js'/>"></script>
+
+
+<script>
+                                // Wait for the DOM to be ready
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    // Function to update all product checkboxes based on the 'select all' checkbox
+                                    function updateProductSelection() {
+                                        var selectAllCheckbox = document.getElementById('product-select-all');
+                                        var productCheckboxes = document.querySelectorAll('.product-select');
+                                        productCheckboxes.forEach(function (checkbox) {
+                                            checkbox.checked = selectAllCheckbox.checked;
+                                        });
+                                    }
+                                    // Attach the updateProductSelection function to the change event of the 'select all' checkbox
+                                    document.getElementById('product-select-all').addEventListener('change', updateProductSelection);
+                                });
+</script>
 
 <%@ include file="/common/web/footer.jsp"%>

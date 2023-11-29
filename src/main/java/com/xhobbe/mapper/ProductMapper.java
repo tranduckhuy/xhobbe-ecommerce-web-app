@@ -23,6 +23,8 @@ public class ProductMapper implements RowMapper<Product>{
             product.setBrand(rs.getString("brandName"));
             product.setPrice(rs.getDouble("price"));
             product.setCategory(rs.getString("categoryName"));
+            product.setCategoryId(rs.getInt("categoryId"));
+            product.setBrandId((rs.getInt("brandId")));
             product.setStockQuantity(rs.getInt("stockQuantity"));
             
             // Time

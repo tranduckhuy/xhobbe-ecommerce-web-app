@@ -1,9 +1,12 @@
 package com.xhobbe.service.impl;
 
 import com.xhobbe.dao.ICartDAO;
+import com.xhobbe.dao.IProductDAO;
 import com.xhobbe.model.Cart;
+import com.xhobbe.model.Product;
 import com.xhobbe.service.ICartService;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.inject.Inject;
 
 /**
@@ -14,6 +17,9 @@ public class CartService implements ICartService {
 
     @Inject
     ICartDAO cartDAO;
+    
+    @Inject
+    IProductDAO productDAO;
 
     @Override
     public Long add(Cart cart) {
@@ -37,6 +43,18 @@ public class CartService implements ICartService {
     public List<Cart> findByUserId(long userId) {
         
         List<Cart> listCart = cartDAO.findByUserId(userId);
+        
+        for (Cart cart : listCart) {
+            
+            Product product = productDAO.findOne(cart.getProductId());
+            
+            if (product.getStockQuantity() > 0 && cart.getQuantity() > product.getStockQuantity()) {
+                cart.setQuantity(1);
+                cartDAO.updateQuantity(cart.getQuantity(), cart.getCartId());
+            } else if (product.getStockQuantity() == 0) {
+                listCart = listCart.stream().filter(c -> !c.equals(cart)).collect(Collectors.toList());
+            } 
+        }
         
         listCart.forEach(cart -> cart.setTotal(cart.getPrice() * cart.getQuantity()));
         

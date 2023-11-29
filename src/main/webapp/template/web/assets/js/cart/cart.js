@@ -77,15 +77,28 @@ document.addEventListener('DOMContentLoaded', function () {
     updateTotal();
 });
 
+function validateAndOrder() {
 
-function orderProducts() {
+    var phone = $("#phone").val().trim();
+    var address = $("#address").val().trim();
 
+    $(".form-message").text("");
+
+    if (!/^\d{10}$/.test(phone)) {
+        $("#phone + .form-message").text("Please enter a valid 10-digit phone number.");
+    } else if (address === '' || address.length < 18) {
+        $("#address + .form-message").text("Please enter a valid delivery address to receive the items.");
+    } else {
+        orderProducts(phone, address);
+    }
+
+}
+
+function orderProducts(phone, address) {
     let selectedCartIds = [];
     let cartSelected = document.getElementsByClassName('product-select');
-    //    var cartSelected = $("input[name = 'product-select']");
+    //    let cartSelected = $("input[name = 'product-select']");
     let shipping = $("input[name='shipping']:checked").val();
-    let phone = $('#phone').val();
-    let address = $('#address').val();
     let total = $('#total-price').text();
 
     for (var i = 0; i < cartSelected.length; i++) {
@@ -93,7 +106,7 @@ function orderProducts() {
             selectedCartIds.push(cartSelected[i].value);
         }
     }
-    
+
     $.ajax({
         type: 'POST',
         url: './order?action=add',
@@ -106,8 +119,9 @@ function orderProducts() {
         },
         cache: false,
         success: function (response) {
-            window.location.href = './order';
             console.log('Action performed successfully:', response);
+            window.location.href = './order';
+
         },
         error: function (error) {
             console.error('Error performing action:', error);

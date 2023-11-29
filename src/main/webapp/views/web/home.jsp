@@ -284,7 +284,13 @@
                         <c:set var="firstProduct" value="${list[0]}" />
                         <div class="product product-2">
                             <figure class="product-media px-4 ${firstProduct.category != 'Laptop' ? 'pt-3' : 'pt-9'}">
-                                <span class="product-label label-circle label-top">Top</span>
+                                <c:if test="${firstProduct.stockQuantity > 0}">
+                                    <span class="product-label label-circle label-top">Top</span>
+                                </c:if>
+                                <c:if test="${firstProduct.stockQuantity == 0}">
+                                    <span class="product-label label-circle label-top">Sold Out</span>
+                                </c:if>
+
                                 <a href="./product?action=detail&id=${firstProduct.productId}">
                                     <img src="${firstProduct.getImageURL().get(0)}" alt="Product image"
                                          class="product-image product-image-edit">
@@ -300,9 +306,16 @@
                                         <input type="hidden" name="id" value="${firstProduct.productId}">
                                         <input type="hidden" name="action" value="add">
                                         <input type="hidden" name="quantity" value="1">
-                                        <button type="submit" class="btn-product btn-cart mx-10" style="border: none; background-color: #f6f7fa">
-                                            <span>add to cart</span>
-                                        </button>
+                                        <c:if test="${firstProduct.stockQuantity > 0}">
+                                            <button type="submit" class="btn-product btn-cart mx-10" style="border: none; background-color: #f6f7fa">
+                                                <span>add to cart</span>
+                                            </button>
+                                        </c:if>
+                                        <c:if test="${firstProduct.stockQuantity == 0}">
+                                            <a class="btn-product btn-cart mx-10" style="border: none; background-color: #f6f7fa;">
+                                                <span>Out of stock</span>
+                                            </a>
+                                        </c:if>
 
                                         <a href="./home?action=quickView&id=${firstProduct.productId}" class="btn-product btn-quickview"
                                            title="Quick view"><span>quick view</span></a>
@@ -334,6 +347,12 @@
                         <c:set var="secondProduct" value="${list[1]}" />
                         <div class="product product-2">
                             <figure class="product-media px-4 ${secondProduct.category != 'Laptop' ? 'pt-3' : 'pt-9'}">
+                                <c:if test="${secondProduct.stockQuantity == 0}">
+                                    <span class="product-label label-circle label-top">Sold Out</span>
+                                </c:if>
+                                <c:if test="${secondProduct.stockQuantity > 0}">
+                                    <span class="product-label label-circle label-new">New</span>
+                                </c:if>
                                 <a href="./product?action=detail&id=${secondProduct.productId}">
                                     <img src="${secondProduct.getImageURL().get(0)}" alt="Product image"
                                          class="product-image product-image-edit">
@@ -382,7 +401,12 @@
                         <c:set var="thirdProduct" value="${list[2]}" />
                         <div class="product product-2">
                             <figure class="product-media px-4 ${thirdProduct.category != 'Laptop' ? 'pt-3' : 'pt-9'}">
-                                <span class="product-label label-circle label-new">New</span>
+                                <c:if test="${thirdProduct.stockQuantity > 0}">
+                                    <span class="product-label label-circle label-new">New</span>
+                                </c:if>
+                                <c:if test="${thirdProduct.stockQuantity == 0}">
+                                    <span class="product-label label-circle label-top">Sold Out</span>
+                                </c:if>
                                 <a href="./product?action=detail&id=${thirdProduct.productId}">
                                     <img src="${thirdProduct.getImageURL().get(0)}" alt="Product image"
                                          class="product-image product-image-edit">
@@ -438,7 +462,12 @@
                         <c:set var="fourthProduct" value="${list[3]}" />
                         <div class="product product-2">
                             <figure class="product-media px-4 ${fourthProduct.category != 'Laptop' ? 'pt-3' : 'pt-9'}">
-                                <span class="product-label label-circle label-top">Top</span>
+                                <c:if test="${fourthProduct.stockQuantity > 0}">
+                                    <span class="product-label label-circle label-top">Top</span>
+                                </c:if>
+                                <c:if test="${fourthProduct.stockQuantity == 0}">
+                                    <span class="product-label label-circle label-top">Sold Out</span>
+                                </c:if>
                                 <span class="product-label label-circle label-sale">Sale</span>
                                 <a href="./product?action=detail&id=${fourthProduct.productId}">
                                     <img src="${fourthProduct.getImageURL().get(0)}" alt="Product image"
@@ -496,7 +525,12 @@
                     <c:set var="fifthProduct" value="${list[4]}" />
                     <div class="product product-2">
                         <figure class="product-media px-4 ${fifthProduct.category != 'Laptop' ? 'pt-3' : 'pt-9'}">
-                            <span class="product-label label-circle label-top">Top</span>
+                            <c:if test="${fifthProduct.stockQuantity > 0}">
+                                <span class="product-label label-circle label-top">Top</span>
+                            </c:if>
+                            <c:if test="${fifthProduct.stockQuantity == 0}">
+                                <span class="product-label label-circle label-top">Sold Out</span>
+                            </c:if>
                             <a href="./product?action=detail&id=${fifthProduct.productId}">
                                 <img src="${fifthProduct.getImageURL().get(0)}" alt="Product image"
                                      class="product-image product-image-edit">

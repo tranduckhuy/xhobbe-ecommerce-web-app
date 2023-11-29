@@ -25,6 +25,11 @@
 
     <div class="page-content">
         <div class="container">
+            <c:forEach var="ep" items="${errorProduct}">
+                <div class="alert alert-danger text-center my-3" role="alert" style="margin: 0; padding: 4px">
+                    The number available products of ${ep} is out of stock.
+                </div>
+            </c:forEach>
             <div class="row">
                 <div class="col-md-12">
                     <ul class="nav nav-tabs" id="tabs-2" role="tablist">

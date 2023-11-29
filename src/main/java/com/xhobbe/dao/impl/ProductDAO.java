@@ -1,6 +1,8 @@
 package com.xhobbe.dao.impl;
 
+import com.xhobbe.constant.AppConstant;
 import com.xhobbe.dao.IProductDAO;
+import com.xhobbe.findRequest.FindRequest;
 import com.xhobbe.mapper.ProductMapper;
 import com.xhobbe.mapper.RowMapper;
 import com.xhobbe.model.Product;
@@ -39,13 +41,11 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
         }
     }
 
-    
-
     private List<String> queryImages(Long id) {
-        
+
         String sqlImage = "SELECT pi.imageUrl FROM product AS p "
-            + "JOIN productImage AS pi ON p.productId = pi.productId "
-            + "WHERE p.productId = ?";
+                + "JOIN productImage AS pi ON p.productId = pi.productId "
+                + "WHERE p.productId = ?";
 
         try ( Connection conn = getConnection();  PreparedStatement ps = conn.prepareStatement(sqlImage)) {
             List<String> imageURL = new ArrayList<>();
@@ -57,14 +57,14 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
             }
             return imageURL;
         } catch (SQLException e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
             return Collections.EMPTY_LIST;
         }
     }
 
     @Override
     public Product findOne(long id) {
-        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity, createdAt ");
+        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, p.categoryId, p.brandId, stockQuantity, createdAt ");
         sql.append("FROM product AS p ");
         sql.append("JOIN category AS c ON p.categoryId = c.categoryId ");
         sql.append("JOIN brand AS b ON p.brandId = b.brandId ");
@@ -79,16 +79,16 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
         StringBuilder sql = new StringBuilder("INSERT INTO product ");
         sql.append("(name, description, brandId, price, categoryId, stockQuantity) ");
         sql.append("VALUES (?, ?, ?, ?, ?, ?)");
-        
+
         long id = super.insert(sql.toString(), product.getName(), product.getDescription(), product.getBrandId(),
-                        product.getPrice(), product.getCategoryId(), product.getStockQuantity());
-        
-        String sqlImage =" INSERT INTO productImage (productId, imageUrl) VALUES (?, ?)";
-        
+                product.getPrice(), product.getCategoryId(), product.getStockQuantity());
+
+        String sqlImage = " INSERT INTO productImage (productId, imageUrl) VALUES (?, ?)";
+
         for (String imageURL : product.getImageURL()) {
             super.insert(sqlImage, id, imageURL);
         }
-        
+
         return id;
     }
 
@@ -97,100 +97,106 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
         StringBuilder sql = new StringBuilder("UPDATE product SET ");
         sql.append("name = ?, description = ?, brandId = ?, price = ?, categoryId = ?, stockQuantity = ? ");
         sql.append("WHERE productId = ?");
-        
+
         super.update(sql.toString(), product.getName(), product.getDescription(), product.getBrandId(),
-            product.getPrice(), product.getCategoryId(), product.getStockQuantity(), product.getProductId());
-        
+                product.getPrice(), product.getCategoryId(), product.getStockQuantity(), product.getProductId());
+
         // Delete old images of the product
         String sqlImage = "DELETE FROM productImage WHERE productId = ?";
         super.update(sqlImage, product.getProductId());
-        
+
         // Insert new Images of the product
-        sqlImage =" INSERT INTO productImage (productId, imageUrl) VALUES (?, ?)";
+        sqlImage = " INSERT INTO productImage (productId, imageUrl) VALUES (?, ?)";
         for (String imageURL : product.getImageURL()) {
             super.insert(sqlImage, product.getProductId(), imageURL);
         }
     }
-    
+
     @Override
-    public List<Product> findAll(int limit, int offset, String orderBy, String sortBy) {
-        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity, createdAt ");
+    public List<Product> findAll(FindRequest values) {
+        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, p.categoryId, p.brandId, stockQuantity, createdAt ");
         sql.append("FROM product AS p ");
         sql.append("JOIN category AS c ON p.categoryId = c.categoryId ");
         sql.append("JOIN brand AS b ON p.brandId = b.brandId ");
-        
-        if ("".equals(orderBy)  || "".equals(sortBy)) {
+
+        if ("".equals(values.getOrderBy()) || "".equals(values.getSortBy())) {
         } else {
-            sql.append("ORDER BY ").append(orderBy).append(" ").append(sortBy).append(" ");
+            sql.append("ORDER BY ").append(values.getOrderBy()).append(" ").append(values.getSortBy()).append(" ");
         }
-        
+
         sql.append("LIMIT ? OFFSET ? ");
-        
-        List<Product> listProduct = (List<Product>) this.queryProduct(sql.toString(), new ProductMapper(), 
-                limit, offset);
-        
+
+        List<Product> listProduct = (List<Product>) this.queryProduct(sql.toString(), new ProductMapper(),
+                values.getLimit(), values.getOffset());
+
         return listProduct.isEmpty() ? Collections.EMPTY_LIST : listProduct;
     }
 
     @Override
-    public List<Product> findByCategory(int limit, int offset, String orderBy, String sortBy, String categoryName) {
-        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity, createdAt ");
+    public List<Product> findByCategory(FindRequest values) {
+        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, p.categoryId, p.brandId, stockQuantity, createdAt ");
         sql.append("FROM product AS p ");
         sql.append("JOIN category AS c ON p.categoryId = c.categoryId AND c.categoryName = ? ");
         sql.append("JOIN brand AS b ON p.brandId = b.brandId ");
-        
-        if ("".equals(orderBy)  || "".equals(sortBy)) {
+
+        if ("".equals(values.getOrderBy()) || "".equals(values.getSortBy())) {
         } else {
-            sql.append("ORDER BY ").append(orderBy).append(" ").append(sortBy).append(" ");
+            sql.append("ORDER BY ").append(values.getOrderBy()).append(" ").append(values.getSortBy()).append(" ");
         }
-        
+
         sql.append("LIMIT ? OFFSET ? ");
-        
-        List<Product> listProduct = (List<Product>) this.queryProduct(sql.toString(), new ProductMapper(), 
-                categoryName, limit, offset);
-        
+
+        List<Product> listProduct = (List<Product>) this.queryProduct(sql.toString(), new ProductMapper(),
+                values.getCategory(), values.getLimit(), values.getOffset());
+
         return listProduct.isEmpty() ? Collections.EMPTY_LIST : listProduct;
     }
 
     @Override
-    public List<Product> findByBrand(int limit, int offset, String orderBy, String sortBy, String brandName) {
-        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity, createdAt ");
+    public List<Product> findByBrandAndCategory(FindRequest values) {
+        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, p.categoryId, p.brandId, stockQuantity, createdAt ");
         sql.append("FROM product AS p ");
         sql.append("JOIN category AS c ON p.categoryId = c.categoryId ");
-        sql.append("JOIN brand AS b ON p.brandId = b.brandId AND p.brandName = ? ");
         
-        if ("".equals(orderBy)  || "".equals(sortBy)) {
-        } else {
-            sql.append("ORDER BY ").append(orderBy).append(" ").append(sortBy).append(" ");
+        if (!AppConstant.ALL.equals(values.getCategory())) {
+            sql.append("AND c.categoryName = '").append(values.getCategory()).append("' ");
         }
         
-        sql.append("LIMIT ? OFFSET ? ");
+        sql.append(" JOIN brand AS b ON p.brandId = b.brandId AND b.brandName = ? ");
+
+        if ("".equals(values.getOrderBy()) || "".equals(values.getSortBy())) {
+        } else {
+            sql.append("ORDER BY ").append(values.getOrderBy()).append(" ").append(values.getSortBy()).append(" ");
+        }
         
-        List<Product> listProduct = (List<Product>) this.queryProduct(sql.toString(), new ProductMapper(), 
-                brandName, limit, offset);
+        if (values.getLimit() != 0 || values.getOffset() != 0) {
+            sql.append("LIMIT ").append(values.getLimit()).append(" OFFSET ").append(values.getOffset());
+        }
         
+        List<Product> listProduct = (List<Product>) this.queryProduct(sql.toString(), new ProductMapper(),
+                values.getBrand());
+
         return listProduct.isEmpty() ? Collections.EMPTY_LIST : listProduct;
     }
 
     @Override
     public List<Product> findByName(String name) {
-        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, stockQuantity, createdAt ");
+        StringBuilder sql = new StringBuilder("SELECT productId, name, description, brandName, price, categoryName, p.categoryId, p.brandId, stockQuantity, createdAt ");
         sql.append("FROM product AS p ");
         sql.append("JOIN category AS c ON p.categoryId = c.categoryId ");
         sql.append("JOIN brand AS b ON p.brandId = b.brandId ");
         sql.append("WHERE name LIKE ?");
-        List<Product> listProduct = (List<Product>) this.queryProduct(sql.toString(), new ProductMapper(), "%"+ name + "%");
-        
+        List<Product> listProduct = (List<Product>) this.queryProduct(sql.toString(), new ProductMapper(), "%" + name + "%");
+
         return listProduct.isEmpty() ? Collections.EMPTY_LIST : listProduct;
     }
 
-    
     @Override
     public int getTotalItem() {
         String sql = "SELECT count(*) FROM product";
         return count(sql);
     }
-    
+
     @Override
     public int getTotalItem(int categoryId) {
         String sql = "SELECT count(*) FROM product WHERE categoryId = ?";

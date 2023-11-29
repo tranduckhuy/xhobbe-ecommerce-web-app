@@ -2,6 +2,7 @@ package com.xhobbe.controller.web;
 
 import com.xhobbe.constant.ActionConstant;
 import com.xhobbe.constant.AppConstant;
+import com.xhobbe.findRequest.FindRequest;
 import com.xhobbe.model.Product;
 import com.xhobbe.model.User;
 import com.xhobbe.service.ICartService;
@@ -30,7 +31,7 @@ public class HomeController extends HttpServlet {
 
     @Inject
     IOrderService orderService;
-    
+
     @Inject
     IProductService productService;
 
@@ -42,7 +43,7 @@ public class HomeController extends HttpServlet {
         User user = (User) SessionUtils.getInstance().getValue(request, "user");
 
         if (user != null) {
-            request.setAttribute("totalCart", cartService.getTotalItemByUserId(user.getUserId()));
+            request.setAttribute("totalCart", cartService.findByUserId(user.getUserId()).size());
             request.setAttribute("totalOrder", orderService.getTotalItemByUserIdAndStatus(
                     user.getUserId(), AppConstant.PENDING_SHIPPED_STATUS_ID));
         }
@@ -51,8 +52,13 @@ public class HomeController extends HttpServlet {
             quickView(request, response);
             return;
         }
-        
-        List<Product> list = productService.findAll(5, 0, "createdAt", "DESC");
+
+        FindRequest requestValues = new FindRequest();
+        requestValues.setLimit(5);
+        requestValues.setOffset(0);
+        requestValues.setOrderBy("createdAt");
+        requestValues.setSortBy("DESC");
+        List<Product> list = productService.findAll(requestValues);
         request.setAttribute(AppConstant.LIST, list);
         request.getRequestDispatcher("/views/web/home.jsp").forward(request, response);
     }

@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.xhobbe.constant.ActionConstant;
 import com.xhobbe.constant.AppConstant;
 import com.xhobbe.constant.CategoryConstant;
+import com.xhobbe.findRequest.FindRequest;
 import com.xhobbe.model.Product;
 import com.xhobbe.model.User;
 import com.xhobbe.service.ICartService;
@@ -57,10 +58,10 @@ public class ProductController extends HttpServlet {
                 listProduct(request, response);
                 break;
             case ActionConstant.DETAIL:
-                getDetailProduct(request, response, ActionConstant.DETAIL);
+                getDetailProduct(request, response);
                 break;
             case ActionConstant.QUICKVIEW:
-                getDetailProduct(request, response, ActionConstant.QUICKVIEW);
+                getDetailProduct(request, response);
                 break;
             case ActionConstant.LOADMORE:
                 loadMoreProduct(request, response);
@@ -92,11 +93,15 @@ public class ProductController extends HttpServlet {
             response.sendRedirect(PRODUCT_URL);
             return;
         } else {
+            FindRequest requestValues = new FindRequest();
+            requestValues.setLimit(8);
+            requestValues.setOffset(0);
             switch (category) {
                 case AppConstant.ALL:
                     request.setAttribute("total", productService.getTotalItem());
                     request.setAttribute("category", category);
-                    list = productService.findAll(4, 0, "", "");
+
+                    list = productService.findAll(requestValues);
                     break;
                 case CategoryConstant.PHONE:
                 case CategoryConstant.LAPTOP:
@@ -104,7 +109,8 @@ public class ProductController extends HttpServlet {
                 case CategoryConstant.ACCESSORIES:
                     request.setAttribute("total", productService.getTotalItem(CategoryUtils.getCategoryId(category)));
                     request.setAttribute("category", category);
-                    list = productService.findByCategory(10, 0, "", "", category);
+                    requestValues.setCategory(category);
+                    list = productService.findByCategory(requestValues);
                     break;
                 default:
                     request.setAttribute("total", productService.getTotalItem());
@@ -117,7 +123,7 @@ public class ProductController extends HttpServlet {
         // badge alert
         User user = (User) SessionUtils.getInstance().getValue(request, "user");
         if (user != null) {
-            request.setAttribute("totalCart", cartService.getTotalItemByUserId(user.getUserId()));
+            request.setAttribute("totalCart", cartService.findByUserId(user.getUserId()).size());
             request.setAttribute("totalOrder", orderService.getTotalItemByUserIdAndStatus(
                     user.getUserId(), AppConstant.PENDING_SHIPPED_STATUS_ID));
         }
@@ -127,7 +133,7 @@ public class ProductController extends HttpServlet {
 
     }
 
-    private void getDetailProduct(HttpServletRequest request, HttpServletResponse response, String action) throws IOException, ServletException {
+    private void getDetailProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         Long id = UtilsValidType.getLong(request.getParameter("id"));
 
@@ -144,20 +150,35 @@ public class ProductController extends HttpServlet {
 
     private void getSearchProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        String searchValue = request.getParameter("search");
+        String brand = request.getParameter("brand");
+        String category = request.getParameter("category");
 
-        List<Product> list = productService.findByName(searchValue);
+        if (brand == null || brand.isEmpty() || category == null || category.isEmpty()) {
+            String searchValue = request.getParameter("search");
+            List<Product> list = productService.findByName(searchValue);
+            request.setAttribute("total", list.size());
+            request.setAttribute(AppConstant.LIST, list);
+            request.getRequestDispatcher("/views/web/productList.jsp").forward(request, response);
+        } else {
+            FindRequest requestValues = new FindRequest();
+            requestValues.setBrand(brand);
+            requestValues.setCategory(category);
+            List<Product> list = productService.findByBrandAndCategory(requestValues);
 
-        request.setAttribute("total", list.size());
-        request.setAttribute(AppConstant.LIST, list);
-        request.getRequestDispatcher("/views/web/productList.jsp").forward(request, response);
+            String json = new Gson().toJson(list);
+
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
+        }
+
     }
 
     private void loadMoreProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String category = request.getParameter("category");
         int offset = UtilsValidType.getInteger(request.getParameter("currentTotal"));
-        int limit = 4;
+        int limit = 8;
 
         List<Product> list;
 
@@ -165,15 +186,19 @@ public class ProductController extends HttpServlet {
             response.sendRedirect(PRODUCT_URL);
             return;
         } else {
+            FindRequest requestValues = new FindRequest();
+            requestValues.setLimit(limit);
+            requestValues.setOffset(offset);
             switch (category) {
                 case AppConstant.ALL:
-                    list = productService.findAll(4, offset, "", "");
+                    list = productService.findAll(requestValues);
                     break;
                 case CategoryConstant.PHONE:
                 case CategoryConstant.LAPTOP:
                 case CategoryConstant.IPAD:
                 case CategoryConstant.ACCESSORIES:
-                    list = productService.findByCategory(limit, offset, "", "", category);
+                    requestValues.setCategory(category);
+                    list = productService.findByCategory(requestValues);
                     break;
                 default:
                     response.sendRedirect(PRODUCT_URL);
@@ -182,7 +207,6 @@ public class ProductController extends HttpServlet {
         }
 
         String json = new Gson().toJson(list);
-        System.out.println(json);
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");

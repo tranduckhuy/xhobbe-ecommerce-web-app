@@ -25,15 +25,15 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "admin-order", urlPatterns = {"/admin-order"})
 public class OrderController extends HttpServlet {
-    
+
     private static final String ORDER_LIST_URL = "./admin-order";
 
     @Inject
     IOrderService orderService;
-    
+
     @Inject
     IUserService userService;
-    
+
     @Inject
     IOrderDetailService orderDetailService;
 
@@ -42,16 +42,16 @@ public class OrderController extends HttpServlet {
             throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-        
+
         User userSession = (User) SessionUtils.getInstance().getValue(request, "user");
         User actutalUserStatus = userService.findOne(userSession.getEmail());
-        
+
         if (actutalUserStatus == null || actutalUserStatus.getRoleId() != 1 && actutalUserStatus.getRoleId() != 2) {
             SessionUtils.getInstance().removeValue(request, "user");
             response.sendRedirect("./");
             return;
         }
-        
+
         String action = request.getParameter("action");
 
         request.setAttribute(AppConstant.TOTAL, orderService.getTotalItemByStatus(1));
@@ -110,7 +110,7 @@ public class OrderController extends HttpServlet {
             response.sendRedirect(ORDER_LIST_URL);
             return;
         }
-        
+
         List<OrderDetail> orderDetail = orderDetailService.findByOrderId(orderId);
 
         if (orderDetail == null || orderDetail.isEmpty()) {
@@ -124,16 +124,16 @@ public class OrderController extends HttpServlet {
     }
 
     private void getSearchOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         request.getRequestDispatcher("/views/admin/orderList.jsp").forward(request, response);
     }
 
     private void deleteOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
         long id = UtilsValidType.getLong(request.getParameter("id"));
-        
+
         if (id == -1) {
             response.sendRedirect(ORDER_LIST_URL);
             return;
@@ -149,15 +149,18 @@ public class OrderController extends HttpServlet {
             response.sendRedirect(ORDER_LIST_URL);
             return;
         }
-        
+
         Order order = orderService.findOne(id);
         if (AppConstant.PENDING.equals(order.getStatus())) {
-            orderService.updateStatus(id, 2);
+            List<String> productNames = orderService.updateStatus(id, 2);
+
+            if (!productNames.isEmpty()) {
+                request.setAttribute("productError", productNames);
+            }
         } else if (AppConstant.SHIPPED.equals(order.getStatus())) {
             orderService.updateStatus(id, 3);
-        } 
-        
-        response.sendRedirect(ORDER_LIST_URL);
+        }
+        request.getRequestDispatcher("/views/admin/orderList.jsp").forward(request, response);
     }
 
 }

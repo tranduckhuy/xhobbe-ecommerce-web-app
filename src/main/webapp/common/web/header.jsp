@@ -65,6 +65,7 @@
                                 <a href="#"><i class="fa-solid fa-bars"></i></a>
                                 <ul style="white-space: nowrap">
                                     <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
+                                    <li><a href="./blog">Blog</a></li>
                                     <li><a href="./about">About Us</a></li>
                                     <li><a href="./contact">Contact Us</a></li>
                                     <c:if test="${user != null}">

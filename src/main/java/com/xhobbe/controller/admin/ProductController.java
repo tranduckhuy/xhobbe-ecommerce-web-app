@@ -3,10 +3,12 @@ package com.xhobbe.controller.admin;
 import com.xhobbe.constant.ActionConstant;
 import com.xhobbe.constant.AppConstant;
 import com.xhobbe.constant.CategoryConstant;
+import com.xhobbe.findRequest.FindRequest;
 import com.xhobbe.model.Product;
 import com.xhobbe.model.User;
 import com.xhobbe.service.IProductService;
 import com.xhobbe.service.IUserService;
+import com.xhobbe.utils.CategoryUtils;
 import com.xhobbe.utils.ProductUtils;
 import com.xhobbe.utils.SessionUtils;
 import com.xhobbe.utils.UtilsValidType;
@@ -33,7 +35,7 @@ public class ProductController extends HttpServlet {
 
     @Inject
     IUserService userService;
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -42,13 +44,13 @@ public class ProductController extends HttpServlet {
         // Check actual current user information in database if not match remove session
         User userSession = (User) SessionUtils.getInstance().getValue(request, "user");
         User currentUserStatus = userService.findOne(userSession.getEmail());
-        
+
         if (currentUserStatus == null || currentUserStatus.getRoleId() != 1 && currentUserStatus.getRoleId() != 2) {
             SessionUtils.getInstance().removeValue(request, "user");
             response.sendRedirect("./");
             return;
         }
-        
+
         String action = request.getParameter("action");
 
         if (action == null) {
@@ -80,7 +82,7 @@ public class ProductController extends HttpServlet {
             throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
-        
+
         String action = request.getParameter("action");
 
         if (action == null) {
@@ -103,22 +105,39 @@ public class ProductController extends HttpServlet {
     private void listProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String category = request.getParameter("category");
-
+        int pageNum = UtilsValidType.getInteger(request.getParameter("page"));
+        
+        int offset = pageNum;
+        if (offset == -1) {
+            offset = 0;
+            pageNum = 1;
+        } else {
+            offset = (offset-1) * 8;
+        }
+        
         List<Product> list;
         if (CategoryConstant.PHONE.equals(category) || CategoryConstant.LAPTOP.equals(category)
                 || CategoryConstant.IPAD.equals(category) || CategoryConstant.ACCESSORIES.equals(category)) {
-            list = productService.findByCategory(10, 0, "", "", category);
+            FindRequest requestValues = new FindRequest();
+            requestValues.setLimit(8);
+            requestValues.setOffset(offset);
+            requestValues.setCategory(category);
+            list = productService.findByCategory(requestValues);
         } else {
             response.sendRedirect("./admin");
             return;
         }
+        
+        int total = productService.getTotalItem(CategoryUtils.getCategoryId(category));
+        request.setAttribute("pageNum", pageNum);
+        request.setAttribute("total", total);
         request.setAttribute(AppConstant.LIST, list);
 
         request.getRequestDispatcher("/views/admin/productList.jsp").forward(request, response);
 
     }
 
-    private void add(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException  {
+    private void add(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         Product product = ProductUtils.getParamAndCreateProduct(request, ActionConstant.ADD);
 
@@ -128,36 +147,36 @@ public class ProductController extends HttpServlet {
             response.sendRedirect("./admin-product?action=add");
             return;
         }
-        response.sendRedirect("admin-product?action=list&category="+ product.getCategory());
+        response.sendRedirect("admin-product?action=list&category=" + product.getCategory());
     }
 
     private void getFormEdit(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Long id = UtilsValidType.getLong(request.getParameter("id"));
-        
+
         Product product = productService.findOne(id);
-        
+
         request.setAttribute(AppConstant.PRODUCT, product);
         request.getRequestDispatcher("/views/admin/productEdit.jsp").forward(request, response);
     }
-    
+
     private void postFormEdit(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        
+
         Long id = UtilsValidType.getLong(request.getParameter("id"));
-        
+
         Product product = productService.findOne(id);
-        
+
         Product editProduct = ProductUtils.getParamAndCreateProduct(request, ActionConstant.EDIT, product);
         editProduct.setProductId(id);
-        
+
         productService.update(editProduct);
-        
+
         response.sendRedirect("./admin-product?action=list&category=" + product.getCategory());
     }
-    
+
     private void getDetailProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        
+
         Long id = UtilsValidType.getLong(request.getParameter("id"));
-        
+
         Product product = productService.findOne(id);
 
         request.setAttribute(AppConstant.PRODUCT, product);
