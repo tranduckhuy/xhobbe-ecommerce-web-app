@@ -1,6 +1,7 @@
 package com.xhobbe.dao.impl;
 
 import com.xhobbe.dao.IUserDAO;
+import com.xhobbe.findRequest.FindRequest;
 import com.xhobbe.mapper.UserMapper;
 import com.xhobbe.model.User;
 import java.util.List;
@@ -26,9 +27,9 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
     }
 
     @Override
-    public List<User> findByRole(int roleId) {
-        String sql = "SELECT u.*, r.roleName FROM user AS u JOIN role AS r ON u.roleId = r.roleId WHERE u.roleId = ? ";
-        return query(sql, new UserMapper(), roleId);
+    public List<User> findByRole(FindRequest values) {
+        String sql = "SELECT u.*, r.roleName FROM user AS u JOIN role AS r ON u.roleId = r.roleId WHERE u.roleId = ? LIMIT ? OFFSET ?";
+        return query(sql, new UserMapper(), values.getRoleId(), values.getLimit(), values.getOffset());
     }
 
     @Override
@@ -76,6 +77,12 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
     public int countTotalItem() {
         String sql = "SELECT COUNT(*) FROM user";
         return count(sql);
+    }
+    
+    @Override
+    public int countTotalItemByRoleId(int roleId) {
+        String sql = "SELECT COUNT(*) FROM user WHERE roleId = ?";
+        return count(sql, roleId);
     }
 
     @Override

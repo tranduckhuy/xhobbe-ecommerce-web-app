@@ -55,7 +55,7 @@ public class HomeController extends HttpServlet {
         request.setAttribute("totalOrders", orderService.getTotalItemCurrentMonth());
         request.setAttribute("totalUsers", userService.countTotalItem());
         
-        request.setAttribute(AppConstant.TOTAL, orderService.getTotalItemByStatus(1));
+        request.setAttribute(AppConstant.TOTAL_ORDER, orderService.getTotalItemByStatus(1));
         response.setContentType("text/html;charset=UTF-8");
         request.getRequestDispatcher("/views/admin/index.jsp").forward(request, response);
     }

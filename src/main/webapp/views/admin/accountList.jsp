@@ -56,9 +56,9 @@
                     </div>
                     <div class="card-style mb-30">
                         <div class="d-flex justify-content-start mb-2">
-                            <a href="./admin-account?action=add" class="my-btn">
-                                Add new <i class="fa-solid fa-plus"></i>
-                            </a>
+                            <!--                            <a href="#!" class="my-btn">
+                                                            Add new <i class="fa-solid fa-plus"></i>
+                                                        </a>-->
                         </div>
                         <div class="table-wrapper table-responsive">
                             <table class="table">
@@ -130,7 +130,36 @@
         <!-- ========== tables-wrapper end ========== -->
     </div>
     <!-- end container -->
+    <c:if test="${list != null && !list.isEmpty()}">
+        <nav aria-label="..." class="d-flex justify-content-center mb-4">
+            <ul class="pagination pagination-circle">
+                <c:if test="${pageNum > 1}">
+                    <li class="page-item">
+                        <a class="page-link" href="./admin-account?action=list&role=${list.get(0).roleId}&page=${pageNum - 1}">Previous</a>
+                    </li>
+                </c:if>
+
+                <li class="page-item ${(pageNum == 1) ? " active" : ""}" aria-current="page">
+                    <a class="page-link" href="./admin-account?action=list&role=${list.get(0).roleId}&page=1">1</a>
+                </li>
+
+                <c:if test="${total > 8}">
+                    <c:forEach var = "i" begin = "0" end="${(total - 8) / 8}">
+                        <li class="page-item ${(pageNum == (i + 2)) ? ' active' : ''}">
+                            <a class="page-link" href="./admin-account?action=list&role=${list.get(0).roleId}&page=${i + 2}">${i + 2}</a>
+                        </li>
+                    </c:forEach>
+                </c:if>
+                <c:if test="${pageNum < fn:substringBefore((total div 8), '.') + 1}">
+                    <li class="page-item">
+                        <a class="page-link" href="./admin-account?action=list&role=${list.get(0).roleId}&page=${pageNum + 1}">Next</a>
+                    </li>
+                </c:if>
+            </ul>
+        </nav>
+    </c:if>
 </section>
+
 <!-- ========== table components end ========== -->
 
 <script src="<c:url value='/template/admin/assets/js/popup/popupDelete.js'/>"></script>
@@ -141,30 +170,30 @@
 <!-- SweetAlert -->
 <script src="<c:url value='/template/admin/assets/js/sweetalert.min.js'/>"></script>
 <script>
-    // Get the full URL
-    let url = window.location.href;
-    // Use URLSearchParams to extract parameters
-    let urlParams = new URLSearchParams(url);
-    // Get the value of the 'category' parameter
+                                                        // Get the full URL
+                                                        let url = window.location.href;
+                                                        // Use URLSearchParams to extract parameters
+                                                        let urlParams = new URLSearchParams(url);
+                                                        // Get the value of the 'category' parameter
 
-    let alertMessage = urlParams.get('message');
-    let alertSuccess = document.getElementById('alertSuccess');
-    let alertFail = document.getElementById('alertFail');
+                                                        let alertMessage = urlParams.get('message');
+                                                        let alertSuccess = document.getElementById('alertSuccess');
+                                                        let alertFail = document.getElementById('alertFail');
 
-    console.log(alertMessage);
-    console.log(alertSuccess);
-    console.log(alertFail);
+                                                        console.log(alertMessage);
+                                                        console.log(alertSuccess);
+                                                        console.log(alertFail);
 
-    if (alertMessage !== null) {
-        if (alertMessage === 'success') {
-            alertSuccess.style.display = "block";
-        } else if (alertMessage === 'fail') {
-            alertFail.style.display = "block";
-        }
-    } else {
-        alertSuccess.style.display = "none";
-        alertFail.style.display = "none";
-    }
+                                                        if (alertMessage !== null) {
+                                                            if (alertMessage === 'success') {
+                                                                alertSuccess.style.display = "block";
+                                                            } else if (alertMessage === 'fail') {
+                                                                alertFail.style.display = "block";
+                                                            }
+                                                        } else {
+                                                            alertSuccess.style.display = "none";
+                                                            alertFail.style.display = "none";
+                                                        }
 </script>
 
 <%@include file="/common/admin/footer.jsp" %>
