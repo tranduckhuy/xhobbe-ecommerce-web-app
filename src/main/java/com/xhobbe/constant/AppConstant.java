@@ -12,7 +12,7 @@ public class AppConstant {
     public static final String ACTIVE = "active";
     public static final String NOTACTIVE = "notActive";
     public static final String MESSSAGE = "message";
-    public static final String TOTAL = "total";
+    public static final String TOTAL_ORDER = "totalOrder";
 
     public static final String PRODUCT = "product";
     public static final String LIST = "list";

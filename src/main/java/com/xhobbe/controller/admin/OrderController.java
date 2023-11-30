@@ -54,7 +54,7 @@ public class OrderController extends HttpServlet {
 
         String action = request.getParameter("action");
 
-        request.setAttribute(AppConstant.TOTAL, orderService.getTotalItemByStatus(1));
+        request.setAttribute(AppConstant.TOTAL_ORDER, orderService.getTotalItemByStatus(1));
         if (action == null) {
             request.getRequestDispatcher("/views/admin/orderList.jsp").forward(request, response);
             return;

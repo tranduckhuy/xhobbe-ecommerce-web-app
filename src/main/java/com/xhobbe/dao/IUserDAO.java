@@ -1,6 +1,7 @@
 
 package com.xhobbe.dao;
 
+import com.xhobbe.findRequest.FindRequest;
 import com.xhobbe.model.User;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public interface IUserDAO extends GenericDAO<User> {
     
     User findByEmailAndPassword(String email, String password);
 
-    List<User> findByRole(int roleId);
+    List<User> findByRole(FindRequest values);
     
     Long add(User user);
 
@@ -27,4 +28,6 @@ public interface IUserDAO extends GenericDAO<User> {
     void active(User user);
 
     int countTotalItem();
+    
+    int countTotalItemByRoleId(int roleId);
 }

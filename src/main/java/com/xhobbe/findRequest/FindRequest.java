@@ -12,7 +12,8 @@ public class FindRequest {
     private String sortBy = "";
     private String brand = "";
     private String category = "";
-
+    private int roleId;
+    
     public FindRequest() {
     }
 
@@ -63,6 +64,13 @@ public class FindRequest {
     public void setCategory(String category) {
         this.category = category;
     }
-    
+
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
+    }
     
 }

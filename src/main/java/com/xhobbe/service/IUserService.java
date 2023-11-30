@@ -1,5 +1,6 @@
 package com.xhobbe.service;
 
+import com.xhobbe.findRequest.FindRequest;
 import com.xhobbe.model.User;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public interface IUserService {
     
     User changePassword(User user, String oldPassword, String newPassword);
 
-    List<User> findByRole(int roleId);
+    List<User> findByRole(FindRequest values);
 
     User add(User user);
 
@@ -28,4 +29,6 @@ public interface IUserService {
     User active(User user);
         
     int countTotalItem();
+    
+    int countTotalItemByRoleId(int roleId);
 }

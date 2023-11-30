@@ -1,6 +1,7 @@
 package com.xhobbe.service.impl;
 
 import com.xhobbe.dao.IUserDAO;
+import com.xhobbe.findRequest.FindRequest;
 import com.xhobbe.model.User;
 import com.xhobbe.service.IUserService;
 import com.xhobbe.utils.Encode;
@@ -41,8 +42,8 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public List<User> findByRole(int roleId) {
-        return userDAO.findByRole(roleId);
+    public List<User> findByRole(FindRequest values) {
+        return userDAO.findByRole(values);
     }
 
     @Override
@@ -84,6 +85,11 @@ public class UserService implements IUserService {
     @Override
     public int countTotalItem() {
         return userDAO.countTotalItem();
+    }
+    
+    @Override
+    public int countTotalItemByRoleId(int roleId) {
+        return userDAO.countTotalItemByRoleId(roleId);
     }
 
     @Override
