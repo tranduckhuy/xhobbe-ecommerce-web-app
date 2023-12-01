@@ -23,7 +23,7 @@
         </div><!-- End .container -->
     </nav><!-- End .breadcrumb-nav -->
 
-    <div class="page-content">
+    <div class="page-content" style="min-height: 568px;">
         <div class="container">
             <div class="toolbox">
                 <div class="toolbox-left">

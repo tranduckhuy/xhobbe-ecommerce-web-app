@@ -9,9 +9,7 @@ $('.custom-control-input').on('click', function () {
     let selectedBrand = $('input[name="brand"]:checked').val();
 
     let productContainer = $("#productContainer");
-    console.log(productContainer);
     productContainer.html("");
-    console.log(productContainer);
 
     $.ajax({
         type: 'GET',
@@ -86,6 +84,7 @@ $('.custom-control-input').on('click', function () {
             console.log(currentTotal);
             $("#currentProducts").html(currentTotal);
             $("#totalProduct").html(currentTotal);
+            $("#loadMoreBtn").hide();
         },
         error: function (xhr) {
             // Handle errors
