@@ -61,8 +61,33 @@
                             </div><!-- End .product-price -->
 
                             <div class="product-content">
-                                <p>Apple Inc (Apple) designs, manufactures, and markets smartphones, tablets, personal computers, and wearable devices. The company offers software applications and related services, accessories, and third-party digital content.</p>
+                                <c:if test="${product.brand == 'Apple'}">
+                                    <p><strong>Apple </strong>Inc (Apple) designs, manufactures, and markets smartphones, tablets, personal computers, and wearable devices. The company offers software applications and related services, accessories, and third-party digital content.</p>
+                                </c:if>
+                                <c:if test="${product.brand == 'Samsung'}">
+                                    <p>The values that define <strong>Samsung's </strong> spirit</br>
+                                        <strong>Samsung </strong> believes that living by strong values is the key to good business. That’s why these core values, along with a rigorous code of conduct, are at the heart of every decision the company makes.</p>
+                                    </c:if>
+                                    <c:if test="${product.brand eq 'Asus'}">
+                                    <p><strong>Asus </strong> is passionate about technology and driven by innovation. We dream, we dare and we strive to create an effortless and joyful digital life for everyone.</p>
+                                </c:if>
+                                <c:if test="${product.brand eq 'Acer'}">
+                                    <p><strong>Acer, </strong> we are committed to innovating in all aspects of our technology, management, and operations, with concrete actions to ensure we make the maximum positive impact on the social community and the environment.</p>
+                                </c:if>
+                                <c:if test="${product.brand eq 'Xiaomi'}">
+                                    <p><strong>Xiaomi </strong>  is a consumer electronics and smart manufacturing company with smartphones and smart hardware connected by an IoT platform at its core.</p>
+                                </c:if>
+                                <c:if test="${product.brand eq 'MSI'}">
+                                    <p><strong>MSI </strong>  is a world leader in gaming, content creation, business & productivity and AIoT solutions. Bolstered by its cutting-edge R&D capabilities and customer-driven innovation, MSI has a wide-ranging global presence spanning over 120 countries.</p>
+                                </c:if>
+                                <c:if test="${product.brand eq 'Dell'}">
+                                    <p><strong>Dell </strong>  Inc., global company that designs, develops, and manufactures personal computers (PCs) We are among the world's leading technology companies helping to transform people's lives with extraordinary capabilities.</p>
+                                </c:if>
+                                <c:if test="${product.brand eq 'Lenovo'}">
+                                    <p><strong>Lenovo </strong>   Group of China is the world's largest maker of personal computers. Lenovo is a global technology leader that designs, develops, and manufactures innovative products for a wide range of customers.</p>
+                                </c:if>
                             </div><!-- End .product-content -->
+
 
                             <div class="details-filter-row details-row-size">
                                 <label>Color:</label>
