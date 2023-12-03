@@ -16,11 +16,10 @@
                     <div class="title row">
                         <div class="col-md-4"><h3 class="text-danger-emphasis">Orders Manager</h3></div>
                         <div class="col-md-8">
-                            <form class="form-inline my-2 my-lg-0 d-flex gap-2">
-                                <input class="form-control" type="search" id="search" name="search" placeholder="Search (Email or Phone)">
-                                <input type="hidden" name="action" id="action" value="search"/>
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                            </form>
+                            <div class="d-flex gap-2">
+                                <input class="form-control" type="search" id="search" name="search" placeholder="Search (Email or Phone)" onkeydown="handleEnter(event)">
+                                <button onclick="searchData()" class="btn btn-outline-success my-2 my-sm-0">Search</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -50,7 +49,7 @@
         <!-- ========== tables-wrapper start ========== -->
         <div class="tables-wrapper">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12" id="defaultTab">
                     <ul class="nav nav-tabs" id="tabs-2" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active tab-link" id="pendingTab" data-bs-toggle="tab" href="#Pending" role="tab" aria-controls="tab-5" aria-selected="true">Pending</a>
@@ -225,7 +224,49 @@
                         <!-- .End .tab-pane -->
 
                     </div><!-- End .tab-content -->
-                </div><!-- End .col-md-6 -->
+                </div>
+                <!-- End .col-md-6 -->
+                <div class="col-lg-12" id="searchTab">
+                    <div class="tab-content tab-content-border" id="search-tab-content">
+                        <!-- Pending tab -->
+                        <div class="tab-pane fade show active" id="searchTabContent" role="searchtab" aria-labelledby="search-tab">
+                            <div class="table-wrapper table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">
+                                                <h6>Customer name</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Customer phone</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Delivery address</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Total</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Status</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Order date</h6>
+                                            </th>
+                                            <th class="text-center">
+                                                <h6>Action</h6>
+                                            </th>
+                                        </tr>
+                                        <!-- end table row-->
+                                    </thead>
+                                    <tbody>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div><!-- End .row --> 
         </div><!-- End .page-content -->
         <!-- ========== tables-wrapper end ========== -->
@@ -244,27 +285,65 @@
 
 <script>
     $(document).ready(function () {
+
+        // Get the full URL
         // Handle tab changes
         $('.tab-link').on('shown.bs.tab', function (e) {
             var tabId = $(e.target).attr('href');
             tabId = tabId.substring(1);
             fetchData(tabId);
         });
+    });
 
-        // Initial data load for the active tab
-        var initialTabId = $('.tab-link.active').attr('href');
-        initialTabId = initialTabId.substring(1);
-        console.log(initialTabId);
-        fetchData(initialTabId);
+    // Initial data load for the active tab
+    var initialTabId = $('.tab-link.active').attr('href');
+    initialTabId = initialTabId.substring(1);
+    console.log(initialTabId);
+    fetchData(initialTabId);
 
-        // Function to make AJAX request and update content
-        function fetchData(tabId) {
+    function fetchData(tabId) {
+        $('#defaultTab').css('display', 'block');
+        $('#searchTab').css('display', 'none');
+        $.ajax({
+            url: 'admin-order?action=list&status=' + tabId,
+            method: 'GET',
+            success: function (data) {
+                if (data !== null) {
+                    let tabElement = document.getElementById(tabId);
+                    let tbodyElement = tabElement.querySelector("tbody");
+                    console.log(tbodyElement);
+                    tbodyElement.innerHTML = data; // Update the content of the tab
+                }
+
+            },
+            error: function () {
+                console.error('Error fetching data');
+            }
+        });
+    }
+
+
+    function handleEnter(event) {
+        if (event.key === "Enter") {
+            searchData();
+        }
+    }
+
+    function searchData() {
+        $('#defaultTab').css('display', 'none');
+        $('#searchTab').css('display', 'block');
+        let searchValue = $('#search').val();
+        console.log(searchValue);
+        if (searchValue !== '') {
             $.ajax({
-                url: 'admin-order?action=list&status=' + tabId,
+                url: 'admin-order?action=search',
                 method: 'GET',
+                data: {
+                    search: searchValue
+                },
                 success: function (data) {
                     if (data !== null) {
-                        let tabElement = document.getElementById(tabId);
+                        let tabElement = document.getElementById('searchTabContent');
                         let tbodyElement = tabElement.querySelector("tbody");
                         console.log(tbodyElement);
                         tbodyElement.innerHTML = data; // Update the content of the tab
@@ -273,10 +352,13 @@
                 },
                 error: function () {
                     console.error('Error fetching data');
+                    window.location.href = './admin-order';
                 }
             });
+        } else {
+            fetchData('Pending');
         }
-    });
+    }
 </script>
 
 <!-- ========== table components end ========== -->

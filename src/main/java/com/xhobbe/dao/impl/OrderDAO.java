@@ -58,21 +58,14 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
     }
 
     @Override
-    public List<Order> findAll(int limit, int offset, String orderBy, String sortBy) {
+    public List<Order> findByEmailOrPhone(String searchValue) {
 
         StringBuilder sql = new StringBuilder("SELECT o.orderId, u.userId, u.name, u.phoneNumber, o.deliveryAddress, o.total, o.orderStatusId, s.status, o.orderDate ");
         sql.append("FROM `order` AS o ");
-        sql.append("JOIN `user` AS u ON o.userId = u.userId ");
-        sql.append("JOIN `orderStatusCheck` AS s ON o.orderStatusId = s.orderStatusId ");
+        sql.append("JOIN `user` AS u ON o.userId = u.userId AND (u.email = ? OR u.phoneNumber = ?)");
+        sql.append("JOIN `orderStatusCheck` AS s ON o.orderStatusId = s.orderStatusId");
 
-        if ("".equals(orderBy) || "".equals(sortBy)) {
-        } else {
-            sql.append("ORDER BY ").append(orderBy).append(" ").append(sortBy).append(" ");
-        }
-
-        sql.append("LIMIT ? OFFSET ? ");
-
-        List<Order> resutls = this.queryOrder(sql.toString(), new OrderMapper(), limit, offset);
+        List<Order> resutls = this.queryOrder(sql.toString(), new OrderMapper(), searchValue, searchValue);
 
         return resutls;
     }
@@ -118,7 +111,6 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
         sql.append("FROM `order` AS o ");
         sql.append("JOIN `user` AS u ON o.userId = u.userId ");
         sql.append("JOIN `orderStatusCheck` AS s ON o.orderStatusId = s.orderStatusId ");
-        sql.append("WHERE o.orderId = ?");
 
         List<Order> order = this.queryOrder(sql.toString(), new OrderMapper(), id);
         return order != null ? order.get(0) : null;
@@ -207,7 +199,7 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
     
     public static void main(String[] args) {
         OrderDAO o = new OrderDAO();
-        System.out.println(o.getTotalIncomeByMonth(11));
+        System.out.println(o.findByEmailOrPhone("0987678979"));
     }
     
 }

@@ -52,10 +52,19 @@ public class OrderService implements IOrderService {
     }
 
     @Override
-    public List<Order> findAll(int limit, int offset, String orderBy, String sortBy) {
+    public String findByEmailOrPhone(String searchValue) {
+        List<Order> listOrder = orderDAO.findByEmailOrPhone(searchValue);
+        if (listOrder.isEmpty()) {
+            return "";
+        }
 
-        return orderDAO.findAll(limit, offset, orderBy, sortBy);
+        List<String> results = new ArrayList<>();
 
+        for (Order order : listOrder) {
+            results.add(OrderUtils.getOrderElement(order));
+        }
+
+        return !results.isEmpty() ? String.join("", results) : "";
     }
     
     @Override

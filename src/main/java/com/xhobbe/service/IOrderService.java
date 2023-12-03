@@ -13,7 +13,7 @@ public interface IOrderService {
 
     void delete(long id);
 
-    List<Order> findAll(int limit, int offset, String orderBy, String sortBy);
+    String findByEmailOrPhone(String searchValue);
     
     String findByStatusAndUserId(long userId, String status);
     

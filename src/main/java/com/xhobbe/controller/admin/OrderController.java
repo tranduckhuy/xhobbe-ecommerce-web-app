@@ -42,6 +42,7 @@ public class OrderController extends HttpServlet {
             throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
 
         User userSession = (User) SessionUtils.getInstance().getValue(request, "user");
         User actutalUserStatus = userService.findOne(userSession.getEmail());
@@ -124,10 +125,20 @@ public class OrderController extends HttpServlet {
     }
 
     private void getSearchOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        request.getRequestDispatcher("/views/admin/orderList.jsp").forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+
+        String searchValue = request.getParameter("search");
+
+        if (searchValue == null || searchValue.isEmpty()) {
+            response.sendRedirect(ORDER_LIST_URL);
+            return;
+        }
+        
+        String htmlContent = orderService.findByEmailOrPhone(searchValue);
+
+        response.getWriter().write(htmlContent);
+        
     }
 
     private void deleteOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
