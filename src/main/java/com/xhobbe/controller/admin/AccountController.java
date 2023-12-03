@@ -32,6 +32,15 @@ public class AccountController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
+        User userSession = (User) SessionUtils.getInstance().getValue(request, "user");
+        User actutalUserStatus = userService.findOne(userSession.getEmail());
+
+        if (actutalUserStatus == null || actutalUserStatus.getRoleId() != 1) {
+            SessionUtils.getInstance().removeValue(request, "user");
+            response.sendRedirect("./");
+            return;
+        }
+
         String action = request.getParameter("action");
 
         if (action == null) {
@@ -61,6 +70,15 @@ public class AccountController extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
+
+        User userSession = (User) SessionUtils.getInstance().getValue(request, "user");
+        User actutalUserStatus = userService.findOne(userSession.getEmail());
+
+        if (actutalUserStatus == null || actutalUserStatus.getRoleId() != 1) {
+            SessionUtils.getInstance().removeValue(request, "user");
+            response.sendRedirect("./");
+            return;
+        }
 
         if (action == null) {
             response.sendRedirect("./admin");
@@ -166,11 +184,11 @@ public class AccountController extends HttpServlet {
         user = UserUtils.getUpdateUser(request, user);
 
         if (userService.update(user) != null) {
-            String views = "./admin-account?action=list&role=" + user.getRole() + "&msg=success";
+            String views = "./admin-account?action=list&role=" + user.getRole() + "&message=success";
             System.out.println(views);
             response.sendRedirect(views);
         } else {
-            response.sendRedirect("./admin-account?action=list&msg=fail");
+            response.sendRedirect("./admin-account?action=list&message=fail");
         }
 
     }

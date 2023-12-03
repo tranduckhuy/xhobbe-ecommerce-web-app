@@ -128,3 +128,24 @@ function orderProducts(phone, address) {
         }
     });
 }
+
+
+$('.quantity').on('change', function () {
+    let cartId = this.getAttribute("cart-id");
+    let newQuantity = $(this).val();
+
+    $.ajax({
+        type: 'POST',
+        url: './cart?action=edit',
+        data: {
+            cartId: cartId,
+            newQuantity: newQuantity
+        },
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (error) {
+            console.error('Failed:', error);
+        }
+    });
+});

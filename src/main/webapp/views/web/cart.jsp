@@ -26,6 +26,16 @@
     <div class="page-content">
         <div class="cart">
             <div class="container">
+                <c:if test="${message eq 'success'}">
+                    <div class="alert alert-success text-center" role="alert">
+                        Great job! Your action was successful.
+                    </div>
+                </c:if>
+                <c:if test="${message eq 'success'}">
+                    <div class="alert alert-success text-center" role="alert">
+                        Error: Unable to complete the requested action.
+                    </div>
+                </c:if>
                 <div class="row">
                     <div class="col-lg-9">
                         <table class="table table-cart table-mobile">
@@ -65,7 +75,7 @@
                                             <td class="price-col">${cart.price}$</td>
                                             <td class="quantity-col">
                                                 <div class="cart-product-quantity">
-                                                    <input type="number" class="form-control" value="${cart.quantity}" min="1" max="${cart.productQuantity}" step="1" data-decimals="0" required>
+                                                    <input type="number" class="form-control quantity" value="${cart.quantity}" min="1" max="${cart.productQuantity}" cart-id="${cart.cartId}" step="1" data-decimals="0" required>
                                                 </div><!-- End .cart-product-quantity -->
                                             </td>
                                             <td class="total-col">${cart.total}$</td>
@@ -88,7 +98,7 @@
                                 </form>
                             </div><!-- End .cart-discount -->
 
-                            <a href="#!" class="btn btn-outline-dark-2"><span>UPDATE CART</span><i class="icon-refresh"></i></a>
+                            <!--<button onclick="updateQuantity()" href="#!" class="btn btn-outline-dark-2"><span>UPDATE CART</span><i class="icon-refresh"></i></button>-->
                         </div><!-- End .cart-bottom -->
                     </div><!-- End .col-lg-9 -->
                     <aside class="col-lg-3">

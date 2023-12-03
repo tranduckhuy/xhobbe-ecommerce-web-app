@@ -62,6 +62,9 @@ public class CartController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        request.setCharacterEncoding("UTF-8");
+
         String action = request.getParameter("action");
 
         if (action == null) {
@@ -136,7 +139,16 @@ public class CartController extends HttpServlet {
 
     private void updateCart(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        long cartId = UtilsValidType.getLong(request.getParameter("cartId"));
+        int newQuantity = UtilsValidType.getInteger(request.getParameter("newQuantity"));
+
+        if (cartId == -1 || newQuantity == -1) {
+            response.sendRedirect("./home");
+            return;
+        }
+
+        cartService.updateQuantity(newQuantity, cartId);
+        response.sendRedirect("./cart");
     }
 
 }

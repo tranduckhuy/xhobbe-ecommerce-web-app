@@ -17,13 +17,13 @@ public class CartService implements ICartService {
 
     @Inject
     ICartDAO cartDAO;
-    
+
     @Inject
     IProductDAO productDAO;
 
     @Override
     public Long add(Cart cart) {
-        
+
         Cart cartCheck = cartDAO.findOneByUserIdAndProductId(cart.getUserId(), cart.getProductId());
         if (cartCheck != null) {
             cartDAO.updateQuantity(cartCheck.getQuantity() + cart.getQuantity(), cartCheck.getCartId());
@@ -41,29 +41,29 @@ public class CartService implements ICartService {
 
     @Override
     public List<Cart> findByUserId(long userId) {
-        
+
         List<Cart> listCart = cartDAO.findByUserId(userId);
-        
+
         for (Cart cart : listCart) {
-            
+
             Product product = productDAO.findOne(cart.getProductId());
-            
+
             if (product.getStockQuantity() > 0 && cart.getQuantity() > product.getStockQuantity()) {
                 cart.setQuantity(1);
                 cartDAO.updateQuantity(cart.getQuantity(), cart.getCartId());
             } else if (product.getStockQuantity() == 0) {
                 listCart = listCart.stream().filter(c -> !c.equals(cart)).collect(Collectors.toList());
-            } 
+            }
         }
-        
+
         listCart.forEach(cart -> cart.setTotal(cart.getPrice() * cart.getQuantity()));
-        
+
         return listCart;
     }
 
     @Override
-    public void updateQuantity(int quantity, long cartId) {
-        cartDAO.updateQuantity(quantity, cartId);
+    public void updateQuantity(int newQuantity, long cartId) {
+        cartDAO.updateQuantity(newQuantity, cartId);
     }
 
     @Override
