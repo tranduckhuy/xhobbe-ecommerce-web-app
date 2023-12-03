@@ -15,7 +15,7 @@ public interface ICartService {
 
     List<Cart> findByUserId(long userId);
 
-    void updateQuantity(int quantity, long cartId);
+    void updateQuantity(int newQuantity, long cartId);
 
     void delete(long id);
 

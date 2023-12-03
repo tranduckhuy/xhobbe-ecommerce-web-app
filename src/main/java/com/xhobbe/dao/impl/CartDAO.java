@@ -126,7 +126,7 @@ public class CartDAO extends AbstractDAO<Cart> implements ICartDAO {
                     cart.setQuantity(rs.getInt("c.quantity"));
                     cart.setProductId(rs.getInt("c.productId"));
                     cart.setProductQuantity(rs.getInt("p.stockQuantity"));
-                    cart.setPrice(rs.getInt("p.price"));
+                    cart.setPrice(rs.getDouble("p.price"));
                     return cart;
                 }
             }
