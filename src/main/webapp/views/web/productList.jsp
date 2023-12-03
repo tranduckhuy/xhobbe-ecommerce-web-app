@@ -132,28 +132,28 @@
                             <label><i class="icon-close"></i>Filters</label>
                             <a href="#" class="sidebar-filter-clear">Clean All</a>
                         </div><!-- End .widget -->
-                        <div class="widget widget-collapsible">
-                            <h3 class="widget-title">
-                                <a data-toggle="collapse" href="#widget-3" role="button" aria-expanded="true" aria-controls="widget-3">
-                                    Colour
-                                </a>
-                            </h3><!-- End .widget-title -->
-
-                            <div class="collapse show" id="widget-3">
-                                <div class="widget-body">
-                                    <div class="filter-colors">
-                                        <a href="#" style="background: #b87145;"><span class="sr-only">Color Name</span></a>
-                                        <a href="#" style="background: #f0c04a;"><span class="sr-only">Color Name</span></a>
-                                        <a href="#" style="background: #333333;"><span class="sr-only">Color Name</span></a>
-                                        <a href="#" class="selected" style="background: #cc3333;"><span class="sr-only">Color Name</span></a>
-                                        <a href="#" style="background: #3399cc;"><span class="sr-only">Color Name</span></a>
-                                        <a href="#" style="background: #669933;"><span class="sr-only">Color Name</span></a>
-                                        <a href="#" style="background: #f2719c;"><span class="sr-only">Color Name</span></a>
-                                        <a href="#" style="background: #ebebeb;"><span class="sr-only">Color Name</span></a>
-                                    </div><!-- End .filter-colors -->
-                                </div><!-- End .widget-body -->
-                            </div><!-- End .collapse -->
-                        </div><!-- End .widget -->
+                        <!--                        <div class="widget widget-collapsible">
+                                                    <h3 class="widget-title">
+                                                        <a data-toggle="collapse" href="#widget-3" role="button" aria-expanded="true" aria-controls="widget-3">
+                                                            Colour
+                                                        </a>
+                                                    </h3> End .widget-title 
+                        
+                                                    <div class="collapse show" id="widget-3">
+                                                        <div class="widget-body">
+                                                            <div class="filter-colors">
+                                                                <a href="#" style="background: #b87145;"><span class="sr-only">Color Name</span></a>
+                                                                <a href="#" style="background: #f0c04a;"><span class="sr-only">Color Name</span></a>
+                                                                <a href="#" style="background: #333333;"><span class="sr-only">Color Name</span></a>
+                                                                <a href="#" class="selected" style="background: #cc3333;"><span class="sr-only">Color Name</span></a>
+                                                                <a href="#" style="background: #3399cc;"><span class="sr-only">Color Name</span></a>
+                                                                <a href="#" style="background: #669933;"><span class="sr-only">Color Name</span></a>
+                                                                <a href="#" style="background: #f2719c;"><span class="sr-only">Color Name</span></a>
+                                                                <a href="#" style="background: #ebebeb;"><span class="sr-only">Color Name</span></a>
+                                                            </div> End .filter-colors 
+                                                        </div> End .widget-body 
+                                                    </div> End .collapse 
+                                                </div> End .widget -->
 
                         <div class="widget widget-collapsible">
                             <h3 class="widget-title">
@@ -223,98 +223,96 @@
 
                                     </div><!-- End .filter-items -->
                                 </div><!-- End .widget-body -->
-            </div><!-- End .collapse -->
+                            </div><!-- End .collapse -->
                         </div><!-- End .widget -->
 
-            </div><!-- End .sidebar-filter-wrapper -->
+                    </div><!-- End .sidebar-filter-wrapper -->
                 </aside><!-- End .sidebar-filter -->             </div><!-- End .container -->
         </div><!-- End .page-content -->
     </div><!-- End .page-content -->
-            </main><!-- End .main -->
+</main><!-- End .main -->
 
 
 <script>
 
     // Get the full URL
-            let url = window.location.href;
-            // Use URLSearchParams to extract parameters
-            let urlParams = new URLSearchParams(url);
-            // Get the value of the 'category' parameter     
-             let categoryValue = urlParams.get('category');
-            // set title
-            if (categoryValue !== 'all') {         console.log($('#page-title'));
-            $('#page-title').html('List of ' + categoryValue + 's');
-            } else {
-    $('#page-title').html('List all Devices');
-            }
-            $(document).ready(function () {
-
-            let currentTotal = $('.product').length;
-            $("#currentProducts").html(currentTotal);
-    var total = ${total};
-            console.log("Total: " + total);
-            console.log("CurTotal: " + currentTotal);
-    var loadMoreBtn = $("#loadMoreBtn");
-            if (currentTotal === total) {
-    loadMoreBtn.hide();
-            } else {
-    loadMoreBtn.show();
+    let url = window.location.href;
+    let urlParams = new URLSearchParams(url);
+    let categoryValue = urlParams.get('category');
+    // set title
+    if (categoryValue !== 'all') {
+        console.log($('#page-title'));
+                                    $('#page-title').html('List of ' + categoryValue + 's');
+                                    } else {
+                                    $('#page-title').html('List all Devices');
     }
-            // Attach a click event to the "Load More" button
-                    loadMoreBtn.click(function () {
-                            // Make an AJAX request to the servlet with parameters
-                    let currentTotal = $('.product').length;
-                    $("#currentProducts").html(currentTotal);
-    $.ajax({
-                    url: "product?action=loadMore",
-                    data: {
-                    currentTotal: currentTotal,
-                    category: categoryValue
-            },
+    $(document).ready(function () {
+
+                                    let currentTotal = $('.product').length;
+            $("#currentProducts").html(currentTotal);
+                                    var total = ${total};
+            console.log("Total: " + total);
+                            console.log("CurTotal: " + currentTotal);
+                            var loadMoreBtn = $("#loadMoreBtn");
+                            if (currentTotal === total) {
+    loadMoreBtn.hide();
+    } else {
+                                    loadMoreBtn.show();
+    }
+                                    // Attach a click event to the "Load More" button
+                                    loadMoreBtn.click(function () {
+                                    // Make an AJAX request to the servlet with parameters
+                                    let currentTotal = $('.product').length;
+                            $("#currentProducts").html(currentTotal);
+                            $.ajax({
+                            url: "product?action=loadMore",
+                            data: {
+                            currentTotal: currentTotal,
+                            category: categoryValue
+                    },
                     cache: false,
-            type: "get",
-            success: function (data) {
-                    // Update the product container with the new products
-                    let productContainer = $("#productContainer");
-                            $.each(data, function (index, product) {
-            // Append moreProducts to productContainer
-            let productCart = "<div class='col-sm-10 col-md-4 col-lg-4 col-xl-3'>" +
-                    "<div class='product'>" +
-                    "<figure class='product-media ";
-                    if (product.category !== 'Laptop') {
-                        productCart += "px-5 '>";
-                    } else {
-                        productCart += "pt-8 '> ";
-                    }
-                    if (product.stockQuantity > 0) {
-                        productCart += "<span class='product-label label-new'>New</span>";
-                    } else if (product.stockQuantity === 0) {
-                        productCart += "<span class='product-label label-out'>Out of stock</span>";
-                    }
-                    productCart += "<a href='./product?action=detail&id=" + product.productId + "' target='_blank'>" +
-                    "<img src='" + product.imageURL[0] + "' alt='Product image' class='product-image' ";
-            
-                    if (product.category !== 'Laptop') {
-                       productCart += "style='height: 260px'> ";
-                    } else {
-                        productCart += "style='height: 180px'> "; 
-                    }
-                            
-                    productCart += "<div class='product-action-vertical'>" +
-                    "<a href='#' class='btn-product-icon btn-wishlist btn-expandable'><span>xHobbe</span></a>" +
-                    "</div><!-- End .product-action -->" +
-                    "<form action='cart' method='post'>" +
-                    "<div class='product-action d-flex'>" +
-                    "<input type='hidden' name='id' value='" + product.productId + "'>" +
-                    "<input type='hidden' name='action' value='add'>" +
-                    "<input type='hidden' name='quantity' value='1'> ";
-                    if (product.stockQuantity > 0) {
-                        productCart += "<button type='submit' class='btn-product btn-cart mx-10' style='border: none; background-color: #f6f7fa'>";
-                        productCart += "<span>add to cart</span></button>";
-                    }
-                    productCart += "</div>" +
-                    "</form>" +
-                    "</figure><!-- End .product-media -->" +
+                            type: "get",
+                                    success: function (data) {
+                                    // Update the product container with the new products
+                                            let productContainer = $("#productContainer");
+                                                    $.each(data, function (index, product) {
+                                            // Append moreProducts to productContainer
+                                            let productCart = "<div class='col-sm-10 col-md-4 col-lg-4 col-xl-3'>" +
+                                            "<div class='product'>" +
+                                                    "<figure class='product-media ";
+                                                    if (product.category !== 'Laptop') {
+                                                    productCart += "px-5 '>";
+                            } else {
+                                                            productCart += "pt-8 '> ";
+                                                            }
+                                                            if (product.stockQuantity > 0) {
+                                                    productCart += "<span class='product-label label-new'>New</span>";
+                            } else if (product.stockQuantity === 0) {
+                            productCart += "<span class='product-label label-out'>Out of stock</span>";
+                            }
+                            productCart += "<a href='./product?action=detail&id=" + product.productId + "' target='_blank'>" +
+                                    "<img src='" + product.imageURL[0] + "' alt='Product image' class='product-image' ";
+                                    if (product.category !== 'Laptop') {
+                            productCart += "style='height: 260px'> ";
+                            } else {
+                            productCart += "style='height: 180px'> ";
+                            }
+
+                            productCart += "<div class='product-action-vertical'>" +
+                                    "<a href='#' class='btn-product-icon btn-wishlist btn-expandable'><span>xHobbe</span></a>" +
+                                    "</div><!-- End .product-action -->" +
+                                    "<form action='cart' method='post'>" +
+                                    "<div class='product-action d-flex'>" +
+                                    "<input type='hidden' name='id' value='" + product.productId + "'>" +
+                                    "<input type='hidden' name='action' value='add'>" +
+                                    "<input type='hidden' name='quantity' value='1'> ";
+                                    if (product.stockQuantity > 0) {
+                            productCart += "<button type='submit' class='btn-product btn-cart mx-10' style='border: none; background-color: #f6f7fa'>";
+                                    productCart += "<span>add to cart</span></button>";
+                            }
+                            productCart += "</div>" +
+                                    "</form>" +
+                                    "</figure><!-- End .product-media -->" +
 
                                 "<div class='product-body'>" +
                                     "<h3 class='product-title'><a href='./product?action=detail&id=" + product.productId + "' target='_blank'>" + product.name + "</a></h3>" +

@@ -11,7 +11,7 @@ public interface IOrderDAO {
 
     Long add(Order order);
 
-    List<Order> findAll(int limit, int offset, String orderBy, String sortBy);
+    List<Order> findByEmailOrPhone(String searchValue);
     
     List<Order> findByStatusAndUserId(long userId, String status);
     
