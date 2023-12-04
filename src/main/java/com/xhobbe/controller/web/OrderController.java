@@ -120,7 +120,8 @@ public class OrderController extends HttpServlet {
         }
 
         User user = (User) SessionUtils.getInstance().getValue(request, "user");
-        if (user.getPhone() == null || user.getPhone().isEmpty() || user.getAddress() == null || user.getAddress().isEmpty()) {
+        if (user.getPhone().isEmpty() || user.getAddress().isEmpty()|| !user.getAddress().equals(order.getAddress()) || 
+                !user.getPhone().equals(order.getCustomerPhone())) {
             user.setAddress(order.getAddress());
             user.setPhone(order.getCustomerPhone());
             userService.update(user);
@@ -130,9 +131,7 @@ public class OrderController extends HttpServlet {
         if (order != null) {
             List<String> errorProduct = orderDetailService.add(cartIds, order.getOrderId());
             request.setAttribute("errorProduct", errorProduct);
-//            SessionUtils.getInstance().putValue(request, "errorProduct", errorProduct);
             request.getRequestDispatcher("views/web/order.jsp").forward(request, response);
-//            response.sendRedirect("./order");
         } else {
             response.sendRedirect("./cart?message=fail");
         }

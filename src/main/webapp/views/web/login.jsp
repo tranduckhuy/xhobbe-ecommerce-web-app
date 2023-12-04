@@ -251,6 +251,7 @@
             }, 'Re-entered password is incorrect!'),
 
             Validator.isRequired('#register-address', 'Please enter your address!'),
+            Validator.minLength('#register-address', 16, 'Please enter your correct address!'),
 
             Validator.isRequired('#register-policy-2', 'You must agree to the privacy policy!')
         ]
