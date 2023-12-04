@@ -49,12 +49,12 @@
                     </c:when>
                     <c:when test="${message eq 'activeEmail'}">
                         <div class="alert alert-warning text-center" role="alert">
-                            Please check your email and follow the instructions to activate your account.
+                            Please check your email and follow the instructions to activate your account. <strong>It may be in spam email.</strong>
                         </div>
                     </c:when>
                     <c:when test="${message eq 'notActive'}">
                         <div class="alert alert-warning text-center" role="alert">
-                            Account not active. Please check your email for activation!.
+                            Account not active. Please check your email for activation!. </br> <strong>It may be in spam email.</strong>
                         </div>
                     </c:when>
                 </c:choose>
