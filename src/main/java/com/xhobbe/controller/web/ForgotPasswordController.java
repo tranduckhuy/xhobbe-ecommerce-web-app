@@ -73,7 +73,7 @@ public class ForgotPasswordController extends HttpServlet {
             } else {
                 request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.SUCCESS);
                 String newOTP = generateRandomOTP();
-                SendEmailUtils.sendEmail(email, "New OTP", newOTP, ActionConstant.GETOTP);
+                SendEmailUtils.sendGetOTPMessage(email, "New OTP", newOTP);
                 SessionUtils.getInstance().putValue(request, "otp", newOTP);
                 SessionUtils.getInstance().putValue(request, "email", email);
                 request.getRequestDispatcher("/views/web/otp.jsp").forward(request, response);
