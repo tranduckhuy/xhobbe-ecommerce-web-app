@@ -9,7 +9,6 @@ import com.xhobbe.constant.AppConstant;
 import com.xhobbe.constant.MessageAlertConstant;
 import com.xhobbe.model.User;
 import com.xhobbe.service.IUserService;
-import com.xhobbe.service.impl.UserService;
 import com.xhobbe.utils.Encode;
 import com.xhobbe.utils.SendEmailUtils;
 import com.xhobbe.utils.SessionUtils;
@@ -73,7 +72,7 @@ public class ForgotPasswordController extends HttpServlet {
             } else {
                 request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.SUCCESS);
                 String newOTP = generateRandomOTP();
-                SendEmailUtils.sendEmail(email, "New OTP", newOTP, ActionConstant.GETOTP);
+                SendEmailUtils.sendGetOTPMessage(email, "New OTP", newOTP);
                 SessionUtils.getInstance().putValue(request, "otp", newOTP);
                 SessionUtils.getInstance().putValue(request, "email", email);
                 request.getRequestDispatcher("/views/web/otp.jsp").forward(request, response);

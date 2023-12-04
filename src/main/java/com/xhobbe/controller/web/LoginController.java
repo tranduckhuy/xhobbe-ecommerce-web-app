@@ -102,7 +102,7 @@ public class LoginController extends HttpServlet {
                 String token = UUID.randomUUID().toString();
                 SessionUtils.getInstance().putValue(request, "token", token);
                 System.out.println(SessionUtils.getInstance().getValue(request, "token").toString());
-                SendEmailUtils.sendEmail(user.getEmail(), "Verify your account", token, ActionConstant.ACTIVATE);
+                SendEmailUtils.sendActiveMessage(user.getEmail(), "Verify your account", token);
                 request.getRequestDispatcher("/views/web/login.jsp").forward(request, response);
             }
 
@@ -125,7 +125,7 @@ public class LoginController extends HttpServlet {
                 String token = UUID.randomUUID().toString();
                 SessionUtils.getInstance().putValue(request, "token", token);
                 System.out.println(SessionUtils.getInstance().getValue(request, "token").toString());
-                SendEmailUtils.sendEmail(newUser.getEmail(), "Verify your account", token, ActionConstant.ACTIVATE);
+                SendEmailUtils.sendActiveMessage(newUser.getEmail(), "Verify your account", token);
                 request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.ACTIVEEMAIL);
             }
         }

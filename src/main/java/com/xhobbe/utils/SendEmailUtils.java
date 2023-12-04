@@ -1,7 +1,9 @@
 package com.xhobbe.utils;
 
-import com.xhobbe.constant.ActionConstant;
+import com.xhobbe.model.Order;
+import com.xhobbe.model.OrderDetail;
 import java.util.Date;
+import java.util.List;
 import javax.mail.Session;
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
@@ -21,7 +23,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class SendEmailUtils {
 
-    public static void sendEmail(String to, String title, String content, String type) {
+    private static void sendEmail(String to, String title, String textMessage) {
 
         //properties : Khai báo thuộc tính
         Properties props = new Properties();
@@ -43,19 +45,6 @@ public class SendEmailUtils {
 
         });
 
-        String textMessage;
-
-        switch (type) {
-            case ActionConstant.ACTIVATE:
-                textMessage = activeMessage(to, content);
-                break;
-            case ActionConstant.GETOTP:
-                textMessage = getOTPMessage(content);
-                break;
-            default:
-                throw new AssertionError();
-        }
-
         new Thread(() -> {
             try {
                 Message message = prepareMessage(session, from, to, title, textMessage);
@@ -68,7 +57,7 @@ public class SendEmailUtils {
         }).start();
     }
 
-    private static Message prepareMessage(Session session, String from, String recipient, String title, String textMessage) {
+    public static Message prepareMessage(Session session, String from, String recipient, String title, String textMessage) {
 
         try {
             Message message = new MimeMessage(session);
@@ -88,9 +77,9 @@ public class SendEmailUtils {
 
     }
 
-    private static String activeMessage(String to, String content) {
+    public static void sendActiveMessage(String to, String title, String content) {
         String activationLink = "http://localhost:8080/XHobbeWebApp/login?action=active&email=" + to + "&token=" + content;
-        return "<!DOCTYPE html>\n"
+        String message = "<!DOCTYPE html>\n"
                 + "<html lang=\"en\">\n"
                 + "<head>\n"
                 + "    <meta charset=\"UTF-8\">\n"
@@ -105,11 +94,11 @@ public class SendEmailUtils {
                 + "    <p>Thank you for signing up!</p>\n"
                 + "</body>\n"
                 + "</html>";
-
+        sendEmail(to, title, message);
     }
 
-    private static String getOTPMessage(String otp) {
-        return "<!DOCTYPE html>\n"
+    public static void sendGetOTPMessage(String to, String title, String otp) {
+        String message = "<!DOCTYPE html>\n"
                 + "<html lang=\"en\">\n"
                 + "<head>\n"
                 + "    <meta charset=\"UTF-8\">\n"
@@ -123,9 +112,82 @@ public class SendEmailUtils {
                 + "    <p>Please usse this OTP to change your old password.</p>\n"
                 + "</body>\n"
                 + "</html>";
+        sendEmail(to, title, message);
+    }
+
+    public static void sendOrderMessage(String to, String title, Order order, List<OrderDetail> orderDetails) {
+
+        String message = "<!DOCTYPE html>\n"
+                + "<html lang=\"en\">\n"
+                + "<head>\n"
+                + "    <meta charset=\"UTF-8\">\n"
+                + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+                + "    <title>Order Message</title>\n"
+                + "    <style>\n"
+                + "        .table-cart {\n"
+                + "            width: 100%;\n"
+                + "            border-collapse: collapse;\n"
+                + "        }\n"
+                + "\n"
+                + "        .table-cart th, .table-cart td {\n"
+                + "            text-align: center;\n"
+                + "            padding: 8px;\n"
+                + "            border: 1px solid #ddd;\n"
+                + "            min-width: 120px;\n"
+                + "        }\n"
+                + "\n"
+                + "        .order-detail-field {\n"
+                + "            margin: 0;\n"
+                + "        }\n"
+                + "    </style>\n"
+                + "</head>\n"
+                + "<body>\n"
+                + "    <p>You have placed your order successfully.</p>\n"
+                + "    <p>Here are your order details: </p>\n"
+                + "    <table class=\"table-cart\">\n"
+                + "        <thead>\n"
+                + "            <tr>\n"
+                + "                <th>\n"
+                + "                    <h5>Product</h5>\n"
+                + "                </th>\n"
+                + "                <th>\n"
+                + "                    <h5>Quantity</h5>\n"
+                + "                </th>\n"
+                + "                <th>\n"
+                + "                    <h5>Price Order</h5>\n"
+                + "                </th>\n"
+                + "                <th>\n"
+                + "                    <h5>Total</h5>\n"
+                + "                </th>\n"
+                + "            </tr>\n"
+                + "        </thead>\n"
+                + "        <tbody>";
+        for (OrderDetail orderDetail : orderDetails) {
+            message += "<tr>\n"
+                    + "                <td>\n"
+                    + "                    <p class=\"order-detail-field\">" + orderDetail.getProductName() + "</p>\n"
+                    + "                </td>\n"
+                    + "                <td>\n"
+                    + "                    <p class=\"order-detail-field\">" + orderDetail.getQuantity() + "</p> \n"
+                    + "                </td>\n"
+                    + "                <td>\n"
+                    + "                    <p class=\"order-detail-field\">" + orderDetail.getPriceOrder() + "</p> \n"
+                    + "                </td>\n"
+                    + "                <td>\n"
+                    + "                    <p class=\"order-detail-field\">" + orderDetail.getTotal() + "</p> \n"
+                    + "                </td>\n"
+                    + "            </tr>";
+        }
+        message += "</tbody>\n"
+                + "    </table>\n"
+                + "    <p>Your delivery address is: " + order.getAddress() + "</p>\n"
+                + "    <p>Time Order: " + order.getOrderDate() + "</p>\n"
+                + "</body>\n"
+                + "</html>";
+        sendEmail(to, title, message);
     }
 
     public static void main(String[] args) {
-        sendEmail("huytde.dev@gmail.com", "Verify email", "token-here", ActionConstant.ACTIVATE);
+        sendEmail("huytde.dev@gmail.com", "Verify email", "token-here");
     }
 }
