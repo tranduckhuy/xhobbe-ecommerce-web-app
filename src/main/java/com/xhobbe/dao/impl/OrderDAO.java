@@ -60,7 +60,7 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
     @Override
     public List<Order> findByEmailOrPhone(String searchValue) {
 
-        StringBuilder sql = new StringBuilder("SELECT o.orderId, u.userId, u.name, u.phoneNumber, o.deliveryAddress, o.total, o.orderStatusId, s.status, o.orderDate ");
+        StringBuilder sql = new StringBuilder("SELECT o.orderId, u.userId, u.name, u.phoneNumber, u.email, o.deliveryAddress, o.total, o.orderStatusId, s.status, o.orderDate ");
         sql.append("FROM `order` AS o ");
         sql.append("JOIN `user` AS u ON o.userId = u.userId AND (u.email = ? OR u.phoneNumber = ?)");
         sql.append("JOIN `orderStatusCheck` AS s ON o.orderStatusId = s.orderStatusId");
@@ -72,7 +72,7 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
 
     @Override
     public List<Order> findByStatusAndUserId(long userId, String status) {
-        StringBuilder sql = new StringBuilder("SELECT o.orderId, u.userId, u.name, u.phoneNumber, o.deliveryAddress, o.total, o.orderStatusId, s.status, o.orderDate ");
+        StringBuilder sql = new StringBuilder("SELECT o.orderId, u.userId, u.name, u.phoneNumber, u.email, o.deliveryAddress, o.total, o.orderStatusId, s.status, o.orderDate ");
         sql.append("FROM `order` AS o ");
         sql.append("JOIN `user` AS u ON o.userId = u.userId AND u.userId = ? ");
         sql.append("JOIN `orderStatusCheck` AS s ON o.orderStatusId = s.orderStatusId ");
@@ -90,7 +90,7 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
 
     @Override
     public List<Order> findByStatus(String status) {
-        StringBuilder sql = new StringBuilder("SELECT o.orderId, u.userId, u.name, u.phoneNumber, o.deliveryAddress, o.total, o.orderStatusId, s.status, o.orderDate ");
+        StringBuilder sql = new StringBuilder("SELECT o.orderId, u.userId, u.name, u.phoneNumber, u.email, o.deliveryAddress, o.total, o.orderStatusId, s.status, o.orderDate ");
         sql.append("FROM `order` AS o ");
         sql.append("JOIN `user` AS u ON o.userId = u.userId ");
         sql.append("JOIN `orderStatusCheck` AS s ON o.orderStatusId = s.orderStatusId ");
@@ -107,10 +107,11 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
 
     @Override
     public Order findOne(long id) {
-        StringBuilder sql = new StringBuilder("SELECT o.orderId, u.userId, u.name, u.phoneNumber, o.deliveryAddress, o.total, o.orderStatusId, s.status, o.orderDate ");
+        StringBuilder sql = new StringBuilder("SELECT o.orderId, u.userId, u.name, u.phoneNumber, u.email, o.deliveryAddress, o.total, o.orderStatusId, s.status, o.orderDate ");
         sql.append("FROM `order` AS o ");
         sql.append("JOIN `user` AS u ON o.userId = u.userId ");
         sql.append("JOIN `orderStatusCheck` AS s ON o.orderStatusId = s.orderStatusId ");
+        sql.append("WHERE o.orderId = ?");
 
         List<Order> order = this.queryOrder(sql.toString(), new OrderMapper(), id);
         return order != null ? order.get(0) : null;
@@ -199,7 +200,7 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
     
     public static void main(String[] args) {
         OrderDAO o = new OrderDAO();
-        System.out.println(o.findByEmailOrPhone("0987678979"));
+        System.out.println(o.findOne(1));
     }
     
 }

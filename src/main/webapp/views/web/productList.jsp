@@ -42,7 +42,7 @@
                     </div><!-- End .toolbox-info -->
                 </div><!-- End .toolbox-center -->
 
-                <div class="toolbox-right">
+<!--                <div class="toolbox-right">
                     <div class="toolbox-sort">
                         <label for="sortby">Sort by:</label>
                         <div class="select-custom">
@@ -51,8 +51,8 @@
                                 <option value="price-up" selected="selected">Price up</option>
                             </select>
                         </div>
-                    </div><!-- End .toolbox-sort -->
-                </div><!-- End .toolbox-right -->
+                    </div> End .toolbox-sort 
+                </div> End .toolbox-right -->
             </div><!-- End .toolbox -->
 
             <div class="products">

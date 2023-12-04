@@ -8,6 +8,7 @@ import com.xhobbe.model.User;
 import com.xhobbe.service.IOrderDetailService;
 import com.xhobbe.service.IOrderService;
 import com.xhobbe.service.IUserService;
+import com.xhobbe.utils.SendEmailUtils;
 import com.xhobbe.utils.SessionUtils;
 import com.xhobbe.utils.UtilsValidType;
 import java.io.IOException;
@@ -128,17 +129,17 @@ public class OrderController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
-        String searchValue = request.getParameter("search");
+        String searchValue = request.getParameter("search").trim();
 
         if (searchValue == null || searchValue.isEmpty()) {
             response.sendRedirect(ORDER_LIST_URL);
             return;
         }
-        
+
         String htmlContent = orderService.findByEmailOrPhone(searchValue);
 
         response.getWriter().write(htmlContent);
-        
+
     }
 
     private void deleteOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -149,6 +150,8 @@ public class OrderController extends HttpServlet {
             response.sendRedirect(ORDER_LIST_URL);
             return;
         }
+        Order order = orderService.findOne(id);
+        SendEmailUtils.orderRefusalMessage(order.getCustomerEmail(), "Your order was not accepted!!");
         orderService.delete(id);
         response.sendRedirect(ORDER_LIST_URL);
     }
@@ -167,6 +170,9 @@ public class OrderController extends HttpServlet {
 
             if (!productNames.isEmpty()) {
                 request.setAttribute("productError", productNames);
+            } else {
+                List<OrderDetail> listDetail = orderDetailService.findByOrderId(order.getOrderId());
+                SendEmailUtils.sendOrderMessage(order.getCustomerEmail(), "Thank you for your purchase!", order, listDetail);
             }
         } else if (AppConstant.SHIPPED.equals(order.getStatus())) {
             orderService.updateStatus(id, 3);

@@ -10,7 +10,7 @@
 <aside class="sidebar-nav-wrapper">
     <div class="navbar-logo">
         <a href="./admin">
-            <img src="<c:url value='/template/admin/assets/images/logo/xhobbe-high-resolution-logo-blue.png'/>" alt="logo" style="width: 150px; height: 40px;"/>
+            <img src="<c:url value='/template/admin/assets/images/logo/xhobbe-high-resolution-logo-blue.png'/>" alt="logo" style="width: 150px; height: 50px;"/>
         </a>
     </div>
     <nav class="sidebar-nav">

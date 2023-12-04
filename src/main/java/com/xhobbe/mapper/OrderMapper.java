@@ -20,6 +20,7 @@ public class OrderMapper implements RowMapper<Order> {
             order.setUserId(rs.getLong("userId"));
             order.setCustomerName(rs.getString("name"));
             order.setCustomerPhone(rs.getString("phoneNumber"));
+            order.setCustomerEmail(rs.getString("email"));
             order.setAddress(rs.getString("deliveryAddress"));
             order.setTotal(rs.getDouble("total"));
             order.setStatusID(rs.getInt("orderStatusId"));
@@ -32,6 +33,7 @@ public class OrderMapper implements RowMapper<Order> {
 
             return order;
         } catch (SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }

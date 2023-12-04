@@ -152,7 +152,7 @@ public class ProductController extends HttpServlet {
         String category = request.getParameter("category");
 
         if (brand == null || brand.isEmpty() || category == null || category.isEmpty()) {
-            String searchValue = request.getParameter("search");
+            String searchValue = request.getParameter("search").trim();
             List<Product> list = productService.findByName(searchValue);
             request.setAttribute("total", list.size());
             request.setAttribute(AppConstant.LIST, list);

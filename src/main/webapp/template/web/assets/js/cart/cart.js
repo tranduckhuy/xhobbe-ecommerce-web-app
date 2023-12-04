@@ -107,6 +107,11 @@ function orderProducts(phone, address) {
         }
     }
 
+    if (selectedCartIds.length === 0) {
+        $('#select-cart-alert').css('display', 'block');
+        return;
+    }
+
     $.ajax({
         type: 'POST',
         url: './order?action=add',
@@ -125,6 +130,7 @@ function orderProducts(phone, address) {
         },
         error: function (error) {
             console.error('Error performing action:', error);
+            window.location.href = './cart';
         }
     });
 }

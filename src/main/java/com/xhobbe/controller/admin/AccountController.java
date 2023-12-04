@@ -9,6 +9,7 @@ import com.xhobbe.utils.SessionUtils;
 import com.xhobbe.utils.UserUtils;
 import com.xhobbe.utils.UtilsValidType;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -86,7 +87,8 @@ public class AccountController extends HttpServlet {
         }
 
         switch (action) {
-            case ActionConstant.ADD:
+            case ActionConstant.SEARCH:
+                searchAccount(request, response);
                 break;
             case ActionConstant.EDIT:
                 postFormEdit(request, response);
@@ -211,6 +213,22 @@ public class AccountController extends HttpServlet {
             response.sendRedirect("./admin-account?action=list&role=" + user.getRole() + "&message=fail");
         }
 
+    }
+    
+    private void searchAccount(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        String search = request.getParameter("search").trim();
+        
+        if (search == null || search.isEmpty()) {
+            response.sendRedirect("./admin-account?action=list&role=ADMIN");
+            return;
+        }
+
+        List<User> list = new ArrayList<>();
+        list.add(userService.findOne(search));
+
+        request.setAttribute(AppConstant.LIST, list);
+        request.getRequestDispatcher("/views/admin/accountList.jsp").forward(request, response);
     }
 
 }
