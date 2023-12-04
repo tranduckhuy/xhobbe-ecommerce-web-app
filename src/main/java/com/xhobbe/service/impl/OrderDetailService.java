@@ -54,7 +54,6 @@ public class OrderDetailService implements IOrderDetailService {
                 continue;
             }
             Product product = productDAO.findOne(cart.getProductId());
-            System.out.println(product);
             int quantity = product.getStockQuantity() - cart.getQuantity();
             if (quantity < 0 && product.getStockQuantity() > 0) {
                 cart.setQuantity(product.getStockQuantity());

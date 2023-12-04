@@ -97,6 +97,9 @@ public class ProductController extends HttpServlet {
             case ActionConstant.EDIT:
                 postFormEdit(request, response);
                 break;
+            case ActionConstant.SEARCH:
+                searchProduct(request, response);
+                break;    
             default:
                 response.sendRedirect("./admin");
         }
@@ -181,5 +184,20 @@ public class ProductController extends HttpServlet {
 
         request.setAttribute(AppConstant.PRODUCT, product);
         request.getRequestDispatcher("/views/web/productDetail.jsp").forward(request, response);
+    }
+    
+    private void searchProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        String search = request.getParameter("search").trim();
+        
+        if (search == null || search.isEmpty()) {
+            response.sendRedirect("./admin-product?action=list&category=Phone");
+            return;
+        }
+
+        List<Product> list = productService.findByName(search);
+
+        request.setAttribute(AppConstant.LIST, list);
+        request.getRequestDispatcher("/views/admin/productList.jsp").forward(request, response);
     }
 }

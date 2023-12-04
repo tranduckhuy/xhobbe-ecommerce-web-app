@@ -76,11 +76,11 @@ public class OrderUtils {
                 + "                                            <td>\n"
                 + "                                                <div class=\"action d-flex gap-4 justify-content-center\">\n"
                 +                                                       orderAction
-                + "                                                    <a href=\"./admin-order?action=detail&id=" + order.getOrderId() + "\" class=\"btn btn-success\">\n"
-                + "                                                        <i class=\"fa-solid fa-box\" title=\"Detail\"></i>\n"
+                + "                                                    <a href=\"./admin-order?action=detail&id=" + order.getOrderId() + "\" class=\"btn btn-success\" title=\"Detail\">\n"
+                + "                                                        <i class=\"fa-solid fa-box\"></i>\n"
                 + "                                                    </a>\n"
-                + "                                                    <a href=\"javascript:void(0);\" onclick=\"confirmDelete(" + order.getOrderId() + ", 'order')\" class=\"btn btn-danger\">\n"
-                + "                                                        <i class=\"lni lni-trash-can action-hover\" title=\"Refuse\"></i>\n"
+                + "                                                    <a href=\"javascript:void(0);\" onclick=\"confirmDelete(" + order.getOrderId() + ", 'order')\" class=\"btn btn-danger\" title=\"Refuse\">\n"
+                + "                                                        <i class=\"lni lni-trash-can action-hover\" ></i>\n"
                 + "                                                    </a>\n"
                 + "                                                </div>\n"
                 + "                                            </td>\n"
@@ -106,8 +106,8 @@ public class OrderUtils {
 "                    <td class=\"text-center order-description\" style=\"min-width: 150px;\"><span>" + order.getOrderDate() + "</span></td>\n" +
 "                    <td style=\"max-width: 50px;\">\n" +
 "                        <div class=\"text-center\">\n" +
-"                            <a href=\"./order-detail?action=detail&id=" + order.getOrderId() + "\" class=\"btn-success\" style=\"padding: 5px 12px\">\n" +
-"                                <i class=\"fa-solid fa-box\" title=\"Detail\"></i>\n" +
+"                            <a href=\"./order-detail?action=detail&id=" + order.getOrderId() + "\" class=\"btn-success\" title=\"Detail\" style=\"padding: 5px 12px\">\n" +
+"                                <i class=\"fa-solid fa-box\"></i>\n" +
 "                            </a>\n" +
 "                        </div>\n" +
 "                    </td>\n" +

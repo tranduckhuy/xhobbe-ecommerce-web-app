@@ -14,12 +14,15 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="d-flex title gap-4">
-                        <h2>Account</h2>
-                        <form class="form-inline my-2 my-lg-0 d-flex gap-2">
-                            <input class="form-control mr-sm-2" type="search" id="searchValue" name="searchValue" placeholder="Search">
-                            <input type="hidden" name="searchField" id="searchField"/>
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
+                        <div class="col-lg-4"><h3 class="text-danger-emphasis">Account</h3></div>
+                        <div class="col-lg-8">
+                            <form action="admin-account" method="post" class="form-inline my-2 my-lg-0 d-flex gap-2">
+                                <input class="form-control mr-sm-2" type="search" id="search" name="search" placeholder="Search (Email)">
+                                <input type="hidden" name="action" value="search"/>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </div>
+
                     </div>
 
                 </div>

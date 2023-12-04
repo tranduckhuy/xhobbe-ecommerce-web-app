@@ -1,8 +1,5 @@
 package com.xhobbe.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author ADMIN
@@ -13,6 +10,7 @@ public class Order {
     private long userId;
     private String customerName;
     private String customerPhone;
+    private String customerEmail;
     private String address;
     private double total;
     private int statusID;
@@ -52,6 +50,14 @@ public class Order {
 
     public void setCustomerPhone(String customerPhone) {
         this.customerPhone = customerPhone;
+    }
+
+    public String getCustomerEmail() {
+        return customerEmail;
+    }
+
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
     }
 
     public String getAddress() {
@@ -96,9 +102,9 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "orderId=" + orderId + ", customerName=" + customerName + ", customerPhone=" + customerPhone
-                + ", address=" + address + ", total=" + total + ", status=" + status + ", statusID=" + statusID
-                + ", orderDate=" + orderDate + '}';
+        return "Order{" + "orderId=" + orderId + ", userId=" + userId + ", customerName=" + customerName + ", customerPhone=" + customerPhone + 
+                ", customerEmail=" + customerEmail + ", address=" + address + ", total=" + total + ", statusID=" + statusID + 
+                ", status=" + status + ", orderDate=" + orderDate + '}';
     }
 
 }

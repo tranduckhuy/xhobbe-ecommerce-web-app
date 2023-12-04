@@ -18,6 +18,7 @@ import javax.mail.MessagingException;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import org.apache.commons.codec.binary.StringUtils;
 
 /**
  *
@@ -69,7 +70,7 @@ public class SendEmailUtils {
             message.setReplyTo(InternetAddress.parse(from, false));
             message.setSubject(title);
             message.setSentDate(new Date());
-            message.setContent(textMessage, "text/html");
+            message.setContent(textMessage, "text/html; charset=UTF-8");
             return message;
 
         } catch (MessagingException exception) {
@@ -89,11 +90,11 @@ public class SendEmailUtils {
                 + "    <title>Active</title>\n"
                 + "</head>\n"
                 + "<body style=\"margin-bottom: 10px;\">\n"
-                + "<img src=\"https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/logo%2Fxhobbe-high-resolution-logo.png?alt=media&token=61a3c357-6d99-4565-bdeb-76e4d0aedbdd\" style=\"width: 250px;\">\n"
                 + "    <h3>Wellcome to xHobbe</h3>\n"
                 + "    <p>Click the active button to activate your account now!</p>\n"
                 + "    <p>Here: " + activationLink + " </p>\n"
                 + "    <p>Thank you for signing up!</p>\n"
+                + "<img src=\"https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/logo%2Fxhobbe-high-resolution-logo.png?alt=media&token=61a3c357-6d99-4565-bdeb-76e4d0aedbdd\" style=\"width: 250px;\">\n"
                 + "</body>\n"
                 + "</html>";
         sendEmail(to, title, message);
@@ -108,10 +109,10 @@ public class SendEmailUtils {
                 + "    <title>Get OTP</title>\n"
                 + "</head>\n"
                 + "<body style=\"margin-bottom: 10px;\">\n"
-                + "    <img src=\"https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/logo%2Fxhobbe-high-resolution-logo.png?alt=media&token=61a3c357-6d99-4565-bdeb-76e4d0aedbdd\" style=\"width: 250px;\">\n"
                 + "    <h3>Welcome to xHobbe</h3>\n"
                 + "    <p>Your OTP to change account password is: " + otp + "</p>\n"
                 + "    <p>Please usse this OTP to change your old password.</p>\n"
+                + "    <img src=\"https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/logo%2Fxhobbe-high-resolution-logo.png?alt=media&token=61a3c357-6d99-4565-bdeb-76e4d0aedbdd\" style=\"width: 250px;\">\n"
                 + "</body>\n"
                 + "</html>";
         sendEmail(to, title, message);
@@ -144,22 +145,23 @@ public class SendEmailUtils {
                 + "    </style>\n"
                 + "</head>\n"
                 + "<body>\n"
+                + "    <p>Thank you <strong>" + order.getCustomerName() + "</strong></p>\n"
                 + "    <p>You have placed your order successfully.</p>\n"
                 + "    <p>Here are your order details: </p>\n"
                 + "    <table class=\"table-cart\">\n"
                 + "        <thead>\n"
                 + "            <tr>\n"
                 + "                <th>\n"
-                + "                    <h5>Product</h5>\n"
+                + "                    <h5><strong>Product</strong></h5>\n"
                 + "                </th>\n"
                 + "                <th>\n"
-                + "                    <h5>Quantity</h5>\n"
+                + "                    <h5><strong>Quantity</strong></h5>\n"
                 + "                </th>\n"
                 + "                <th>\n"
-                + "                    <h5>Price Order</h5>\n"
+                + "                    <h5><strong>Price</strong></h5>\n"
                 + "                </th>\n"
                 + "                <th>\n"
-                + "                    <h5>Total</h5>\n"
+                + "                    <h5><strong>Total</strong></h5>\n"
                 + "                </th>\n"
                 + "            </tr>\n"
                 + "        </thead>\n"
@@ -182,9 +184,32 @@ public class SendEmailUtils {
         }
         message += "</tbody>\n"
                 + "    </table>\n"
-                + "    <p>Your order total is: " + order.getTotal()+ "$</p>\n"
-                + "    <p>Your delivery address is: " + order.getAddress() + "</p>\n"
-                + "    <p>Time Order: " + order.getOrderDate() + "</p>\n"
+                + "    <p>Your order total is: <strong>" + order.getTotal() + "$</strong></p>\n"
+                + "    <p>Your delivery address is: <strong>" + order.getAddress() + "</strong></p>\n"
+                + "    <p>Time Order: <strong>" + order.getOrderDate() + "</p>\n"
+                + "    <p>Your phone number is: <strong>" + order.getCustomerPhone() + "</strong></p>\n"
+                + "    <p>Please keep in touch to receive the items in the next 2-3 days.</p>\n"
+                + "    <p><strong>Thanks for trusting us!</strong></p>\n"
+                + "    <img src=\"https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/logo%2Fxhobbe-high-resolution-logo.png?alt=media&token=61a3c357-6d99-4565-bdeb-76e4d0aedbdd\" style=\"width: 250px;\">\n"
+                + "</body>\n"
+                + "</html>";
+        sendEmail(to, title, message);
+    }
+
+    public static void orderRefusalMessage(String to, String title) {
+        String message = "<!DOCTYPE html>\n"
+                + "<html lang=\"en\">\n"
+                + "<head>\n"
+                + "    <meta charset=\"UTF-8\">\n"
+                + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+                + "    <title>Active</title>\n"
+                + "</head>\n"
+                + "<body style=\"margin-bottom: 10px;\">\n"
+                + "    <h3 style=\"color: red;\">Your order was not accepted!</h3>\n"
+                + "    <p>Thank you for your order but we had some trouble with your order and were unable to deliver it.</p>\n"
+                + "    <p><strong>Sorry for the inconvenience!</strong></p>\n"
+                + "    <p>You can contact the hotline: <strong>1610</strong> to receive further support.</p>\n"
+                + "<img src=\"https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/logo%2Fxhobbe-high-resolution-logo.png?alt=media&token=61a3c357-6d99-4565-bdeb-76e4d0aedbdd\" style=\"width: 250px;\">\n"
                 + "</body>\n"
                 + "</html>";
         sendEmail(to, title, message);
@@ -192,12 +217,11 @@ public class SendEmailUtils {
 
     public static void main(String[] args) {
 //        sendEmail("huytde.dev@gmail.com", "Verify email", "token-here");
-        
+
         Order order = new OrderDAO().findOne(1);
         List<OrderDetail> orderDetails = new OrderDetailDAO().findByOrderId(1);
-        
+
         sendOrderMessage("htn10a2@gmail.com", "Oder detail", order, orderDetails);
-        
-        
+
     }
 }

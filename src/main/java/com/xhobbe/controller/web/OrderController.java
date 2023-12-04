@@ -114,6 +114,7 @@ public class OrderController extends HttpServlet {
         Order order = OrderUtils.getParamAndCreateOrder(request);
 
         if (cartIds.length == 0 || order == null) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             response.sendRedirect("./cart?message=fail");
             return;
         }

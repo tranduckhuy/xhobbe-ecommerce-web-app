@@ -32,12 +32,15 @@
                     </div>
                 </c:if>
                 <c:if test="${message eq 'success'}">
-                    <div class="alert alert-success text-center" role="alert">
+                    <div class="alert alert-danger text-center" role="alert">
                         Error: Unable to complete the requested action.
                     </div>
                 </c:if>
                 <div class="row">
                     <div class="col-lg-9">
+                        <div id="select-cart-alert" class="alert alert-danger text-center" role="alert" style="display: none">
+                            Please select at least one product to order!
+                        </div>
                         <table class="table table-cart table-mobile">
                             <thead>
                                 <tr>
