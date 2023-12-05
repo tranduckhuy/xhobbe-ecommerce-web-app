@@ -42,17 +42,17 @@
                     </div><!-- End .toolbox-info -->
                 </div><!-- End .toolbox-center -->
 
-<!--                <div class="toolbox-right">
-                    <div class="toolbox-sort">
-                        <label for="sortby">Sort by:</label>
-                        <div class="select-custom">
-                            <select name="sortby" id="sortby" class="form-control">
-                                <option value="price-down" selected="selected">Price down </option>
-                                <option value="price-up" selected="selected">Price up</option>
-                            </select>
-                        </div>
-                    </div> End .toolbox-sort 
-                </div> End .toolbox-right -->
+                <!--                <div class="toolbox-right">
+                                    <div class="toolbox-sort">
+                                        <label for="sortby">Sort by:</label>
+                                        <div class="select-custom">
+                                            <select name="sortby" id="sortby" class="form-control">
+                                                <option value="price-down" selected="selected">Price down </option>
+                                                <option value="price-up" selected="selected">Price up</option>
+                                            </select>
+                                        </div>
+                                    </div> End .toolbox-sort 
+                                </div> End .toolbox-right -->
             </div><!-- End .toolbox -->
 
             <div class="products">
@@ -165,142 +165,146 @@
                             <div class="collapse show" id="widget-4">
                                 <div class="widget-body">
                                     <div class="filter-items">
+                                        <div class="filter-item mb-2">
+                                            <div class="d-flex justify-content-start">
+                                                <a href="" class="btn btn-secondary"><span>All</span></a>
+                                            </div><!-- End .product-action -->
+                                        </div><!-- End .filter-item -->
                                         <div class="filter-item">
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" value="Apple" name="brand" id="brand-1">
-                                                <label class="custom-control-label" for="brand-1">Apple</label>
+                                                <input type="radio" class="custom-control-input" value="Apple" name="brand" id="brand-2">
+                                                <label class="custom-control-label" for="brand-2">Apple</label>
                                             </div><!-- End .custom-radio -->
                                         </div><!-- End .filter-item -->
 
                                         <div class="filter-item">
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" value="Samsung" name="brand" id="brand-2">
-                                                <label class="custom-control-label" for="brand-2">Samsung</label>
+                                                <input type="radio" class="custom-control-input" value="Samsung" name="brand" id="brand-3">
+                                                <label class="custom-control-label" for="brand-3">Samsung</label>
                                             </div><!-- End .custom-radio -->
                                         </div><!-- End .filter-item -->
 
                                         <div class="filter-item">
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" value="Xiaomi" name="brand" id="brand-3">
-                                                <label class="custom-control-label" for="brand-3">Tommy Xiaomi</label>
+                                                <input type="radio" class="custom-control-input" value="Xiaomi" name="brand" id="brand-4">
+                                                <label class="custom-control-label" for="brand-4">Tommy Xiaomi</label>
                                             </div><!-- End .custom-radio -->
                                         </div><!-- End .filter-item -->
 
                                         <div class="filter-item">
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" value="Asus" name="brand" id="brand-4">
-                                                <label class="custom-control-label" for="brand-4">Asus</label>
+                                                <input type="radio" class="custom-control-input" value="Asus" name="brand" id="brand-5">
+                                                <label class="custom-control-label" for="brand-5">Asus</label>
                                             </div><!-- End .custom-radio -->
                                         </div><!-- End .filter-item -->
 
                                         <div class="filter-item">
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" value="Acer" name="brand" id="brand-5">
-                                                <label class="custom-control-label" for="brand-5">Acer</label>
+                                                <input type="radio" class="custom-control-input" value="Acer" name="brand" id="brand-6">
+                                                <label class="custom-control-label" for="brand-6">Acer</label>
                                             </div><!-- End .custom-radio -->
                                         </div><!-- End .filter-item -->
 
                                         <div class="filter-item">
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" value="Lenovo" name="brand" id="brand-6">
-                                                <label class="custom-control-label" for="brand-6">Lenovo</label>
+                                                <input type="radio" class="custom-control-input" value="Lenovo" name="brand" id="brand-7">
+                                                <label class="custom-control-label" for="brand-7">Lenovo</label>
                                             </div><!-- End .custom-radio -->
                                         </div><!-- End .filter-item -->
 
                                         <div class="filter-item">
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" value="Dell" name="brand" id="brand-7">
-                                                <label class="custom-control-label" for="brand-7">Dell</label>
-                                            </div><!-- End .custom-radio -->
-                                        </div><!-- End .filter-item -->
+                                                <input type="radio" class="custom-control-input" value="Dell" name="brand" id="brand-8">
+            <label class="custom-control-label" for="brand-8">Dell</label>                                             </div><!-- End .custom-radio -->
+            </div><!-- End .filter-item -->
 
-                                        <div class="filter-item">
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" name="brand" value="MSI" id="brand-8">
-                                                <label class="custom-control-label" for="brand-8">MSI</label>
-                                            </div><!-- End .custom-radio -->
-                                        </div><!-- End .filter-item -->
+            <div class="filter-item">
+            <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" name="brand" value="MSI" id="brand-9">
+            <label class="custom-control-label" for="brand-9">MSI</label>
+            </div><!-- End .custom-radio -->
+            </div><!-- End .filter-item -->
 
-                                    </div><!-- End .filter-items -->
-                                </div><!-- End .widget-body -->
-                            </div><!-- End .collapse -->
-                        </div><!-- End .widget -->
+            </div><!-- End .filter-items -->
+            </div><!-- End .widget-body -->
+            </div><!-- End .collapse -->
+            </div><!-- End .widget -->
 
-                    </div><!-- End .sidebar-filter-wrapper -->
-                </aside><!-- End .sidebar-filter -->             </div><!-- End .container -->
-        </div><!-- End .page-content -->
+            </div><!-- End .sidebar-filter-wrapper -->
+            </aside><!-- End .sidebar-filter -->             </div><!-- End .container -->
+            </div><!-- End .page-content -->
     </div><!-- End .page-content -->
-</main><!-- End .main -->
+            </main><!-- End .main -->
 
 
 <script>
 
     // Get the full URL
     let url = window.location.href;
-    let urlParams = new URLSearchParams(url);
-    let categoryValue = urlParams.get('category');
-    // set title
+            let urlParams = new URLSearchParams(url);
+            let categoryValue = urlParams.get('category');
+            // set title
     if (categoryValue !== 'all') {
-        console.log($('#page-title'));
-                                    $('#page-title').html('List of ' + categoryValue + 's');
-                                    } else {
-                                    $('#page-title').html('List all Devices');
-    }
-    $(document).ready(function () {
-
-                                    let currentTotal = $('.product').length;
-            $("#currentProducts").html(currentTotal);
-                                    var total = ${total};
-            console.log("Total: " + total);
-                            console.log("CurTotal: " + currentTotal);
-                            var loadMoreBtn = $("#loadMoreBtn");
-                            if (currentTotal === total) {
-    loadMoreBtn.hide();
+                    console.log($('#page-title'));
+                    $('#page-title').html('List of ' + categoryValue + 's');
     } else {
-                                    loadMoreBtn.show();
+                            $('#page-title').html('List all Devices');
     }
-                                    // Attach a click event to the "Load More" button
-                                    loadMoreBtn.click(function () {
-                                    // Make an AJAX request to the servlet with parameters
-                                    let currentTotal = $('.product').length;
-                            $("#currentProducts").html(currentTotal);
-                            $.ajax({
-                            url: "product?action=loadMore",
-                            data: {
-                            currentTotal: currentTotal,
-                            category: categoryValue
-                    },
-                    cache: false,
-                            type: "get",
-                                    success: function (data) {
-                                    // Update the product container with the new products
-                                            let productContainer = $("#productContainer");
-                                                    $.each(data, function (index, product) {
-                                            // Append moreProducts to productContainer
-                                            let productCart = "<div class='col-sm-10 col-md-4 col-lg-4 col-xl-3'>" +
-                                            "<div class='product'>" +
-                                                    "<figure class='product-media ";
-                                                    if (product.category !== 'Laptop') {
-                                                    productCart += "px-5 '>";
-                            } else {
-                                                            productCart += "pt-8 '> ";
-                                                            }
-                                                            if (product.stockQuantity > 0) {
-                                                    productCart += "<span class='product-label label-new'>New</span>";
-                            } else if (product.stockQuantity === 0) {
-                            productCart += "<span class='product-label label-out'>Out of stock</span>";
-                            }
-                            productCart += "<a href='./product?action=detail&id=" + product.productId + "' target='_blank'>" +
-                                    "<img src='" + product.imageURL[0] + "' alt='Product image' class='product-image' ";
-                                    if (product.category !== 'Laptop') {
-                            productCart += "style='height: 260px'> ";
-                            } else {
-                            productCart += "style='height: 180px'> ";
-                            }
+                    $(document).ready(function () {
 
-                            productCart += "<div class='product-action-vertical'>" +
-                                    "<a href='#' class='btn-product-icon btn-wishlist btn-expandable'><span>xHobbe</span></a>" +
-                                    "</div><!-- End .product-action -->" +
+                    let currentTotal = $('.product').length;
+                    $("#currentProducts").html(currentTotal);
+    var total = ${total};
+                    console.log("Total: " + total);
+    console.log("CurTotal: " + currentTotal);
+                    var loadMoreBtn = $("#loadMoreBtn");
+    if (currentTotal === total) {
+    loadMoreBtn.hide();
+                    } else {
+    loadMoreBtn.show();
+    }
+    // Attach a click event to the "Load More" button
+                    loadMoreBtn.click(function () {
+                    // Make an AJAX request to the servlet with parameters
+    let currentTotal = $('.product').length;
+    $("#currentProducts").html(currentTotal);
+    $.ajax({
+                            url: "product?action=loadMore",
+            data: {
+                            currentTotal: currentTotal,
+                    category: categoryValue
+            },
+                    cache: false,
+            type: "get",
+            success: function (data) {
+                    // Update the product container with the new products
+                    let productContainer = $("#productContainer");
+                    $.each(data, function (index, product) {
+                    // Append moreProducts to productContainer
+                    let productCart = "<div class='col-sm-10 col-md-4 col-lg-4 col-xl-3'>" +
+                    "<div class='product'>" +
+                    "<figure class='product-media ";
+            if (product.category !== 'Laptop') {
+            productCart += "px-5 '>";
+            } else {
+            productCart += "pt-8 '> ";
+            }
+            if (product.stockQuantity > 0) {
+            productCart += "<span class='product-label label-new'>New</span>";
+            } else if (product.stockQuantity === 0) {
+            productCart += "<span class='product-label label-out'>Out of stock</span>";
+            }
+            productCart += "<a href='./product?action=detail&id=" + product.productId + "' target='_blank'>" +
+                    "<img src='" + product.imageURL[0] + "' alt='Product image' class='product-image' ";
+            if (product.category !== 'Laptop') {
+            productCart += "style='height: 260px'> ";
+            } else {
+            productCart += "style='height: 180px'> ";
+            }
+
+            productCart += "<div class='product-action-vertical'>" +
+                    "<a href='#' class='btn-product-icon btn-wishlist btn-expandable'><span>xHobbe</span></a>" +
+                    "</div><!-- End .product-action -->" +
                                     "<form action='cart' method='post'>" +
                                     "<div class='product-action d-flex'>" +
                                     "<input type='hidden' name='id' value='" + product.productId + "'>" +

@@ -15,12 +15,6 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-var image = 'productImage';
-// firebase bucket name
-// REPLACE WITH THE ONE YOU CREATE
-// ALSO CHECK STORAGE RULES IN FIREBASE CONSOLE
-var fbBucketName = 'images';
-
 // get elements
 var uploader1 = document.getElementById('uploader1');
 var uploader2 = document.getElementById('uploader2');
@@ -43,8 +37,6 @@ function addImage(e, imageId, containerId, uploader) {
 
     // create a storage ref
     const storageRef = firebase.storage().ref();
-    // upload file
-//    var uploadTask = storageRef.child('test/' + file.name).put(file);
 
     // Handling, image has the same name as the existing image
     const uniqueFilename = generateUniqueFilename(file.name);
@@ -89,7 +81,6 @@ function addImage(e, imageId, containerId, uploader) {
         // Upload completed successfully, now we can get the download URL
         // save this link somewhere, e.g. put it in an input field
         var downloadURL = uploadTask.snapshot.downloadURL;
-        image = downloadURL;
         console.log('downloadURL ===>', downloadURL);
         let divLocation = document.getElementById(containerId);
 
