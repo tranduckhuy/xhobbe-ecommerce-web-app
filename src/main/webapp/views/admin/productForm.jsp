@@ -49,7 +49,7 @@
                                             <div class="col-lg-8">
                                                 <input type="text" id="name" name="name" class="form-control mb-1"/>
                                             </div>
-                                            <span class="form-message"></span>
+                                            <span class="form-message" style="font-size: 13px"></span>
                                         </div>
                                         <div class="col-lg-4 form-group">
                                             <select id="brand-select" name="brand" class="form-select mb-1">
@@ -62,13 +62,13 @@
                                                 <option value="6">Dell</option>
                                                 <option value="7">MSI</option>
                                             </select>
-                                            <span class="form-message"></span>
+                                            <span class="form-message" style="font-size: 13px"></span>
                                         </div>
                                     </div>
                                     <div class="form-outline form-group">
                                         <label class="form-label" for="description">Description</label>
                                         <textarea class="form-control mb-1" id="description" name="description" rows="5"></textarea>
-                                        <span class="form-message"></span>
+                                        <span class="form-message" style="font-size: 13px"></span>
                                     </div>
 
                                     <div class="row">
@@ -80,15 +80,15 @@
                                                 <option value="IPad">iPad</option>
                                                 <option value="Accessories">Accessories</option>
                                             </select>
-                                            <span class="form-message"></span>
+                                            <span class="form-message" style="font-size: 13px"></span>
                                         </div>
                                         <div class="col-lg-4 form-group">
                                             <input type="number" class="form-control mb-1" id="price" min="0" step="0.01" name="price" placeholder="Price"/>
-                                            <span class="form-message"></span>
+                                            <span class="form-message" style="font-size: 13px"></span>
                                         </div>
                                         <div class="col-lg-4 form-group">
                                             <input type="number" class="form-control mb-1" id="quantity" min="0" name="quantity" placeholder="Stock Quantity"/>
-                                            <span class="form-message"></span>
+                                            <span class="form-message" style="font-size: 13px"></span>
                                         </div>
                                     </div>
 
@@ -98,21 +98,21 @@
                                             <input type="file" class="form-control-file" value="upload" accept=".jpg" id="productImage1">
                                             <input name="proImage1" type="text" id="proImage1" style="display: none">
                                             <label for="productImage1">Product image</label>
-                                            <div id="imgDiv1">
+                                            <div id="imgDiv1" style="display: flex; justify-content: center; align-items: center; ">
                                                 
                                             </div>
                                             <progress value="0" max="100" id="uploader1">0%</progress>
-                                            <p class="form-message"></p>
+                                            <p class="form-message" style="font-size: 13px"></p>
                                         </div>
                                         <div class="col-lg-6 form-group">
                                             <input type="file" class="form-control-file" value="upload" accept=".jpg, .png" id="productImage2">
                                             <input name="proImage2" type="text" id="proImage2" style="display: none">
                                             <label for="productImage2" class="">Product image</label>
-                                            <div id="imgDiv2">
+                                            <div id="imgDiv2" style="display: flex; justify-content: center; align-items: center; ">
                                                 
                                             </div>
                                             <progress value="0" max="100" id="uploader2">0%</progress>
-                                            <p class="form-message"></p>
+                                            <p class="form-message" style="font-size: 13px"></p>
                                         </div>
                                     </div>
 
