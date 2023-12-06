@@ -40,10 +40,10 @@ public class AccountController extends HttpServlet {
             case ActionConstant.EDIT:
                 getEditAccount(request, response);
                 break;
-            case ActionConstant.CHANGEPASSWORD:
+            case ActionConstant.CHANGE_PASSWORD:
                 getChangePassword(request, response);
                 break;
-            case ActionConstant.FORGOTPASSWORD:
+            case ActionConstant.FORGOT_PASSWORD:
                 getForgotPassword(request, response);
                 break;
             default:
@@ -72,10 +72,10 @@ public class AccountController extends HttpServlet {
             case ActionConstant.EDIT:
                 postEditAccount(request, response, user);
                 break;
-            case ActionConstant.CHANGEPASSWORD:
+            case ActionConstant.CHANGE_PASSWORD:
                 postChangePassword(request, response, user);
                 break;
-            case ActionConstant.FORGOTPASSWORD:
+            case ActionConstant.FORGOT_PASSWORD:
                 postForgotPassword(request, response, user);
                 break;
             default:

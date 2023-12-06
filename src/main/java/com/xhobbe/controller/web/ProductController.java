@@ -60,7 +60,7 @@ public class ProductController extends HttpServlet {
             case ActionConstant.DETAIL:
                 getDetailProduct(request, response);
                 break;
-            case ActionConstant.LOADMORE:
+            case ActionConstant.LOAD_MORE:
                 loadMoreProduct(request, response);
                 break;
             case ActionConstant.SEARCH:

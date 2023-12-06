@@ -97,7 +97,7 @@ public class LoginController extends HttpServlet {
                 SessionUtils.getInstance().putValue(request, "user", user);
                 response.sendRedirect("./");
             } else {
-                request.setAttribute(AppConstant.MESSSAGE, AppConstant.NOTACTIVE);
+                request.setAttribute(AppConstant.MESSSAGE, AppConstant.NOT_ACTIVE);
                 String token = UUID.randomUUID().toString();
                 SessionUtils.getInstance().putValue(request, "token", token);
                 System.out.println(SessionUtils.getInstance().getValue(request, "token").toString());
@@ -119,13 +119,13 @@ public class LoginController extends HttpServlet {
         } else {
             User newUser = userService.add(user);
             if (newUser == null) {
-                request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.EMAILEXIST);
+                request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.EMAIL_EXIST);
             } else {
                 String token = UUID.randomUUID().toString();
                 SessionUtils.getInstance().putValue(request, "token", token);
                 System.out.println(SessionUtils.getInstance().getValue(request, "token").toString());
                 SendEmailUtils.sendActiveMessage(newUser.getEmail(), "Verify your account", token);
-                request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.ACTIVEEMAIL);
+                request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.ACTIVE_EMAIL);
             }
         }
         request.setAttribute("user", user);

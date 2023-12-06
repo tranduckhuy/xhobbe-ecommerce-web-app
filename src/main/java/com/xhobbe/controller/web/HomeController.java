@@ -48,7 +48,7 @@ public class HomeController extends HttpServlet {
                     user.getUserId(), AppConstant.PENDING_SHIPPED_STATUS_ID));
         }
         String action = request.getParameter("action");
-        if (action != null && !action.isEmpty() && ActionConstant.QUICKVIEW.equals(action)) {
+        if (action != null && !action.isEmpty() && ActionConstant.QUICK_VIEW.equals(action)) {
             quickView(request, response);
             return;
         }

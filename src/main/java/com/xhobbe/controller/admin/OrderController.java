@@ -75,7 +75,7 @@ public class OrderController extends HttpServlet {
             case ActionConstant.DELETE:
                 deleteOrder(request, response);
                 break;
-            case ActionConstant.CHANGESTATUS:
+            case ActionConstant.CHANGE_STATUS:
                 changeStatusOrder(request, response);
                 break;
             default:
