@@ -10,7 +10,7 @@ public class AppConstant {
     public static final String REGISTER = "register";
     public static final String LOGOUT = "logout";
     public static final String ACTIVE = "active";
-    public static final String NOTACTIVE = "notActive";
+    public static final String NOT_ACTIVE = "notActive";
     public static final String MESSSAGE = "message";
     public static final String TOTAL_ORDER = "totalOrder";
 

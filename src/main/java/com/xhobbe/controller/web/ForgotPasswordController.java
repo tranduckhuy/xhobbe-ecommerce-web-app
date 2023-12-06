@@ -44,13 +44,13 @@ public class ForgotPasswordController extends HttpServlet {
         String action = request.getParameter("action");
 
         switch (action) {
-            case ActionConstant.CHECKRMAIL:
+            case ActionConstant.CHECK_EMAIL:
                 checkEmail(request, response);
                 break;
-                case ActionConstant.CHECKOTP:
+                case ActionConstant.CHECK_OTP:
                 checkOtp(request, response);
                 break;
-                case ActionConstant.NEWPASSWORD:
+                case ActionConstant.NEW_PASSWORD:
                 newPassword(request, response);
                 break;
             default:
@@ -68,7 +68,7 @@ public class ForgotPasswordController extends HttpServlet {
         } else {
             User user = userService.findOne(email);
             if (user == null) {
-                request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.EMAILNOTEXIST);
+                request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.EMAIL_NOT_EXIST);
                 request.getRequestDispatcher("/views/web/forgotPassword.jsp").forward(request, response);
             } else {
                 request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.SUCCESS);
