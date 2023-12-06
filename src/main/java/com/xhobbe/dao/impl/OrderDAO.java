@@ -161,14 +161,14 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
 
     @Override
     public double getTotalIncomeByMonth(int month) {
-        StringBuilder sql = new StringBuilder("SELECT ROUND(SUM(`total`), 2) FROM `order` ");
+        StringBuilder sql = new StringBuilder("SELECT ROUND(SUM(`total`), 2) FROM `order` WHERE orderStatusId = 3 ");
         
         // month = -1 - get all order
         if (month == -1) {
             return countDouble(sql.toString());
         }
         
-        sql.append(" WHERE YEAR(orderDate) = YEAR(CURRENT_DATE()) ");
+        sql.append("AND YEAR(orderDate) = YEAR(CURRENT_DATE()) ");
         
         if (month != 0) {
             sql.append("AND MONTH(orderDate) = ").append(month);
