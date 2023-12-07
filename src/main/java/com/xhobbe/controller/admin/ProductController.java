@@ -51,7 +51,7 @@ public class ProductController extends HttpServlet {
             return;
         }
 
-        String action = request.getParameter("action");
+        String action = request.getParameter("action").trim();
 
         if (action == null) {
             response.sendRedirect("./admin");
@@ -83,7 +83,7 @@ public class ProductController extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
 
-        String action = request.getParameter("action");
+        String action = request.getParameter("action").trim();
 
         if (action == null) {
             response.sendRedirect("./admin");
@@ -107,7 +107,7 @@ public class ProductController extends HttpServlet {
 
     private void listProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        String category = request.getParameter("category");
+        String category = request.getParameter("category").trim();
         int pageNum = UtilsValidType.getInteger(request.getParameter("page"));
         
         int offset = pageNum;

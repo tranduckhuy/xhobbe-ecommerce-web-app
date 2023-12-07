@@ -14,12 +14,12 @@ public class UserUtils {
 
     public static User getParamAndCreateUser(HttpServletRequest request) throws IOException {
 
-        String name = request.getParameter("register-name");
-        String email = request.getParameter("register-email");
-        String phone = request.getParameter("register-phone");
-        String password = request.getParameter("register-password");
-        String confirmPassword = request.getParameter("register-confirm-password");
-        String address = request.getParameter("register-address");
+        String name = request.getParameter("register-name").trim();
+        String email = request.getParameter("register-email").trim();
+        String phone = request.getParameter("register-phone").trim();
+        String password = request.getParameter("register-password").trim();
+        String confirmPassword = request.getParameter("register-confirm-password").trim();
+        String address = request.getParameter("register-address").trim();
 
         if (!name.isEmpty() && !email.isEmpty() && !phone.isEmpty() && !password.isEmpty()
                 && !confirmPassword.isEmpty() && !address.isEmpty()) {
@@ -52,10 +52,10 @@ public class UserUtils {
 
     public static User getUpdateUser(HttpServletRequest request, User user) throws IOException {
 
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
+        String name = request.getParameter("name").trim();
+        String email = request.getParameter("email").trim();
+        String phone = request.getParameter("phone").trim();
+        String address = request.getParameter("address").trim();
         int roleId = UtilsValidType.getInteger(request.getParameter("role"));
         
         if (user.getUserId() == 1) {
@@ -73,5 +73,16 @@ public class UserUtils {
         userUpdate.setRole(roleId == 1 ? AppConstant.ADMIN : (roleId == 2 ? AppConstant.STAFF : AppConstant.CUSTOMER));
 
         return userUpdate;
+    }
+    
+    public static String generateRandomOTP() {
+        int otpLength = 6;
+        String allowedDigits = "0123456789";
+        StringBuilder otp = new StringBuilder();
+        for (int i = 0; i < otpLength; i++) {
+            int index = (int) (Math.random() * allowedDigits.length());
+            otp.append(allowedDigits.charAt(index));
+        }
+        return otp.toString();
     }
 }

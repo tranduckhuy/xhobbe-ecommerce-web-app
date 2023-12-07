@@ -46,7 +46,7 @@ public class ProductController extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
-        String action = request.getParameter("action");
+        String action = request.getParameter("action").trim();
 
         if (action == null) {
             response.sendRedirect("./");
@@ -82,7 +82,7 @@ public class ProductController extends HttpServlet {
 
     private void listProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        String category = request.getParameter("category");
+        String category = request.getParameter("category").trim();
 
         List<Product> list;
 
@@ -148,8 +148,8 @@ public class ProductController extends HttpServlet {
 
     private void getSearchProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        String brand = request.getParameter("brand");
-        String category = request.getParameter("category");
+        String brand = request.getParameter("brand").trim();
+        String category = request.getParameter("category").trim();
 
         if (brand == null || brand.isEmpty() || category == null || category.isEmpty()) {
             String searchValue = request.getParameter("search").trim();
@@ -174,7 +174,7 @@ public class ProductController extends HttpServlet {
 
     private void loadMoreProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        String category = request.getParameter("category");
+        String category = request.getParameter("category").trim();
         int offset = UtilsValidType.getInteger(request.getParameter("currentTotal"));
         int limit = 8;
 

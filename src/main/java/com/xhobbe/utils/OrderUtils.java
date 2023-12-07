@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 public class OrderUtils {
     
     public static Order getParamAndCreateOrder(HttpServletRequest request) {
-        String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
+        String phone = request.getParameter("phone").trim();
+        String address = request.getParameter("address").trim();
         double shipping = UtilsValidType.getDouble(request.getParameter("shipping"));
         double total = UtilsValidType.getDouble(request.getParameter("total"));
         

@@ -29,7 +29,7 @@ public class AccountController extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
-        String action = request.getParameter("action");
+        String action = request.getParameter("action").trim();
 
         if (action == null) {
             response.sendRedirect("./");
@@ -59,7 +59,7 @@ public class AccountController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 
-        String action = request.getParameter("action");
+        String action = request.getParameter("action").trim();
 
         User user = (User) SessionUtils.getInstance().getValue(request, "user");
 
@@ -88,7 +88,7 @@ public class AccountController extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
-        String message = request.getParameter("message");
+        String message = request.getParameter("message").trim();
 
         if (message != null && !message.isEmpty()) {
             request.setAttribute(AppConstant.MESSSAGE, message);
@@ -99,14 +99,9 @@ public class AccountController extends HttpServlet {
     private void postEditAccount(HttpServletRequest request, HttpServletResponse response, User user)
             throws ServletException, IOException {
 
-        String name = request.getParameter("edit-name");
-        String phone = request.getParameter("edit-phone");
-        String address = request.getParameter("edit-address");
-
-        user.setName(name);
-        user.setPhone(phone);
-        user.setAddress(address);
-
+        user.setName(request.getParameter("edit-name").trim());
+        user.setPhone(request.getParameter("edit-phone").trim());
+        user.setAddress(request.getParameter("edit-address").trim());
         user = userService.update(user);
 
         if (user != null) {
@@ -121,7 +116,7 @@ public class AccountController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String message = request.getParameter("message");
+        String message = request.getParameter("message").trim();
 
         if (message != null && !message.isEmpty()) {
             request.setAttribute(AppConstant.MESSSAGE, message);
@@ -133,9 +128,9 @@ public class AccountController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String oldPassword = request.getParameter("old-password");
-        String newPassword = request.getParameter("new-password");
-        String confirmPassword = request.getParameter("confirm-password");
+        String oldPassword = request.getParameter("old-password").trim();
+        String newPassword = request.getParameter("new-password").trim();
+        String confirmPassword = request.getParameter("confirm-password").trim();
 
         if (!newPassword.equals(confirmPassword)) {
             response.sendRedirect("./");

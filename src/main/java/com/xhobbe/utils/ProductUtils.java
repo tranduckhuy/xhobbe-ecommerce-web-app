@@ -14,14 +14,14 @@ public class ProductUtils {
 
     public static Product getParamAndCreateProduct(HttpServletRequest request, String action, Product... products) throws IOException {
 
-        String name = request.getParameter("name");
+        String name = request.getParameter("name").trim();
         int brand = UtilsValidType.getInteger(request.getParameter("brand"));
-        String description = request.getParameter("description");
-        String category = request.getParameter("category");
+        String description = request.getParameter("description").trim();
+        String category = request.getParameter("category").trim();
         double price = UtilsValidType.getDouble(request.getParameter("price"));
         int quantity = UtilsValidType.getInteger(request.getParameter("quantity"));
-        String imageURL1 = request.getParameter("proImage1");
-        String imageURL2 = request.getParameter("proImage2");
+        String imageURL1 = request.getParameter("proImage1").trim();
+        String imageURL2 = request.getParameter("proImage2").trim();
 
         if (ActionConstant.EDIT.equals(action)) {
             Product oldProduct = (products.length > 0) ? products[0] : new Product();
