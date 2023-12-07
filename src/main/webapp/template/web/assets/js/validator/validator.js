@@ -114,7 +114,18 @@ Validator.isRequired = function (selector, message) {
     return {
         selector: selector,
         test: function (value) {
-            return value ? undefined : message || 'Please enter this field!';
+            // For checkboxes, check if at least one checkbox is checked
+            var inputElement = document.querySelector(selector);
+
+            if (inputElement.type === 'checkbox') {
+                return inputElement.checked ? undefined : message || 'Please check this checkbox!';
+            }
+
+            // Trim the input value to remove leading and trailing spaces
+            var trimmedValue = value.trim();
+
+            // Check if the trimmed value is not empty
+            return trimmedValue.length > 0 ? undefined : message || 'Please enter this field!';
         }
     };
 };
