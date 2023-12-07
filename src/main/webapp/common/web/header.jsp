@@ -42,7 +42,6 @@
                             <a href="#">USD</a>
                             <div class="header-menu">
                                 <ul>
-                                    <li><a href="#">VND</a></li>
                                     <li><a href="#">USD</a></li>
                                 </ul>
                             </div><!-- End .header-menu -->
