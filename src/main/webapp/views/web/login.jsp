@@ -91,10 +91,10 @@
                                         <i class="icon-long-arrow-right"></i>
                                     </button>
 
-                                    <div class="custom-control custom-checkbox">
+<!--                                    <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="signin-remember-2">
                                         <label class="custom-control-label" for="signin-remember-2">Remember Me</label>
-                                    </div><!-- End .custom-checkbox -->
+                                    </div> End .custom-checkbox -->
 
                                     <a href="./forgot-password" class="forgot-link">Forgot Your Password?</a>
                                 </div> <!-- End .form-footer -->
