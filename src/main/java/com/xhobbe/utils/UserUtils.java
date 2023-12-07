@@ -53,7 +53,6 @@ public class UserUtils {
     public static User getUpdateUser(HttpServletRequest request, User user) throws IOException {
 
         String name = request.getParameter("name").trim();
-        String email = request.getParameter("email").trim();
         String phone = request.getParameter("phone").trim();
         String address = request.getParameter("address").trim();
         int roleId = UtilsValidType.getInteger(request.getParameter("role"));
@@ -65,7 +64,7 @@ public class UserUtils {
         User userUpdate = new User();
         userUpdate.setUserId(user.getUserId());
         userUpdate.setName(name);
-        userUpdate.setEmail(email);
+        userUpdate.setEmail(user.getEmail());
         userUpdate.setAddress(address != null && !address.isEmpty() ? address : user.getAddress());
         userUpdate.setPhone(phone != null && !phone.isEmpty() ? phone : user.getPhone());
         userUpdate.setPassword(user.getPassword());

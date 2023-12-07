@@ -54,7 +54,7 @@
                     <span class="ratings-text">( 2 Reviews )</span>
                 </div><!-- End .rating-container -->
 
-                <p class="product-txt">Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue.</p>
+                <p class="product-txt">Explore the future with phones, laptops, iPads, and accessories, all curated for you at unbeatable prices. Elevate your tech game at <strong>xHobbe</strong> – where innovation meets simplicity!</p>
 
 
                 <div class="details-filter-row details-row-size">

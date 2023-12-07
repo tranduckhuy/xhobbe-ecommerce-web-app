@@ -169,7 +169,7 @@ public class AccountController extends HttpServlet {
             response.sendRedirect("./admin");
             return;
         }
-        request.setAttribute("user", user);
+        request.setAttribute("userEdit", user);
         request.getRequestDispatcher("/views/admin/accountEdit.jsp").forward(request, response);
     }
 
