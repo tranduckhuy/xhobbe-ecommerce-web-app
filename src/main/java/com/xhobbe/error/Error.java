@@ -17,7 +17,7 @@ public class Error extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("views/errorPage/404.jsp").forward(request, response);
+        request.getRequestDispatcher("views/errorPage/error.jsp").forward(request, response);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -725,12 +725,11 @@
             items: 1,
             loop: true,
             autoplay: true, // Chạy tự động
-            autoplayTimeout: slideTime + 3000,
+            autoplayTimeout: slideTime + 2000,
             autoplaySpeed: 2000, // Điều chỉnh giá trị này để giảm tốc độ (đơn vị mili giây, ở đây là 0.8 giây)
             autoplayHoverPause: true, // Dừng khi di chuột qua slider
             dots: true,
             nav: false
-//            animateOut: 'fadeOut' // Hiệu ứng trượt khi chuyển ra khỏi slide
         });
     });
 </script>
