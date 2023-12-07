@@ -80,7 +80,7 @@
                     <span class="icon">
                         <i class="fa-solid fa-box-open"></i>
                     </span>
-                    <span class="text"> Product Manager</span>
+                    <span class="text"> Product Management</span>
                 </a>
                 <ul id="ddmenu_55" class="collapse dropdown-nav">
                     <li>
@@ -114,7 +114,7 @@
                         <span class="icon">
                             <i class="fa-solid fa-user"></i>
                         </span>
-                        <span class="text"> Account Manager</span>
+                        <span class="text"> Account </br>Management</span>
                     </a>
                     <ul id="ddmenu_4" class="collapse dropdown-nav">
                         <li>

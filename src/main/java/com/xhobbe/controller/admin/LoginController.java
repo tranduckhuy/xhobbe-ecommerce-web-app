@@ -30,8 +30,8 @@ public class LoginController extends HttpServlet {
         
         response.setContentType("text/html;charset=UTF-8");
         
-        String action = request.getParameter("action");
-        String message = request.getParameter("message");
+        String action = request.getParameter("action").trim();
+        String message = request.getParameter("message").trim();
 
         if (action == null) {
             User user = (User) SessionUtils.getInstance().getValue(request, "user");
@@ -58,8 +58,8 @@ public class LoginController extends HttpServlet {
 
     private void signIn(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String email = request.getParameter("singin-email");
-        String password = request.getParameter("singin-password");
+        String email = request.getParameter("singin-email").trim();
+        String password = request.getParameter("singin-password").trim();
         password = Encode.toSHA256(password);
 
         if (email.isEmpty() || password.isEmpty()) {

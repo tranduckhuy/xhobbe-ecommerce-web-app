@@ -70,7 +70,7 @@ public class AccountController extends HttpServlet {
             throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
-        String action = request.getParameter("action");
+        String action = request.getParameter("action").trim();
 
         User userSession = (User) SessionUtils.getInstance().getValue(request, "user");
         User actutalUserStatus = userService.findOne(userSession.getEmail());
@@ -109,7 +109,7 @@ public class AccountController extends HttpServlet {
             return;
         }
 
-        String role = request.getParameter("role");
+        String role = request.getParameter("role").trim();
         int pageNum = UtilsValidType.getInteger(request.getParameter("page"));
 
         if (role == null || role.isEmpty()) {

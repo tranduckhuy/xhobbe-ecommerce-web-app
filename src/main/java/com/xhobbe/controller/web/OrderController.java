@@ -42,7 +42,7 @@ public class OrderController extends HttpServlet {
             throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-        String action = request.getParameter("action");
+        String action = request.getParameter("action").trim();
 
         User user = (User) SessionUtils.getInstance().getValue(request, "user");
         if (user != null) {
@@ -57,9 +57,6 @@ public class OrderController extends HttpServlet {
         switch (action) {
             case ActionConstant.LIST:
                 listOrder(request, response);
-                break;
-            case ActionConstant.SEARCH:
-                getSearchOrder(request, response);
                 break;
             case ActionConstant.EDIT:
                 listOrder(request, response);
@@ -76,7 +73,7 @@ public class OrderController extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
-        String action = request.getParameter("action");
+        String action = request.getParameter("action").trim();
         switch (action) {
             case ActionConstant.ADD:
                 addOrder(request, response);
@@ -91,7 +88,7 @@ public class OrderController extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String status = request.getParameter("status");
+        String status = request.getParameter("status").trim();
         User user = (User) SessionUtils.getInstance().getValue(request, "user");
         if (status == null || status.isEmpty() || user == null) {
             response.sendRedirect(ORDER_LIST_URL);
@@ -101,11 +98,6 @@ public class OrderController extends HttpServlet {
         String htmlContent = orderService.findByStatusAndUserId(user.getUserId(), status);
 
         response.getWriter().write(htmlContent);
-    }
-
-    private void getSearchOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("/views/web/order.jsp").forward(request, response);
     }
 
     private void addOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

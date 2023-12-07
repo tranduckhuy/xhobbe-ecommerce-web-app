@@ -54,7 +54,7 @@ public class OrderController extends HttpServlet {
             return;
         }
 
-        String action = request.getParameter("action");
+        String action = request.getParameter("action").trim();
 
         request.setAttribute(AppConstant.TOTAL_ORDER, orderService.getTotalItemByStatus(1));
         if (action == null) {
@@ -94,7 +94,7 @@ public class OrderController extends HttpServlet {
     private void listOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String status = request.getParameter("status");
+        String status = request.getParameter("status").trim();
 
         String htmlContent = orderService.findByStatus(status);
 

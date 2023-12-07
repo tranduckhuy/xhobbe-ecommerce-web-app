@@ -9,10 +9,10 @@ import com.xhobbe.constant.AppConstant;
 import com.xhobbe.constant.MessageAlertConstant;
 import com.xhobbe.model.User;
 import com.xhobbe.service.IUserService;
-import com.xhobbe.service.impl.UserService;
 import com.xhobbe.utils.Encode;
 import com.xhobbe.utils.SendEmailUtils;
 import com.xhobbe.utils.SessionUtils;
+import com.xhobbe.utils.UserUtils;
 import java.io.IOException;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -41,7 +41,7 @@ public class ForgotPasswordController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getParameter("action");
+        String action = request.getParameter("action").trim();
 
         switch (action) {
             case ActionConstant.CHECK_EMAIL:
@@ -60,7 +60,7 @@ public class ForgotPasswordController extends HttpServlet {
     }
 
     private void checkEmail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("forgot-email");
+        String email = request.getParameter("forgot-email").trim();
 
         if (email == null || email.isEmpty()) {
             request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.FAIL);
@@ -72,7 +72,7 @@ public class ForgotPasswordController extends HttpServlet {
                 request.getRequestDispatcher("/views/web/forgotPassword.jsp").forward(request, response);
             } else {
                 request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.SUCCESS);
-                String newOTP = generateRandomOTP();
+                String newOTP = UserUtils.generateRandomOTP();
                 SendEmailUtils.sendGetOTPMessage(email, "New OTP", newOTP);
                 SessionUtils.getInstance().putValue(request, "otp", newOTP);
                 SessionUtils.getInstance().putValue(request, "email", email);
@@ -83,7 +83,7 @@ public class ForgotPasswordController extends HttpServlet {
 
     private void checkOtp(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String otpInput = request.getParameter("otp-input");
+        String otpInput = request.getParameter("otp-input").trim();
         String otpStored = (String) SessionUtils.getInstance().getValue(request, "otp");
 
         if (otpInput != null && otpStored != null && otpInput.equals(otpStored)) { 
@@ -99,8 +99,8 @@ public class ForgotPasswordController extends HttpServlet {
             throws ServletException, IOException {
         String email = (String) SessionUtils.getInstance().getValue(request, "email");
 
-        String newPassword = request.getParameter("new-password");
-        String confirmPassword = request.getParameter("confirm-password");
+        String newPassword = request.getParameter("new-password").trim();
+        String confirmPassword = request.getParameter("confirm-password").trim();
 
         if (newPassword != null && confirmPassword != null && newPassword.equals(confirmPassword)) {
             User user = userService.findOne(email);
@@ -119,20 +119,6 @@ public class ForgotPasswordController extends HttpServlet {
         }
     }
 
-    private String generateRandomOTP() {
-        int otpLength = 6;
-        String allowedDigits = "0123456789";
-        StringBuilder otp = new StringBuilder();
-        for (int i = 0; i < otpLength; i++) {
-            int index = (int) (Math.random() * allowedDigits.length());
-            otp.append(allowedDigits.charAt(index));
-        }
-        return otp.toString();
-    }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
     
+
 }
