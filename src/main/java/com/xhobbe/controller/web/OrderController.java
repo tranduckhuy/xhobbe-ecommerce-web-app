@@ -42,7 +42,7 @@ public class OrderController extends HttpServlet {
             throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-        String action = request.getParameter("action").trim();
+        String action = request.getParameter("action");
 
         User user = (User) SessionUtils.getInstance().getValue(request, "user");
         if (user != null) {
@@ -73,7 +73,7 @@ public class OrderController extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
-        String action = request.getParameter("action").trim();
+        String action = request.getParameter("action");
         switch (action) {
             case ActionConstant.ADD:
                 addOrder(request, response);
@@ -88,7 +88,7 @@ public class OrderController extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String status = request.getParameter("status").trim();
+        String status = request.getParameter("status");
         User user = (User) SessionUtils.getInstance().getValue(request, "user");
         if (status == null || status.isEmpty() || user == null) {
             response.sendRedirect(ORDER_LIST_URL);

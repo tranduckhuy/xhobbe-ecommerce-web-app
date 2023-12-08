@@ -51,7 +51,7 @@ public class ProductController extends HttpServlet {
             return;
         }
 
-        String action = request.getParameter("action").trim();
+        String action = request.getParameter("action");
 
         if (action == null) {
             response.sendRedirect("./admin");
@@ -83,7 +83,7 @@ public class ProductController extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
 
-        String action = request.getParameter("action").trim();
+        String action = request.getParameter("action");
 
         if (action == null) {
             response.sendRedirect("./admin");
@@ -107,7 +107,7 @@ public class ProductController extends HttpServlet {
 
     private void listProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        String category = request.getParameter("category").trim();
+        String category = request.getParameter("category");
         int pageNum = UtilsValidType.getInteger(request.getParameter("page"));
         
         int offset = pageNum;
@@ -188,14 +188,14 @@ public class ProductController extends HttpServlet {
     
     private void searchProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        String search = request.getParameter("search").trim();
+        String search = request.getParameter("search");
         
         if (search == null || search.isEmpty()) {
             response.sendRedirect("./admin-product?action=list&category=Phone");
             return;
         }
 
-        List<Product> list = productService.findByName(search);
+        List<Product> list = productService.findByName(search.trim());
 
         request.setAttribute(AppConstant.LIST, list);
         request.getRequestDispatcher("/views/admin/productList.jsp").forward(request, response);

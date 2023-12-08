@@ -54,9 +54,9 @@ public class OrderController extends HttpServlet {
             return;
         }
 
-        String action = request.getParameter("action").trim();
+        String action = request.getParameter("action");
 
-        request.setAttribute(AppConstant.TOTAL_ORDER, orderService.getTotalItemByStatus(1));
+        request.setAttribute(AppConstant.NEW_ORDER, orderService.getTotalItemByStatus(AppConstant.PENDING_SHIPPED_STATUS_ID));
         if (action == null) {
             request.getRequestDispatcher("/views/admin/orderList.jsp").forward(request, response);
             return;
@@ -94,7 +94,7 @@ public class OrderController extends HttpServlet {
     private void listOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String status = request.getParameter("status").trim();
+        String status = request.getParameter("status");
 
         String htmlContent = orderService.findByStatus(status);
 
@@ -129,14 +129,14 @@ public class OrderController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
-        String searchValue = request.getParameter("search").trim();
+        String searchValue = request.getParameter("search");
 
         if (searchValue == null || searchValue.isEmpty()) {
             response.sendRedirect(ORDER_LIST_URL);
             return;
         }
 
-        String htmlContent = orderService.findByEmailOrPhone(searchValue);
+        String htmlContent = orderService.findByEmailOrPhone(searchValue.trim());
 
         response.getWriter().write(htmlContent);
 
@@ -151,6 +151,11 @@ public class OrderController extends HttpServlet {
             return;
         }
         Order order = orderService.findOne(id);
+        if (order == null) {
+            response.sendRedirect(ORDER_LIST_URL);
+            return;
+        }
+
         SendEmailUtils.orderRefusalMessage(order.getCustomerEmail(), "Your order was not accepted!!");
         orderService.delete(id);
         response.sendRedirect(ORDER_LIST_URL);
@@ -165,19 +170,21 @@ public class OrderController extends HttpServlet {
         }
 
         Order order = orderService.findOne(id);
+        List<OrderDetail> listDetail;
         if (AppConstant.PENDING.equals(order.getStatus())) {
             List<String> productNames = orderService.updateStatus(id, 2);
-
             if (!productNames.isEmpty()) {
                 request.setAttribute("productError", productNames);
             } else {
-                List<OrderDetail> listDetail = orderDetailService.findByOrderId(order.getOrderId());
+                listDetail = orderDetailService.findByOrderId(order.getOrderId());
                 SendEmailUtils.sendOrderMessage(order.getCustomerEmail(), "Thank you for your purchase!", order, listDetail);
             }
         } else if (AppConstant.SHIPPED.equals(order.getStatus())) {
             orderService.updateStatus(id, 3);
+            listDetail = orderDetailService.findByOrderId(order.getOrderId());
+            SendEmailUtils.successOrderMessage(order.getCustomerEmail(), "Your order has been successfully delivered!", order, listDetail);
         }
-        request.getRequestDispatcher("/views/admin/orderList.jsp").forward(request, response);
+        response.sendRedirect(ORDER_LIST_URL);
     }
 
 }

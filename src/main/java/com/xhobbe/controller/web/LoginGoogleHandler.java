@@ -27,7 +27,7 @@ public class LoginGoogleHandler extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String code = request.getParameter("code").trim();
+        String code = request.getParameter("code");
 
         if (code == null || code.isEmpty()) {
             response.sendRedirect("./login");

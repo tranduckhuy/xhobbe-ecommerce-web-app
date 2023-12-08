@@ -45,7 +45,7 @@ public class CartController extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
-        String action = request.getParameter("action").trim();
+        String action = request.getParameter("action");
 
         if (action == null) {
             listCart(request, response);
@@ -65,7 +65,7 @@ public class CartController extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
 
-        String action = request.getParameter("action").trim();
+        String action = request.getParameter("action");
 
         if (action == null) {
             listCart(request, response);

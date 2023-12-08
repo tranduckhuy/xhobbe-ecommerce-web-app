@@ -31,7 +31,7 @@ public class OrderDetailController extends HttpServlet {
             throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-        String action = request.getParameter("action").trim();
+        String action = request.getParameter("action");
 
         if (action == null) {
             request.getRequestDispatcher("views/web/order.jsp").forward(request, response);
