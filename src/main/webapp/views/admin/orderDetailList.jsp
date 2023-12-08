@@ -14,12 +14,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="d-flex title gap-4">
-                        <h3>Orders Detail</h3>
-                        <form class="form-inline my-2 my-lg-0 d-flex gap-2">
-                            <input class="form-control mr-sm-2" type="search" id="searchValue" name="searchValue" placeholder="Search">
-                            <input type="hidden" name="searchField" id="searchField"/>
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
+                        <h3>Order detail</h3>
                     </div>
 
                 </div>

@@ -58,8 +58,8 @@
                     </span>
                     <div class="text badge-alert">
                         Orders
-                        <c:if test="${totalOrder != null && totalOrder != 0}">
-                            <span class="notification-badge">${totalOrder}</span>
+                        <c:if test="${newOrder != null && newOrder != 0}">
+                            <span class="notification-badge">${newOrder}</span>
                         </c:if>
                     </div>
                 </a>

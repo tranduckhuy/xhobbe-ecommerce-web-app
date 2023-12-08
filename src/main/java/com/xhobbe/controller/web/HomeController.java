@@ -47,7 +47,7 @@ public class HomeController extends HttpServlet {
             request.setAttribute("totalOrder", orderService.getTotalItemByUserIdAndStatus(
                     user.getUserId(), AppConstant.PENDING_SHIPPED_STATUS_ID));
         }
-        String action = request.getParameter("action").trim();
+        String action = request.getParameter("action");
         if (action != null && !action.isEmpty() && ActionConstant.QUICK_VIEW.equals(action)) {
             quickView(request, response);
             return;

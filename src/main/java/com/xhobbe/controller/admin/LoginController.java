@@ -30,8 +30,8 @@ public class LoginController extends HttpServlet {
         
         response.setContentType("text/html;charset=UTF-8");
         
-        String action = request.getParameter("action").trim();
-        String message = request.getParameter("message").trim();
+        String action = request.getParameter("action");
+        String message = request.getParameter("message");
 
         if (action == null) {
             User user = (User) SessionUtils.getInstance().getValue(request, "user");

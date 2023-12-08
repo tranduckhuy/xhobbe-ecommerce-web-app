@@ -45,17 +45,17 @@ public class HomeController extends HttpServlet {
             return;
         }
         
-        request.setAttribute("totalIncome", orderService.getTotalIncomeByMonth(-1));
+        request.setAttribute(AppConstant.TOTAL_INCOME, orderService.getTotalIncomeByMonth(AppConstant.GET_BY_MONTH));
         
         List<Double> incomes = orderService.getTotalIncomeByMonth(0);
         double totalOfYear = OrderUtils.getTotalIcomeOfYear(incomes);
         
-        request.setAttribute("totalIncomeEachMonth", incomes);
-        request.setAttribute("totalIncomeThisYear", totalOfYear);
-        request.setAttribute("totalOrders", orderService.getTotalItemCurrentMonth());
-        request.setAttribute("totalUsers", userService.countTotalItem());
+        request.setAttribute(AppConstant.TOTAL_INCOME_EACH_MONTH, incomes);
+        request.setAttribute(AppConstant.TOTAL_INCOME_THIS_YEAR, totalOfYear);
+        request.setAttribute(AppConstant.TOTAL_ORDER, orderService.getTotalItemCurrentMonth());
+        request.setAttribute(AppConstant.TOTAL_USER, userService.countTotalItem());
         
-        request.setAttribute(AppConstant.TOTAL_ORDER, orderService.getTotalItemByStatus(1));
+        request.setAttribute(AppConstant.NEW_ORDER, orderService.getTotalItemByStatus(AppConstant.PENDING_SHIPPED_STATUS_ID));
         response.setContentType("text/html;charset=UTF-8");
         request.getRequestDispatcher("/views/admin/index.jsp").forward(request, response);
     }
@@ -63,8 +63,7 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-
+        doGet(request, response);
     }
 
 

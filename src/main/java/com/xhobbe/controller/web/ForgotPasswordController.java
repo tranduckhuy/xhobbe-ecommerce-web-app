@@ -41,7 +41,7 @@ public class ForgotPasswordController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getParameter("action").trim();
+        String action = request.getParameter("action");
 
         switch (action) {
             case ActionConstant.CHECK_EMAIL:
@@ -60,13 +60,13 @@ public class ForgotPasswordController extends HttpServlet {
     }
 
     private void checkEmail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("forgot-email").trim();
+        String email = request.getParameter("forgot-email");
 
         if (email == null || email.isEmpty()) {
             request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.FAIL);
             request.getRequestDispatcher("/views/web/forgotPassword.jsp").forward(request, response);
         } else {
-            User user = userService.findOne(email);
+            User user = userService.findOne(email.trim());
             if (user == null) {
                 request.setAttribute(AppConstant.MESSSAGE, MessageAlertConstant.EMAIL_NOT_EXIST);
                 request.getRequestDispatcher("/views/web/forgotPassword.jsp").forward(request, response);
@@ -83,7 +83,7 @@ public class ForgotPasswordController extends HttpServlet {
 
     private void checkOtp(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String otpInput = request.getParameter("otp-input").trim();
+        String otpInput = request.getParameter("otp-input");
         String otpStored = (String) SessionUtils.getInstance().getValue(request, "otp");
 
         if (otpInput != null && otpStored != null && otpInput.equals(otpStored)) { 

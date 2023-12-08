@@ -194,6 +194,80 @@ public class SendEmailUtils {
                 + "</html>";
         sendEmail(to, title, message);
     }
+    
+    public static void successOrderMessage(String to, String title, Order order, List<OrderDetail> orderDetails) {
+
+        String message = "<!DOCTYPE html>\n"
+                + "<html lang=\"en\">\n"
+                + "<head>\n"
+                + "    <meta charset=\"UTF-8\">\n"
+                + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+                + "    <title>Order Message</title>\n"
+                + "    <style>\n"
+                + "        .table-cart {\n"
+                + "            width: 100%;\n"
+                + "            border-collapse: collapse;\n"
+                + "        }\n"
+                + "\n"
+                + "        .table-cart th, .table-cart td {\n"
+                + "            text-align: center;\n"
+                + "            padding: 8px;\n"
+                + "            border: 1px solid #ddd;\n"
+                + "            min-width: 120px;\n"
+                + "        }\n"
+                + "\n"
+                + "        .order-detail-field {\n"
+                + "            margin: 0;\n"
+                + "        }\n"
+                + "    </style>\n"
+                + "</head>\n"
+                + "<body>\n"
+                + "    <p>Thank you <strong>" + order.getCustomerName() + "</strong></p>\n"
+                + "    <p>Your order has been delivered successfully.</p>\n"
+                + "    <p>Your order includes: </p>\n"
+                + "    <table class=\"table-cart\">\n"
+                + "        <thead>\n"
+                + "            <tr>\n"
+                + "                <th>\n"
+                + "                    <h5><strong>Product</strong></h5>\n"
+                + "                </th>\n"
+                + "                <th>\n"
+                + "                    <h5><strong>Quantity</strong></h5>\n"
+                + "                </th>\n"
+                + "                <th>\n"
+                + "                    <h5><strong>Price</strong></h5>\n"
+                + "                </th>\n"
+                + "                <th>\n"
+                + "                    <h5><strong>Total</strong></h5>\n"
+                + "                </th>\n"
+                + "            </tr>\n"
+                + "        </thead>\n"
+                + "        <tbody>";
+        for (OrderDetail orderDetail : orderDetails) {
+            message += "<tr>\n"
+                    + "                <td>\n"
+                    + "                    <p class=\"order-detail-field\">" + orderDetail.getProductName() + "</p>\n"
+                    + "                </td>\n"
+                    + "                <td>\n"
+                    + "                    <p class=\"order-detail-field\">" + orderDetail.getQuantity() + "</p> \n"
+                    + "                </td>\n"
+                    + "                <td>\n"
+                    + "                    <p class=\"order-detail-field\">" + orderDetail.getPriceOrder() + "$</p> \n"
+                    + "                </td>\n"
+                    + "                <td>\n"
+                    + "                    <p class=\"order-detail-field\">" + orderDetail.getTotal() + "$</p> \n"
+                    + "                </td>\n"
+                    + "            </tr>";
+        }
+        message += "</tbody>\n"
+                + "    </table>\n"
+                + "    <p>Your order total is: <strong>" + order.getTotal() + "$</strong></p>\n"
+                + "    <p><strong>Thanks for trusting us!</strong></p>\n"
+                + "    <img src=\"https://firebasestorage.googleapis.com/v0/b/xhobbe-98105.appspot.com/o/logo%2Fxhobbe-high-resolution-logo.png?alt=media&token=61a3c357-6d99-4565-bdeb-76e4d0aedbdd\" style=\"width: 250px;\">\n"
+                + "</body>\n"
+                + "</html>";
+        sendEmail(to, title, message);
+    }
 
     public static void orderRefusalMessage(String to, String title) {
         String message = "<!DOCTYPE html>\n"

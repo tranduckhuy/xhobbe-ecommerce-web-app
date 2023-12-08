@@ -25,7 +25,7 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
         sql.append("(userId, deliveryAddress, total) ");
         sql.append("VALUES (?, ?, ?)");
 
-        long id = super.insert(sql.toString(), order.getUserId(), order.getAddress(),order.getTotal());
+        long id = super.insert(sql.toString(), order.getUserId(), order.getAddress(), order.getTotal());
 
         return id;
     }
@@ -145,7 +145,7 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
         String sql = "SELECT count(*) FROM `order` WHERE `orderDate` >= CURDATE() - INTERVAL ? DAY AND orderStatusId = 3 ";
         return count(sql, days);
     }
-    
+
     @Override
     public int getTotalItemCurrentMonth() {
         StringBuilder sql = new StringBuilder("SELECT COUNT(*) FROM `order` WHERE MONTH(orderDate) = MONTH(CURRENT_DATE()) ");
@@ -155,32 +155,37 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
 
     @Override
     public int getTotalItemByStatus(int statusId) {
-        String sql = "SELECT count(*) FROM `order` WHERE orderStatusId = ? ";
-        return count(sql, statusId);
+        StringBuilder sql = new StringBuilder("SELECT count(*) FROM `order` ");
+        if (AppConstant.PENDING_SHIPPED_STATUS_ID == statusId) {
+            sql.append("WHERE orderStatusId = 1 OR orderStatusId = 2 ");
+            return count(sql.toString());
+        }
+        sql.append("WHERE orderStatusId = ? ");
+        return count(sql.toString(), statusId);
+
     }
 
     @Override
     public double getTotalIncomeByMonth(int month) {
         StringBuilder sql = new StringBuilder("SELECT ROUND(SUM(`total`), 2) FROM `order` WHERE orderStatusId = 3 ");
-        
+
         // month = -1 - get all order
         if (month == -1) {
             return countDouble(sql.toString());
         }
-        
+
         sql.append("AND YEAR(orderDate) = YEAR(CURRENT_DATE()) ");
-        
+
         if (month != 0) {
             sql.append("AND MONTH(orderDate) = ").append(month);
         }
-        
+
         return countDouble(sql.toString());
     }
-    
-    
+
     private double countDouble(String sql, Object... parameters) {
         double total = 0;
-        
+
         try ( Connection conn = getConnection();  PreparedStatement ps = conn.prepareStatement(sql)) {
 
             setParameter(ps, parameters);
@@ -190,17 +195,16 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
                     total = rs.getDouble(1);
                 }
             }
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return total;
     }
-    
-    
+
     public static void main(String[] args) {
         OrderDAO o = new OrderDAO();
         System.out.println(o.findOne(1));
     }
-    
+
 }

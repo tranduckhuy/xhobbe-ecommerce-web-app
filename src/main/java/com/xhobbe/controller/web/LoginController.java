@@ -32,8 +32,8 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String action = request.getParameter("action").trim();
-        String message = request.getParameter("message").trim();
+        String action = request.getParameter("action");
+        String message = request.getParameter("message");
 
         if (action == null) {
             User user = (User) SessionUtils.getInstance().getValue(request, "user");
@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet {
                 response.sendRedirect(redirectPath);
             } else {
                 if (message != null) {
-                    request.setAttribute(AppConstant.MESSSAGE, message);
+                    request.setAttribute(AppConstant.MESSSAGE, message.trim());
                 }
                 request.getRequestDispatcher("/views/web/login.jsp").forward(request, response);
             }
@@ -58,7 +58,7 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
-        String action = request.getParameter("action").trim();
+        String action = request.getParameter("action");
 
         if (action == null) {
             response.sendRedirect("./");
@@ -80,8 +80,8 @@ public class LoginController extends HttpServlet {
 
     private void signIn(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String email = request.getParameter("singin-email").trim();
-        String password = request.getParameter("singin-password").trim();
+        String email = request.getParameter("singin-email");
+        String password = request.getParameter("singin-password");
         if (email.isEmpty() || password.isEmpty()) {
             handleError(request, response);
             return;

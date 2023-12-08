@@ -29,7 +29,7 @@ public class AccountController extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
-        String action = request.getParameter("action").trim();
+        String action = request.getParameter("action");
 
         if (action == null) {
             response.sendRedirect("./");
@@ -59,7 +59,7 @@ public class AccountController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 
-        String action = request.getParameter("action").trim();
+        String action = request.getParameter("action");
 
         User user = (User) SessionUtils.getInstance().getValue(request, "user");
 
@@ -88,7 +88,7 @@ public class AccountController extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
-        String message = request.getParameter("message").trim();
+        String message = request.getParameter("message");
 
         if (message != null && !message.isEmpty()) {
             request.setAttribute(AppConstant.MESSSAGE, message);
@@ -116,10 +116,10 @@ public class AccountController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String message = request.getParameter("message").trim();
+        String message = request.getParameter("message");
 
         if (message != null && !message.isEmpty()) {
-            request.setAttribute(AppConstant.MESSSAGE, message);
+            request.setAttribute(AppConstant.MESSSAGE, message.trim());
         }
         request.getRequestDispatcher("/views/web/customerChangePassword.jsp").forward(request, response);
     }

@@ -12,7 +12,12 @@ public class AppConstant {
     public static final String ACTIVE = "active";
     public static final String NOT_ACTIVE = "notActive";
     public static final String MESSSAGE = "message";
-    public static final String TOTAL_ORDER = "totalOrder";
+    public static final String NEW_ORDER = "newOrder";
+    public static final String TOTAL_ORDER = "totalOrders";
+    public static final String TOTAL_USER = "totalUsers";
+    public static final String TOTAL_INCOME_EACH_MONTH = "totalIncomeEachMonth";
+    public static final String TOTAL_INCOME_THIS_YEAR = "totalIncomeThisYear";
+    public static final String TOTAL_INCOME = "totalIncome";
 
     public static final String PRODUCT = "product";
     public static final String LIST = "list";
@@ -24,6 +29,7 @@ public class AppConstant {
     public static final String PENDING = "Pending";
     public static final String SHIPPED = "Shipped";
     public static final String DELIVERED = "Delivered";
-    
+
+    public static final int GET_BY_MONTH = -1;
     public static final int PENDING_SHIPPED_STATUS_ID = 12;
 }
