@@ -55,10 +55,7 @@ public class OrderDetailService implements IOrderDetailService {
             }
             Product product = productDAO.findOne(cart.getProductId());
             int quantity = product.getStockQuantity() - cart.getQuantity();
-            if (quantity < 0 && product.getStockQuantity() > 0) {
-                cart.setQuantity(product.getStockQuantity());
-                product.setStockQuantity(0);
-            } else if (product.getStockQuantity() <= 0) {
+            if (quantity < 0 && product.getStockQuantity() > 0 || product.getStockQuantity() <= 0) {
                 errorProduct.add(product.getName());
                 if (errorProduct.size() == cartId.length) {
                     orderDetailDAO.delete(orderId);

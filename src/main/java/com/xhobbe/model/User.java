@@ -18,6 +18,8 @@ public class User {
     private int active;
     private String activeToken;
     private String createdAt;
+    private int totalNewOrder;
+    private int totalCart;
 
     public User() {
     }
@@ -110,6 +112,22 @@ public class User {
         this.createdAt = createdAt;
     }
 
+    public int getTotalNewOrder() {
+        return totalNewOrder;
+    }
+
+    public void setTotalNewOrder(int totalNewOrder) {
+        this.totalNewOrder = totalNewOrder;
+    }
+
+    public int getTotalCart() {
+        return totalCart;
+    }
+
+    public void setTotalCart(int totalCart) {
+        this.totalCart = totalCart;
+    }
+    
     @Override
     public String toString() {
         return "User{" + "userId=" + userId + ", name=" + name + ", email=" + email + ", address=" + address + ", phone=" + phone + 

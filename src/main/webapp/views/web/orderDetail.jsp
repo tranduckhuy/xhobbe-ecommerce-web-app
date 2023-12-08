@@ -31,8 +31,8 @@
                     <ul class="nav nav-tabs" id="tabs-2" role="tablist">
                     </ul>
                     <div class="tab-content tab-content-border" id="tab-content-2">
-                        <div class="tab-pane fade show active" id="tab-5" role="tabpanel" aria-labelledby="tab-5-tab">
-                            <div class="table-wrapper table-responsive">
+                        <div class="tab-pane fade show active" id="tab-5" role="tabpanel" aria-labelledby="tab-5-tab" style="max-height: 500px; overflow:  scroll;">
+                            <div class="table-wrapper table-responsive" style="overflow: initial">
                                 <table class="table table-cart">
                                     <thead>
                                         <tr>

@@ -1,7 +1,6 @@
 package com.xhobbe.controller.web;
 
 import com.xhobbe.constant.ActionConstant;
-import com.xhobbe.constant.AppConstant;
 import com.xhobbe.model.Order;
 import com.xhobbe.model.User;
 import com.xhobbe.service.IOrderDetailService;
@@ -43,12 +42,7 @@ public class OrderController extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("action");
-
-        User user = (User) SessionUtils.getInstance().getValue(request, "user");
-        if (user != null) {
-            request.setAttribute("totalOrder", orderService.getTotalItemByUserIdAndStatus(
-                    user.getUserId(), AppConstant.PENDING_SHIPPED_STATUS_ID));
-        }
+        
         if (action == null) {
             request.getRequestDispatcher("views/web/order.jsp").forward(request, response);
             return;
@@ -112,8 +106,8 @@ public class OrderController extends HttpServlet {
         }
 
         User user = (User) SessionUtils.getInstance().getValue(request, "user");
-        if (user.getPhone().isEmpty() || user.getAddress().isEmpty()|| !user.getAddress().equals(order.getAddress()) || 
-                !user.getPhone().equals(order.getCustomerPhone())) {
+        if (user.getPhone().isEmpty() || user.getAddress().isEmpty() || !user.getAddress().equals(order.getAddress())
+                || !user.getPhone().equals(order.getCustomerPhone())) {
             user.setAddress(order.getAddress());
             user.setPhone(order.getCustomerPhone());
             userService.update(user);
