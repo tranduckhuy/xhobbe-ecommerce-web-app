@@ -93,9 +93,11 @@ public class CartController extends HttpServlet {
         if (user != null) {
             List<Cart> cartList = cartService.findByUserId(user.getUserId());
             request.setAttribute(AppConstant.LIST, cartList);
-            request.setAttribute("totalCart", cartList.size());
-            request.setAttribute("totalOrder", orderService.getTotalItemByUserIdAndStatus(
+
+            user.setTotalCart(cartList.size());
+            user.setTotalNewOrder(orderService.getTotalItemByUserIdAndStatus(
                     user.getUserId(), AppConstant.PENDING_SHIPPED_STATUS_ID));
+            SessionUtils.getInstance().putValue(request, "", user);
             request.getRequestDispatcher("/views/web/cart.jsp").forward(request, response);
         } else {
             response.sendRedirect("./");

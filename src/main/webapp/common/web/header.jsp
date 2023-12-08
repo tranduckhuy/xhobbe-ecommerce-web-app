@@ -125,8 +125,8 @@
                             <a href="./cart" title="Cart">
                                 <div class="icon">
                                     <i class="icon-shopping-cart" style="font-size: 30px;"></i>
-                                    <c:if test="${totalCart != null && totalCart != 0}">
-                                        <span class="wishlist-count badge">${totalCart}</span>
+                                    <c:if test="${user.totalCart != null && user.totalCart != 0}">
+                                        <span class="wishlist-count badge">${user.totalCart}</span>
                                     </c:if>
                                     
                                 </div>
@@ -138,8 +138,8 @@
                             <a href="./order?action=list" title="Order">
                                 <div class="icon">
                                     <i class="fa-solid fa-truck" style="font-size: 21px;"></i>
-                                    <c:if test="${totalOrder != null && totalOrder != 0}">
-                                        <span class="wishlist-count badge">${totalOrder}</span>
+                                    <c:if test="${user.totalNewOrder != null && user.totalNewOrder != 0}">
+                                        <span class="wishlist-count badge">${user.totalNewOrder}</span>
                                     </c:if>
                                 </div>
                                 <p style="font-weight: 600; font-size: 12px;">Order</p>

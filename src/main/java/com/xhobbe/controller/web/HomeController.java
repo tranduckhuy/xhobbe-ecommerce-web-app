@@ -43,10 +43,12 @@ public class HomeController extends HttpServlet {
         User user = (User) SessionUtils.getInstance().getValue(request, "user");
 
         if (user != null) {
-            request.setAttribute("totalCart", cartService.findByUserId(user.getUserId()).size());
-            request.setAttribute("totalOrder", orderService.getTotalItemByUserIdAndStatus(
+            user.setTotalCart(cartService.findByUserId(user.getUserId()).size());
+            user.setTotalNewOrder(orderService.getTotalItemByUserIdAndStatus(
                     user.getUserId(), AppConstant.PENDING_SHIPPED_STATUS_ID));
+            SessionUtils.getInstance().putValue(request, "", user);
         }
+        
         String action = request.getParameter("action");
         if (action != null && !action.isEmpty() && ActionConstant.QUICK_VIEW.equals(action)) {
             quickView(request, response);
